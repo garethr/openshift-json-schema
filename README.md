@@ -16,18 +16,18 @@ This repository contains a set of schemas for most recent OpenShift
 versions. For each specified versions you should find three
 different flavours:
 
-* X.Y.Z - URL referenced based on the specified GitHub repository
-* X.Y.Z-standalone - de-referenced schemas, more useful as standalone documents
-* X.Y.Z-local - relative references, useful to avoid the network dependency
+* vX.Y.Z - URL referenced based on the specified GitHub repository
+* vX.Y.Z-standalone - de-referenced schemas, more useful as standalone documents
+* vX.Y.Z-local - relative references, useful to avoid the network dependency
 
 
 ## Example
 
 Here are the links to the latest `deployment` schemas for OpenShift 1.5.1:
 
-* [1.5.1/deployment.json](1.5.1/deployment.json)
-* [1.5.1-standalone/deployment.json](1.5.1-standalone/deployment.json)
-* [1.5.1-local/deployment.json](1.5.1-local/deployment.json)
+* [v1.5.1/deployment.json](v1.5.1/deployment.json)
+* [v1.5.1-standalone/deployment.json](v1.5.1-standalone/deployment.json)
+* [v1.5.1-local/deployment.json](v1.5.1-local/deployment.json)
 
 ## Usage
 
