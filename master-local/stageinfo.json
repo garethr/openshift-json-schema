@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "StageInfo contains details about a build stage.", 
+  "properties": {
+    "startTime": {
+      "description": "startTime is a timestamp representing the server time when this Stage started. It is represented in RFC3339 form and is in UTC.", 
+      "$ref": "_definitions.json#/definitions/v1.Time"
+    }, 
+    "steps": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.StepInfo"
+      }, 
+      "type": "array", 
+      "description": "steps contains details about each step that occurs during a build stage including start time and duration in milliseconds."
+    }, 
+    "name": {
+      "type": "string", 
+      "description": "name is a unique identifier for each build stage that occurs."
+    }, 
+    "durationMilliseconds": {
+      "type": "integer", 
+      "description": "durationMilliseconds identifies how long the stage took to complete in milliseconds. Note: the duration of a stage can exceed the sum of the duration of the steps within the stage as not all actions are accounted for in explicit build steps.", 
+      "format": "int64"
+    }
+  }
+}

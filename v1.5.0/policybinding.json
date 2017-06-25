@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "lastModified", 
+    "policyRef", 
+    "roleBindings"
+  ], 
+  "type": "object", 
+  "description": "PolicyBinding is a object that holds all the RoleBindings for a particular namespace.  There is one PolicyBinding document per referenced Policy namespace", 
+  "properties": {
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "lastModified": {
+      "description": "LastModified is the last time that any part of the PolicyBinding was created, updated, or deleted", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/unversioned.Time"
+    }, 
+    "roleBindings": {
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.NamedRoleBinding"
+      }, 
+      "type": "array", 
+      "description": "RoleBindings holds all the RoleBindings held by this PolicyBinding, mapped by RoleBinding.Name"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "policyRef": {
+      "description": "PolicyRef is a reference to the Policy that contains all the Roles that this PolicyBinding's RoleBindings may reference", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ObjectReference"
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ObjectMeta"
+    }
+  }
+}

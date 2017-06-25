@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "name", 
+    "spec"
+  ], 
+  "type": "object", 
+  "description": "DeploymentConfigRollback provides the input to rollback generation.", 
+  "properties": {
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "updatedAnnotations": {
+      "additionalProperties": {
+        "type": "string"
+      }, 
+      "type": "object", 
+      "description": "UpdatedAnnotations is a set of new annotations that will be added in the deployment config."
+    }, 
+    "spec": {
+      "description": "Spec defines the options to rollback generation.", 
+      "$ref": "_definitions.json#/definitions/v1.DeploymentConfigRollbackSpec"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "name": {
+      "type": "string", 
+      "description": "Name of the deployment config that will be rolled back."
+    }
+  }
+}

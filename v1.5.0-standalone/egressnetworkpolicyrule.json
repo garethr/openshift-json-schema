@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "type", 
+    "to"
+  ], 
+  "type": "object", 
+  "description": "EgressNetworkPolicyRule contains a single egress network policy rule", 
+  "properties": {
+    "to": {
+      "required": [
+        "cidrSelector"
+      ], 
+      "description": "EgressNetworkPolicyPeer specifies a target to apply egress network policy to", 
+      "properties": {
+        "cidrSelector": {
+          "type": "string", 
+          "description": "cidrSelector is the CIDR range to allow/deny traffic to"
+        }
+      }
+    }, 
+    "type": {
+      "type": "string", 
+      "description": "type marks this as an \"Allow\" or \"Deny\" rule"
+    }
+  }
+}

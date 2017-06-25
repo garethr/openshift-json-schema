@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "DockerBuildStrategy defines input parameters specific to Docker build.", 
+  "properties": {
+    "from": {
+      "description": "from is reference to an DockerImage, ImageStreamTag, or ImageStreamImage from which the docker image should be pulled the resulting image will be used in the FROM line of the Dockerfile for this build.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ObjectReference"
+    }, 
+    "noCache": {
+      "type": "boolean", 
+      "description": "noCache if set to true indicates that the docker build must be executed with the --no-cache=true flag"
+    }, 
+    "dockerfilePath": {
+      "type": "string", 
+      "description": "dockerfilePath is the path of the Dockerfile that will be used to build the Docker image, relative to the root of the context (contextDir)."
+    }, 
+    "env": {
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.EnvVar"
+      }, 
+      "type": "array", 
+      "description": "env contains additional environment variables you want to pass into a builder container"
+    }, 
+    "pullSecret": {
+      "description": "pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.LocalObjectReference"
+    }, 
+    "forcePull": {
+      "type": "boolean", 
+      "description": "forcePull describes if the builder should pull the images from registry prior to building."
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "RecreateDeploymentStrategyParams are the input to the Recreate deployment strategy.", 
+  "properties": {
+    "pre": {
+      "description": "Pre is a lifecycle hook which is executed before the strategy manipulates the deployment. All LifecycleHookFailurePolicy values are supported.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.LifecycleHook"
+    }, 
+    "post": {
+      "description": "Post is a lifecycle hook which is executed after the strategy has finished all deployment logic. All LifecycleHookFailurePolicy values are supported.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.LifecycleHook"
+    }, 
+    "mid": {
+      "description": "Mid is a lifecycle hook which is executed while the deployment is scaled down to zero before the first new pod is created. All LifecycleHookFailurePolicy values are supported.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.LifecycleHook"
+    }, 
+    "timeoutSeconds": {
+      "type": "integer", 
+      "description": "TimeoutSeconds is the time to wait for updates before giving up. If the value is nil, a default will be used.", 
+      "format": "int64"
+    }
+  }
+}

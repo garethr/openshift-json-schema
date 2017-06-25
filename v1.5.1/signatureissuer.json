@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "SignatureIssuer holds information about an issuer of signing certificate or key.", 
+  "properties": {
+    "organization": {
+      "type": "string", 
+      "description": "Organization name."
+    }, 
+    "commonName": {
+      "type": "string", 
+      "description": "Common name (e.g. openshift-signing-service)."
+    }
+  }
+}

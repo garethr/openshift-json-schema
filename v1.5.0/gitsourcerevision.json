@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "GitSourceRevision is the commit information from a git source for a build", 
+  "properties": {
+    "commit": {
+      "type": "string", 
+      "description": "commit is the commit hash identifying a specific commit"
+    }, 
+    "message": {
+      "type": "string", 
+      "description": "message is the description of a specific commit"
+    }, 
+    "committer": {
+      "description": "committer is the committer of a specific commit", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.SourceControlUser"
+    }, 
+    "author": {
+      "description": "author is the author of a specific commit", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.SourceControlUser"
+    }
+  }
+}

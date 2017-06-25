@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "from", 
+    "includeTriggers", 
+    "includeTemplate", 
+    "includeReplicationMeta", 
+    "includeStrategy"
+  ], 
+  "type": "object", 
+  "description": "DeploymentConfigRollbackSpec represents the options for rollback generation.", 
+  "properties": {
+    "includeReplicationMeta": {
+      "type": "boolean", 
+      "description": "IncludeReplicationMeta specifies whether to include the replica count and selector."
+    }, 
+    "from": {
+      "description": "From points to a ReplicationController which is a deployment.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ObjectReference"
+    }, 
+    "includeTemplate": {
+      "type": "boolean", 
+      "description": "IncludeTemplate specifies whether to include the PodTemplateSpec."
+    }, 
+    "includeTriggers": {
+      "type": "boolean", 
+      "description": "IncludeTriggers specifies whether to include config Triggers."
+    }, 
+    "includeStrategy": {
+      "type": "boolean", 
+      "description": "IncludeStrategy specifies whether to include the deployment Strategy."
+    }, 
+    "revision": {
+      "type": "integer", 
+      "description": "Revision to rollback to. If set to 0, rollback to the last revision.", 
+      "format": "int64"
+    }
+  }
+}

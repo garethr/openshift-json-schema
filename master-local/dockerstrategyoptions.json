@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "DockerStrategyOptions contains extra strategy options for Docker builds", 
+  "properties": {
+    "buildArgs": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.EnvVar"
+      }, 
+      "type": "array", 
+      "description": "Args contains any build arguments that are to be passed to Docker.  See https://docs.docker.com/engine/reference/builder/#/arg for more details"
+    }
+  }
+}

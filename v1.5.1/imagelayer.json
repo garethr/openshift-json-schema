@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "name", 
+    "size", 
+    "mediaType"
+  ], 
+  "type": "object", 
+  "description": "ImageLayer represents a single layer of the image. Some images may have multiple layers. Some may have none.", 
+  "properties": {
+    "size": {
+      "type": "integer", 
+      "description": "Size of the layer in bytes as defined by the underlying store.", 
+      "format": "int64"
+    }, 
+    "mediaType": {
+      "type": "string", 
+      "description": "MediaType of the referenced object."
+    }, 
+    "name": {
+      "type": "string", 
+      "description": "Name of the layer as defined by the underlying store."
+    }
+  }
+}

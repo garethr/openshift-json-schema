@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "user", 
+    "groups", 
+    "scopes"
+  ], 
+  "type": "object", 
+  "description": "SubjectRulesReviewSpec adds information about how to conduct the check", 
+  "properties": {
+    "scopes": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\"."
+    }, 
+    "user": {
+      "type": "string", 
+      "description": "User is optional.  At least one of User and Groups must be specified."
+    }, 
+    "groups": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "Groups is optional.  Groups is the list of groups to which the User belongs.  At least one of User and Groups must be specified."
+    }
+  }
+}

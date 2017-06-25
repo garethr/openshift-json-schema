@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "status"
+  ], 
+  "type": "object", 
+  "description": "ImageImportStatus describes the result of an image import.", 
+  "properties": {
+    "status": {
+      "description": "Status is the status of the image import, including errors encountered while retrieving the image", 
+      "$ref": "_definitions.json#/definitions/v1.Status"
+    }, 
+    "image": {
+      "description": "Image is the metadata of that image, if the image was located", 
+      "$ref": "_definitions.json#/definitions/v1.Image"
+    }, 
+    "tag": {
+      "type": "string", 
+      "description": "Tag is the tag this image was located under, if any"
+    }
+  }
+}

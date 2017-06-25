@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "labels", 
+    "annotations"
+  ], 
+  "type": "object", 
+  "description": "ClusterResourceQuotaSelector is used to select projects.  At least one of LabelSelector or AnnotationSelector must present.  If only one is present, it is the only selection criteria.  If both are specified, the project must match both restrictions.", 
+  "properties": {
+    "labels": {
+      "description": "LabelSelector is used to select projects by label.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/unversioned.LabelSelector"
+    }, 
+    "annotations": {
+      "additionalProperties": {
+        "type": "string"
+      }, 
+      "type": "object", 
+      "description": "AnnotationSelector is used to select projects by annotation."
+    }
+  }
+}

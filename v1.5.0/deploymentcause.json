@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "type"
+  ], 
+  "type": "object", 
+  "description": "DeploymentCause captures information about a particular cause of a deployment.", 
+  "properties": {
+    "type": {
+      "type": "string", 
+      "description": "Type of the trigger that resulted in the creation of a new deployment"
+    }, 
+    "imageTrigger": {
+      "description": "ImageTrigger contains the image trigger details, if this trigger was fired based on an image change", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.DeploymentCauseImageTrigger"
+    }
+  }
+}

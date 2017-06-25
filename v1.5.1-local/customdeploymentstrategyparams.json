@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "CustomDeploymentStrategyParams are the input to the Custom deployment strategy.", 
+  "properties": {
+    "environment": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.EnvVar"
+      }, 
+      "type": "array", 
+      "description": "Environment holds the environment which will be given to the container for Image."
+    }, 
+    "image": {
+      "type": "string", 
+      "description": "Image specifies a Docker image which can carry out a deployment."
+    }, 
+    "command": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "Command is optional and overrides CMD in the container Image."
+    }
+  }
+}

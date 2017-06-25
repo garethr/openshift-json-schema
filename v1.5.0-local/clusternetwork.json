@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "network", 
+    "hostsubnetlength", 
+    "serviceNetwork"
+  ], 
+  "type": "object", 
+  "description": "ClusterNetwork describes the cluster network. There is normally only one object of this type, named \"default\", which is created by the SDN network plugin based on the master configuration when the cluster is brought up for the first time.", 
+  "properties": {
+    "hostsubnetlength": {
+      "type": "integer", 
+      "description": "HostSubnetLength is the number of bits of network to allocate to each node. eg, 8 would mean that each node would have a /24 slice of the overlay network for its pods", 
+      "format": "int64"
+    }, 
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "network": {
+      "type": "string", 
+      "description": "Network is a CIDR string specifying the global overlay network's L3 space"
+    }, 
+    "serviceNetwork": {
+      "type": "string", 
+      "description": "ServiceNetwork is the CIDR range that Service IP addresses are allocated from"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "pluginName": {
+      "type": "string", 
+      "description": "PluginName is the name of the network plugin being used"
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+    }
+  }
+}

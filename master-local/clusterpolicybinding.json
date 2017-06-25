@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "lastModified", 
+    "policyRef", 
+    "roleBindings"
+  ], 
+  "type": "object", 
+  "description": "ClusterPolicyBinding is a object that holds all the ClusterRoleBindings for a particular namespace.  There is one ClusterPolicyBinding document per referenced ClusterPolicy namespace", 
+  "properties": {
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "lastModified": {
+      "description": "LastModified is the last time that any part of the ClusterPolicyBinding was created, updated, or deleted", 
+      "$ref": "_definitions.json#/definitions/v1.Time"
+    }, 
+    "roleBindings": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.NamedClusterRoleBinding"
+      }, 
+      "type": "array", 
+      "description": "RoleBindings holds all the ClusterRoleBindings held by this ClusterPolicyBinding, mapped by ClusterRoleBinding.Name"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "policyRef": {
+      "description": "PolicyRef is a reference to the ClusterPolicy that contains all the ClusterRoles that this ClusterPolicyBinding's RoleBindings may reference", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+    }
+  }
+}

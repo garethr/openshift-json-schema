@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "uri"
+  ], 
+  "type": "object", 
+  "description": "GitBuildSource defines the parameters of a Git SCM", 
+  "properties": {
+    "httpProxy": {
+      "type": "string", 
+      "description": "httpProxy is a proxy used to reach the git repository over http"
+    }, 
+    "uri": {
+      "type": "string", 
+      "description": "uri points to the source that will be built. The structure of the source will depend on the type of build to run"
+    }, 
+    "ref": {
+      "type": "string", 
+      "description": "ref is the branch/tag/ref to build."
+    }, 
+    "noProxy": {
+      "type": "string", 
+      "description": "noProxy is the list of domains for which the proxy should not be used"
+    }, 
+    "httpsProxy": {
+      "type": "string", 
+      "description": "httpsProxy is a proxy used to reach the git repository over https"
+    }
+  }
+}

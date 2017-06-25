@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "failurePolicy"
+  ], 
+  "type": "object", 
+  "description": "LifecycleHook defines a specific deployment lifecycle action. Only one type of action may be specified at any time.", 
+  "properties": {
+    "failurePolicy": {
+      "type": "string", 
+      "description": "FailurePolicy specifies what action to take if the hook fails."
+    }, 
+    "execNewPod": {
+      "description": "ExecNewPod specifies the options for a lifecycle hook backed by a pod.", 
+      "$ref": "_definitions.json#/definitions/v1.ExecNewPodHook"
+    }, 
+    "tagImages": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.TagImageHook"
+      }, 
+      "type": "array", 
+      "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
+    }
+  }
+}

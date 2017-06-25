@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "rules"
+  ], 
+  "type": "object", 
+  "description": "SubjectRulesReviewStatus is contains the result of a rules check", 
+  "properties": {
+    "rules": {
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.PolicyRule"
+      }, 
+      "type": "array", 
+      "description": "Rules is the list of rules (no particular sort) that are allowed for the subject"
+    }, 
+    "evaluationError": {
+      "type": "string", 
+      "description": "EvaluationError can appear in combination with Rules.  It means some error happened during evaluation that may have prevented additional rules from being populated."
+    }
+  }
+}

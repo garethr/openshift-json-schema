@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "ImageStreamSpec represents options for ImageStreams.", 
+  "properties": {
+    "lookupPolicy": {
+      "description": "lookupPolicy controls how other resources reference images within this namespace.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ImageLookupPolicy"
+    }, 
+    "dockerImageRepository": {
+      "type": "string", 
+      "description": "dockerImageRepository is optional, if specified this stream is backed by a Docker repository on this server"
+    }, 
+    "tags": {
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.TagReference"
+      }, 
+      "type": "array", 
+      "description": "tags map arbitrary string values to specific image locators"
+    }
+  }
+}

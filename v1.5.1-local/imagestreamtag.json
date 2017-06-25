@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "tag", 
+    "generation", 
+    "image"
+  ], 
+  "type": "object", 
+  "description": "ImageStreamTag represents an Image that is retrieved by tag name from an ImageStream.", 
+  "properties": {
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "generation": {
+      "type": "integer", 
+      "description": "Generation is the current generation of the tagged image - if tag is provided and this value is not equal to the tag generation, a user has requested an import that has not completed, or Conditions will be filled out indicating any error.", 
+      "format": "int64"
+    }, 
+    "image": {
+      "description": "Image associated with the ImageStream and tag.", 
+      "$ref": "_definitions.json#/definitions/v1.Image"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "tag": {
+      "description": "Tag is the spec tag associated with this image stream tag, and it may be null if only pushes have occurred to this image stream.", 
+      "$ref": "_definitions.json#/definitions/v1.TagReference"
+    }, 
+    "conditions": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.TagEventCondition"
+      }, 
+      "type": "array", 
+      "description": "Conditions is an array of conditions that apply to the image stream tag."
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "lastModified", 
+    "roles"
+  ], 
+  "type": "object", 
+  "description": "Policy is a object that holds all the Roles for a particular namespace.  There is at most one Policy document per namespace.", 
+  "properties": {
+    "lastModified": {
+      "description": "LastModified is the last time that any part of the Policy was created, updated, or deleted", 
+      "$ref": "_definitions.json#/definitions/v1.Time"
+    }, 
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "roles": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.NamedRole"
+      }, 
+      "type": "array", 
+      "description": "Roles holds all the Roles held by this Policy, mapped by Role.Name"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+    }
+  }
+}

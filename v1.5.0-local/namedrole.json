@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "name", 
+    "role"
+  ], 
+  "type": "object", 
+  "description": "NamedRole relates a Role with a name", 
+  "properties": {
+    "role": {
+      "description": "Role is the role being named", 
+      "$ref": "_definitions.json#/definitions/v1.Role"
+    }, 
+    "name": {
+      "type": "string", 
+      "description": "Name is the name of the role"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.", 
+  "properties": {
+    "uidRangeMin": {
+      "type": "integer", 
+      "description": "UIDRangeMin defines the min value for a strategy that allocates by range.", 
+      "format": "int64"
+    }, 
+    "type": {
+      "type": "string", 
+      "description": "Type is the strategy that will dictate what RunAsUser is used in the SecurityContext."
+    }, 
+    "uid": {
+      "type": "integer", 
+      "description": "UID is the user id that containers must run as.  Required for the MustRunAs strategy if not using namespace/service account allocated uids.", 
+      "format": "int64"
+    }, 
+    "uidRangeMax": {
+      "type": "integer", 
+      "description": "UIDRangeMax defines the max value for a strategy that allocates by range.", 
+      "format": "int64"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "namespace", 
+    "status"
+  ], 
+  "type": "object", 
+  "description": "ResourceQuotaStatusByNamespace gives status for a particular project", 
+  "properties": {
+    "status": {
+      "description": "Status indicates how many resources have been consumed by this project", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.ResourceQuotaStatus"
+    }, 
+    "namespace": {
+      "type": "string", 
+      "description": "Namespace the project this status applies to"
+    }
+  }
+}

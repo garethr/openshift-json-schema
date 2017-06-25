@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "DeploymentTriggerPolicy describes a policy for a single trigger that results in a new deployment.", 
+  "properties": {
+    "imageChangeParams": {
+      "description": "ImageChangeParams represents the parameters for the ImageChange trigger.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.DeploymentTriggerImageChangeParams"
+    }, 
+    "type": {
+      "type": "string", 
+      "description": "Type of the trigger"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "from"
+  ], 
+  "type": "object", 
+  "description": "DeploymentCauseImageTrigger represents details about the cause of a deployment originating from an image change trigger", 
+  "properties": {
+    "from": {
+      "description": "From is a reference to the changed object which triggered a deployment. The field may have the kinds DockerImage, ImageStreamTag, or ImageStreamImage.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.ObjectReference"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "type"
+  ], 
+  "type": "object", 
+  "description": "BuildTriggerPolicy describes a policy for a single trigger that results in a new Build.", 
+  "properties": {
+    "generic": {
+      "description": "generic contains the parameters for a Generic webhook type of trigger", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.WebHookTrigger"
+    }, 
+    "type": {
+      "type": "string", 
+      "description": "type is the type of build trigger"
+    }, 
+    "github": {
+      "description": "github contains the parameters for a GitHub webhook type of trigger", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.WebHookTrigger"
+    }, 
+    "imageChange": {
+      "description": "imageChange contains parameters for an ImageChange type of trigger", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ImageChangeTrigger"
+    }
+  }
+}

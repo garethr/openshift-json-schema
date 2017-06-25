@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "namespace", 
+    "status"
+  ], 
+  "type": "object", 
+  "description": "ResourceQuotaStatusByNamespace gives status for a particular project", 
+  "properties": {
+    "status": {
+      "description": "ResourceQuotaStatus defines the enforced hard limits and observed use.", 
+      "properties": {
+        "hard": {
+          "additionalProperties": {
+            "type": "string"
+          }, 
+          "type": "object", 
+          "description": "Hard is the set of enforced hard limits for each named resource. More info: http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota"
+        }, 
+        "used": {
+          "additionalProperties": {
+            "type": "string"
+          }, 
+          "type": "object", 
+          "description": "Used is the current observed total usage of the resource in the namespace."
+        }
+      }
+    }, 
+    "namespace": {
+      "type": "string", 
+      "description": "Namespace the project this status applies to"
+    }
+  }
+}

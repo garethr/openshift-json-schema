@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "strategy", 
+    "nodeSelector", 
+    "triggeredBy"
+  ], 
+  "type": "object", 
+  "description": "BuildSpec has the information to represent a build and also additional information about a build", 
+  "properties": {
+    "triggeredBy": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.BuildTriggerCause"
+      }, 
+      "type": "array", 
+      "description": "triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers."
+    }, 
+    "serviceAccount": {
+      "type": "string", 
+      "description": "serviceAccount is the name of the ServiceAccount to use to run the pod created by this build. The pod will be allowed to use secrets referenced by the ServiceAccount"
+    }, 
+    "nodeSelector": {
+      "additionalProperties": {
+        "type": "string"
+      }, 
+      "type": "object", 
+      "description": "nodeSelector is a selector which must be true for the build pod to fit on a node If nil, it can be overridden by default build nodeselector values for the cluster. If set to an empty map or a map with any values, default build nodeselector values are ignored."
+    }, 
+    "completionDeadlineSeconds": {
+      "type": "integer", 
+      "description": "completionDeadlineSeconds is an optional duration in seconds, counted from the time when a build pod gets scheduled in the system, that the build may be active on a node before the system actively tries to terminate the build; value must be positive integer", 
+      "format": "int64"
+    }, 
+    "source": {
+      "description": "source describes the SCM in use.", 
+      "$ref": "_definitions.json#/definitions/v1.BuildSource"
+    }, 
+    "postCommit": {
+      "description": "postCommit is a build hook executed after the build output image is committed, before it is pushed to a registry.", 
+      "$ref": "_definitions.json#/definitions/v1.BuildPostCommitSpec"
+    }, 
+    "output": {
+      "description": "output describes the Docker image the Strategy should produce.", 
+      "$ref": "_definitions.json#/definitions/v1.BuildOutput"
+    }, 
+    "strategy": {
+      "description": "strategy defines how to perform a build.", 
+      "$ref": "_definitions.json#/definitions/v1.BuildStrategy"
+    }, 
+    "resources": {
+      "description": "resources computes resource requirements to execute the build.", 
+      "$ref": "_definitions.json#/definitions/v1.ResourceRequirements"
+    }, 
+    "revision": {
+      "description": "revision is the information from the source for a specific repo snapshot. This is optional.", 
+      "$ref": "_definitions.json#/definitions/v1.SourceRevision"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "phase"
+  ], 
+  "type": "object", 
+  "description": "BuildStatus contains the status of a build", 
+  "properties": {
+    "completionTimestamp": {
+      "description": "completionTimestamp is a timestamp representing the server time when this Build was finished, whether that build failed or succeeded.  It reflects the time at which the Pod running the Build terminated. It is represented in RFC3339 form and is in UTC.", 
+      "$ref": "_definitions.json#/definitions/v1.Time"
+    }, 
+    "startTimestamp": {
+      "description": "startTimestamp is a timestamp representing the server time when this Build started running in a Pod. It is represented in RFC3339 form and is in UTC.", 
+      "$ref": "_definitions.json#/definitions/v1.Time"
+    }, 
+    "outputDockerImageReference": {
+      "type": "string", 
+      "description": "outputDockerImageReference contains a reference to the Docker image that will be built by this build. Its value is computed from Build.Spec.Output.To, and should include the registry address, so that it can be used to push and pull the image."
+    }, 
+    "cancelled": {
+      "type": "boolean", 
+      "description": "cancelled describes if a cancel event was triggered for the build."
+    }, 
+    "duration": {
+      "type": "integer", 
+      "description": "duration contains time.Duration object describing build time.", 
+      "format": "int64"
+    }, 
+    "reason": {
+      "type": "string", 
+      "description": "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI."
+    }, 
+    "phase": {
+      "type": "string", 
+      "description": "phase is the point in the build lifecycle. Possible values are \"New\", \"Pending\", \"Running\", \"Complete\", \"Failed\", \"Error\", and \"Cancelled\"."
+    }, 
+    "output": {
+      "description": "output describes the Docker image the build has produced.", 
+      "$ref": "_definitions.json#/definitions/v1.BuildStatusOutput"
+    }, 
+    "message": {
+      "type": "string", 
+      "description": "message is a human-readable message indicating details about why the build has this status."
+    }, 
+    "stages": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.StageInfo"
+      }, 
+      "type": "array", 
+      "description": "stages contains details about each stage that occurs during the build including start time, duration (in milliseconds), and the steps that occured within each stage."
+    }, 
+    "config": {
+      "description": "config is an ObjectReference to the BuildConfig this Build is based on.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+    }
+  }
+}

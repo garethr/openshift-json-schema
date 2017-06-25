@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "command", 
+    "containerName"
+  ], 
+  "type": "object", 
+  "description": "ExecNewPodHook is a hook implementation which runs a command in a new pod based on the specified container which is assumed to be part of the deployment template.", 
+  "properties": {
+    "containerName": {
+      "type": "string", 
+      "description": "ContainerName is the name of a container in the deployment pod template whose Docker image will be used for the hook pod's container."
+    }, 
+    "command": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "Command is the action command and its arguments."
+    }, 
+    "volumes": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
+    }, 
+    "env": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.EnvVar"
+      }, 
+      "type": "array", 
+      "description": "Env is a set of environment variables to supply to the hook pod's container."
+    }
+  }
+}

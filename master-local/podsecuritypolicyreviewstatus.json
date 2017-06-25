@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "allowedServiceAccounts"
+  ], 
+  "type": "object", 
+  "description": "PodSecurityPolicyReviewStatus represents the status of PodSecurityPolicyReview.", 
+  "properties": {
+    "allowedServiceAccounts": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.ServiceAccountPodSecurityPolicyReviewStatus"
+      }, 
+      "type": "array", 
+      "description": "allowedServiceAccounts returns the list of service accounts in *this* namespace that have the power to create the PodTemplateSpec."
+    }
+  }
+}

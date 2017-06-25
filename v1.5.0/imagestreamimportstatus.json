@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "ImageStreamImportStatus contains information about the status of an image stream import.", 
+  "properties": {
+    "images": {
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ImageImportStatus"
+      }, 
+      "type": "array", 
+      "description": "Images is set with the result of importing spec.images"
+    }, 
+    "import": {
+      "description": "Import is the image stream that was successfully updated or created when 'to' was set.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ImageStream"
+    }, 
+    "repository": {
+      "description": "Repository is set if spec.repository was set to the outcome of the import", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.RepositoryImportStatus"
+    }
+  }
+}

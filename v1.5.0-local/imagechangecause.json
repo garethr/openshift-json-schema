@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "ImageChangeCause contains information about the image that triggered a build", 
+  "properties": {
+    "fromRef": {
+      "description": "fromRef contains detailed information about an image that triggered a build.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+    }, 
+    "imageID": {
+      "type": "string", 
+      "description": "imageID is the ID of the image that triggered a a new build."
+    }
+  }
+}

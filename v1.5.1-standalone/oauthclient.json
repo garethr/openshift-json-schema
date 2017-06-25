@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "OAuthClient describes an OAuth client", 
+  "properties": {
+    "scopeRestrictions": {
+      "items": {
+        "description": "ScopeRestriction describe one restriction on scopes.  Exactly one option must be non-nil.", 
+        "properties": {
+          "literals": {
+            "items": {
+              "type": "string"
+            }, 
+            "type": "array", 
+            "description": "ExactValues means the scope has to match a particular set of strings exactly"
+          }, 
+          "clusterRole": {
+            "required": [
+              "roleNames", 
+              "namespaces", 
+              "allowEscalation"
+            ], 
+            "description": "ClusterRoleScopeRestriction describes restrictions on cluster role scopes", 
+            "properties": {
+              "roleNames": {
+                "items": {
+                  "type": "string"
+                }, 
+                "type": "array", 
+                "description": "RoleNames is the list of cluster roles that can referenced.  * means anything"
+              }, 
+              "allowEscalation": {
+                "type": "boolean", 
+                "description": "AllowEscalation indicates whether you can request roles and their escalating resources"
+              }, 
+              "namespaces": {
+                "items": {
+                  "type": "string"
+                }, 
+                "type": "array", 
+                "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)"
+              }
+            }
+          }
+        }
+      }, 
+      "type": "array", 
+      "description": "ScopeRestrictions describes which scopes this client can request.  Each requested scope is checked against each restriction.  If any restriction matches, then the scope is allowed. If no restriction matches, then the scope is denied."
+    }, 
+    "grantMethod": {
+      "type": "string", 
+      "description": "GrantMethod determines how to handle grants for this client. If no method is provided, the cluster default grant handling method will be used. Valid grant handling methods are:\n - auto:   always approves grant requests, useful for trusted clients\n - prompt: prompts the end user for approval of grant requests, useful for third-party clients\n - deny:   always denies grant requests, useful for black-listed clients"
+    }, 
+    "additionalSecrets": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "AdditionalSecrets holds other secrets that may be used to identify the client.  This is useful for rotation and for service account token validation"
+    }, 
+    "respondWithChallenges": {
+      "type": "boolean", 
+      "description": "RespondWithChallenges indicates whether the client wants authentication needed responses made in the form of challenges instead of redirects"
+    }, 
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "secret": {
+      "type": "string", 
+      "description": "Secret is the unique secret associated with a client"
+    }, 
+    "redirectURIs": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "RedirectURIs is the valid redirection URIs associated with a client"
+    }, 
+    "metadata": {
+      "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
+      "properties": {
+        "name": {
+          "type": "string", 
+          "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+        }, 
+        "deletionTimestamp": {
+          "type": "string", 
+          "format": "date-time"
+        }, 
+        "clusterName": {
+          "type": "string", 
+          "description": "The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+        }, 
+        "deletionGracePeriodSeconds": {
+          "type": "integer", 
+          "description": "Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.", 
+          "format": "int64"
+        }, 
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          }, 
+          "type": "object", 
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+        }, 
+        "namespace": {
+          "type": "string", 
+          "description": "Namespace defines the space within each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+        }, 
+        "finalizers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array", 
+          "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
+        }, 
+        "generation": {
+          "type": "integer", 
+          "description": "A sequence number representing a specific generation of the desired state. Populated by the system. Read-only.", 
+          "format": "int64"
+        }, 
+        "generateName": {
+          "type": "string", 
+          "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
+        }, 
+        "resourceVersion": {
+          "type": "string", 
+          "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+        }, 
+        "ownerReferences": {
+          "items": {
+            "required": [
+              "apiVersion", 
+              "kind", 
+              "name", 
+              "uid"
+            ], 
+            "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
+            "properties": {
+              "kind": {
+                "type": "string", 
+                "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+              }, 
+              "controller": {
+                "type": "boolean", 
+                "description": "If true, this reference points to the managing controller."
+              }, 
+              "name": {
+                "type": "string", 
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+              }, 
+              "apiVersion": {
+                "type": "string", 
+                "description": "API version of the referent."
+              }, 
+              "uid": {
+                "type": "string", 
+                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+              }
+            }
+          }, 
+          "type": "array", 
+          "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+        }, 
+        "creationTimestamp": {
+          "type": "string", 
+          "format": "date-time"
+        }, 
+        "annotations": {
+          "additionalProperties": {
+            "type": "string"
+          }, 
+          "type": "object", 
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+        }, 
+        "selfLink": {
+          "type": "string", 
+          "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
+        }, 
+        "uid": {
+          "type": "string", 
+          "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+        }
+      }
+    }
+  }
+}

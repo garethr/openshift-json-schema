@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "host", 
+    "hostIP", 
+    "subnet"
+  ], 
+  "type": "object", 
+  "description": "HostSubnet describes the container subnet network on a node. The HostSubnet object must have the same name as the Node object it corresponds to.", 
+  "properties": {
+    "subnet": {
+      "type": "string", 
+      "description": "Subnet is the CIDR range of the overlay network assigned to the node for its pods"
+    }, 
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "host": {
+      "type": "string", 
+      "description": "Host is the name of the node. (This is redundant with the object's name, and this field is not actually used any more.)"
+    }, 
+    "hostIP": {
+      "type": "string", 
+      "description": "HostIP is the IP address to be used as a VTEP by other nodes in the overlay network"
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.ObjectMeta"
+    }
+  }
+}

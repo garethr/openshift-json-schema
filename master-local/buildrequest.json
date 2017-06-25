@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "triggeredBy"
+  ], 
+  "type": "object", 
+  "description": "BuildRequest is the resource used to pass parameters to build generator", 
+  "properties": {
+    "binary": {
+      "description": "binary indicates a request to build from a binary provided to the builder", 
+      "$ref": "_definitions.json#/definitions/v1.BinaryBuildSource"
+    }, 
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "from": {
+      "description": "from is the reference to the ImageStreamTag that triggered the build.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+    }, 
+    "revision": {
+      "description": "revision is the information from the source for a specific repo snapshot.", 
+      "$ref": "_definitions.json#/definitions/v1.SourceRevision"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "triggeredByImage": {
+      "description": "triggeredByImage is the Image that triggered this build.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+    }, 
+    "env": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.EnvVar"
+      }, 
+      "type": "array", 
+      "description": "env contains additional environment variables you want to pass into a builder container."
+    }, 
+    "triggeredBy": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/v1.BuildTriggerCause"
+      }, 
+      "type": "array", 
+      "description": "triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers."
+    }, 
+    "lastVersion": {
+      "type": "integer", 
+      "description": "lastVersion (optional) is the LastVersion of the BuildConfig that was used to generate the build. If the BuildConfig in the generator doesn't match, a build will not be generated.", 
+      "format": "int64"
+    }, 
+    "dockerStrategyOptions": {
+      "description": "DockerStrategyOptions contains additional docker-strategy specific options for the build", 
+      "$ref": "_definitions.json#/definitions/v1.DockerStrategyOptions"
+    }, 
+    "metadata": {
+      "description": "metadata for BuildRequest.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+    }
+  }
+}

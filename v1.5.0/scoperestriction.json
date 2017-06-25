@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "ScopeRestriction describe one restriction on scopes.  Exactly one option must be non-nil.", 
+  "properties": {
+    "literals": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "ExactValues means the scope has to match a particular set of strings exactly"
+    }, 
+    "clusterRole": {
+      "description": "ClusterRole describes a set of restrictions for cluster role scoping.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ClusterRoleScopeRestriction"
+    }
+  }
+}

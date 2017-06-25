@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "name", 
+    "role"
+  ], 
+  "type": "object", 
+  "description": "NamedClusterRole relates a name with a cluster role", 
+  "properties": {
+    "role": {
+      "description": "Role is the cluster role being named", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ClusterRole"
+    }, 
+    "name": {
+      "type": "string", 
+      "description": "Name is the name of the cluster role"
+    }
+  }
+}

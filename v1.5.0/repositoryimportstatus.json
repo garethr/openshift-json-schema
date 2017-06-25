@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "RepositoryImportStatus describes the result of an image repository import", 
+  "properties": {
+    "images": {
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ImageImportStatus"
+      }, 
+      "type": "array", 
+      "description": "Images is a list of images successfully retrieved by the import of the repository."
+    }, 
+    "status": {
+      "description": "Status reflects whether any failure occurred during import", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/unversioned.Status"
+    }, 
+    "additionalTags": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "AdditionalTags are tags that exist in the repository but were not imported because a maximum limit of automatic imports was applied."
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "OAuthAuthorizeToken describes an OAuth authorization token", 
+  "properties": {
+    "expiresIn": {
+      "type": "integer", 
+      "description": "ExpiresIn is the seconds from CreationTime before this token expires.", 
+      "format": "int64"
+    }, 
+    "scopes": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": "array", 
+      "description": "Scopes is an array of the requested scopes."
+    }, 
+    "kind": {
+      "type": "string", 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "userName": {
+      "type": "string", 
+      "description": "UserName is the user name associated with this token"
+    }, 
+    "userUID": {
+      "type": "string", 
+      "description": "UserUID is the unique UID associated with this token. UserUID and UserName must both match for this token to be valid."
+    }, 
+    "codeChallengeMethod": {
+      "type": "string", 
+      "description": "CodeChallengeMethod is the optional code_challenge_method associated with this authorization code, as described in rfc7636"
+    }, 
+    "apiVersion": {
+      "type": "string", 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "state": {
+      "type": "string", 
+      "description": "State data from request"
+    }, 
+    "codeChallenge": {
+      "type": "string", 
+      "description": "CodeChallenge is the optional code_challenge associated with this authorization code, as described in rfc7636"
+    }, 
+    "redirectURI": {
+      "type": "string", 
+      "description": "RedirectURI is the redirection associated with the token."
+    }, 
+    "clientName": {
+      "type": "string", 
+      "description": "ClientName references the client that created this token."
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+    }
+  }
+}

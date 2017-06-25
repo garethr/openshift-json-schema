@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "StepInfo contains details about a build step.", 
+  "properties": {
+    "durationMilliseconds": {
+      "type": "integer", 
+      "description": "durationMilliseconds identifies how long the step took to complete in milliseconds.", 
+      "format": "int64"
+    }, 
+    "name": {
+      "type": "string", 
+      "description": "name is a unique identifier for each build step."
+    }, 
+    "startTime": {
+      "type": "string", 
+      "format": "date-time"
+    }
+  }
+}
