@@ -53,28 +53,40 @@
                             "items": {
                               "type": "string"
                             }, 
-                            "type": "array", 
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
                             "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed."
                           }, 
                           "nonResourceURLs": {
                             "items": {
                               "type": "string"
                             }, 
-                            "type": "array", 
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
                             "description": "NonResourceURLsSlice is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different."
                           }, 
                           "apiGroups": {
                             "items": {
                               "type": "string"
                             }, 
-                            "type": "array", 
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
                             "description": "APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed"
                           }, 
                           "verbs": {
                             "items": {
                               "type": "string"
                             }, 
-                            "type": "array", 
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
                             "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds."
                           }, 
                           "attributeRestrictions": {
@@ -94,12 +106,18 @@
                             "items": {
                               "type": "string"
                             }, 
-                            "type": "array", 
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
                             "description": "Resources is a list of resources this rule applies to.  ResourceAll represents all resources."
                           }
                         }
                       }, 
-                      "type": "array", 
+                      "type": [
+                        "array", 
+                        "null"
+                      ], 
                       "description": "Rules holds all the PolicyRules for this ClusterRole"
                     }, 
                     "kind": {
@@ -145,7 +163,10 @@
                           "items": {
                             "type": "string"
                           }, 
-                          "type": "array", 
+                          "type": [
+                            "array", 
+                            "null"
+                          ], 
                           "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
                         }, 
                         "generation": {
@@ -179,21 +200,24 @@
                                 "type": "boolean", 
                                 "description": "If true, this reference points to the managing controller."
                               }, 
-                              "name": {
+                              "uid": {
                                 "type": "string", 
-                                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                               }, 
                               "apiVersion": {
                                 "type": "string", 
                                 "description": "API version of the referent."
                               }, 
-                              "uid": {
+                              "name": {
                                 "type": "string", 
-                                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }
                             }
                           }, 
-                          "type": "array", 
+                          "type": [
+                            "array", 
+                            "null"
+                          ], 
                           "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
                         }, 
                         "creationTimestamp": {
@@ -225,7 +249,10 @@
                 }
               }
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "Roles holds all the ClusterRoles held by this ClusterPolicy, mapped by ClusterRole.Name"
           }, 
           "metadata": {
@@ -263,7 +290,10 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
               }, 
               "generation": {
@@ -297,21 +327,24 @@
                       "type": "boolean", 
                       "description": "If true, this reference points to the managing controller."
                     }, 
-                    "name": {
+                    "uid": {
                       "type": "string", 
-                      "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                      "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                     }, 
                     "apiVersion": {
                       "type": "string", 
                       "description": "API version of the referent."
                     }, 
-                    "uid": {
+                    "name": {
                       "type": "string", 
-                      "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                      "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                     }
                   }
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
               }, 
               "creationTimestamp": {
@@ -337,7 +370,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Items is a list of ClusterPolicies"
     }, 
     "kind": {

@@ -1,11 +1,188 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
+  "$schema": "http://json-schema.org/schema#", 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "admission.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "admissionregistration.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "apps"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "apps.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "authentication.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "authentication.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "authorization.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "authorization.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "authorization.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "autoscaling"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "autoscaling"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "batch"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "batch"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "build.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "certificates.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "extensions"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "federation"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "image.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "imagepolicy.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "network.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "networking.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "oauth.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "policy"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "project.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "quota.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "rbac.authorization.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "rbac.authorization.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "route.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "security.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "settings.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "storage.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "storage.k8s.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "template.openshift.io"
+    }, 
+    {
+      "kind": "DeleteOptions", 
+      "version": "latest", 
+      "group": "user.openshift.io"
+    }
+  ], 
   "description": "DeleteOptions may be provided when deleting an API object.", 
   "properties": {
     "kind": {
       "type": "string", 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "orphanDependents": {
       "type": "boolean", 
@@ -13,7 +190,7 @@
     }, 
     "apiVersion": {
       "type": "string", 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "gracePeriodSeconds": {
       "type": "integer", 
@@ -26,7 +203,7 @@
     }, 
     "preconditions": {
       "description": "Must be fulfilled before a deletion is carried out. If not possible, a 409 Conflict status will be returned.", 
-      "$ref": "_definitions.json#/definitions/v1.Preconditions"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Preconditions"
     }
   }
 }

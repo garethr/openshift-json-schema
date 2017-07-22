@@ -26,15 +26,15 @@
       "properties": {
         "kind": {
           "type": "string", 
-          "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+          "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
         }, 
         "name": {
           "type": "string", 
-          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         }, 
         "namespace": {
           "type": "string", 
-          "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+          "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
         }, 
         "apiVersion": {
           "type": "string", 
@@ -46,11 +46,11 @@
         }, 
         "resourceVersion": {
           "type": "string", 
-          "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+          "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
         }, 
         "uid": {
           "type": "string", 
-          "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+          "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
         }
       }
     }, 

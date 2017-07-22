@@ -8,36 +8,40 @@
   "properties": {
     "completionTimestamp": {
       "description": "completionTimestamp is a timestamp representing the server time when this Build was finished, whether that build failed or succeeded.  It reflects the time at which the Pod running the Build terminated. It is represented in RFC3339 form and is in UTC.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.Time"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    }, 
+    "logSnippet": {
+      "type": "string", 
+      "description": "logSnippet is the last few lines of the build log.  This value is only set for builds that failed."
     }, 
     "startTimestamp": {
       "description": "startTimestamp is a timestamp representing the server time when this Build started running in a Pod. It is represented in RFC3339 form and is in UTC.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.Time"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "outputDockerImageReference": {
       "type": "string", 
       "description": "outputDockerImageReference contains a reference to the Docker image that will be built by this build. Its value is computed from Build.Spec.Output.To, and should include the registry address, so that it can be used to push and pull the image."
     }, 
-    "cancelled": {
-      "type": "boolean", 
-      "description": "cancelled describes if a cancel event was triggered for the build."
+    "phase": {
+      "type": "string", 
+      "description": "phase is the point in the build lifecycle. Possible values are \"New\", \"Pending\", \"Running\", \"Complete\", \"Failed\", \"Error\", and \"Cancelled\"."
+    }, 
+    "reason": {
+      "type": "string", 
+      "description": "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI."
+    }, 
+    "output": {
+      "description": "output describes the Docker image the build has produced.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildStatusOutput"
     }, 
     "duration": {
       "type": "integer", 
       "description": "duration contains time.Duration object describing build time.", 
       "format": "int64"
     }, 
-    "reason": {
-      "type": "string", 
-      "description": "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI."
-    }, 
-    "phase": {
-      "type": "string", 
-      "description": "phase is the point in the build lifecycle. Possible values are \"New\", \"Pending\", \"Running\", \"Complete\", \"Failed\", \"Error\", and \"Cancelled\"."
-    }, 
-    "output": {
-      "description": "output describes the Docker image the build has produced.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.BuildStatusOutput"
+    "cancelled": {
+      "type": "boolean", 
+      "description": "cancelled describes if a cancel event was triggered for the build."
     }, 
     "message": {
       "type": "string", 
@@ -45,14 +49,17 @@
     }, 
     "stages": {
       "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.StageInfo"
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.StageInfo"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "stages contains details about each stage that occurs during the build including start time, duration (in milliseconds), and the steps that occured within each stage."
     }, 
     "config": {
       "description": "config is an ObjectReference to the BuildConfig this Build is based on.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ObjectReference"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }
   }
 }

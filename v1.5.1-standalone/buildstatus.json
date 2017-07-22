@@ -18,6 +18,10 @@
       "type": "string", 
       "description": "outputDockerImageReference contains a reference to the Docker image that will be built by this build. Its value is computed from Build.Spec.Output.To, and should include the registry address, so that it can be used to push and pull the image."
     }, 
+    "cancelled": {
+      "type": "boolean", 
+      "description": "cancelled describes if a cancel event was triggered for the build."
+    }, 
     "duration": {
       "type": "integer", 
       "description": "duration contains time.Duration object describing build time.", 
@@ -30,10 +34,6 @@
     "phase": {
       "type": "string", 
       "description": "phase is the point in the build lifecycle."
-    }, 
-    "cancelled": {
-      "type": "boolean", 
-      "description": "cancelled describes if a cancel event was triggered for the build."
     }, 
     "output": {
       "description": "BuildStatusOutput contains the status of the built image.", 

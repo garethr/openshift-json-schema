@@ -4,8 +4,24 @@
   "description": "PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.", 
   "properties": {
     "minAvailable": {
-      "type": "string", 
-      "format": "int-or-string"
+      "oneOf": [
+        {
+          "type": "string"
+        }, 
+        {
+          "type": "integer"
+        }
+      ]
+    }, 
+    "maxUnavailable": {
+      "oneOf": [
+        {
+          "type": "string"
+        }, 
+        {
+          "type": "integer"
+        }
+      ]
     }, 
     "selector": {
       "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.", 
@@ -33,16 +49,24 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
               }, 
               "key": {
+                "x-kubernetes-patch-merge-key": "key", 
                 "type": "string", 
-                "description": "key is the label key that the selector applies to."
+                "description": "key is the label key that the selector applies to.", 
+                "x-kubernetes-patch-strategy": "merge"
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed."
         }
       }

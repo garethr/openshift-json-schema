@@ -47,7 +47,10 @@
                 }
               }
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "Standard object's metadata."
           }, 
           "tag": {
@@ -90,12 +93,18 @@
                 }
               }
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "Conditions is an array of conditions that apply to the tag event list."
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Tags are a historical record of images associated with each tag. The first entry in the TagEvent array is the currently tagged image."
     }
   }

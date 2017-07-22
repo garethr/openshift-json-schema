@@ -9,11 +9,11 @@
     }, 
     "configMapRef": {
       "description": "The ConfigMap to select from", 
-      "$ref": "_definitions.json#/definitions/v1.ConfigMapEnvSource"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ConfigMapEnvSource"
     }, 
     "secretRef": {
       "description": "The Secret to select from", 
-      "$ref": "_definitions.json#/definitions/v1.SecretEnvSource"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.SecretEnvSource"
     }
   }
 }

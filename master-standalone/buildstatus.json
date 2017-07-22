@@ -10,6 +10,10 @@
       "type": "string", 
       "format": "date-time"
     }, 
+    "logSnippet": {
+      "type": "string", 
+      "description": "logSnippet is the last few lines of the build log.  This value is only set for builds that failed."
+    }, 
     "startTimestamp": {
       "type": "string", 
       "format": "date-time"
@@ -17,6 +21,10 @@
     "outputDockerImageReference": {
       "type": "string", 
       "description": "outputDockerImageReference contains a reference to the Docker image that will be built by this build. Its value is computed from Build.Spec.Output.To, and should include the registry address, so that it can be used to push and pull the image."
+    }, 
+    "cancelled": {
+      "type": "boolean", 
+      "description": "cancelled describes if a cancel event was triggered for the build."
     }, 
     "duration": {
       "type": "integer", 
@@ -30,10 +38,6 @@
     "phase": {
       "type": "string", 
       "description": "phase is the point in the build lifecycle. Possible values are \"New\", \"Pending\", \"Running\", \"Complete\", \"Failed\", \"Error\", and \"Cancelled\"."
-    }, 
-    "cancelled": {
-      "type": "boolean", 
-      "description": "cancelled describes if a cancel event was triggered for the build."
     }, 
     "output": {
       "description": "BuildStatusOutput contains the status of the built image.", 
@@ -81,7 +85,10 @@
                 }
               }
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "steps contains details about each step that occurs during a build stage including start time and duration in milliseconds."
           }, 
           "name": {
@@ -94,7 +101,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "stages contains details about each stage that occurs during the build including start time, duration (in milliseconds), and the steps that occured within each stage."
     }, 
     "config": {
@@ -102,15 +112,15 @@
       "properties": {
         "kind": {
           "type": "string", 
-          "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+          "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
         }, 
         "name": {
           "type": "string", 
-          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         }, 
         "namespace": {
           "type": "string", 
-          "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+          "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
         }, 
         "apiVersion": {
           "type": "string", 
@@ -122,11 +132,11 @@
         }, 
         "resourceVersion": {
           "type": "string", 
-          "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+          "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
         }, 
         "uid": {
           "type": "string", 
-          "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+          "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
         }
       }
     }

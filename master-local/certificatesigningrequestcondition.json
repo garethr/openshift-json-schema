@@ -19,7 +19,7 @@
     }, 
     "lastUpdateTime": {
       "description": "timestamp for the last update to this condition", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }
   }
 }

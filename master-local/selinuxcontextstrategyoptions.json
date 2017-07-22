@@ -5,7 +5,7 @@
   "properties": {
     "seLinuxOptions": {
       "description": "seLinuxOptions required to run as; required for MustRunAs", 
-      "$ref": "_definitions.json#/definitions/v1.SELinuxOptions"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.SELinuxOptions"
     }, 
     "type": {
       "type": "string", 

@@ -9,7 +9,7 @@
   "properties": {
     "role": {
       "description": "Role is the cluster role being named", 
-      "$ref": "_definitions.json#/definitions/v1.ClusterRole"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.ClusterRole"
     }, 
     "name": {
       "type": "string", 

@@ -25,7 +25,7 @@
           }, 
           "image": {
             "type": "string", 
-            "description": "The image the container is running. More info: http://kubernetes.io/docs/user-guide/images"
+            "description": "The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images"
           }, 
           "imageID": {
             "type": "string", 
@@ -167,12 +167,15 @@
           }, 
           "containerID": {
             "type": "string", 
-            "description": "Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information"
+            "description": "Container's ID in the format 'docker://<container_id>'."
           }
         }
       }, 
-      "type": "array", 
-      "description": "The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: http://kubernetes.io/docs/user-guide/pod-states#container-statuses"
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status"
     }, 
     "qosClass": {
       "type": "string", 
@@ -200,7 +203,7 @@
           }, 
           "image": {
             "type": "string", 
-            "description": "The image the container is running. More info: http://kubernetes.io/docs/user-guide/images"
+            "description": "The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images"
           }, 
           "imageID": {
             "type": "string", 
@@ -342,12 +345,15 @@
           }, 
           "containerID": {
             "type": "string", 
-            "description": "Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information"
+            "description": "Container's ID in the format 'docker://<container_id>'."
           }
         }
       }, 
-      "type": "array", 
-      "description": "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: http://kubernetes.io/docs/user-guide/pod-states#container-statuses"
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status"
     }, 
     "reason": {
       "type": "string", 
@@ -367,7 +373,7 @@
     }, 
     "phase": {
       "type": "string", 
-      "description": "Current condition of the pod. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-phase"
+      "description": "Current condition of the pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase"
     }, 
     "message": {
       "type": "string", 
@@ -383,7 +389,7 @@
         "properties": {
           "status": {
             "type": "string", 
-            "description": "Status is the status of the condition. Can be True, False, Unknown. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-conditions"
+            "description": "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions"
           }, 
           "lastTransitionTime": {
             "type": "string", 
@@ -403,12 +409,17 @@
           }, 
           "type": {
             "type": "string", 
-            "description": "Type is the type of the condition. Currently only Ready. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-conditions"
+            "description": "Type is the type of the condition. Currently only Ready. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions"
           }
         }
       }, 
-      "type": "array", 
-      "description": "Current service state of pod. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-conditions"
+      "x-kubernetes-patch-merge-key": "type", 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Current service state of pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions", 
+      "x-kubernetes-patch-strategy": "merge"
     }
   }
 }

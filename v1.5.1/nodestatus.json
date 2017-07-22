@@ -14,7 +14,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.NodeAddress"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of addresses reachable to the node. Queried from cloud provider, if available. More info: http://releases.k8s.io/HEAD/docs/admin/node.md#node-addresses"
     }, 
     "nodeInfo": {
@@ -25,7 +28,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.AttachedVolume"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of volumes that are attached to the node."
     }, 
     "allocatable": {
@@ -39,7 +45,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of attachable volumes in use (mounted) by the node."
     }, 
     "daemonEndpoints": {
@@ -54,14 +63,20 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.ContainerImage"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of container images on this node"
     }, 
     "conditions": {
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.NodeCondition"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Conditions is an array of current observed node conditions. More info: http://releases.k8s.io/HEAD/docs/admin/node.md#node-condition"
     }
   }

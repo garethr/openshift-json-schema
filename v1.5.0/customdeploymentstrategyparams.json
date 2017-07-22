@@ -7,7 +7,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.EnvVar"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Environment holds the environment which will be given to the container for Image."
     }, 
     "image": {
@@ -18,7 +21,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Command is optional and overrides CMD in the container Image."
     }
   }

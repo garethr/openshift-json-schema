@@ -5,26 +5,29 @@
   "properties": {
     "storageClassName": {
       "type": "string", 
-      "description": "Name of the StorageClass required by the claim. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#class-1"
+      "description": "Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1"
     }, 
     "accessModes": {
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
-      "description": "AccessModes contains the desired access modes the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1"
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1"
     }, 
     "volumeName": {
       "type": "string", 
       "description": "VolumeName is the binding reference to the PersistentVolume backing this claim."
     }, 
     "resources": {
-      "description": "Resources represents the minimum resources the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#resources", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ResourceRequirements"
+      "description": "Resources represents the minimum resources the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ResourceRequirements"
     }, 
     "selector": {
       "description": "A label query over volumes to consider for binding.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.LabelSelector"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector"
     }
   }
 }

@@ -13,7 +13,7 @@
     }, 
     "to": {
       "description": "To is the target ImageStreamTag to set the container's image onto.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }
   }
 }

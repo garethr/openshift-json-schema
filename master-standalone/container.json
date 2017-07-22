@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema#", 
   "required": [
-    "name"
+    "name", 
+    "image"
   ], 
   "type": "object", 
   "description": "A single application container that you want to run within a pod.", 
@@ -45,18 +46,27 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Custom headers to set in the request. HTTP allows repeated headers."
             }, 
             "port": {
-              "type": "string", 
-              "format": "int-or-string"
+              "oneOf": [
+                {
+                  "type": "string"
+                }, 
+                {
+                  "type": "integer"
+                }
+              ]
             }
           }
         }, 
         "timeoutSeconds": {
           "type": "integer", 
-          "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes", 
+          "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes", 
           "format": "int32"
         }, 
         "exec": {
@@ -66,14 +76,17 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
             }
           }
         }, 
         "initialDelaySeconds": {
           "type": "integer", 
-          "description": "Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes", 
+          "description": "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes", 
           "format": "int32"
         }, 
         "tcpSocket": {
@@ -82,9 +95,19 @@
           ], 
           "description": "TCPSocketAction describes an action based on opening a socket", 
           "properties": {
-            "port": {
+            "host": {
               "type": "string", 
-              "format": "int-or-string"
+              "description": "Optional: Host name to connect to, defaults to the pod IP."
+            }, 
+            "port": {
+              "oneOf": [
+                {
+                  "type": "string"
+                }, 
+                {
+                  "type": "integer"
+                }
+              ]
             }
           }
         }, 
@@ -109,8 +132,11 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
-      "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands"
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
     }, 
     "terminationMessagePath": {
       "type": "string", 
@@ -137,7 +163,7 @@
               }, 
               "name": {
                 "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
               }
             }
           }, 
@@ -150,13 +176,16 @@
               }, 
               "name": {
                 "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
               }
             }
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated."
     }, 
     "workingDir": {
@@ -165,7 +194,7 @@
     }, 
     "image": {
       "type": "string", 
-      "description": "Docker image name. More info: http://kubernetes.io/docs/user-guide/images"
+      "description": "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images"
     }, 
     "stdin": {
       "type": "boolean", 
@@ -197,8 +226,13 @@
           }
         }
       }, 
-      "type": "array", 
-      "description": "Pod volumes to mount into the container's filesystem. Cannot be updated."
+      "x-kubernetes-patch-merge-key": "mountPath", 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Pod volumes to mount into the container's filesystem. Cannot be updated.", 
+      "x-kubernetes-patch-strategy": "merge"
     }, 
     "tty": {
       "type": "boolean", 
@@ -208,12 +242,54 @@
       "type": "string", 
       "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated."
     }, 
+    "ports": {
+      "items": {
+        "required": [
+          "containerPort"
+        ], 
+        "description": "ContainerPort represents a network port in a single container.", 
+        "properties": {
+          "hostIP": {
+            "type": "string", 
+            "description": "What host IP to bind the external port to."
+          }, 
+          "protocol": {
+            "type": "string", 
+            "description": "Protocol for port. Must be UDP or TCP. Defaults to \"TCP\"."
+          }, 
+          "containerPort": {
+            "type": "integer", 
+            "description": "Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.", 
+            "format": "int32"
+          }, 
+          "name": {
+            "type": "string", 
+            "description": "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services."
+          }, 
+          "hostPort": {
+            "type": "integer", 
+            "description": "Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.", 
+            "format": "int32"
+          }
+        }
+      }, 
+      "x-kubernetes-patch-merge-key": "containerPort", 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Cannot be updated.", 
+      "x-kubernetes-patch-strategy": "merge"
+    }, 
     "command": {
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
-      "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands"
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
     }, 
     "env": {
       "items": {
@@ -237,7 +313,7 @@
                   }, 
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }, 
                   "key": {
                     "type": "string", 
@@ -273,7 +349,7 @@
                   }, 
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }, 
                   "key": {
                     "type": "string", 
@@ -312,12 +388,17 @@
           }
         }
       }, 
-      "type": "array", 
-      "description": "List of environment variables to set in the container. Cannot be updated."
+      "x-kubernetes-patch-merge-key": "name", 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "List of environment variables to set in the container. Cannot be updated.", 
+      "x-kubernetes-patch-strategy": "merge"
     }, 
     "imagePullPolicy": {
       "type": "string", 
-      "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images"
+      "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images"
     }, 
     "readinessProbe": {
       "description": "Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.", 
@@ -358,18 +439,27 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Custom headers to set in the request. HTTP allows repeated headers."
             }, 
             "port": {
-              "type": "string", 
-              "format": "int-or-string"
+              "oneOf": [
+                {
+                  "type": "string"
+                }, 
+                {
+                  "type": "integer"
+                }
+              ]
             }
           }
         }, 
         "timeoutSeconds": {
           "type": "integer", 
-          "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes", 
+          "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes", 
           "format": "int32"
         }, 
         "exec": {
@@ -379,14 +469,17 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
             }
           }
         }, 
         "initialDelaySeconds": {
           "type": "integer", 
-          "description": "Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes", 
+          "description": "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes", 
           "format": "int32"
         }, 
         "tcpSocket": {
@@ -395,9 +488,19 @@
           ], 
           "description": "TCPSocketAction describes an action based on opening a socket", 
           "properties": {
-            "port": {
+            "host": {
               "type": "string", 
-              "format": "int-or-string"
+              "description": "Optional: Host name to connect to, defaults to the pod IP."
+            }, 
+            "port": {
+              "oneOf": [
+                {
+                  "type": "string"
+                }, 
+                {
+                  "type": "integer"
+                }
+              ]
             }
           }
         }, 
@@ -437,14 +540,20 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Added capabilities"
             }, 
             "drop": {
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Removed capabilities"
             }
           }
@@ -522,12 +631,21 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Custom headers to set in the request. HTTP allows repeated headers."
                 }, 
                 "port": {
-                  "type": "string", 
-                  "format": "int-or-string"
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }, 
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 }
               }
             }, 
@@ -537,9 +655,19 @@
               ], 
               "description": "TCPSocketAction describes an action based on opening a socket", 
               "properties": {
-                "port": {
+                "host": {
                   "type": "string", 
-                  "format": "int-or-string"
+                  "description": "Optional: Host name to connect to, defaults to the pod IP."
+                }, 
+                "port": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }, 
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 }
               }
             }, 
@@ -550,7 +678,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
                 }
               }
@@ -596,12 +727,21 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Custom headers to set in the request. HTTP allows repeated headers."
                 }, 
                 "port": {
-                  "type": "string", 
-                  "format": "int-or-string"
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }, 
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 }
               }
             }, 
@@ -611,9 +751,19 @@
               ], 
               "description": "TCPSocketAction describes an action based on opening a socket", 
               "properties": {
-                "port": {
+                "host": {
                   "type": "string", 
-                  "format": "int-or-string"
+                  "description": "Optional: Host name to connect to, defaults to the pod IP."
+                }, 
+                "port": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }, 
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 }
               }
             }, 
@@ -624,7 +774,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
                 }
               }
@@ -632,40 +785,6 @@
           }
         }
       }
-    }, 
-    "ports": {
-      "items": {
-        "required": [
-          "containerPort"
-        ], 
-        "description": "ContainerPort represents a network port in a single container.", 
-        "properties": {
-          "hostIP": {
-            "type": "string", 
-            "description": "What host IP to bind the external port to."
-          }, 
-          "protocol": {
-            "type": "string", 
-            "description": "Protocol for port. Must be UDP or TCP. Defaults to \"TCP\"."
-          }, 
-          "containerPort": {
-            "type": "integer", 
-            "description": "Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.", 
-            "format": "int32"
-          }, 
-          "name": {
-            "type": "string", 
-            "description": "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services."
-          }, 
-          "hostPort": {
-            "type": "integer", 
-            "description": "Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.", 
-            "format": "int32"
-          }
-        }
-      }, 
-      "type": "array", 
-      "description": "List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Cannot be updated."
     }, 
     "resources": {
       "description": "ResourceRequirements describes the compute resource requirements.", 
@@ -675,14 +794,14 @@
             "type": "string"
           }, 
           "type": "object", 
-          "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: http://kubernetes.io/docs/user-guide/compute-resources/"
+          "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/"
         }, 
         "limits": {
           "additionalProperties": {
             "type": "string"
           }, 
           "type": "object", 
-          "description": "Limits describes the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/"
+          "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/"
         }
       }
     }, 

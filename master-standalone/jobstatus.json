@@ -5,12 +5,12 @@
   "properties": {
     "succeeded": {
       "type": "integer", 
-      "description": "Succeeded is the number of pods which reached Phase Succeeded.", 
+      "description": "The number of pods which reached phase Succeeded.", 
       "format": "int32"
     }, 
     "failed": {
       "type": "integer", 
-      "description": "Failed is the number of pods which reached Phase Failed.", 
+      "description": "The number of pods which reached phase Failed.", 
       "format": "int32"
     }, 
     "completionTime": {
@@ -23,7 +23,7 @@
     }, 
     "active": {
       "type": "integer", 
-      "description": "Active is the number of actively running pods.", 
+      "description": "The number of actively running pods.", 
       "format": "int32"
     }, 
     "conditions": {
@@ -60,8 +60,13 @@
           }
         }
       }, 
-      "type": "array", 
-      "description": "Conditions represent the latest available observations of an object's current state. More info: http://kubernetes.io/docs/user-guide/jobs"
+      "x-kubernetes-patch-merge-key": "type", 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "The latest available observations of an object's current state. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/", 
+      "x-kubernetes-patch-strategy": "merge"
     }
   }
 }

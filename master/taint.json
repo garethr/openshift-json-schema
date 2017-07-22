@@ -13,15 +13,17 @@
     }, 
     "timeAdded": {
       "description": "TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.Time"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "effect": {
       "type": "string", 
       "description": "Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute."
     }, 
     "key": {
+      "x-kubernetes-patch-merge-key": "key", 
       "type": "string", 
-      "description": "Required. The taint key to be applied to a node."
+      "description": "Required. The taint key to be applied to a node.", 
+      "x-kubernetes-patch-strategy": "merge"
     }
   }
 }

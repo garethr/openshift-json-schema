@@ -25,7 +25,7 @@
                   }, 
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }, 
                   "key": {
                     "type": "string", 
@@ -61,7 +61,7 @@
                   }, 
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }, 
                   "key": {
                     "type": "string", 
@@ -100,7 +100,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Environment holds the environment which will be given to the container for Image."
     }, 
     "image": {
@@ -111,7 +114,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Command is optional and overrides CMD in the container Image."
     }
   }

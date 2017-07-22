@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema#", 
   "required": [
-    "scaleRef", 
+    "scaleTargetRef", 
     "maxReplicas"
   ], 
   "type": "object", 
@@ -12,12 +12,16 @@
       "description": "lower limit for the number of pods that can be set by the autoscaler, default 1.", 
       "format": "int32"
     }, 
-    "scaleRef": {
-      "description": "SubresourceReference contains enough information to let you inspect or modify the referred subresource.", 
+    "scaleTargetRef": {
+      "required": [
+        "kind", 
+        "name"
+      ], 
+      "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.", 
       "properties": {
         "kind": {
           "type": "string", 
-          "description": "Kind of the referent; More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+          "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds\""
         }, 
         "name": {
           "type": "string", 
@@ -26,24 +30,13 @@
         "apiVersion": {
           "type": "string", 
           "description": "API version of the referent"
-        }, 
-        "subresource": {
-          "type": "string", 
-          "description": "Subresource name of the referent"
         }
       }
     }, 
-    "cpuUtilization": {
-      "required": [
-        "targetPercentage"
-      ], 
-      "properties": {
-        "targetPercentage": {
-          "type": "integer", 
-          "description": "fraction of the requested CPU that should be utilized/used, e.g. 70 means that 70% of the requested CPU should be in use.", 
-          "format": "int32"
-        }
-      }
+    "targetCPUUtilizationPercentage": {
+      "type": "integer", 
+      "description": "target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.", 
+      "format": "int32"
     }, 
     "maxReplicas": {
       "type": "integer", 

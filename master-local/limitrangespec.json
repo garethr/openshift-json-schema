@@ -8,9 +8,12 @@
   "properties": {
     "limits": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.LimitRangeItem"
+        "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.LimitRangeItem"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Limits is the list of LimitRangeItem objects that are enforced."
     }
   }

@@ -19,7 +19,7 @@
     }, 
     "lastScaleTime": {
       "description": "last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed.", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "desiredReplicas": {
       "type": "integer", 

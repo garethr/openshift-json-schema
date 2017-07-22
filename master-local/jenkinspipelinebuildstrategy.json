@@ -9,9 +9,12 @@
     }, 
     "env": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.EnvVar"
+        "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVar"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "env contains additional environment variables you want to pass into a build pipeline."
     }, 
     "jenkinsfile": {

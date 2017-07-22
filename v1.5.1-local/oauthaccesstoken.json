@@ -12,7 +12,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Scopes is an array of the requested scopes."
     }, 
     "kind": {

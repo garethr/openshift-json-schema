@@ -11,7 +11,10 @@
             "items": {
               "type": "string"
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "ExactValues means the scope has to match a particular set of strings exactly"
           }, 
           "clusterRole": {
@@ -26,7 +29,10 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "RoleNames is the list of cluster roles that can referenced.  * means anything"
               }, 
               "allowEscalation": {
@@ -37,14 +43,20 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)"
               }
             }
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "ScopeRestrictions describes which scopes this client can request.  Each requested scope is checked against each restriction.  If any restriction matches, then the scope is allowed. If no restriction matches, then the scope is denied."
     }, 
     "grantMethod": {
@@ -55,7 +67,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "AdditionalSecrets holds other secrets that may be used to identify the client.  This is useful for rotation and for service account token validation"
     }, 
     "respondWithChallenges": {
@@ -78,7 +93,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "RedirectURIs is the valid redirection URIs associated with a client"
     }, 
     "metadata": {
@@ -116,7 +134,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
         }, 
         "generation": {
@@ -150,21 +171,24 @@
                 "type": "boolean", 
                 "description": "If true, this reference points to the managing controller."
               }, 
-              "name": {
+              "uid": {
                 "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
               }, 
               "apiVersion": {
                 "type": "string", 
                 "description": "API version of the referent."
               }, 
-              "uid": {
+              "name": {
                 "type": "string", 
-                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
         }, 
         "creationTimestamp": {

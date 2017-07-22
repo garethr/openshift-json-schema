@@ -11,8 +11,11 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
-      "description": "AccessModes contains the actual access modes the volume backing the PVC has. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1"
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "AccessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1"
     }, 
     "capacity": {
       "additionalProperties": {

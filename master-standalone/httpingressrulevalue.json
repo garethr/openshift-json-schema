@@ -29,14 +29,23 @@
                 "description": "Specifies the name of the referenced service."
               }, 
               "servicePort": {
-                "type": "string", 
-                "format": "int-or-string"
+                "oneOf": [
+                  {
+                    "type": "string"
+                  }, 
+                  {
+                    "type": "integer"
+                  }
+                ]
               }
             }
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "A collection of paths that map requests to backends."
     }
   }

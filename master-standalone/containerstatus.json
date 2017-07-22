@@ -21,7 +21,7 @@
     }, 
     "image": {
       "type": "string", 
-      "description": "The image the container is running. More info: http://kubernetes.io/docs/user-guide/images"
+      "description": "The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images"
     }, 
     "imageID": {
       "type": "string", 
@@ -163,7 +163,7 @@
     }, 
     "containerID": {
       "type": "string", 
-      "description": "Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information"
+      "description": "Container's ID in the format 'docker://<container_id>'."
     }
   }
 }

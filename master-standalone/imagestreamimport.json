@@ -1,11 +1,23 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "The image stream import resource provides an easy way for a user to find and import Docker images from other Docker registries into the server. Individual images or an entire image repository may be imported, and users may choose to see the results of the import prior to tagging the resulting images into the specified image stream.\n\nThis API is intended for end-user tools that need to see the metadata of the image prior to import (for instance, to generate an application from it). Clients that know the desired image can continue to create spec.tags directly into their image streams.", 
   "required": [
     "spec", 
     "status"
   ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "ImageStreamImport", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "ImageStreamImport", 
+      "version": "latest", 
+      "group": "image.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "The image stream import resource provides an easy way for a user to find and import Docker images from other Docker registries into the server. Individual images or an entire image repository may be imported, and users may choose to see the results of the import prior to tagging the resulting images into the specified image stream.\n\nThis API is intended for end-user tools that need to see the metadata of the image prior to import (for instance, to generate an application from it). Clients that know the desired image can continue to create spec.tags directly into their image streams.", 
   "properties": {
     "status": {
       "description": "ImageStreamImportStatus contains information about the status of an image stream import.", 
@@ -18,15 +30,22 @@
             "description": "ImageImportStatus describes the result of an image import.", 
             "properties": {
               "status": {
+                "x-kubernetes-group-version-kind": [
+                  {
+                    "kind": "Status", 
+                    "version": "latest", 
+                    "group": ""
+                  }
+                ], 
                 "description": "Status is a return value for calls that don't return other objects.", 
                 "properties": {
                   "status": {
                     "type": "string", 
-                    "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+                    "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
                   }, 
                   "kind": {
                     "type": "string", 
-                    "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                    "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                   }, 
                   "code": {
                     "type": "integer", 
@@ -35,7 +54,7 @@
                   }, 
                   "apiVersion": {
                     "type": "string", 
-                    "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+                    "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
                   }, 
                   "reason": {
                     "type": "string", 
@@ -46,7 +65,7 @@
                     "properties": {
                       "kind": {
                         "type": "string", 
-                        "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                        "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                       }, 
                       "group": {
                         "type": "string", 
@@ -79,8 +98,15 @@
                             }
                           }
                         }, 
-                        "type": "array", 
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
                         "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                      }, 
+                      "uid": {
+                        "type": "string", 
+                        "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                       }
                     }
                   }, 
@@ -97,7 +123,7 @@
                       }, 
                       "resourceVersion": {
                         "type": "string", 
-                        "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                        "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                       }
                     }
                   }
@@ -106,6 +132,18 @@
               "image": {
                 "required": [
                   "dockerImageLayers"
+                ], 
+                "x-kubernetes-group-version-kind": [
+                  {
+                    "kind": "Image", 
+                    "version": "latest", 
+                    "group": ""
+                  }, 
+                  {
+                    "kind": "Image", 
+                    "version": "latest", 
+                    "group": "image.openshift.io"
+                  }
                 ], 
                 "description": "Image is an immutable representation of a Docker image and metadata at a point in time.", 
                 "properties": {
@@ -127,11 +165,23 @@
                         "type", 
                         "content"
                       ], 
+                      "x-kubernetes-group-version-kind": [
+                        {
+                          "kind": "ImageSignature", 
+                          "version": "latest", 
+                          "group": ""
+                        }, 
+                        {
+                          "kind": "ImageSignature", 
+                          "version": "latest", 
+                          "group": "image.openshift.io"
+                        }
+                      ], 
                       "description": "ImageSignature holds a signature of an image. It allows to verify image identity and possibly other claims as long as the signature is trusted. Based on this information it is possible to restrict runnable images to those matching cluster-wide policy. Mandatory fields should be parsed by clients doing image verification. The others are parsed from signature's content by the server. They serve just an informative purpose.", 
                       "properties": {
                         "kind": {
                           "type": "string", 
-                          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                         }, 
                         "issuedBy": {
                           "description": "SignatureIssuer holds information about an issuer of signing certificate or key.", 
@@ -149,10 +199,6 @@
                         "created": {
                           "type": "string", 
                           "format": "date-time"
-                        }, 
-                        "imageIdentity": {
-                          "type": "string", 
-                          "description": "A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\")."
                         }, 
                         "issuedTo": {
                           "required": [
@@ -174,9 +220,13 @@
                             }
                           }
                         }, 
+                        "imageIdentity": {
+                          "type": "string", 
+                          "description": "A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\")."
+                        }, 
                         "apiVersion": {
                           "type": "string", 
-                          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+                          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
                         }, 
                         "content": {
                           "type": "string", 
@@ -228,15 +278,64 @@
                               }
                             }
                           }, 
-                          "type": "array", 
-                          "description": "Conditions represent the latest available observations of a signature's current state."
+                          "x-kubernetes-patch-merge-key": "type", 
+                          "type": [
+                            "array", 
+                            "null"
+                          ], 
+                          "description": "Conditions represent the latest available observations of a signature's current state.", 
+                          "x-kubernetes-patch-strategy": "merge"
                         }, 
                         "metadata": {
                           "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
                           "properties": {
-                            "name": {
+                            "ownerReferences": {
+                              "items": {
+                                "required": [
+                                  "apiVersion", 
+                                  "kind", 
+                                  "name", 
+                                  "uid"
+                                ], 
+                                "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
+                                "properties": {
+                                  "kind": {
+                                    "type": "string", 
+                                    "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                  }, 
+                                  "uid": {
+                                    "type": "string", 
+                                    "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                  }, 
+                                  "apiVersion": {
+                                    "type": "string", 
+                                    "description": "API version of the referent."
+                                  }, 
+                                  "controller": {
+                                    "type": "boolean", 
+                                    "description": "If true, this reference points to the managing controller."
+                                  }, 
+                                  "blockOwnerDeletion": {
+                                    "type": "boolean", 
+                                    "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
+                                  }, 
+                                  "name": {
+                                    "type": "string", 
+                                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                                  }
+                                }
+                              }, 
+                              "x-kubernetes-patch-merge-key": "uid", 
+                              "type": [
+                                "array", 
+                                "null"
+                              ], 
+                              "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.", 
+                              "x-kubernetes-patch-strategy": "merge"
+                            }, 
+                            "uid": {
                               "type": "string", 
-                              "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                              "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                             }, 
                             "deletionTimestamp": {
                               "type": "string", 
@@ -266,60 +365,152 @@
                               "items": {
                                 "type": "string"
                               }, 
-                              "type": "array", 
-                              "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
+                              "type": [
+                                "array", 
+                                "null"
+                              ], 
+                              "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed.", 
+                              "x-kubernetes-patch-strategy": "merge"
                             }, 
                             "generation": {
                               "type": "integer", 
                               "description": "A sequence number representing a specific generation of the desired state. Populated by the system. Read-only.", 
                               "format": "int64"
                             }, 
-                            "generateName": {
-                              "type": "string", 
-                              "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
+                            "initializers": {
+                              "required": [
+                                "pending"
+                              ], 
+                              "description": "Initializers tracks the progress of initialization.", 
+                              "properties": {
+                                "result": {
+                                  "x-kubernetes-group-version-kind": [
+                                    {
+                                      "kind": "Status", 
+                                      "version": "latest", 
+                                      "group": ""
+                                    }
+                                  ], 
+                                  "description": "Status is a return value for calls that don't return other objects.", 
+                                  "properties": {
+                                    "status": {
+                                      "type": "string", 
+                                      "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
+                                    }, 
+                                    "kind": {
+                                      "type": "string", 
+                                      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                    }, 
+                                    "code": {
+                                      "type": "integer", 
+                                      "description": "Suggested HTTP return code for this status, 0 if not set.", 
+                                      "format": "int32"
+                                    }, 
+                                    "apiVersion": {
+                                      "type": "string", 
+                                      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+                                    }, 
+                                    "reason": {
+                                      "type": "string", 
+                                      "description": "A machine-readable description of why this operation is in the \"Failure\" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it."
+                                    }, 
+                                    "details": {
+                                      "description": "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.", 
+                                      "properties": {
+                                        "kind": {
+                                          "type": "string", 
+                                          "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                        }, 
+                                        "group": {
+                                          "type": "string", 
+                                          "description": "The group attribute of the resource associated with the status StatusReason."
+                                        }, 
+                                        "name": {
+                                          "type": "string", 
+                                          "description": "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described)."
+                                        }, 
+                                        "retryAfterSeconds": {
+                                          "type": "integer", 
+                                          "description": "If specified, the time in seconds before the operation should be retried.", 
+                                          "format": "int32"
+                                        }, 
+                                        "causes": {
+                                          "items": {
+                                            "description": "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.", 
+                                            "properties": {
+                                              "field": {
+                                                "type": "string", 
+                                                "description": "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.\n\nExamples:\n  \"name\" - the field \"name\" on the current resource\n  \"items[0].name\" - the field \"name\" on the first array entry in \"items\""
+                                              }, 
+                                              "message": {
+                                                "type": "string", 
+                                                "description": "A human-readable description of the cause of the error.  This field may be presented as-is to a reader."
+                                              }, 
+                                              "reason": {
+                                                "type": "string", 
+                                                "description": "A machine-readable description of the cause of the error. If this value is empty there is no information available."
+                                              }
+                                            }
+                                          }, 
+                                          "type": [
+                                            "array", 
+                                            "null"
+                                          ], 
+                                          "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                                        }, 
+                                        "uid": {
+                                          "type": "string", 
+                                          "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                        }
+                                      }
+                                    }, 
+                                    "message": {
+                                      "type": "string", 
+                                      "description": "A human-readable description of the status of this operation."
+                                    }, 
+                                    "metadata": {
+                                      "description": "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.", 
+                                      "properties": {
+                                        "selfLink": {
+                                          "type": "string", 
+                                          "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
+                                        }, 
+                                        "resourceVersion": {
+                                          "type": "string", 
+                                          "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }, 
+                                "pending": {
+                                  "items": {
+                                    "required": [
+                                      "name"
+                                    ], 
+                                    "description": "Initializer is information about an initializer that has not yet completed.", 
+                                    "properties": {
+                                      "name": {
+                                        "type": "string", 
+                                        "description": "name of the process that is responsible for initializing this object."
+                                      }
+                                    }
+                                  }, 
+                                  "type": [
+                                    "array", 
+                                    "null"
+                                  ], 
+                                  "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
+                                }
+                              }
                             }, 
                             "resourceVersion": {
                               "type": "string", 
-                              "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                              "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                             }, 
-                            "ownerReferences": {
-                              "items": {
-                                "required": [
-                                  "apiVersion", 
-                                  "kind", 
-                                  "name", 
-                                  "uid"
-                                ], 
-                                "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
-                                "properties": {
-                                  "kind": {
-                                    "type": "string", 
-                                    "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-                                  }, 
-                                  "uid": {
-                                    "type": "string", 
-                                    "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
-                                  }, 
-                                  "apiVersion": {
-                                    "type": "string", 
-                                    "description": "API version of the referent."
-                                  }, 
-                                  "controller": {
-                                    "type": "boolean", 
-                                    "description": "If true, this reference points to the managing controller."
-                                  }, 
-                                  "blockOwnerDeletion": {
-                                    "type": "boolean", 
-                                    "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
-                                  }, 
-                                  "name": {
-                                    "type": "string", 
-                                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-                                  }
-                                }
-                              }, 
-                              "type": "array", 
-                              "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+                            "generateName": {
+                              "type": "string", 
+                              "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency"
                             }, 
                             "creationTimestamp": {
                               "type": "string", 
@@ -336,16 +527,21 @@
                               "type": "string", 
                               "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
                             }, 
-                            "uid": {
+                            "name": {
                               "type": "string", 
-                              "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                              "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                             }
                           }
                         }
                       }
                     }, 
-                    "type": "array", 
-                    "description": "Signatures holds all signatures of the image."
+                    "x-kubernetes-patch-merge-key": "name", 
+                    "type": [
+                      "array", 
+                      "null"
+                    ], 
+                    "description": "Signatures holds all signatures of the image.", 
+                    "x-kubernetes-patch-strategy": "merge"
                   }, 
                   "dockerImageLayers": {
                     "items": {
@@ -371,7 +567,10 @@
                         }
                       }
                     }, 
-                    "type": "array", 
+                    "type": [
+                      "array", 
+                      "null"
+                    ], 
                     "description": "DockerImageLayers represents the layers in the image. May not be set if the image does not define that data."
                   }, 
                   "dockerImageManifest": {
@@ -393,11 +592,11 @@
                   }, 
                   "kind": {
                     "type": "string", 
-                    "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                    "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                   }, 
                   "apiVersion": {
                     "type": "string", 
-                    "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+                    "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
                   }, 
                   "dockerImageReference": {
                     "type": "string", 
@@ -408,15 +607,62 @@
                       "type": "string", 
                       "format": "byte"
                     }, 
-                    "type": "array", 
+                    "type": [
+                      "array", 
+                      "null"
+                    ], 
                     "description": "DockerImageSignatures provides the signatures as opaque blobs. This is a part of manifest schema v1."
                   }, 
                   "metadata": {
                     "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
                     "properties": {
-                      "name": {
+                      "ownerReferences": {
+                        "items": {
+                          "required": [
+                            "apiVersion", 
+                            "kind", 
+                            "name", 
+                            "uid"
+                          ], 
+                          "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
+                          "properties": {
+                            "kind": {
+                              "type": "string", 
+                              "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                            }, 
+                            "uid": {
+                              "type": "string", 
+                              "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                            }, 
+                            "apiVersion": {
+                              "type": "string", 
+                              "description": "API version of the referent."
+                            }, 
+                            "controller": {
+                              "type": "boolean", 
+                              "description": "If true, this reference points to the managing controller."
+                            }, 
+                            "blockOwnerDeletion": {
+                              "type": "boolean", 
+                              "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
+                            }, 
+                            "name": {
+                              "type": "string", 
+                              "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            }
+                          }
+                        }, 
+                        "x-kubernetes-patch-merge-key": "uid", 
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
+                        "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.", 
+                        "x-kubernetes-patch-strategy": "merge"
+                      }, 
+                      "uid": {
                         "type": "string", 
-                        "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                        "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                       }, 
                       "deletionTimestamp": {
                         "type": "string", 
@@ -446,60 +692,152 @@
                         "items": {
                           "type": "string"
                         }, 
-                        "type": "array", 
-                        "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
+                        "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed.", 
+                        "x-kubernetes-patch-strategy": "merge"
                       }, 
                       "generation": {
                         "type": "integer", 
                         "description": "A sequence number representing a specific generation of the desired state. Populated by the system. Read-only.", 
                         "format": "int64"
                       }, 
-                      "generateName": {
-                        "type": "string", 
-                        "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
+                      "initializers": {
+                        "required": [
+                          "pending"
+                        ], 
+                        "description": "Initializers tracks the progress of initialization.", 
+                        "properties": {
+                          "result": {
+                            "x-kubernetes-group-version-kind": [
+                              {
+                                "kind": "Status", 
+                                "version": "latest", 
+                                "group": ""
+                              }
+                            ], 
+                            "description": "Status is a return value for calls that don't return other objects.", 
+                            "properties": {
+                              "status": {
+                                "type": "string", 
+                                "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
+                              }, 
+                              "kind": {
+                                "type": "string", 
+                                "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                              }, 
+                              "code": {
+                                "type": "integer", 
+                                "description": "Suggested HTTP return code for this status, 0 if not set.", 
+                                "format": "int32"
+                              }, 
+                              "apiVersion": {
+                                "type": "string", 
+                                "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+                              }, 
+                              "reason": {
+                                "type": "string", 
+                                "description": "A machine-readable description of why this operation is in the \"Failure\" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it."
+                              }, 
+                              "details": {
+                                "description": "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.", 
+                                "properties": {
+                                  "kind": {
+                                    "type": "string", 
+                                    "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                  }, 
+                                  "group": {
+                                    "type": "string", 
+                                    "description": "The group attribute of the resource associated with the status StatusReason."
+                                  }, 
+                                  "name": {
+                                    "type": "string", 
+                                    "description": "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described)."
+                                  }, 
+                                  "retryAfterSeconds": {
+                                    "type": "integer", 
+                                    "description": "If specified, the time in seconds before the operation should be retried.", 
+                                    "format": "int32"
+                                  }, 
+                                  "causes": {
+                                    "items": {
+                                      "description": "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.", 
+                                      "properties": {
+                                        "field": {
+                                          "type": "string", 
+                                          "description": "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.\n\nExamples:\n  \"name\" - the field \"name\" on the current resource\n  \"items[0].name\" - the field \"name\" on the first array entry in \"items\""
+                                        }, 
+                                        "message": {
+                                          "type": "string", 
+                                          "description": "A human-readable description of the cause of the error.  This field may be presented as-is to a reader."
+                                        }, 
+                                        "reason": {
+                                          "type": "string", 
+                                          "description": "A machine-readable description of the cause of the error. If this value is empty there is no information available."
+                                        }
+                                      }
+                                    }, 
+                                    "type": [
+                                      "array", 
+                                      "null"
+                                    ], 
+                                    "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                                  }, 
+                                  "uid": {
+                                    "type": "string", 
+                                    "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                  }
+                                }
+                              }, 
+                              "message": {
+                                "type": "string", 
+                                "description": "A human-readable description of the status of this operation."
+                              }, 
+                              "metadata": {
+                                "description": "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.", 
+                                "properties": {
+                                  "selfLink": {
+                                    "type": "string", 
+                                    "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
+                                  }, 
+                                  "resourceVersion": {
+                                    "type": "string", 
+                                    "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
+                                  }
+                                }
+                              }
+                            }
+                          }, 
+                          "pending": {
+                            "items": {
+                              "required": [
+                                "name"
+                              ], 
+                              "description": "Initializer is information about an initializer that has not yet completed.", 
+                              "properties": {
+                                "name": {
+                                  "type": "string", 
+                                  "description": "name of the process that is responsible for initializing this object."
+                                }
+                              }
+                            }, 
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
+                            "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
+                          }
+                        }
                       }, 
                       "resourceVersion": {
                         "type": "string", 
-                        "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                        "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                       }, 
-                      "ownerReferences": {
-                        "items": {
-                          "required": [
-                            "apiVersion", 
-                            "kind", 
-                            "name", 
-                            "uid"
-                          ], 
-                          "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
-                          "properties": {
-                            "kind": {
-                              "type": "string", 
-                              "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-                            }, 
-                            "uid": {
-                              "type": "string", 
-                              "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
-                            }, 
-                            "apiVersion": {
-                              "type": "string", 
-                              "description": "API version of the referent."
-                            }, 
-                            "controller": {
-                              "type": "boolean", 
-                              "description": "If true, this reference points to the managing controller."
-                            }, 
-                            "blockOwnerDeletion": {
-                              "type": "boolean", 
-                              "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
-                            }, 
-                            "name": {
-                              "type": "string", 
-                              "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-                            }
-                          }
-                        }, 
-                        "type": "array", 
-                        "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+                      "generateName": {
+                        "type": "string", 
+                        "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency"
                       }, 
                       "creationTimestamp": {
                         "type": "string", 
@@ -516,9 +854,9 @@
                         "type": "string", 
                         "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
                       }, 
-                      "uid": {
+                      "name": {
                         "type": "string", 
-                        "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                        "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }
                     }
                   }
@@ -530,12 +868,27 @@
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Images is set with the result of importing spec.images"
         }, 
         "import": {
           "required": [
             "spec"
+          ], 
+          "x-kubernetes-group-version-kind": [
+            {
+              "kind": "ImageStream", 
+              "version": "latest", 
+              "group": ""
+            }, 
+            {
+              "kind": "ImageStream", 
+              "version": "latest", 
+              "group": "image.openshift.io"
+            }
           ], 
           "description": "ImageStream stores a mapping of tags to images, metadata overrides that are applied when images are tagged in a stream, and an optional reference to a Docker image repository on a registry.", 
           "properties": {
@@ -586,7 +939,10 @@
                             }
                           }
                         }, 
-                        "type": "array", 
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
                         "description": "Standard object's metadata."
                       }, 
                       "tag": {
@@ -629,19 +985,25 @@
                             }
                           }
                         }, 
-                        "type": "array", 
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
                         "description": "Conditions is an array of conditions that apply to the tag event list."
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Tags are a historical record of images associated with each tag. The first entry in the TagEvent array is the currently tagged image."
                 }
               }
             }, 
             "kind": {
               "type": "string", 
-              "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+              "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
             }, 
             "spec": {
               "description": "ImageStreamSpec represents options for ImageStreams.", 
@@ -689,15 +1051,15 @@
                         "properties": {
                           "kind": {
                             "type": "string", 
-                            "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                            "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                           }, 
                           "name": {
                             "type": "string", 
-                            "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                           }, 
                           "namespace": {
                             "type": "string", 
-                            "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                            "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
                           }, 
                           "apiVersion": {
                             "type": "string", 
@@ -709,11 +1071,11 @@
                           }, 
                           "resourceVersion": {
                             "type": "string", 
-                            "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                            "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                           }, 
                           "uid": {
                             "type": "string", 
-                            "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                            "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
                           }
                         }
                       }, 
@@ -751,21 +1113,68 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "tags map arbitrary string values to specific image locators"
                 }
               }
             }, 
             "apiVersion": {
               "type": "string", 
-              "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+              "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
             }, 
             "metadata": {
               "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
               "properties": {
-                "name": {
+                "ownerReferences": {
+                  "items": {
+                    "required": [
+                      "apiVersion", 
+                      "kind", 
+                      "name", 
+                      "uid"
+                    ], 
+                    "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
+                    "properties": {
+                      "kind": {
+                        "type": "string", 
+                        "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                      }, 
+                      "uid": {
+                        "type": "string", 
+                        "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                      }, 
+                      "apiVersion": {
+                        "type": "string", 
+                        "description": "API version of the referent."
+                      }, 
+                      "controller": {
+                        "type": "boolean", 
+                        "description": "If true, this reference points to the managing controller."
+                      }, 
+                      "blockOwnerDeletion": {
+                        "type": "boolean", 
+                        "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
+                      }, 
+                      "name": {
+                        "type": "string", 
+                        "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                      }
+                    }
+                  }, 
+                  "x-kubernetes-patch-merge-key": "uid", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
+                  "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.", 
+                  "x-kubernetes-patch-strategy": "merge"
+                }, 
+                "uid": {
                   "type": "string", 
-                  "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                  "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                 }, 
                 "deletionTimestamp": {
                   "type": "string", 
@@ -795,60 +1204,152 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
-                  "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
+                  "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed.", 
+                  "x-kubernetes-patch-strategy": "merge"
                 }, 
                 "generation": {
                   "type": "integer", 
                   "description": "A sequence number representing a specific generation of the desired state. Populated by the system. Read-only.", 
                   "format": "int64"
                 }, 
-                "generateName": {
-                  "type": "string", 
-                  "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
+                "initializers": {
+                  "required": [
+                    "pending"
+                  ], 
+                  "description": "Initializers tracks the progress of initialization.", 
+                  "properties": {
+                    "result": {
+                      "x-kubernetes-group-version-kind": [
+                        {
+                          "kind": "Status", 
+                          "version": "latest", 
+                          "group": ""
+                        }
+                      ], 
+                      "description": "Status is a return value for calls that don't return other objects.", 
+                      "properties": {
+                        "status": {
+                          "type": "string", 
+                          "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
+                        }, 
+                        "kind": {
+                          "type": "string", 
+                          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                        }, 
+                        "code": {
+                          "type": "integer", 
+                          "description": "Suggested HTTP return code for this status, 0 if not set.", 
+                          "format": "int32"
+                        }, 
+                        "apiVersion": {
+                          "type": "string", 
+                          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+                        }, 
+                        "reason": {
+                          "type": "string", 
+                          "description": "A machine-readable description of why this operation is in the \"Failure\" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it."
+                        }, 
+                        "details": {
+                          "description": "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.", 
+                          "properties": {
+                            "kind": {
+                              "type": "string", 
+                              "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                            }, 
+                            "group": {
+                              "type": "string", 
+                              "description": "The group attribute of the resource associated with the status StatusReason."
+                            }, 
+                            "name": {
+                              "type": "string", 
+                              "description": "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described)."
+                            }, 
+                            "retryAfterSeconds": {
+                              "type": "integer", 
+                              "description": "If specified, the time in seconds before the operation should be retried.", 
+                              "format": "int32"
+                            }, 
+                            "causes": {
+                              "items": {
+                                "description": "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.", 
+                                "properties": {
+                                  "field": {
+                                    "type": "string", 
+                                    "description": "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.\n\nExamples:\n  \"name\" - the field \"name\" on the current resource\n  \"items[0].name\" - the field \"name\" on the first array entry in \"items\""
+                                  }, 
+                                  "message": {
+                                    "type": "string", 
+                                    "description": "A human-readable description of the cause of the error.  This field may be presented as-is to a reader."
+                                  }, 
+                                  "reason": {
+                                    "type": "string", 
+                                    "description": "A machine-readable description of the cause of the error. If this value is empty there is no information available."
+                                  }
+                                }
+                              }, 
+                              "type": [
+                                "array", 
+                                "null"
+                              ], 
+                              "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                            }, 
+                            "uid": {
+                              "type": "string", 
+                              "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                            }
+                          }
+                        }, 
+                        "message": {
+                          "type": "string", 
+                          "description": "A human-readable description of the status of this operation."
+                        }, 
+                        "metadata": {
+                          "description": "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.", 
+                          "properties": {
+                            "selfLink": {
+                              "type": "string", 
+                              "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
+                            }, 
+                            "resourceVersion": {
+                              "type": "string", 
+                              "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
+                            }
+                          }
+                        }
+                      }
+                    }, 
+                    "pending": {
+                      "items": {
+                        "required": [
+                          "name"
+                        ], 
+                        "description": "Initializer is information about an initializer that has not yet completed.", 
+                        "properties": {
+                          "name": {
+                            "type": "string", 
+                            "description": "name of the process that is responsible for initializing this object."
+                          }
+                        }
+                      }, 
+                      "type": [
+                        "array", 
+                        "null"
+                      ], 
+                      "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
+                    }
+                  }
                 }, 
                 "resourceVersion": {
                   "type": "string", 
-                  "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                  "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                 }, 
-                "ownerReferences": {
-                  "items": {
-                    "required": [
-                      "apiVersion", 
-                      "kind", 
-                      "name", 
-                      "uid"
-                    ], 
-                    "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
-                    "properties": {
-                      "kind": {
-                        "type": "string", 
-                        "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-                      }, 
-                      "uid": {
-                        "type": "string", 
-                        "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
-                      }, 
-                      "apiVersion": {
-                        "type": "string", 
-                        "description": "API version of the referent."
-                      }, 
-                      "controller": {
-                        "type": "boolean", 
-                        "description": "If true, this reference points to the managing controller."
-                      }, 
-                      "blockOwnerDeletion": {
-                        "type": "boolean", 
-                        "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
-                      }, 
-                      "name": {
-                        "type": "string", 
-                        "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-                      }
-                    }
-                  }, 
-                  "type": "array", 
-                  "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+                "generateName": {
+                  "type": "string", 
+                  "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency"
                 }, 
                 "creationTimestamp": {
                   "type": "string", 
@@ -865,9 +1366,9 @@
                   "type": "string", 
                   "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
                 }, 
-                "uid": {
+                "name": {
                   "type": "string", 
-                  "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                  "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                 }
               }
             }
@@ -884,15 +1385,22 @@
                 "description": "ImageImportStatus describes the result of an image import.", 
                 "properties": {
                   "status": {
+                    "x-kubernetes-group-version-kind": [
+                      {
+                        "kind": "Status", 
+                        "version": "latest", 
+                        "group": ""
+                      }
+                    ], 
                     "description": "Status is a return value for calls that don't return other objects.", 
                     "properties": {
                       "status": {
                         "type": "string", 
-                        "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+                        "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
                       }, 
                       "kind": {
                         "type": "string", 
-                        "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                        "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                       }, 
                       "code": {
                         "type": "integer", 
@@ -901,7 +1409,7 @@
                       }, 
                       "apiVersion": {
                         "type": "string", 
-                        "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+                        "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
                       }, 
                       "reason": {
                         "type": "string", 
@@ -912,7 +1420,7 @@
                         "properties": {
                           "kind": {
                             "type": "string", 
-                            "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                            "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                           }, 
                           "group": {
                             "type": "string", 
@@ -945,8 +1453,15 @@
                                 }
                               }
                             }, 
-                            "type": "array", 
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
                             "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                          }, 
+                          "uid": {
+                            "type": "string", 
+                            "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                           }
                         }
                       }, 
@@ -963,7 +1478,7 @@
                           }, 
                           "resourceVersion": {
                             "type": "string", 
-                            "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                            "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                           }
                         }
                       }
@@ -972,6 +1487,18 @@
                   "image": {
                     "required": [
                       "dockerImageLayers"
+                    ], 
+                    "x-kubernetes-group-version-kind": [
+                      {
+                        "kind": "Image", 
+                        "version": "latest", 
+                        "group": ""
+                      }, 
+                      {
+                        "kind": "Image", 
+                        "version": "latest", 
+                        "group": "image.openshift.io"
+                      }
                     ], 
                     "description": "Image is an immutable representation of a Docker image and metadata at a point in time.", 
                     "properties": {
@@ -993,11 +1520,23 @@
                             "type", 
                             "content"
                           ], 
+                          "x-kubernetes-group-version-kind": [
+                            {
+                              "kind": "ImageSignature", 
+                              "version": "latest", 
+                              "group": ""
+                            }, 
+                            {
+                              "kind": "ImageSignature", 
+                              "version": "latest", 
+                              "group": "image.openshift.io"
+                            }
+                          ], 
                           "description": "ImageSignature holds a signature of an image. It allows to verify image identity and possibly other claims as long as the signature is trusted. Based on this information it is possible to restrict runnable images to those matching cluster-wide policy. Mandatory fields should be parsed by clients doing image verification. The others are parsed from signature's content by the server. They serve just an informative purpose.", 
                           "properties": {
                             "kind": {
                               "type": "string", 
-                              "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                              "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                             }, 
                             "issuedBy": {
                               "description": "SignatureIssuer holds information about an issuer of signing certificate or key.", 
@@ -1015,10 +1554,6 @@
                             "created": {
                               "type": "string", 
                               "format": "date-time"
-                            }, 
-                            "imageIdentity": {
-                              "type": "string", 
-                              "description": "A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\")."
                             }, 
                             "issuedTo": {
                               "required": [
@@ -1040,9 +1575,13 @@
                                 }
                               }
                             }, 
+                            "imageIdentity": {
+                              "type": "string", 
+                              "description": "A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\")."
+                            }, 
                             "apiVersion": {
                               "type": "string", 
-                              "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+                              "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
                             }, 
                             "content": {
                               "type": "string", 
@@ -1094,15 +1633,64 @@
                                   }
                                 }
                               }, 
-                              "type": "array", 
-                              "description": "Conditions represent the latest available observations of a signature's current state."
+                              "x-kubernetes-patch-merge-key": "type", 
+                              "type": [
+                                "array", 
+                                "null"
+                              ], 
+                              "description": "Conditions represent the latest available observations of a signature's current state.", 
+                              "x-kubernetes-patch-strategy": "merge"
                             }, 
                             "metadata": {
                               "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
                               "properties": {
-                                "name": {
+                                "ownerReferences": {
+                                  "items": {
+                                    "required": [
+                                      "apiVersion", 
+                                      "kind", 
+                                      "name", 
+                                      "uid"
+                                    ], 
+                                    "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
+                                    "properties": {
+                                      "kind": {
+                                        "type": "string", 
+                                        "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                      }, 
+                                      "uid": {
+                                        "type": "string", 
+                                        "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                      }, 
+                                      "apiVersion": {
+                                        "type": "string", 
+                                        "description": "API version of the referent."
+                                      }, 
+                                      "controller": {
+                                        "type": "boolean", 
+                                        "description": "If true, this reference points to the managing controller."
+                                      }, 
+                                      "blockOwnerDeletion": {
+                                        "type": "boolean", 
+                                        "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
+                                      }, 
+                                      "name": {
+                                        "type": "string", 
+                                        "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                                      }
+                                    }
+                                  }, 
+                                  "x-kubernetes-patch-merge-key": "uid", 
+                                  "type": [
+                                    "array", 
+                                    "null"
+                                  ], 
+                                  "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.", 
+                                  "x-kubernetes-patch-strategy": "merge"
+                                }, 
+                                "uid": {
                                   "type": "string", 
-                                  "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                                  "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                                 }, 
                                 "deletionTimestamp": {
                                   "type": "string", 
@@ -1132,60 +1720,152 @@
                                   "items": {
                                     "type": "string"
                                   }, 
-                                  "type": "array", 
-                                  "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
+                                  "type": [
+                                    "array", 
+                                    "null"
+                                  ], 
+                                  "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed.", 
+                                  "x-kubernetes-patch-strategy": "merge"
                                 }, 
                                 "generation": {
                                   "type": "integer", 
                                   "description": "A sequence number representing a specific generation of the desired state. Populated by the system. Read-only.", 
                                   "format": "int64"
                                 }, 
-                                "generateName": {
-                                  "type": "string", 
-                                  "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
+                                "initializers": {
+                                  "required": [
+                                    "pending"
+                                  ], 
+                                  "description": "Initializers tracks the progress of initialization.", 
+                                  "properties": {
+                                    "result": {
+                                      "x-kubernetes-group-version-kind": [
+                                        {
+                                          "kind": "Status", 
+                                          "version": "latest", 
+                                          "group": ""
+                                        }
+                                      ], 
+                                      "description": "Status is a return value for calls that don't return other objects.", 
+                                      "properties": {
+                                        "status": {
+                                          "type": "string", 
+                                          "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
+                                        }, 
+                                        "kind": {
+                                          "type": "string", 
+                                          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                        }, 
+                                        "code": {
+                                          "type": "integer", 
+                                          "description": "Suggested HTTP return code for this status, 0 if not set.", 
+                                          "format": "int32"
+                                        }, 
+                                        "apiVersion": {
+                                          "type": "string", 
+                                          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+                                        }, 
+                                        "reason": {
+                                          "type": "string", 
+                                          "description": "A machine-readable description of why this operation is in the \"Failure\" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it."
+                                        }, 
+                                        "details": {
+                                          "description": "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.", 
+                                          "properties": {
+                                            "kind": {
+                                              "type": "string", 
+                                              "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                            }, 
+                                            "group": {
+                                              "type": "string", 
+                                              "description": "The group attribute of the resource associated with the status StatusReason."
+                                            }, 
+                                            "name": {
+                                              "type": "string", 
+                                              "description": "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described)."
+                                            }, 
+                                            "retryAfterSeconds": {
+                                              "type": "integer", 
+                                              "description": "If specified, the time in seconds before the operation should be retried.", 
+                                              "format": "int32"
+                                            }, 
+                                            "causes": {
+                                              "items": {
+                                                "description": "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.", 
+                                                "properties": {
+                                                  "field": {
+                                                    "type": "string", 
+                                                    "description": "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.\n\nExamples:\n  \"name\" - the field \"name\" on the current resource\n  \"items[0].name\" - the field \"name\" on the first array entry in \"items\""
+                                                  }, 
+                                                  "message": {
+                                                    "type": "string", 
+                                                    "description": "A human-readable description of the cause of the error.  This field may be presented as-is to a reader."
+                                                  }, 
+                                                  "reason": {
+                                                    "type": "string", 
+                                                    "description": "A machine-readable description of the cause of the error. If this value is empty there is no information available."
+                                                  }
+                                                }
+                                              }, 
+                                              "type": [
+                                                "array", 
+                                                "null"
+                                              ], 
+                                              "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                                            }, 
+                                            "uid": {
+                                              "type": "string", 
+                                              "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                            }
+                                          }
+                                        }, 
+                                        "message": {
+                                          "type": "string", 
+                                          "description": "A human-readable description of the status of this operation."
+                                        }, 
+                                        "metadata": {
+                                          "description": "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.", 
+                                          "properties": {
+                                            "selfLink": {
+                                              "type": "string", 
+                                              "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
+                                            }, 
+                                            "resourceVersion": {
+                                              "type": "string", 
+                                              "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }, 
+                                    "pending": {
+                                      "items": {
+                                        "required": [
+                                          "name"
+                                        ], 
+                                        "description": "Initializer is information about an initializer that has not yet completed.", 
+                                        "properties": {
+                                          "name": {
+                                            "type": "string", 
+                                            "description": "name of the process that is responsible for initializing this object."
+                                          }
+                                        }
+                                      }, 
+                                      "type": [
+                                        "array", 
+                                        "null"
+                                      ], 
+                                      "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
+                                    }
+                                  }
                                 }, 
                                 "resourceVersion": {
                                   "type": "string", 
-                                  "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                                  "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                                 }, 
-                                "ownerReferences": {
-                                  "items": {
-                                    "required": [
-                                      "apiVersion", 
-                                      "kind", 
-                                      "name", 
-                                      "uid"
-                                    ], 
-                                    "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
-                                    "properties": {
-                                      "kind": {
-                                        "type": "string", 
-                                        "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-                                      }, 
-                                      "uid": {
-                                        "type": "string", 
-                                        "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
-                                      }, 
-                                      "apiVersion": {
-                                        "type": "string", 
-                                        "description": "API version of the referent."
-                                      }, 
-                                      "controller": {
-                                        "type": "boolean", 
-                                        "description": "If true, this reference points to the managing controller."
-                                      }, 
-                                      "blockOwnerDeletion": {
-                                        "type": "boolean", 
-                                        "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
-                                      }, 
-                                      "name": {
-                                        "type": "string", 
-                                        "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-                                      }
-                                    }
-                                  }, 
-                                  "type": "array", 
-                                  "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+                                "generateName": {
+                                  "type": "string", 
+                                  "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency"
                                 }, 
                                 "creationTimestamp": {
                                   "type": "string", 
@@ -1202,16 +1882,21 @@
                                   "type": "string", 
                                   "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
                                 }, 
-                                "uid": {
+                                "name": {
                                   "type": "string", 
-                                  "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                  "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                 }
                               }
                             }
                           }
                         }, 
-                        "type": "array", 
-                        "description": "Signatures holds all signatures of the image."
+                        "x-kubernetes-patch-merge-key": "name", 
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
+                        "description": "Signatures holds all signatures of the image.", 
+                        "x-kubernetes-patch-strategy": "merge"
                       }, 
                       "dockerImageLayers": {
                         "items": {
@@ -1237,7 +1922,10 @@
                             }
                           }
                         }, 
-                        "type": "array", 
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
                         "description": "DockerImageLayers represents the layers in the image. May not be set if the image does not define that data."
                       }, 
                       "dockerImageManifest": {
@@ -1259,11 +1947,11 @@
                       }, 
                       "kind": {
                         "type": "string", 
-                        "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                        "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                       }, 
                       "apiVersion": {
                         "type": "string", 
-                        "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+                        "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
                       }, 
                       "dockerImageReference": {
                         "type": "string", 
@@ -1274,15 +1962,62 @@
                           "type": "string", 
                           "format": "byte"
                         }, 
-                        "type": "array", 
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
                         "description": "DockerImageSignatures provides the signatures as opaque blobs. This is a part of manifest schema v1."
                       }, 
                       "metadata": {
                         "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
                         "properties": {
-                          "name": {
+                          "ownerReferences": {
+                            "items": {
+                              "required": [
+                                "apiVersion", 
+                                "kind", 
+                                "name", 
+                                "uid"
+                              ], 
+                              "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
+                              "properties": {
+                                "kind": {
+                                  "type": "string", 
+                                  "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                }, 
+                                "uid": {
+                                  "type": "string", 
+                                  "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                }, 
+                                "apiVersion": {
+                                  "type": "string", 
+                                  "description": "API version of the referent."
+                                }, 
+                                "controller": {
+                                  "type": "boolean", 
+                                  "description": "If true, this reference points to the managing controller."
+                                }, 
+                                "blockOwnerDeletion": {
+                                  "type": "boolean", 
+                                  "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
+                                }, 
+                                "name": {
+                                  "type": "string", 
+                                  "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                                }
+                              }
+                            }, 
+                            "x-kubernetes-patch-merge-key": "uid", 
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
+                            "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.", 
+                            "x-kubernetes-patch-strategy": "merge"
+                          }, 
+                          "uid": {
                             "type": "string", 
-                            "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                           }, 
                           "deletionTimestamp": {
                             "type": "string", 
@@ -1312,60 +2047,152 @@
                             "items": {
                               "type": "string"
                             }, 
-                            "type": "array", 
-                            "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
+                            "type": [
+                              "array", 
+                              "null"
+                            ], 
+                            "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed.", 
+                            "x-kubernetes-patch-strategy": "merge"
                           }, 
                           "generation": {
                             "type": "integer", 
                             "description": "A sequence number representing a specific generation of the desired state. Populated by the system. Read-only.", 
                             "format": "int64"
                           }, 
-                          "generateName": {
-                            "type": "string", 
-                            "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
+                          "initializers": {
+                            "required": [
+                              "pending"
+                            ], 
+                            "description": "Initializers tracks the progress of initialization.", 
+                            "properties": {
+                              "result": {
+                                "x-kubernetes-group-version-kind": [
+                                  {
+                                    "kind": "Status", 
+                                    "version": "latest", 
+                                    "group": ""
+                                  }
+                                ], 
+                                "description": "Status is a return value for calls that don't return other objects.", 
+                                "properties": {
+                                  "status": {
+                                    "type": "string", 
+                                    "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
+                                  }, 
+                                  "kind": {
+                                    "type": "string", 
+                                    "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                  }, 
+                                  "code": {
+                                    "type": "integer", 
+                                    "description": "Suggested HTTP return code for this status, 0 if not set.", 
+                                    "format": "int32"
+                                  }, 
+                                  "apiVersion": {
+                                    "type": "string", 
+                                    "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+                                  }, 
+                                  "reason": {
+                                    "type": "string", 
+                                    "description": "A machine-readable description of why this operation is in the \"Failure\" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it."
+                                  }, 
+                                  "details": {
+                                    "description": "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.", 
+                                    "properties": {
+                                      "kind": {
+                                        "type": "string", 
+                                        "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                                      }, 
+                                      "group": {
+                                        "type": "string", 
+                                        "description": "The group attribute of the resource associated with the status StatusReason."
+                                      }, 
+                                      "name": {
+                                        "type": "string", 
+                                        "description": "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described)."
+                                      }, 
+                                      "retryAfterSeconds": {
+                                        "type": "integer", 
+                                        "description": "If specified, the time in seconds before the operation should be retried.", 
+                                        "format": "int32"
+                                      }, 
+                                      "causes": {
+                                        "items": {
+                                          "description": "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.", 
+                                          "properties": {
+                                            "field": {
+                                              "type": "string", 
+                                              "description": "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.\n\nExamples:\n  \"name\" - the field \"name\" on the current resource\n  \"items[0].name\" - the field \"name\" on the first array entry in \"items\""
+                                            }, 
+                                            "message": {
+                                              "type": "string", 
+                                              "description": "A human-readable description of the cause of the error.  This field may be presented as-is to a reader."
+                                            }, 
+                                            "reason": {
+                                              "type": "string", 
+                                              "description": "A machine-readable description of the cause of the error. If this value is empty there is no information available."
+                                            }
+                                          }
+                                        }, 
+                                        "type": [
+                                          "array", 
+                                          "null"
+                                        ], 
+                                        "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                                      }, 
+                                      "uid": {
+                                        "type": "string", 
+                                        "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                                      }
+                                    }
+                                  }, 
+                                  "message": {
+                                    "type": "string", 
+                                    "description": "A human-readable description of the status of this operation."
+                                  }, 
+                                  "metadata": {
+                                    "description": "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.", 
+                                    "properties": {
+                                      "selfLink": {
+                                        "type": "string", 
+                                        "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
+                                      }, 
+                                      "resourceVersion": {
+                                        "type": "string", 
+                                        "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
+                                      }
+                                    }
+                                  }
+                                }
+                              }, 
+                              "pending": {
+                                "items": {
+                                  "required": [
+                                    "name"
+                                  ], 
+                                  "description": "Initializer is information about an initializer that has not yet completed.", 
+                                  "properties": {
+                                    "name": {
+                                      "type": "string", 
+                                      "description": "name of the process that is responsible for initializing this object."
+                                    }
+                                  }
+                                }, 
+                                "type": [
+                                  "array", 
+                                  "null"
+                                ], 
+                                "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
+                              }
+                            }
                           }, 
                           "resourceVersion": {
                             "type": "string", 
-                            "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                            "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                           }, 
-                          "ownerReferences": {
-                            "items": {
-                              "required": [
-                                "apiVersion", 
-                                "kind", 
-                                "name", 
-                                "uid"
-                              ], 
-                              "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
-                              "properties": {
-                                "kind": {
-                                  "type": "string", 
-                                  "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-                                }, 
-                                "uid": {
-                                  "type": "string", 
-                                  "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
-                                }, 
-                                "apiVersion": {
-                                  "type": "string", 
-                                  "description": "API version of the referent."
-                                }, 
-                                "controller": {
-                                  "type": "boolean", 
-                                  "description": "If true, this reference points to the managing controller."
-                                }, 
-                                "blockOwnerDeletion": {
-                                  "type": "boolean", 
-                                  "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
-                                }, 
-                                "name": {
-                                  "type": "string", 
-                                  "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-                                }
-                              }
-                            }, 
-                            "type": "array", 
-                            "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+                          "generateName": {
+                            "type": "string", 
+                            "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency"
                           }, 
                           "creationTimestamp": {
                             "type": "string", 
@@ -1382,9 +2209,9 @@
                             "type": "string", 
                             "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
                           }, 
-                          "uid": {
+                          "name": {
                             "type": "string", 
-                            "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                            "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }
                         }
                       }
@@ -1396,19 +2223,29 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Images is a list of images successfully retrieved by the import of the repository."
             }, 
             "status": {
+              "x-kubernetes-group-version-kind": [
+                {
+                  "kind": "Status", 
+                  "version": "latest", 
+                  "group": ""
+                }
+              ], 
               "description": "Status is a return value for calls that don't return other objects.", 
               "properties": {
                 "status": {
                   "type": "string", 
-                  "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status"
+                  "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
                 }, 
                 "kind": {
                   "type": "string", 
-                  "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                  "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                 }, 
                 "code": {
                   "type": "integer", 
@@ -1417,7 +2254,7 @@
                 }, 
                 "apiVersion": {
                   "type": "string", 
-                  "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+                  "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
                 }, 
                 "reason": {
                   "type": "string", 
@@ -1428,7 +2265,7 @@
                   "properties": {
                     "kind": {
                       "type": "string", 
-                      "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                      "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                     }, 
                     "group": {
                       "type": "string", 
@@ -1461,8 +2298,15 @@
                           }
                         }
                       }, 
-                      "type": "array", 
+                      "type": [
+                        "array", 
+                        "null"
+                      ], 
                       "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                    }, 
+                    "uid": {
+                      "type": "string", 
+                      "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                     }
                   }
                 }, 
@@ -1479,7 +2323,7 @@
                     }, 
                     "resourceVersion": {
                       "type": "string", 
-                      "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                      "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                     }
                   }
                 }
@@ -1489,7 +2333,10 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "AdditionalTags are tags that exist in the repository but were not imported because a maximum limit of automatic imports was applied."
             }
           }
@@ -1498,7 +2345,7 @@
     }, 
     "kind": {
       "type": "string", 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "spec": {
       "required": [
@@ -1538,24 +2385,20 @@
                   }
                 }
               }, 
-              "includeManifest": {
-                "type": "boolean", 
-                "description": "IncludeManifest determines if the manifest for each image is returned in the response"
-              }, 
               "from": {
                 "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                 "properties": {
                   "kind": {
                     "type": "string", 
-                    "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                    "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                   }, 
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }, 
                   "namespace": {
                     "type": "string", 
-                    "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                    "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
                   }, 
                   "apiVersion": {
                     "type": "string", 
@@ -1567,26 +2410,33 @@
                   }, 
                   "resourceVersion": {
                     "type": "string", 
-                    "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                    "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                   }, 
                   "uid": {
                     "type": "string", 
-                    "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                    "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
                   }
                 }
+              }, 
+              "includeManifest": {
+                "type": "boolean", 
+                "description": "IncludeManifest determines if the manifest for each image is returned in the response"
               }, 
               "to": {
                 "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
                 "properties": {
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }
                 }
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Images are a list of individual images to import."
         }, 
         "import": {
@@ -1633,15 +2483,15 @@
               "properties": {
                 "kind": {
                   "type": "string", 
-                  "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                  "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                 }, 
                 "name": {
                   "type": "string", 
-                  "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                 }, 
                 "namespace": {
                   "type": "string", 
-                  "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                  "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
                 }, 
                 "apiVersion": {
                   "type": "string", 
@@ -1653,11 +2503,11 @@
                 }, 
                 "resourceVersion": {
                   "type": "string", 
-                  "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                  "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                 }, 
                 "uid": {
                   "type": "string", 
-                  "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                  "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
                 }
               }
             }
@@ -1667,14 +2517,58 @@
     }, 
     "apiVersion": {
       "type": "string", 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "metadata": {
       "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
       "properties": {
-        "name": {
+        "ownerReferences": {
+          "items": {
+            "required": [
+              "apiVersion", 
+              "kind", 
+              "name", 
+              "uid"
+            ], 
+            "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
+            "properties": {
+              "kind": {
+                "type": "string", 
+                "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+              }, 
+              "uid": {
+                "type": "string", 
+                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+              }, 
+              "apiVersion": {
+                "type": "string", 
+                "description": "API version of the referent."
+              }, 
+              "controller": {
+                "type": "boolean", 
+                "description": "If true, this reference points to the managing controller."
+              }, 
+              "blockOwnerDeletion": {
+                "type": "boolean", 
+                "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
+              }, 
+              "name": {
+                "type": "string", 
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+              }
+            }
+          }, 
+          "x-kubernetes-patch-merge-key": "uid", 
+          "type": [
+            "array", 
+            "null"
+          ], 
+          "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.", 
+          "x-kubernetes-patch-strategy": "merge"
+        }, 
+        "uid": {
           "type": "string", 
-          "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+          "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
         }, 
         "deletionTimestamp": {
           "type": "string", 
@@ -1704,60 +2598,152 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
-          "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
+          "type": [
+            "array", 
+            "null"
+          ], 
+          "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed.", 
+          "x-kubernetes-patch-strategy": "merge"
         }, 
         "generation": {
           "type": "integer", 
           "description": "A sequence number representing a specific generation of the desired state. Populated by the system. Read-only.", 
           "format": "int64"
         }, 
-        "generateName": {
-          "type": "string", 
-          "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
+        "initializers": {
+          "required": [
+            "pending"
+          ], 
+          "description": "Initializers tracks the progress of initialization.", 
+          "properties": {
+            "result": {
+              "x-kubernetes-group-version-kind": [
+                {
+                  "kind": "Status", 
+                  "version": "latest", 
+                  "group": ""
+                }
+              ], 
+              "description": "Status is a return value for calls that don't return other objects.", 
+              "properties": {
+                "status": {
+                  "type": "string", 
+                  "description": "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status"
+                }, 
+                "kind": {
+                  "type": "string", 
+                  "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                }, 
+                "code": {
+                  "type": "integer", 
+                  "description": "Suggested HTTP return code for this status, 0 if not set.", 
+                  "format": "int32"
+                }, 
+                "apiVersion": {
+                  "type": "string", 
+                  "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+                }, 
+                "reason": {
+                  "type": "string", 
+                  "description": "A machine-readable description of why this operation is in the \"Failure\" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it."
+                }, 
+                "details": {
+                  "description": "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.", 
+                  "properties": {
+                    "kind": {
+                      "type": "string", 
+                      "description": "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                    }, 
+                    "group": {
+                      "type": "string", 
+                      "description": "The group attribute of the resource associated with the status StatusReason."
+                    }, 
+                    "name": {
+                      "type": "string", 
+                      "description": "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described)."
+                    }, 
+                    "retryAfterSeconds": {
+                      "type": "integer", 
+                      "description": "If specified, the time in seconds before the operation should be retried.", 
+                      "format": "int32"
+                    }, 
+                    "causes": {
+                      "items": {
+                        "description": "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.", 
+                        "properties": {
+                          "field": {
+                            "type": "string", 
+                            "description": "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.\n\nExamples:\n  \"name\" - the field \"name\" on the current resource\n  \"items[0].name\" - the field \"name\" on the first array entry in \"items\""
+                          }, 
+                          "message": {
+                            "type": "string", 
+                            "description": "A human-readable description of the cause of the error.  This field may be presented as-is to a reader."
+                          }, 
+                          "reason": {
+                            "type": "string", 
+                            "description": "A machine-readable description of the cause of the error. If this value is empty there is no information available."
+                          }
+                        }
+                      }, 
+                      "type": [
+                        "array", 
+                        "null"
+                      ], 
+                      "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes."
+                    }, 
+                    "uid": {
+                      "type": "string", 
+                      "description": "UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                    }
+                  }
+                }, 
+                "message": {
+                  "type": "string", 
+                  "description": "A human-readable description of the status of this operation."
+                }, 
+                "metadata": {
+                  "description": "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.", 
+                  "properties": {
+                    "selfLink": {
+                      "type": "string", 
+                      "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
+                    }, 
+                    "resourceVersion": {
+                      "type": "string", 
+                      "description": "String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
+                    }
+                  }
+                }
+              }
+            }, 
+            "pending": {
+              "items": {
+                "required": [
+                  "name"
+                ], 
+                "description": "Initializer is information about an initializer that has not yet completed.", 
+                "properties": {
+                  "name": {
+                    "type": "string", 
+                    "description": "name of the process that is responsible for initializing this object."
+                  }
+                }
+              }, 
+              "type": [
+                "array", 
+                "null"
+              ], 
+              "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
+            }
+          }
         }, 
         "resourceVersion": {
           "type": "string", 
-          "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+          "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
         }, 
-        "ownerReferences": {
-          "items": {
-            "required": [
-              "apiVersion", 
-              "kind", 
-              "name", 
-              "uid"
-            ], 
-            "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
-            "properties": {
-              "kind": {
-                "type": "string", 
-                "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-              }, 
-              "uid": {
-                "type": "string", 
-                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
-              }, 
-              "apiVersion": {
-                "type": "string", 
-                "description": "API version of the referent."
-              }, 
-              "controller": {
-                "type": "boolean", 
-                "description": "If true, this reference points to the managing controller."
-              }, 
-              "blockOwnerDeletion": {
-                "type": "boolean", 
-                "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
-              }, 
-              "name": {
-                "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-              }
-            }
-          }, 
-          "type": "array", 
-          "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+        "generateName": {
+          "type": "string", 
+          "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency"
         }, 
         "creationTimestamp": {
           "type": "string", 
@@ -1774,9 +2760,9 @@
           "type": "string", 
           "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
         }, 
-        "uid": {
+        "name": {
           "type": "string", 
-          "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+          "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
         }
       }
     }

@@ -5,13 +5,16 @@
   "properties": {
     "from": {
       "description": "from is reference to an DockerImage, ImageStreamTag, or ImageStreamImage from which the docker image should be pulled the resulting image will be used in the FROM line of the Dockerfile for this build.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }, 
     "buildArgs": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.EnvVar"
+        "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVar"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "buildArgs contains build arguments that will be resolved in the Dockerfile.  See https://docs.docker.com/engine/reference/builder/#/arg for more details."
     }, 
     "noCache": {
@@ -24,14 +27,17 @@
     }, 
     "env": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.EnvVar"
+        "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVar"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "env contains additional environment variables you want to pass into a builder container."
     }, 
     "pullSecret": {
       "description": "pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries", 
-      "$ref": "_definitions.json#/definitions/v1.LocalObjectReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.LocalObjectReference"
     }, 
     "forcePull": {
       "type": "boolean", 

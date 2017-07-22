@@ -18,7 +18,10 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.TagImageHook"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
     }
   }

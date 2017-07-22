@@ -6,17 +6,17 @@
   "type": "object", 
   "description": "SourceBuildStrategy defines input parameters specific to an Source build.", 
   "properties": {
-    "scripts": {
-      "type": "string", 
-      "description": "scripts is the location of Source scripts"
+    "pullSecret": {
+      "description": "pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries", 
+      "$ref": "_definitions.json#/definitions/v1.LocalObjectReference"
     }, 
     "from": {
       "description": "from is reference to an DockerImage, ImageStreamTag, or ImageStreamImage from which the docker image should be pulled", 
       "$ref": "_definitions.json#/definitions/v1.ObjectReference"
     }, 
-    "pullSecret": {
-      "description": "pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries", 
-      "$ref": "_definitions.json#/definitions/v1.LocalObjectReference"
+    "scripts": {
+      "type": "string", 
+      "description": "scripts is the location of Source scripts"
     }, 
     "forcePull": {
       "type": "boolean", 
@@ -30,7 +30,10 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.EnvVar"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "env contains additional environment variables you want to pass into a builder container"
     }, 
     "runtimeImage": {
@@ -41,7 +44,10 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.ImageSourcePath"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "runtimeArtifacts specifies a list of source/destination pairs that will be copied from the builder to the runtime image. sourcePath can be a file or directory. destinationDir must be a directory. destinationDir can also be empty or equal to \".\", in this case it just refers to the root of WORKDIR. This field and the feature it enables are in tech preview."
     }
   }

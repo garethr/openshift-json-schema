@@ -10,7 +10,10 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.PolicyRule"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Rules is the list of rules (no particular sort) that are allowed for the subject"
     }, 
     "evaluationError": {

@@ -17,9 +17,12 @@
     }, 
     "conditions": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.RouteIngressCondition"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.RouteIngressCondition"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Conditions is the state of the route, may be empty."
     }, 
     "wildcardPolicy": {

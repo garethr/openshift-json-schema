@@ -11,7 +11,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Scopes is an array of the granted scopes."
     }, 
     "kind": {

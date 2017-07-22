@@ -16,7 +16,7 @@
     }, 
     "from": {
       "description": "From points to a ReplicationController which is a deployment.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }, 
     "includeTemplate": {
       "type": "boolean", 

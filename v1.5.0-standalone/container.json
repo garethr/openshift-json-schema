@@ -45,12 +45,21 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Custom headers to set in the request. HTTP allows repeated headers."
             }, 
             "port": {
-              "type": "string", 
-              "format": "int-or-string"
+              "oneOf": [
+                {
+                  "type": "string"
+                }, 
+                {
+                  "type": "integer"
+                }
+              ]
             }
           }
         }, 
@@ -66,7 +75,10 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
             }
           }
@@ -83,8 +95,14 @@
           "description": "TCPSocketAction describes an action based on opening a socket", 
           "properties": {
             "port": {
-              "type": "string", 
-              "format": "int-or-string"
+              "oneOf": [
+                {
+                  "type": "string"
+                }, 
+                {
+                  "type": "integer"
+                }
+              ]
             }
           }
         }, 
@@ -109,7 +127,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands"
     }, 
     "terminationMessagePath": {
@@ -158,7 +179,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Pod volumes to mount into the container's filesystem. Cannot be updated."
     }, 
     "tty": {
@@ -207,12 +231,21 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Custom headers to set in the request. HTTP allows repeated headers."
                 }, 
                 "port": {
-                  "type": "string", 
-                  "format": "int-or-string"
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }, 
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 }
               }
             }, 
@@ -223,8 +256,14 @@
               "description": "TCPSocketAction describes an action based on opening a socket", 
               "properties": {
                 "port": {
-                  "type": "string", 
-                  "format": "int-or-string"
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }, 
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 }
               }
             }, 
@@ -235,7 +274,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
                 }
               }
@@ -281,12 +323,21 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Custom headers to set in the request. HTTP allows repeated headers."
                 }, 
                 "port": {
-                  "type": "string", 
-                  "format": "int-or-string"
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }, 
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 }
               }
             }, 
@@ -297,8 +348,14 @@
               "description": "TCPSocketAction describes an action based on opening a socket", 
               "properties": {
                 "port": {
-                  "type": "string", 
-                  "format": "int-or-string"
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }, 
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 }
               }
             }, 
@@ -309,7 +366,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
                 }
               }
@@ -322,7 +382,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands"
     }, 
     "env": {
@@ -414,7 +477,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of environment variables to set in the container. Cannot be updated."
     }, 
     "imagePullPolicy": {
@@ -460,12 +526,21 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Custom headers to set in the request. HTTP allows repeated headers."
             }, 
             "port": {
-              "type": "string", 
-              "format": "int-or-string"
+              "oneOf": [
+                {
+                  "type": "string"
+                }, 
+                {
+                  "type": "integer"
+                }
+              ]
             }
           }
         }, 
@@ -481,7 +556,10 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
             }
           }
@@ -498,8 +576,14 @@
           "description": "TCPSocketAction describes an action based on opening a socket", 
           "properties": {
             "port": {
-              "type": "string", 
-              "format": "int-or-string"
+              "oneOf": [
+                {
+                  "type": "string"
+                }, 
+                {
+                  "type": "integer"
+                }
+              ]
             }
           }
         }, 
@@ -539,14 +623,20 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Added capabilities"
             }, 
             "drop": {
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Removed capabilities"
             }
           }
@@ -613,7 +703,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Cannot be updated."
     }, 
     "resources": {

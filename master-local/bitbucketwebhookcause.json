@@ -9,7 +9,7 @@
     }, 
     "revision": {
       "description": "Revision is the git source revision information of the trigger.", 
-      "$ref": "_definitions.json#/definitions/v1.SourceRevision"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceRevision"
     }
   }
 }

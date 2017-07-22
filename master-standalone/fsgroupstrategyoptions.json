@@ -5,11 +5,7 @@
   "properties": {
     "ranges": {
       "items": {
-        "required": [
-          "min", 
-          "max"
-        ], 
-        "description": "ID Range provides a min/max of an allowed range of IDs.", 
+        "description": "IDRange provides a min/max of an allowed range of IDs.", 
         "properties": {
           "max": {
             "type": "integer", 
@@ -23,12 +19,15 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end."
     }, 
-    "rule": {
+    "type": {
       "type": "string", 
-      "description": "Rule is the strategy that will dictate what FSGroup is used in the SecurityContext."
+      "description": "Type is the strategy that will dictate what FSGroup is used in the SecurityContext."
     }
   }
 }

@@ -27,7 +27,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.RouteTargetReference"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "alternateBackends is an extension of the 'to' field. If more than one service needs to be pointed to, then use this field. Use the weight field in RouteTargetReference object to specify relative preference. If the weight field is zero, the backend is ignored."
     }, 
     "path": {

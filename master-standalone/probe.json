@@ -39,18 +39,27 @@
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Custom headers to set in the request. HTTP allows repeated headers."
         }, 
         "port": {
-          "type": "string", 
-          "format": "int-or-string"
+          "oneOf": [
+            {
+              "type": "string"
+            }, 
+            {
+              "type": "integer"
+            }
+          ]
         }
       }
     }, 
     "timeoutSeconds": {
       "type": "integer", 
-      "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes", 
+      "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes", 
       "format": "int32"
     }, 
     "exec": {
@@ -60,14 +69,17 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
         }
       }
     }, 
     "initialDelaySeconds": {
       "type": "integer", 
-      "description": "Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes", 
+      "description": "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes", 
       "format": "int32"
     }, 
     "tcpSocket": {
@@ -76,9 +88,19 @@
       ], 
       "description": "TCPSocketAction describes an action based on opening a socket", 
       "properties": {
-        "port": {
+        "host": {
           "type": "string", 
-          "format": "int-or-string"
+          "description": "Optional: Host name to connect to, defaults to the pod IP."
+        }, 
+        "port": {
+          "oneOf": [
+            {
+              "type": "string"
+            }, 
+            {
+              "type": "integer"
+            }
+          ]
         }
       }
     }, 

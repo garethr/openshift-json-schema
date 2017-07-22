@@ -8,9 +8,12 @@
   "properties": {
     "nodeSelectorTerms": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.NodeSelectorTerm"
+        "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.NodeSelectorTerm"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Required. A list of node selector terms. The terms are ORed."
     }
   }

@@ -28,7 +28,10 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Command is the action command and its arguments."
             }, 
             "env": {
@@ -53,7 +56,7 @@
                           }, 
                           "name": {
                             "type": "string", 
-                            "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                           }, 
                           "key": {
                             "type": "string", 
@@ -89,7 +92,7 @@
                           }, 
                           "name": {
                             "type": "string", 
-                            "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                           }, 
                           "key": {
                             "type": "string", 
@@ -128,14 +131,20 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Env is a set of environment variables to supply to the hook pod's container."
             }, 
             "volumes": {
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
             }
           }
@@ -157,15 +166,15 @@
                 "properties": {
                   "kind": {
                     "type": "string", 
-                    "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                    "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                   }, 
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }, 
                   "namespace": {
                     "type": "string", 
-                    "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                    "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
                   }, 
                   "apiVersion": {
                     "type": "string", 
@@ -177,17 +186,20 @@
                   }, 
                   "resourceVersion": {
                     "type": "string", 
-                    "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                    "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                   }, 
                   "uid": {
                     "type": "string", 
-                    "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                    "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
                   }
                 }
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
         }
       }
@@ -217,7 +229,10 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Command is the action command and its arguments."
             }, 
             "env": {
@@ -242,7 +257,7 @@
                           }, 
                           "name": {
                             "type": "string", 
-                            "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                           }, 
                           "key": {
                             "type": "string", 
@@ -278,7 +293,7 @@
                           }, 
                           "name": {
                             "type": "string", 
-                            "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                           }, 
                           "key": {
                             "type": "string", 
@@ -317,14 +332,20 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Env is a set of environment variables to supply to the hook pod's container."
             }, 
             "volumes": {
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
             }
           }
@@ -346,15 +367,15 @@
                 "properties": {
                   "kind": {
                     "type": "string", 
-                    "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                    "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                   }, 
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }, 
                   "namespace": {
                     "type": "string", 
-                    "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                    "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
                   }, 
                   "apiVersion": {
                     "type": "string", 
@@ -366,17 +387,20 @@
                   }, 
                   "resourceVersion": {
                     "type": "string", 
-                    "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                    "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                   }, 
                   "uid": {
                     "type": "string", 
-                    "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                    "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
                   }
                 }
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
         }
       }
@@ -406,7 +430,10 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Command is the action command and its arguments."
             }, 
             "env": {
@@ -431,7 +458,7 @@
                           }, 
                           "name": {
                             "type": "string", 
-                            "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                           }, 
                           "key": {
                             "type": "string", 
@@ -467,7 +494,7 @@
                           }, 
                           "name": {
                             "type": "string", 
-                            "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                           }, 
                           "key": {
                             "type": "string", 
@@ -506,14 +533,20 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Env is a set of environment variables to supply to the hook pod's container."
             }, 
             "volumes": {
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
             }
           }
@@ -535,15 +568,15 @@
                 "properties": {
                   "kind": {
                     "type": "string", 
-                    "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                    "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
                   }, 
                   "name": {
                     "type": "string", 
-                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
                   }, 
                   "namespace": {
                     "type": "string", 
-                    "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                    "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
                   }, 
                   "apiVersion": {
                     "type": "string", 
@@ -555,17 +588,20 @@
                   }, 
                   "resourceVersion": {
                     "type": "string", 
-                    "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                    "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
                   }, 
                   "uid": {
                     "type": "string", 
-                    "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                    "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
                   }
                 }
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
         }
       }

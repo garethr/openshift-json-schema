@@ -9,7 +9,7 @@
     }, 
     "revision": {
       "description": "revision is an optional field that stores the git source revision information of the generic webhook trigger when it is available.", 
-      "$ref": "_definitions.json#/definitions/v1.SourceRevision"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceRevision"
     }
   }
 }

@@ -9,13 +9,16 @@
   "properties": {
     "total": {
       "description": "Total defines the actual enforced quota and its current usage across all projects", 
-      "$ref": "_definitions.json#/definitions/v1.ResourceQuotaStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ResourceQuotaStatus"
     }, 
     "namespaces": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.ResourceQuotaStatusByNamespace"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.quota.apis.quota.v1.ResourceQuotaStatusByNamespace"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Namespaces slices the usage by project.  This division allows for quick resolution of deletion reconciliation inside of a single project without requiring a recalculation across all projects.  This can be used to pull the deltas for a given project."
     }
   }

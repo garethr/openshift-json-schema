@@ -14,7 +14,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects."
         }, 
         "hard": {
@@ -22,7 +25,7 @@
             "type": "string"
           }, 
           "type": "object", 
-          "description": "Hard is the set of desired hard limits for each named resource. More info: http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota"
+          "description": "Hard is the set of desired hard limits for each named resource. More info: https://git.k8s.io/community/contributors/design-proposals/admission_control_resource_quota.md"
         }
       }
     }, 
@@ -59,16 +62,24 @@
                     "items": {
                       "type": "string"
                     }, 
-                    "type": "array", 
+                    "type": [
+                      "array", 
+                      "null"
+                    ], 
                     "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
                   }, 
                   "key": {
+                    "x-kubernetes-patch-merge-key": "key", 
                     "type": "string", 
-                    "description": "key is the label key that the selector applies to."
+                    "description": "key is the label key that the selector applies to.", 
+                    "x-kubernetes-patch-strategy": "merge"
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed."
             }
           }

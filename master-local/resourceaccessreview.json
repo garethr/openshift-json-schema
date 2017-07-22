@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "ResourceAccessReview is a means to request a list of which users and groups are authorized to perform the action specified by spec", 
   "required": [
     "namespace", 
     "verb", 
@@ -10,8 +10,20 @@
     "path", 
     "isNonResourceURL"
   ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "ResourceAccessReview", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "ResourceAccessReview", 
+      "version": "latest", 
+      "group": "authorization.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "ResourceAccessReview is a means to request a list of which users and groups are authorized to perform the action specified by spec", 
   "properties": {
     "isNonResourceURL": {
       "type": "boolean", 
@@ -19,7 +31,7 @@
     }, 
     "kind": {
       "type": "string", 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "resource": {
       "type": "string", 
@@ -31,11 +43,11 @@
     }, 
     "apiVersion": {
       "type": "string", 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "content": {
       "description": "Content is the actual content of the request for create and update", 
-      "$ref": "_definitions.json#/definitions/runtime.RawExtension"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension"
     }, 
     "resourceAPIVersion": {
       "type": "string", 

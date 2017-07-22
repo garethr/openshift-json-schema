@@ -4,7 +4,7 @@
   "properties": {
     "revision": {
       "type": "integer", 
-      "description": "The revision to rollback to. If set to 0, rollbck to the last revision.", 
+      "description": "The revision to rollback to. If set to 0, rollback to the last revision.", 
       "format": "int64"
     }
   }

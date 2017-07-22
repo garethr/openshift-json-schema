@@ -27,7 +27,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "steps contains details about each step that occurs during a build stage including start time and duration in milliseconds."
     }, 
     "name": {

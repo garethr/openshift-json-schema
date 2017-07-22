@@ -14,7 +14,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.SecretSpec"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "secrets is a list of additional secrets that will be included in the build pod"
     }, 
     "exposeDockerSocket": {
@@ -25,7 +28,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.EnvVar"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "env contains additional environment variables you want to pass into a builder container"
     }, 
     "pullSecret": {

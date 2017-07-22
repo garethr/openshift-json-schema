@@ -36,7 +36,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Standard object's metadata."
     }, 
     "tag": {
@@ -79,7 +82,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Conditions is an array of conditions that apply to the tag event list."
     }
   }

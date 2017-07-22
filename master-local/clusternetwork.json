@@ -1,12 +1,24 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "ClusterNetwork describes the cluster network. There is normally only one object of this type, named \"default\", which is created by the SDN network plugin based on the master configuration when the cluster is brought up for the first time.", 
   "required": [
     "network", 
     "hostsubnetlength", 
     "serviceNetwork"
   ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "ClusterNetwork", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "ClusterNetwork", 
+      "version": "latest", 
+      "group": "network.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "ClusterNetwork describes the cluster network. There is normally only one object of this type, named \"default\", which is created by the SDN network plugin based on the master configuration when the cluster is brought up for the first time.", 
   "properties": {
     "hostsubnetlength": {
       "type": "integer", 
@@ -15,7 +27,7 @@
     }, 
     "kind": {
       "type": "string", 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "network": {
       "type": "string", 
@@ -27,7 +39,7 @@
     }, 
     "apiVersion": {
       "type": "string", 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "pluginName": {
       "type": "string", 
@@ -35,7 +47,7 @@
     }, 
     "metadata": {
       "description": "Standard object's metadata.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     }
   }
 }

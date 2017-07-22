@@ -66,7 +66,10 @@
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Namespaces slices the usage by project.  This division allows for quick resolution of deletion reconciliation inside of a single project without requiring a recalculation across all projects.  This can be used to pull the deltas for a given project."
         }
       }
@@ -89,7 +92,10 @@
               "items": {
                 "type": "string"
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects."
             }, 
             "hard": {
@@ -134,7 +140,10 @@
                         "items": {
                           "type": "string"
                         }, 
-                        "type": "array", 
+                        "type": [
+                          "array", 
+                          "null"
+                        ], 
                         "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
                       }, 
                       "key": {
@@ -143,7 +152,10 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed."
                 }
               }
@@ -198,7 +210,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
         }, 
         "generation": {
@@ -232,21 +247,24 @@
                 "type": "boolean", 
                 "description": "If true, this reference points to the managing controller."
               }, 
-              "name": {
+              "uid": {
                 "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
               }, 
               "apiVersion": {
                 "type": "string", 
                 "description": "API version of the referent."
               }, 
-              "uid": {
+              "name": {
                 "type": "string", 
-                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
         }, 
         "creationTimestamp": {

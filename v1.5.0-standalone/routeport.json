@@ -7,8 +7,14 @@
   "description": "RoutePort defines a port mapping from a router to an endpoint in the service endpoints.", 
   "properties": {
     "targetPort": {
-      "type": "string", 
-      "format": "int-or-string"
+      "oneOf": [
+        {
+          "type": "string"
+        }, 
+        {
+          "type": "integer"
+        }
+      ]
     }
   }
 }

@@ -25,21 +25,21 @@
           "type": "string", 
           "description": "httpProxy is a proxy used to reach the git repository over http"
         }, 
-        "noProxy": {
+        "httpsProxy": {
           "type": "string", 
-          "description": "noProxy is the list of domains for which the proxy should not be used"
+          "description": "httpsProxy is a proxy used to reach the git repository over https"
         }, 
         "ref": {
           "type": "string", 
           "description": "ref is the branch/tag/ref to build."
         }, 
+        "noProxy": {
+          "type": "string", 
+          "description": "noProxy is the list of domains for which the proxy should not be used"
+        }, 
         "uri": {
           "type": "string", 
           "description": "uri points to the source that will be built. The structure of the source will depend on the type of build to run"
-        }, 
-        "httpsProxy": {
-          "type": "string", 
-          "description": "httpsProxy is a proxy used to reach the git repository over https"
         }
       }
     }, 
@@ -48,7 +48,7 @@
       "properties": {
         "name": {
           "type": "string", 
-          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
         }
       }
     }, 
@@ -64,7 +64,7 @@
             "properties": {
               "name": {
                 "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
               }
             }
           }, 
@@ -74,7 +74,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "secrets represents a list of secrets and their destinations that will be used only for the build."
     }, 
     "dockerfile": {
@@ -111,7 +114,10 @@
                 }
               }
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "paths is a list of source and destination paths to copy from the image."
           }, 
           "from": {
@@ -119,15 +125,15 @@
             "properties": {
               "kind": {
                 "type": "string", 
-                "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
               }, 
               "name": {
                 "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
               }, 
               "namespace": {
                 "type": "string", 
-                "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
               }, 
               "apiVersion": {
                 "type": "string", 
@@ -139,11 +145,11 @@
               }, 
               "resourceVersion": {
                 "type": "string", 
-                "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
               }, 
               "uid": {
                 "type": "string", 
-                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
               }
             }
           }, 
@@ -152,13 +158,16 @@
             "properties": {
               "name": {
                 "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
               }
             }
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "images describes a set of images to be used to provide source for the build"
     }, 
     "type": {

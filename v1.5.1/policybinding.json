@@ -20,7 +20,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.NamedRoleBinding"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "RoleBindings holds all the RoleBindings held by this PolicyBinding, mapped by RoleBinding.Name"
     }, 
     "apiVersion": {

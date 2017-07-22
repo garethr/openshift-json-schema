@@ -1,10 +1,11 @@
 {
   "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "This NetworkPolicyIngressRule matches traffic if and only if the traffic matches both ports AND from.", 
+  "description": "NetworkPolicyIngressRule describes a particular set of traffic that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The traffic must match both ports and from.", 
   "properties": {
     "from": {
       "items": {
+        "description": "NetworkPolicyPeer describes a peer to allow traffic from. Exactly one of its fields must be specified.", 
         "properties": {
           "namespaceSelector": {
             "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.", 
@@ -32,16 +33,24 @@
                       "items": {
                         "type": "string"
                       }, 
-                      "type": "array", 
+                      "type": [
+                        "array", 
+                        "null"
+                      ], 
                       "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
                     }, 
                     "key": {
+                      "x-kubernetes-patch-merge-key": "key", 
                       "type": "string", 
-                      "description": "key is the label key that the selector applies to."
+                      "description": "key is the label key that the selector applies to.", 
+                      "x-kubernetes-patch-strategy": "merge"
                     }
                   }
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed."
               }
             }
@@ -72,40 +81,61 @@
                       "items": {
                         "type": "string"
                       }, 
-                      "type": "array", 
+                      "type": [
+                        "array", 
+                        "null"
+                      ], 
                       "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
                     }, 
                     "key": {
+                      "x-kubernetes-patch-merge-key": "key", 
                       "type": "string", 
-                      "description": "key is the label key that the selector applies to."
+                      "description": "key is the label key that the selector applies to.", 
+                      "x-kubernetes-patch-strategy": "merge"
                     }
                   }
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed."
               }
             }
           }
         }
       }, 
-      "type": "array", 
-      "description": "List of sources which should be able to access the pods selected for this rule. Items in this list are combined using a logical OR operation. If this field is not provided, this rule matches all sources (traffic not restricted by source). If this field is empty, this rule matches no sources (no traffic matches). If this field is present and contains at least on item, this rule allows traffic only if the traffic matches at least one item in the from list."
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "List of sources which should be able to access the pods selected for this rule. Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all sources (traffic not restricted by source). If this field is present and contains at least on item, this rule allows traffic only if the traffic matches at least one item in the from list."
     }, 
     "ports": {
       "items": {
+        "description": "NetworkPolicyPort describes a port to allow traffic on", 
         "properties": {
           "protocol": {
             "type": "string", 
-            "description": "Optional.  The protocol (TCP or UDP) which traffic must match. If not specified, this field defaults to TCP."
+            "description": "The protocol (TCP or UDP) which traffic must match. If not specified, this field defaults to TCP."
           }, 
           "port": {
-            "type": "string", 
-            "format": "int-or-string"
+            "oneOf": [
+              {
+                "type": "string"
+              }, 
+              {
+                "type": "integer"
+              }
+            ]
           }
         }
       }, 
-      "type": "array", 
-      "description": "List of ports which should be made accessible on the pods selected for this rule. Each item in this list is combined using a logical OR. If this field is not provided, this rule matches all ports (traffic not restricted by port). If this field is empty, this rule matches no ports (no traffic matches). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list."
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "List of ports which should be made accessible on the pods selected for this rule. Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list."
     }
   }
 }

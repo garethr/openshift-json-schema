@@ -10,11 +10,11 @@
   "properties": {
     "importPolicy": {
       "description": "Import is information that controls how images may be imported by the server.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.TagImportPolicy"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagImportPolicy"
     }, 
     "from": {
       "description": "From is a reference to an image stream tag or image stream this tag should track", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ObjectReference"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }, 
     "name": {
       "type": "string", 
@@ -31,7 +31,7 @@
     }, 
     "referencePolicy": {
       "description": "ReferencePolicy defines how other components should consume the image", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.TagReferencePolicy"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagReferencePolicy"
     }, 
     "annotations": {
       "additionalProperties": {

@@ -19,28 +19,40 @@
             "items": {
               "type": "string"
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed."
           }, 
           "nonResourceURLs": {
             "items": {
               "type": "string"
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "NonResourceURLsSlice is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different."
           }, 
           "apiGroups": {
             "items": {
               "type": "string"
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed"
           }, 
           "verbs": {
             "items": {
               "type": "string"
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds."
           }, 
           "attributeRestrictions": {
@@ -60,12 +72,18 @@
             "items": {
               "type": "string"
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "Resources is a list of resources this rule applies to.  ResourceAll represents all resources."
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Rules is the list of rules (no particular sort) that are allowed for the subject"
     }, 
     "evaluationError": {

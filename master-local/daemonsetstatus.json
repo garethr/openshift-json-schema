@@ -9,10 +9,10 @@
   "type": "object", 
   "description": "DaemonSetStatus represents the current status of a daemon set.", 
   "properties": {
-    "numberReady": {
+    "collisionCount": {
       "type": "integer", 
-      "description": "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready.", 
-      "format": "int32"
+      "description": "Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.", 
+      "format": "int64"
     }, 
     "observedGeneration": {
       "type": "integer", 
@@ -26,7 +26,7 @@
     }, 
     "desiredNumberScheduled": {
       "type": "integer", 
-      "description": "The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md", 
+      "description": "The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/", 
       "format": "int32"
     }, 
     "numberUnavailable": {
@@ -36,12 +36,17 @@
     }, 
     "currentNumberScheduled": {
       "type": "integer", 
-      "description": "The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md", 
+      "description": "The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/", 
+      "format": "int32"
+    }, 
+    "numberReady": {
+      "type": "integer", 
+      "description": "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready.", 
       "format": "int32"
     }, 
     "numberMisscheduled": {
       "type": "integer", 
-      "description": "The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: http://releases.k8s.io/HEAD/docs/admin/daemons.md", 
+      "description": "The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/", 
       "format": "int32"
     }, 
     "updatedNumberScheduled": {

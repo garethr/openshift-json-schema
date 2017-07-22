@@ -5,19 +5,19 @@
   "properties": {
     "secretKeyRef": {
       "description": "Selects a key of a secret in the pod's namespace", 
-      "$ref": "_definitions.json#/definitions/v1.SecretKeySelector"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.SecretKeySelector"
     }, 
     "fieldRef": {
-      "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.podIP.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectFieldSelector"
+      "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP.", 
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectFieldSelector"
     }, 
     "resourceFieldRef": {
       "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.", 
-      "$ref": "_definitions.json#/definitions/v1.ResourceFieldSelector"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ResourceFieldSelector"
     }, 
     "configMapKeyRef": {
       "description": "Selects a key of a ConfigMap.", 
-      "$ref": "_definitions.json#/definitions/v1.ConfigMapKeySelector"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ConfigMapKeySelector"
     }
   }
 }

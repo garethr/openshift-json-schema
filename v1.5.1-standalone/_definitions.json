@@ -6159,6 +6159,16 @@
         }
       }
     }, 
+    "io.k8s.apimachinery.pkg.util.intstr.IntOrString": {
+      "oneOf": [
+        {
+          "type": "string"
+        }, 
+        {
+          "type": "integer"
+        }
+      ]
+    }, 
     "v1.BuildRequest": {
       "required": [
         "triggeredBy"

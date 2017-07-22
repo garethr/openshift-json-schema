@@ -15,13 +15,13 @@
       "description": "If specified, it is the time of signature's creation.", 
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/unversioned.Time"
     }, 
-    "imageIdentity": {
-      "type": "string", 
-      "description": "A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\")."
-    }, 
     "issuedTo": {
       "description": "If specified, it holds information about a subject of signing certificate or key (a person or entity who signed the image).", 
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.SignatureSubject"
+    }, 
+    "imageIdentity": {
+      "type": "string", 
+      "description": "A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\")."
     }, 
     "apiVersion": {
       "type": "string", 
@@ -36,7 +36,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.SignatureCondition"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Conditions represent the latest available observations of a signature's current state."
     }, 
     "type": {

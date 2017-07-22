@@ -5,25 +5,25 @@
   "properties": {
     "httpGet": {
       "description": "HTTPGet specifies the http request to perform.", 
-      "$ref": "_definitions.json#/definitions/v1.HTTPGetAction"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.HTTPGetAction"
     }, 
     "timeoutSeconds": {
       "type": "integer", 
-      "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes", 
+      "description": "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes", 
       "format": "int32"
     }, 
     "exec": {
       "description": "One and only one of the following should be specified. Exec specifies the action to take.", 
-      "$ref": "_definitions.json#/definitions/v1.ExecAction"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ExecAction"
     }, 
     "initialDelaySeconds": {
       "type": "integer", 
-      "description": "Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes", 
+      "description": "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes", 
       "format": "int32"
     }, 
     "tcpSocket": {
       "description": "TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported", 
-      "$ref": "_definitions.json#/definitions/v1.TCPSocketAction"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.TCPSocketAction"
     }, 
     "periodSeconds": {
       "type": "integer", 

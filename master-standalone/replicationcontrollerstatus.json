@@ -8,7 +8,7 @@
   "properties": {
     "replicas": {
       "type": "integer", 
-      "description": "Replicas is the most recently oberved number of replicas. More info: http://kubernetes.io/docs/user-guide/replication-controller#what-is-a-replication-controller", 
+      "description": "Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller", 
       "format": "int32"
     }, 
     "observedGeneration": {
@@ -56,8 +56,13 @@
           }
         }
       }, 
-      "type": "array", 
-      "description": "Represents the latest available observations of a replication controller's current state."
+      "x-kubernetes-patch-merge-key": "type", 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Represents the latest available observations of a replication controller's current state.", 
+      "x-kubernetes-patch-strategy": "merge"
     }, 
     "fullyLabeledReplicas": {
       "type": "integer", 

@@ -95,7 +95,10 @@
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Causes are extended data associated with all the causes for creating a new deployment"
         }
       }
@@ -144,7 +147,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Conditions represents the latest available observations of a deployment config's current state."
     }, 
     "unavailableReplicas": {

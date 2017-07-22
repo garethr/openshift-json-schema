@@ -9,7 +9,7 @@
   "properties": {
     "to": {
       "description": "to is the target that traffic is allowed/denied to", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.EgressNetworkPolicyPeer"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.sdn.apis.network.v1.EgressNetworkPolicyPeer"
     }, 
     "type": {
       "type": "string", 

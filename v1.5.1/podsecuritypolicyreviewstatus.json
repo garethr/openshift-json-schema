@@ -10,7 +10,10 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.ServiceAccountPodSecurityPolicyReviewStatus"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "allowedServiceAccounts returns the list of service accounts in *this* namespace that have the power to create the PodTemplateSpec."
     }
   }

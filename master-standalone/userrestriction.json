@@ -35,35 +35,52 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
                 }, 
                 "key": {
+                  "x-kubernetes-patch-merge-key": "key", 
                   "type": "string", 
-                  "description": "key is the label key that the selector applies to."
+                  "description": "key is the label key that the selector applies to.", 
+                  "x-kubernetes-patch-strategy": "merge"
                 }
               }
             }, 
-            "type": "array", 
+            "type": [
+              "array", 
+              "null"
+            ], 
             "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed."
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Selectors specifies a list of label selectors over user labels."
     }, 
     "users": {
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Users specifies a list of literal user names."
     }, 
     "groups": {
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Groups specifies a list of literal group names."
     }
   }

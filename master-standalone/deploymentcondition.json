@@ -5,7 +5,7 @@
     "status"
   ], 
   "type": "object", 
-  "description": "DeploymentCondition describes the state of a deployment at a certain point.", 
+  "description": "DeploymentCondition describes the state of a deployment config at a certain point.", 
   "properties": {
     "status": {
       "type": "string", 

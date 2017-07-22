@@ -8,7 +8,7 @@
   "properties": {
     "valueFrom": {
       "description": "Source for the environment variable's value. Cannot be used if value is not empty.", 
-      "$ref": "_definitions.json#/definitions/v1.EnvVarSource"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVarSource"
     }, 
     "name": {
       "type": "string", 

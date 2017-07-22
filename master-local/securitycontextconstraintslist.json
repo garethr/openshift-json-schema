@@ -1,29 +1,44 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "SecurityContextConstraintsList is a list of SecurityContextConstraints objects", 
   "required": [
     "items"
   ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "SecurityContextConstraintsList", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "SecurityContextConstraintsList", 
+      "version": "latest", 
+      "group": "security.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "SecurityContextConstraintsList is a list of SecurityContextConstraints objects", 
   "properties": {
     "items": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.SecurityContextConstraints"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.security.apis.security.v1.SecurityContextConstraints"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of security context constraints."
     }, 
     "kind": {
       "type": "string", 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "apiVersion": {
       "type": "string", 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "metadata": {
       "description": "More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata", 
-      "$ref": "_definitions.json#/definitions/v1.ListMeta"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
     }
   }
 }

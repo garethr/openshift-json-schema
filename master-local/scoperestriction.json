@@ -7,12 +7,15 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "ExactValues means the scope has to match a particular set of strings exactly"
     }, 
     "clusterRole": {
       "description": "ClusterRole describes a set of restrictions for cluster role scoping.", 
-      "$ref": "_definitions.json#/definitions/v1.ClusterRoleScopeRestriction"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.oauth.apis.oauth.v1.ClusterRoleScopeRestriction"
     }
   }
 }

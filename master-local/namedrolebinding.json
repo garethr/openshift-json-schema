@@ -9,7 +9,7 @@
   "properties": {
     "roleBinding": {
       "description": "RoleBinding is the role binding being named", 
-      "$ref": "_definitions.json#/definitions/v1.RoleBinding"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.RoleBinding"
     }, 
     "name": {
       "type": "string", 

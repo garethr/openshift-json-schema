@@ -11,9 +11,12 @@
   "properties": {
     "triggers": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.DeploymentTriggerPolicy"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentTriggerPolicy"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Triggers determine how updates to a DeploymentConfig result in new deployments. If no triggers are defined, a new deployment can only occur as a result of an explicit client update to the DeploymentConfig with a new LatestVersion. If null, defaults to having a config change trigger."
     }, 
     "replicas": {
@@ -23,7 +26,7 @@
     }, 
     "strategy": {
       "description": "Strategy describes how a deployment is executed.", 
-      "$ref": "_definitions.json#/definitions/v1.DeploymentStrategy"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentStrategy"
     }, 
     "paused": {
       "type": "boolean", 
@@ -31,7 +34,7 @@
     }, 
     "template": {
       "description": "Template is the object that describes the pod that will be created if insufficient replicas are detected.", 
-      "$ref": "_definitions.json#/definitions/v1.PodTemplateSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.PodTemplateSpec"
     }, 
     "test": {
       "type": "boolean", 

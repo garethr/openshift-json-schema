@@ -5,13 +5,16 @@
   "properties": {
     "labelSelector": {
       "description": "A label query over a set of resources, in this case pods.", 
-      "$ref": "_definitions.json#/definitions/v1.LabelSelector"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector"
     }, 
     "namespaces": {
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means \"this pod's namespace\""
     }, 
     "topologyKey": {

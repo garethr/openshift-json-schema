@@ -1,10 +1,22 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "SubjectRulesReview is a resource you can create to determine which actions another user can perform in a namespace", 
   "required": [
     "spec"
   ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "SubjectRulesReview", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "SubjectRulesReview", 
+      "version": "latest", 
+      "group": "authorization.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "SubjectRulesReview is a resource you can create to determine which actions another user can perform in a namespace", 
   "properties": {
     "status": {
       "required": [
@@ -25,28 +37,40 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed."
               }, 
               "nonResourceURLs": {
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "NonResourceURLsSlice is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different."
               }, 
               "apiGroups": {
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed"
               }, 
               "verbs": {
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds."
               }, 
               "attributeRestrictions": {
@@ -66,12 +90,18 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "Resources is a list of resources this rule applies to.  ResourceAll represents all resources."
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Rules is the list of rules (no particular sort) that are allowed for the subject"
         }, 
         "evaluationError": {
@@ -82,7 +112,7 @@
     }, 
     "kind": {
       "type": "string", 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "spec": {
       "required": [
@@ -96,7 +126,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\"."
         }, 
         "user": {
@@ -107,14 +140,17 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Groups is optional.  Groups is the list of groups to which the User belongs.  At least one of User and Groups must be specified."
         }
       }
     }, 
     "apiVersion": {
       "type": "string", 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }
   }
 }

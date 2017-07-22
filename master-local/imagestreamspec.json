@@ -5,7 +5,7 @@
   "properties": {
     "lookupPolicy": {
       "description": "lookupPolicy controls how other resources reference images within this namespace.", 
-      "$ref": "_definitions.json#/definitions/v1.ImageLookupPolicy"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.ImageLookupPolicy"
     }, 
     "dockerImageRepository": {
       "type": "string", 
@@ -13,9 +13,12 @@
     }, 
     "tags": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.TagReference"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagReference"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "tags map arbitrary string values to specific image locators"
     }
   }

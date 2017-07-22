@@ -19,7 +19,7 @@
     }, 
     "lastTransitionTime": {
       "description": "LastTransitionTIme is the time the condition transitioned from one status to another.", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "reason": {
       "type": "string", 

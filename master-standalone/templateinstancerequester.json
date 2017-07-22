@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "username"
+  ], 
+  "type": "object", 
+  "description": "TemplateInstanceRequester holds the identity of an agent requesting a template instantiation.", 
+  "properties": {
+    "username": {
+      "type": "string", 
+      "description": "username is the username of the agent requesting a template instantiation."
+    }
+  }
+}

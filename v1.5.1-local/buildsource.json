@@ -22,22 +22,28 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.SecretBuildSource"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "secrets represents a list of secrets and their destinations that will be used only for the build."
-    }, 
-    "type": {
-      "type": "string", 
-      "description": "type of build input to accept"
     }, 
     "dockerfile": {
       "type": "string", 
       "description": "dockerfile is the raw contents of a Dockerfile which should be built. When this option is specified, the FROM may be modified based on your strategy base image and additional ENV stanzas from your strategy environment will be added after the FROM, but before the rest of your Dockerfile stanzas. The Dockerfile source type may be used with other options like git - in those cases the Git repo will have any innate Dockerfile replaced in the context dir."
     }, 
+    "type": {
+      "type": "string", 
+      "description": "type of build input to accept"
+    }, 
     "images": {
       "items": {
         "$ref": "_definitions.json#/definitions/v1.ImageSource"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "images describes a set of images to be used to provide source for the build"
     }, 
     "contextDir": {

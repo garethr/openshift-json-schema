@@ -18,17 +18,17 @@
       "type": "object", 
       "description": "UpdatedAnnotations is a set of new annotations that will be added in the deployment config."
     }, 
-    "spec": {
-      "description": "Spec defines the options to rollback generation.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.DeploymentConfigRollbackSpec"
+    "name": {
+      "type": "string", 
+      "description": "Name of the deployment config that will be rolled back."
     }, 
     "apiVersion": {
       "type": "string", 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
     }, 
-    "name": {
-      "type": "string", 
-      "description": "Name of the deployment config that will be rolled back."
+    "spec": {
+      "description": "Spec defines the options to rollback generation.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.DeploymentConfigRollbackSpec"
     }
   }
 }

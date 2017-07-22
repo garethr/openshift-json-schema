@@ -13,7 +13,7 @@
     }, 
     "lastTransitionTime": {
       "description": "Last time the condition transit from one status to another.", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "reason": {
       "type": "string", 
@@ -21,7 +21,7 @@
     }, 
     "lastHeartbeatTime": {
       "description": "Last time we got an update on a given condition.", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "message": {
       "type": "string", 

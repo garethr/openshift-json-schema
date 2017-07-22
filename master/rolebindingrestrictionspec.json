@@ -10,15 +10,15 @@
   "properties": {
     "serviceaccountrestriction": {
       "description": "ServiceAccountRestriction matches against service-account subjects.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ServiceAccountRestriction"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.ServiceAccountRestriction"
     }, 
     "userrestriction": {
       "description": "UserRestriction matches against user subjects.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.UserRestriction"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.UserRestriction"
     }, 
     "grouprestriction": {
       "description": "GroupRestriction matches against group subjects.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.GroupRestriction"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.GroupRestriction"
     }
   }
 }

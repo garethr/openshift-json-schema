@@ -19,7 +19,10 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.NamedRole"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Roles holds all the Roles held by this Policy, mapped by Role.Name"
     }, 
     "apiVersion": {

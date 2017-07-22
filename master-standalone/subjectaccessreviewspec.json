@@ -8,7 +8,10 @@
         "items": {
           "type": "string"
         }, 
-        "type": "array"
+        "type": [
+          "array", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here."
@@ -25,6 +28,20 @@
           "description": "Verb is the standard HTTP verb"
         }
       }
+    }, 
+    "group": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Groups is the groups you're testing for."
+    }, 
+    "user": {
+      "type": "string", 
+      "description": "User is the user you're testing for. If you specify \"User\" but not \"Group\", then is it interpreted as \"What if User were not a member of any groups"
     }, 
     "resourceAttributes": {
       "description": "ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface", 
@@ -58,17 +75,6 @@
           "description": "Subresource is one of the existing resource types.  \"\" means none."
         }
       }
-    }, 
-    "groups": {
-      "items": {
-        "type": "string"
-      }, 
-      "type": "array", 
-      "description": "Groups is the groups you're testing for."
-    }, 
-    "user": {
-      "type": "string", 
-      "description": "User is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups"
     }
   }
 }

@@ -5,19 +5,19 @@
   "properties": {
     "imageChangeBuild": {
       "description": "imageChangeBuild stores information about an imagechange event that triggered a new build.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ImageChangeCause"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.ImageChangeCause"
     }, 
     "genericWebHook": {
       "description": "genericWebHook holds data about a builds generic webhook trigger.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.GenericWebHookCause"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.GenericWebHookCause"
     }, 
     "githubWebHook": {
       "description": "gitHubWebHook represents data for a GitHub webhook that fired a specific build.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.GitHubWebHookCause"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.GitHubWebHookCause"
     }, 
     "gitlabWebHook": {
       "description": "GitLabWebHook represents data for a GitLab webhook that fired a specific build.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.GitLabWebHookCause"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.GitLabWebHookCause"
     }, 
     "message": {
       "type": "string", 
@@ -25,7 +25,7 @@
     }, 
     "bitbucketWebHook": {
       "description": "BitbucketWebHook represents data for a Bitbucket webhook that fired a specific build.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.BitbucketWebHookCause"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BitbucketWebHookCause"
     }
   }
 }

@@ -8,9 +8,12 @@
   "properties": {
     "ingress": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.RouteIngress"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.RouteIngress"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "ingress describes the places where the route may be exposed. The list of ingress points may contain duplicate Host or RouterName values. Routes are considered live once they are `Ready`"
     }
   }

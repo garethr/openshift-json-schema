@@ -19,7 +19,10 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.NamedClusterRole"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Roles holds all the ClusterRoles held by this ClusterPolicy, mapped by ClusterRole.Name"
     }, 
     "apiVersion": {

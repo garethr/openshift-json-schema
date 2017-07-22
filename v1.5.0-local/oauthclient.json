@@ -7,7 +7,10 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.ScopeRestriction"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "ScopeRestrictions describes which scopes this client can request.  Each requested scope is checked against each restriction.  If any restriction matches, then the scope is allowed. If no restriction matches, then the scope is denied."
     }, 
     "grantMethod": {
@@ -18,7 +21,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "AdditionalSecrets holds other secrets that may be used to identify the client.  This is useful for rotation and for service account token validation"
     }, 
     "respondWithChallenges": {
@@ -41,7 +47,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "RedirectURIs is the valid redirection URIs associated with a client"
     }, 
     "metadata": {

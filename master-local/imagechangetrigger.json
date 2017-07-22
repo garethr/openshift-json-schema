@@ -9,7 +9,7 @@
     }, 
     "from": {
       "description": "from is a reference to an ImageStreamTag that will trigger a build when updated It is optional. If no From is specified, the From image from the build strategy will be used. Only one ImageChangeTrigger with an empty From reference is allowed in a build configuration.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }
   }
 }

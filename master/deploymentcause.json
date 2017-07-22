@@ -12,7 +12,7 @@
     }, 
     "imageTrigger": {
       "description": "ImageTrigger contains the image trigger details, if this trigger was fired based on an image change", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.DeploymentCauseImageTrigger"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentCauseImageTrigger"
     }
   }
 }

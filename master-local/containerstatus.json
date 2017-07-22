@@ -21,7 +21,7 @@
     }, 
     "image": {
       "type": "string", 
-      "description": "The image the container is running. More info: http://kubernetes.io/docs/user-guide/images"
+      "description": "The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images"
     }, 
     "imageID": {
       "type": "string", 
@@ -29,7 +29,7 @@
     }, 
     "state": {
       "description": "Details about the container's current condition.", 
-      "$ref": "_definitions.json#/definitions/v1.ContainerState"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ContainerState"
     }, 
     "ready": {
       "type": "boolean", 
@@ -37,11 +37,11 @@
     }, 
     "lastState": {
       "description": "Details about the container's last termination condition.", 
-      "$ref": "_definitions.json#/definitions/v1.ContainerState"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ContainerState"
     }, 
     "containerID": {
       "type": "string", 
-      "description": "Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information"
+      "description": "Container's ID in the format 'docker://<container_id>'."
     }
   }
 }

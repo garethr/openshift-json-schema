@@ -1,47 +1,65 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "BuildRequest is the resource used to pass parameters to build generator", 
   "required": [
     "triggeredBy"
   ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "BuildRequest", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "BuildRequest", 
+      "version": "latest", 
+      "group": "build.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "BuildRequest is the resource used to pass parameters to build generator", 
   "properties": {
     "binary": {
       "description": "binary indicates a request to build from a binary provided to the builder", 
-      "$ref": "_definitions.json#/definitions/v1.BinaryBuildSource"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BinaryBuildSource"
     }, 
     "kind": {
       "type": "string", 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "from": {
       "description": "from is the reference to the ImageStreamTag that triggered the build.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }, 
     "revision": {
       "description": "revision is the information from the source for a specific repo snapshot.", 
-      "$ref": "_definitions.json#/definitions/v1.SourceRevision"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceRevision"
     }, 
     "apiVersion": {
       "type": "string", 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "triggeredByImage": {
       "description": "triggeredByImage is the Image that triggered this build.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }, 
     "env": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.EnvVar"
+        "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVar"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "env contains additional environment variables you want to pass into a builder container."
     }, 
     "triggeredBy": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.BuildTriggerCause"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildTriggerCause"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers."
     }, 
     "lastVersion": {
@@ -51,11 +69,11 @@
     }, 
     "dockerStrategyOptions": {
       "description": "DockerStrategyOptions contains additional docker-strategy specific options for the build", 
-      "$ref": "_definitions.json#/definitions/v1.DockerStrategyOptions"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.DockerStrategyOptions"
     }, 
     "metadata": {
       "description": "metadata for BuildRequest.", 
-      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     }
   }
 }

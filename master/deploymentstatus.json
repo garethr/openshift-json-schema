@@ -3,6 +3,11 @@
   "type": "object", 
   "description": "DeploymentStatus is the most recently observed status of the Deployment.", 
   "properties": {
+    "collisionCount": {
+      "type": "integer", 
+      "description": "Count of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet.", 
+      "format": "int64"
+    }, 
     "replicas": {
       "type": "integer", 
       "description": "Total number of non-terminated pods targeted by this deployment (their labels match the selector).", 
@@ -35,10 +40,15 @@
     }, 
     "conditions": {
       "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1beta1.DeploymentCondition"
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.extensions.v1beta1.DeploymentCondition"
       }, 
-      "type": "array", 
-      "description": "Represents the latest available observations of a deployment's current state."
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Represents the latest available observations of a deployment's current state.", 
+      "x-kubernetes-patch-strategy": "merge", 
+      "x-kubernetes-patch-merge-key": "type"
     }
   }
 }

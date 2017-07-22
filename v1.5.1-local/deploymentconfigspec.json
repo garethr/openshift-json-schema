@@ -13,7 +13,10 @@
       "items": {
         "$ref": "_definitions.json#/definitions/v1.DeploymentTriggerPolicy"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Triggers determine how updates to a DeploymentConfig result in new deployments. If no triggers are defined, a new deployment can only occur as a result of an explicit client update to the DeploymentConfig with a new LatestVersion. If null, defaults to having a config change trigger."
     }, 
     "replicas": {

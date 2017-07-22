@@ -10,21 +10,21 @@
       "type": "string", 
       "description": "httpProxy is a proxy used to reach the git repository over http"
     }, 
-    "noProxy": {
+    "httpsProxy": {
       "type": "string", 
-      "description": "noProxy is the list of domains for which the proxy should not be used"
+      "description": "httpsProxy is a proxy used to reach the git repository over https"
     }, 
     "ref": {
       "type": "string", 
       "description": "ref is the branch/tag/ref to build."
     }, 
+    "noProxy": {
+      "type": "string", 
+      "description": "noProxy is the list of domains for which the proxy should not be used"
+    }, 
     "uri": {
       "type": "string", 
       "description": "uri points to the source that will be built. The structure of the source will depend on the type of build to run"
-    }, 
-    "httpsProxy": {
-      "type": "string", 
-      "description": "httpsProxy is a proxy used to reach the git repository over https"
     }
   }
 }

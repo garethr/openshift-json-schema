@@ -5,7 +5,7 @@
     "status"
   ], 
   "type": "object", 
-  "description": "DeploymentCondition describes the state of a deployment at a certain point.", 
+  "description": "DeploymentCondition describes the state of a deployment config at a certain point.", 
   "properties": {
     "status": {
       "type": "string", 
@@ -13,11 +13,11 @@
     }, 
     "lastUpdateTime": {
       "description": "The last time this condition was updated.", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "lastTransitionTime": {
-      "description": "Last time the condition transitioned from one status to another.", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "description": "The last time the condition transitioned from one status to another.", 
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "reason": {
       "type": "string", 

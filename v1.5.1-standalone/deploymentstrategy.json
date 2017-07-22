@@ -95,7 +95,10 @@
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Environment holds the environment which will be given to the container for Image."
         }, 
         "image": {
@@ -106,7 +109,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Command is optional and overrides CMD in the container Image."
         }
       }
@@ -151,7 +157,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -243,14 +252,20 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Env is a set of environment variables to supply to the hook pod's container."
                 }, 
                 "volumes": {
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
                 }
               }
@@ -302,7 +317,10 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
             }
           }
@@ -313,8 +331,14 @@
           "format": "int64"
         }, 
         "maxSurge": {
-          "type": "string", 
-          "format": "int-or-string"
+          "oneOf": [
+            {
+              "type": "string"
+            }, 
+            {
+              "type": "integer"
+            }
+          ]
         }, 
         "intervalSeconds": {
           "type": "integer", 
@@ -322,8 +346,14 @@
           "format": "int64"
         }, 
         "maxUnavailable": {
-          "type": "string", 
-          "format": "int-or-string"
+          "oneOf": [
+            {
+              "type": "string"
+            }, 
+            {
+              "type": "integer"
+            }
+          ]
         }, 
         "updatePeriodSeconds": {
           "type": "integer", 
@@ -355,7 +385,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -447,14 +480,20 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Env is a set of environment variables to supply to the hook pod's container."
                 }, 
                 "volumes": {
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
                 }
               }
@@ -506,7 +545,10 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
             }
           }
@@ -541,7 +583,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -633,14 +678,20 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Env is a set of environment variables to supply to the hook pod's container."
                 }, 
                 "volumes": {
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
                 }
               }
@@ -692,7 +743,10 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
             }
           }
@@ -722,7 +776,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -814,14 +871,20 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Env is a set of environment variables to supply to the hook pod's container."
                 }, 
                 "volumes": {
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
                 }
               }
@@ -873,7 +936,10 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
             }
           }
@@ -903,7 +969,10 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -995,14 +1064,20 @@
                       }
                     }
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Env is a set of environment variables to supply to the hook pod's container."
                 }, 
                 "volumes": {
                   "items": {
                     "type": "string"
                   }, 
-                  "type": "array", 
+                  "type": [
+                    "array", 
+                    "null"
+                  ], 
                   "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
                 }
               }
@@ -1054,7 +1129,10 @@
                   }
                 }
               }, 
-              "type": "array", 
+              "type": [
+                "array", 
+                "null"
+              ], 
               "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
             }
           }

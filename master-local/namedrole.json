@@ -9,7 +9,7 @@
   "properties": {
     "role": {
       "description": "Role is the role being named", 
-      "$ref": "_definitions.json#/definitions/v1.Role"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.Role"
     }, 
     "name": {
       "type": "string", 

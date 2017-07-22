@@ -78,7 +78,10 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "UserNames holds all the usernames directly bound to the role. This field should only be specified when supporting legacy clients and servers. See Subjects for further details."
               }, 
               "apiVersion": {
@@ -89,7 +92,10 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "GroupNames holds all the groups directly bound to the role. This field should only be specified when supporting legacy clients and servers. See Subjects for further details."
               }, 
               "subjects": {
@@ -126,7 +132,10 @@
                     }
                   }
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "Subjects hold object references to authorize with this rule. This field is ignored if UserNames or GroupNames are specified to support legacy clients and servers. Thus newer clients that do not need to support backwards compatibility should send only fully qualified Subjects and should omit the UserNames and GroupNames fields. Clients that need to support backwards compatibility can use this field to build the UserNames and GroupNames."
               }, 
               "metadata": {
@@ -164,7 +173,10 @@
                     "items": {
                       "type": "string"
                     }, 
-                    "type": "array", 
+                    "type": [
+                      "array", 
+                      "null"
+                    ], 
                     "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
                   }, 
                   "generation": {
@@ -198,21 +210,24 @@
                           "type": "boolean", 
                           "description": "If true, this reference points to the managing controller."
                         }, 
-                        "name": {
+                        "uid": {
                           "type": "string", 
-                          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                          "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                         }, 
                         "apiVersion": {
                           "type": "string", 
                           "description": "API version of the referent."
                         }, 
-                        "uid": {
+                        "name": {
                           "type": "string", 
-                          "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                         }
                       }
                     }, 
-                    "type": "array", 
+                    "type": [
+                      "array", 
+                      "null"
+                    ], 
                     "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
                   }, 
                   "creationTimestamp": {
@@ -244,7 +259,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "RoleBindings holds all the ClusterRoleBindings held by this ClusterPolicyBinding, mapped by ClusterRoleBinding.Name"
     }, 
     "policyRef": {
@@ -315,7 +333,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
         }, 
         "generation": {
@@ -349,21 +370,24 @@
                 "type": "boolean", 
                 "description": "If true, this reference points to the managing controller."
               }, 
-              "name": {
+              "uid": {
                 "type": "string", 
-                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
               }, 
               "apiVersion": {
                 "type": "string", 
                 "description": "API version of the referent."
               }, 
-              "uid": {
+              "name": {
                 "type": "string", 
-                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
               }
             }
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
         }, 
         "creationTimestamp": {

@@ -8,9 +8,12 @@
   "properties": {
     "egress": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.EgressNetworkPolicyRule"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.sdn.apis.network.v1.EgressNetworkPolicyRule"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "egress contains the list of egress policy rules"
     }
   }

@@ -94,7 +94,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "alternateBackends is an extension of the 'to' field. If more than one service needs to be pointed to, then use this field. Use the weight field in RouteTargetReference object to specify relative preference. If the weight field is zero, the backend is ignored."
     }, 
     "path": {
@@ -108,8 +111,14 @@
       "description": "RoutePort defines a port mapping from a router to an endpoint in the service endpoints.", 
       "properties": {
         "targetPort": {
-          "type": "string", 
-          "format": "int-or-string"
+          "oneOf": [
+            {
+              "type": "string"
+            }, 
+            {
+              "type": "integer"
+            }
+          ]
         }
       }
     }

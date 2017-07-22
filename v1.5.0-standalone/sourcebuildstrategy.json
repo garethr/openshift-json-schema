@@ -39,9 +39,14 @@
         }
       }
     }, 
-    "scripts": {
-      "type": "string", 
-      "description": "scripts is the location of Source scripts"
+    "pullSecret": {
+      "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
+      "properties": {
+        "name": {
+          "type": "string", 
+          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+        }
+      }
     }, 
     "runtimeArtifacts": {
       "items": {
@@ -61,7 +66,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "runtimeArtifacts specifies a list of source/destination pairs that will be copied from the builder to the runtime image. sourcePath can be a file or directory. destinationDir must be a directory. destinationDir can also be empty or equal to \".\", in this case it just refers to the root of WORKDIR. This field and the feature it enables are in tech preview."
     }, 
     "runtimeImage": {
@@ -190,17 +198,15 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "env contains additional environment variables you want to pass into a builder container"
     }, 
-    "pullSecret": {
-      "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
-      "properties": {
-        "name": {
-          "type": "string", 
-          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-        }
-      }
+    "scripts": {
+      "type": "string", 
+      "description": "scripts is the location of Source scripts"
     }, 
     "forcePull": {
       "type": "boolean", 

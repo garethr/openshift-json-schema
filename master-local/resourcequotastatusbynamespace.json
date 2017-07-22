@@ -9,7 +9,7 @@
   "properties": {
     "status": {
       "description": "Status indicates how many resources have been consumed by this project", 
-      "$ref": "_definitions.json#/definitions/v1.ResourceQuotaStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ResourceQuotaStatus"
     }, 
     "namespace": {
       "type": "string", 

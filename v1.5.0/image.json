@@ -22,14 +22,20 @@
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ImageSignature"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Signatures holds all signatures of the image."
     }, 
     "dockerImageLayers": {
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ImageLayer"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "DockerImageLayers represents the layers in the image. May not be set if the image does not define that data."
     }, 
     "dockerImageManifest": {
@@ -57,7 +63,10 @@
         "type": "string", 
         "format": "byte"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "DockerImageSignatures provides the signatures as opaque blobs. This is a part of manifest schema v1."
     }, 
     "dockerImageMetadata": {

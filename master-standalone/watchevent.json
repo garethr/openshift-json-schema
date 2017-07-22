@@ -1,11 +1,188 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "Event represents a single event to a watched resource.", 
   "required": [
     "type", 
     "object"
   ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "admission.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "admissionregistration.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "apps"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "apps.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "authentication.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "authentication.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "authorization.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "authorization.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "authorization.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "autoscaling"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "autoscaling"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "batch"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "batch"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "build.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "certificates.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "extensions"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "federation"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "image.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "imagepolicy.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "network.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "networking.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "oauth.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "policy"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "project.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "quota.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "rbac.authorization.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "rbac.authorization.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "route.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "security.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "settings.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "storage.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "storage.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "template.openshift.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
+      "group": "user.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "Event represents a single event to a watched resource.", 
   "properties": {
     "object": {
       "required": [

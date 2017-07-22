@@ -62,7 +62,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "secrets is a list of additional secrets that will be included in the build pod"
     }, 
     "exposeDockerSocket": {
@@ -158,7 +161,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "env contains additional environment variables you want to pass into a builder container"
     }, 
     "pullSecret": {

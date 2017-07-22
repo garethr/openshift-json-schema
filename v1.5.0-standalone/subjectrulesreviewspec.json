@@ -12,7 +12,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\"."
     }, 
     "user": {
@@ -23,7 +26,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Groups is optional.  Groups is the list of groups to which the User belongs.  At least one of User and Groups must be specified."
     }
   }

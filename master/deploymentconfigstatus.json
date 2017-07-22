@@ -33,7 +33,7 @@
     }, 
     "details": {
       "description": "Details are the reasons for the update to this deployment config. This could be based on a change made by the user or caused by an automatic trigger", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.DeploymentDetails"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentDetails"
     }, 
     "latestVersion": {
       "type": "integer", 
@@ -47,10 +47,15 @@
     }, 
     "conditions": {
       "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.DeploymentCondition"
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentCondition"
       }, 
-      "type": "array", 
-      "description": "Conditions represents the latest available observations of a deployment config's current state."
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Conditions represents the latest available observations of a deployment config's current state.", 
+      "x-kubernetes-patch-strategy": "merge", 
+      "x-kubernetes-patch-merge-key": "type"
     }, 
     "unavailableReplicas": {
       "type": "integer", 

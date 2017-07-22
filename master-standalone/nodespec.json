@@ -9,7 +9,7 @@
     }, 
     "unschedulable": {
       "type": "boolean", 
-      "description": "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: http://releases.k8s.io/HEAD/docs/admin/node.md#manual-node-administration"
+      "description": "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration"
     }, 
     "providerID": {
       "type": "string", 
@@ -28,8 +28,10 @@
         "description": "The node this Taint is attached to has the effect \"effect\" on any pod that that does not tolerate the Taint.", 
         "properties": {
           "key": {
+            "x-kubernetes-patch-merge-key": "key", 
             "type": "string", 
-            "description": "Required. The taint key to be applied to a node."
+            "description": "Required. The taint key to be applied to a node.", 
+            "x-kubernetes-patch-strategy": "merge"
           }, 
           "timeAdded": {
             "type": "string", 
@@ -45,7 +47,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "If specified, the node's taints."
     }
   }

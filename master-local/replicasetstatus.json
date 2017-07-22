@@ -8,7 +8,7 @@
   "properties": {
     "replicas": {
       "type": "integer", 
-      "description": "Replicas is the most recently oberved number of replicas. More info: http://kubernetes.io/docs/user-guide/replication-controller#what-is-a-replication-controller", 
+      "description": "Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller", 
       "format": "int32"
     }, 
     "observedGeneration": {
@@ -28,10 +28,15 @@
     }, 
     "conditions": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1beta1.ReplicaSetCondition"
+        "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.extensions.v1beta1.ReplicaSetCondition"
       }, 
-      "type": "array", 
-      "description": "Represents the latest available observations of a replica set's current state."
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Represents the latest available observations of a replica set's current state.", 
+      "x-kubernetes-patch-strategy": "merge", 
+      "x-kubernetes-patch-merge-key": "type"
     }, 
     "fullyLabeledReplicas": {
       "type": "integer", 

@@ -5,18 +5,21 @@
   "properties": {
     "images": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.ImageImportStatus"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.ImageImportStatus"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Images is set with the result of importing spec.images"
     }, 
     "import": {
       "description": "Import is the image stream that was successfully updated or created when 'to' was set.", 
-      "$ref": "_definitions.json#/definitions/v1.ImageStream"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.ImageStream"
     }, 
     "repository": {
       "description": "Repository is set if spec.repository was set to the outcome of the import", 
-      "$ref": "_definitions.json#/definitions/v1.RepositoryImportStatus"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.RepositoryImportStatus"
     }
   }
 }

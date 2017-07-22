@@ -21,7 +21,7 @@
     }, 
     "lastTransitionTime": {
       "description": "RFC 3339 date and time when this condition last transitioned", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "reason": {
       "type": "string", 

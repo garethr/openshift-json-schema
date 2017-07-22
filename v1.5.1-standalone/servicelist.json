@@ -30,7 +30,10 @@
                         }
                       }
                     }, 
-                    "type": "array", 
+                    "type": [
+                      "array", 
+                      "null"
+                    ], 
                     "description": "Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points."
                   }
                 }
@@ -55,21 +58,30 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "deprecatedPublicIPs is deprecated and replaced by the externalIPs field with almost the exact same semantics.  This field is retained in the v1 API for compatibility until at least 8/20/2016.  It will be removed from any new API revisions.  If both deprecatedPublicIPs *and* externalIPs are set, deprecatedPublicIPs is used."
               }, 
               "externalIPs": {
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.  These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.  A previous form of this functionality exists as the deprecatedPublicIPs field.  When using this field, callers should also clear the deprecatedPublicIPs field."
               }, 
               "loadBalancerSourceRanges": {
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\" More info: http://kubernetes.io/docs/user-guide/services-firewalls"
               }, 
               "sessionAffinity": {
@@ -107,8 +119,14 @@
                       "description": "The IP protocol for this port. Supports \"TCP\" and \"UDP\". Default is TCP."
                     }, 
                     "targetPort": {
-                      "type": "string", 
-                      "format": "int-or-string"
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        }, 
+                        {
+                          "type": "integer"
+                        }
+                      ]
                     }, 
                     "port": {
                       "type": "integer", 
@@ -126,7 +144,10 @@
                     }
                   }
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "The list of ports that are exposed by this service. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies"
               }
             }
@@ -170,7 +191,10 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
               }, 
               "generation": {
@@ -204,21 +228,24 @@
                       "type": "boolean", 
                       "description": "If true, this reference points to the managing controller."
                     }, 
-                    "name": {
+                    "uid": {
                       "type": "string", 
-                      "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                      "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                     }, 
                     "apiVersion": {
                       "type": "string", 
                       "description": "API version of the referent."
                     }, 
-                    "uid": {
+                    "name": {
                       "type": "string", 
-                      "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                      "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                     }
                   }
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
               }, 
               "creationTimestamp": {
@@ -244,7 +271,10 @@
           }
         }
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "List of services"
     }, 
     "kind": {

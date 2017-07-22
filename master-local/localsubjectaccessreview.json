@@ -1,29 +1,100 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "LocalSubjectAccessReview is an object for requesting information about whether a user or group can perform an action in a particular namespace", 
   "required": [
-    "spec"
+    "namespace", 
+    "verb", 
+    "resourceAPIGroup", 
+    "resourceAPIVersion", 
+    "resource", 
+    "resourceName", 
+    "path", 
+    "isNonResourceURL", 
+    "user", 
+    "groups", 
+    "scopes"
   ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "LocalSubjectAccessReview", 
+      "version": "latest", 
+      "group": ""
+    }, 
+    {
+      "kind": "LocalSubjectAccessReview", 
+      "version": "latest", 
+      "group": "authorization.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
   "type": "object", 
-  "description": "LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace. Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.", 
   "properties": {
-    "status": {
-      "description": "Status is filled in by the server and indicates whether the request is allowed or not", 
-      "$ref": "_definitions.json#/definitions/v1beta1.SubjectAccessReviewStatus"
+    "scopes": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\". Nil for a self-SAR, means \"use the scopes on this request\". Nil for a regular SAR, means the same as empty."
     }, 
     "kind": {
       "type": "string", 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
-    "spec": {
-      "description": "Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace you made the request against.  If empty, it is defaulted.", 
-      "$ref": "_definitions.json#/definitions/v1beta1.SubjectAccessReviewSpec"
+    "resource": {
+      "type": "string", 
+      "description": "Resource is one of the existing resource types"
+    }, 
+    "namespace": {
+      "type": "string", 
+      "description": "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces"
     }, 
     "apiVersion": {
       "type": "string", 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
-    "metadata": {
-      "$ref": "_definitions.json#/definitions/v1.ObjectMeta"
+    "isNonResourceURL": {
+      "type": "boolean", 
+      "description": "IsNonResourceURL is true if this is a request for a non-resource URL (outside of the resource hieraarchy)"
+    }, 
+    "resourceAPIVersion": {
+      "type": "string", 
+      "description": "Version is the API version of the resource Serialized as resourceAPIVersion to avoid confusion with TypeMeta.apiVersion and ObjectMeta.resourceVersion when inlined"
+    }, 
+    "verb": {
+      "type": "string", 
+      "description": "Verb is one of: get, list, watch, create, update, delete"
+    }, 
+    "resourceAPIGroup": {
+      "type": "string", 
+      "description": "Group is the API group of the resource Serialized as resourceAPIGroup to avoid confusion with the 'groups' field when inlined"
+    }, 
+    "groups": {
+      "items": {
+        "type": "string"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Groups is optional.  Groups is the list of groups to which the User belongs."
+    }, 
+    "resourceName": {
+      "type": "string", 
+      "description": "ResourceName is the name of the resource being requested for a \"get\" or deleted for a \"delete\""
+    }, 
+    "path": {
+      "type": "string", 
+      "description": "Path is the path of a non resource URL"
+    }, 
+    "content": {
+      "description": "Content is the actual content of the request for create and update", 
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension"
+    }, 
+    "user": {
+      "type": "string", 
+      "description": "User is optional.  If both User and Groups are empty, the current authenticated user is used."
     }
   }
 }

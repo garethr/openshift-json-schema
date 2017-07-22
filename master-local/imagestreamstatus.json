@@ -12,9 +12,12 @@
     }, 
     "tags": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.NamedTagEventList"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.NamedTagEventList"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Tags are a historical record of images associated with each tag. The first entry in the TagEvent array is the currently tagged image."
     }
   }

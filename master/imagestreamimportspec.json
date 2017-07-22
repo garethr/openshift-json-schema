@@ -8,9 +8,12 @@
   "properties": {
     "images": {
       "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ImageImportSpec"
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.ImageImportSpec"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "Images are a list of individual images to import."
     }, 
     "import": {
@@ -19,7 +22,7 @@
     }, 
     "repository": {
       "description": "Repository is an optional import of an entire Docker image repository. A maximum limit on the number of tags imported this way is imposed by the server.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.RepositoryImportSpec"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.RepositoryImportSpec"
     }
   }
 }

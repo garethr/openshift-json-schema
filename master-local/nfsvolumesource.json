@@ -9,15 +9,15 @@
   "properties": {
     "path": {
       "type": "string", 
-      "description": "Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs"
+      "description": "Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs"
     }, 
     "readOnly": {
       "type": "boolean", 
-      "description": "ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs"
+      "description": "ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs"
     }, 
     "server": {
       "type": "string", 
-      "description": "Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs"
+      "description": "Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs"
     }
   }
 }

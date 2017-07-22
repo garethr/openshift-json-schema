@@ -10,9 +10,12 @@
   "properties": {
     "triggeredBy": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.BuildTriggerCause"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildTriggerCause"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers."
     }, 
     "serviceAccount": {
@@ -33,27 +36,27 @@
     }, 
     "source": {
       "description": "source describes the SCM in use.", 
-      "$ref": "_definitions.json#/definitions/v1.BuildSource"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildSource"
     }, 
     "postCommit": {
       "description": "postCommit is a build hook executed after the build output image is committed, before it is pushed to a registry.", 
-      "$ref": "_definitions.json#/definitions/v1.BuildPostCommitSpec"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildPostCommitSpec"
     }, 
     "output": {
       "description": "output describes the Docker image the Strategy should produce.", 
-      "$ref": "_definitions.json#/definitions/v1.BuildOutput"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildOutput"
     }, 
     "strategy": {
       "description": "strategy defines how to perform a build.", 
-      "$ref": "_definitions.json#/definitions/v1.BuildStrategy"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildStrategy"
     }, 
     "resources": {
       "description": "resources computes resource requirements to execute the build.", 
-      "$ref": "_definitions.json#/definitions/v1.ResourceRequirements"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ResourceRequirements"
     }, 
     "revision": {
       "description": "revision is the information from the source for a specific repo snapshot. This is optional.", 
-      "$ref": "_definitions.json#/definitions/v1.SourceRevision"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceRevision"
     }
   }
 }

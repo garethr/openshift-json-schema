@@ -8,13 +8,16 @@
   "properties": {
     "template": {
       "description": "template is the PodTemplateSpec to check. If template.spec.serviceAccountName is empty it will not be defaulted. If its non-empty, it will be checked.", 
-      "$ref": "_definitions.json#/definitions/v1.PodTemplateSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.PodTemplateSpec"
     }, 
     "groups": {
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "groups is the groups you're testing for."
     }, 
     "user": {

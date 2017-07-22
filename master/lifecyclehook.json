@@ -12,13 +12,16 @@
     }, 
     "execNewPod": {
       "description": "ExecNewPod specifies the options for a lifecycle hook backed by a pod.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.ExecNewPodHook"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.ExecNewPodHook"
     }, 
     "tagImages": {
       "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.TagImageHook"
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.TagImageHook"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
     }
   }

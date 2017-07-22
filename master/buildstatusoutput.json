@@ -5,7 +5,7 @@
   "properties": {
     "to": {
       "description": "to describes the status of the built image being pushed to a registry.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/v1.BuildStatusOutputTo"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildStatusOutputTo"
     }
   }
 }

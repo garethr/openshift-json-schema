@@ -11,8 +11,14 @@
       "description": "The IP protocol for this port. Supports \"TCP\" and \"UDP\". Default is TCP."
     }, 
     "targetPort": {
-      "type": "string", 
-      "format": "int-or-string"
+      "oneOf": [
+        {
+          "type": "string"
+        }, 
+        {
+          "type": "integer"
+        }
+      ]
     }, 
     "port": {
       "type": "integer", 

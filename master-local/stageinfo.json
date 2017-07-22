@@ -5,13 +5,16 @@
   "properties": {
     "startTime": {
       "description": "startTime is a timestamp representing the server time when this Stage started. It is represented in RFC3339 form and is in UTC.", 
-      "$ref": "_definitions.json#/definitions/v1.Time"
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "steps": {
       "items": {
-        "$ref": "_definitions.json#/definitions/v1.StepInfo"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.StepInfo"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "steps contains details about each step that occurs during a build stage including start time and duration in milliseconds."
     }, 
     "name": {

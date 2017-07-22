@@ -54,7 +54,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Required: Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
         }
       }
@@ -65,6 +68,42 @@
       }, 
       "type": "object", 
       "description": "A description of the persistent volume's resources and capacity. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#capacity"
+    }, 
+    "flexVolume": {
+      "required": [
+        "driver"
+      ], 
+      "description": "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin. This is an alpha feature and may change in future.", 
+      "properties": {
+        "readOnly": {
+          "type": "boolean", 
+          "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
+        }, 
+        "options": {
+          "additionalProperties": {
+            "type": "string"
+          }, 
+          "type": "object", 
+          "description": "Optional: Extra command options if any."
+        }, 
+        "driver": {
+          "type": "string", 
+          "description": "Driver is the name of the driver to use for this volume."
+        }, 
+        "secretRef": {
+          "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
+          "properties": {
+            "name": {
+              "type": "string", 
+              "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+            }
+          }
+        }, 
+        "fsType": {
+          "type": "string", 
+          "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script."
+        }
+      }
     }, 
     "persistentVolumeReclaimPolicy": {
       "type": "string", 
@@ -106,13 +145,13 @@
           "type": "string", 
           "description": "The Name of the data disk in the blob storage"
         }, 
-        "readOnly": {
-          "type": "boolean", 
-          "description": "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
-        }, 
         "cachingMode": {
           "type": "string", 
           "description": "Host Caching mode: None, Read Only, Read Write."
+        }, 
+        "readOnly": {
+          "type": "boolean", 
+          "description": "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
         }, 
         "fsType": {
           "type": "string", 
@@ -135,7 +174,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "Required: FC target worldwide names (WWNs)"
         }, 
         "lun": {
@@ -146,26 +188,6 @@
         "fsType": {
           "type": "string", 
           "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified."
-        }
-      }
-    }, 
-    "cinder": {
-      "required": [
-        "volumeID"
-      ], 
-      "description": "Represents a cinder volume resource in Openstack. A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.", 
-      "properties": {
-        "readOnly": {
-          "type": "boolean", 
-          "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
-        }, 
-        "volumeID": {
-          "type": "string", 
-          "description": "volume id used to identify the volume in cinder More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
-        }, 
-        "fsType": {
-          "type": "string", 
-          "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
         }
       }
     }, 
@@ -202,7 +224,10 @@
       "items": {
         "type": "string"
       }, 
-      "type": "array", 
+      "type": [
+        "array", 
+        "null"
+      ], 
       "description": "AccessModes contains all ways the volume can be mounted. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes"
     }, 
     "glusterfs": {
@@ -317,39 +342,23 @@
         }
       }
     }, 
-    "flexVolume": {
+    "cinder": {
       "required": [
-        "driver"
+        "volumeID"
       ], 
-      "description": "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin. This is an alpha feature and may change in future.", 
+      "description": "Represents a cinder volume resource in Openstack. A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.", 
       "properties": {
         "readOnly": {
           "type": "boolean", 
-          "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
+          "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
         }, 
-        "secretRef": {
-          "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
-          "properties": {
-            "name": {
-              "type": "string", 
-              "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-            }
-          }
-        }, 
-        "driver": {
+        "volumeID": {
           "type": "string", 
-          "description": "Driver is the name of the driver to use for this volume."
-        }, 
-        "options": {
-          "additionalProperties": {
-            "type": "string"
-          }, 
-          "type": "object", 
-          "description": "Optional: Extra command options if any."
+          "description": "volume id used to identify the volume in cinder More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
         }, 
         "fsType": {
           "type": "string", 
-          "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script."
+          "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
         }
       }
     }, 
@@ -418,7 +427,10 @@
           "items": {
             "type": "string"
           }, 
-          "type": "array", 
+          "type": [
+            "array", 
+            "null"
+          ], 
           "description": "A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it"
         }, 
         "pool": {

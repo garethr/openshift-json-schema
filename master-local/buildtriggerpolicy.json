@@ -8,23 +8,23 @@
   "properties": {
     "bitbucket": {
       "description": "BitbucketWebHook contains the parameters for a Bitbucket webhook type of trigger", 
-      "$ref": "_definitions.json#/definitions/v1.WebHookTrigger"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.WebHookTrigger"
     }, 
     "github": {
       "description": "github contains the parameters for a GitHub webhook type of trigger", 
-      "$ref": "_definitions.json#/definitions/v1.WebHookTrigger"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.WebHookTrigger"
     }, 
     "generic": {
       "description": "generic contains the parameters for a Generic webhook type of trigger", 
-      "$ref": "_definitions.json#/definitions/v1.WebHookTrigger"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.WebHookTrigger"
     }, 
     "gitlab": {
       "description": "GitLabWebHook contains the parameters for a GitLab webhook type of trigger", 
-      "$ref": "_definitions.json#/definitions/v1.WebHookTrigger"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.WebHookTrigger"
     }, 
     "imageChange": {
       "description": "imageChange contains parameters for an ImageChange type of trigger", 
-      "$ref": "_definitions.json#/definitions/v1.ImageChangeTrigger"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.ImageChangeTrigger"
     }, 
     "type": {
       "type": "string", 

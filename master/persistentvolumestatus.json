@@ -5,7 +5,7 @@
   "properties": {
     "phase": {
       "type": "string", 
-      "description": "Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#phase"
+      "description": "Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase"
     }, 
     "message": {
       "type": "string", 

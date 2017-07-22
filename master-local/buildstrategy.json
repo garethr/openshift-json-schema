@@ -8,19 +8,19 @@
   "properties": {
     "jenkinsPipelineStrategy": {
       "description": "JenkinsPipelineStrategy holds the parameters to the Jenkins Pipeline build strategy. This strategy is in tech preview.", 
-      "$ref": "_definitions.json#/definitions/v1.JenkinsPipelineBuildStrategy"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.JenkinsPipelineBuildStrategy"
     }, 
     "sourceStrategy": {
       "description": "sourceStrategy holds the parameters to the Source build strategy.", 
-      "$ref": "_definitions.json#/definitions/v1.SourceBuildStrategy"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceBuildStrategy"
     }, 
     "customStrategy": {
       "description": "customStrategy holds the parameters to the Custom build strategy", 
-      "$ref": "_definitions.json#/definitions/v1.CustomBuildStrategy"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.CustomBuildStrategy"
     }, 
     "dockerStrategy": {
       "description": "dockerStrategy holds the parameters to the Docker build strategy.", 
-      "$ref": "_definitions.json#/definitions/v1.DockerBuildStrategy"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.DockerBuildStrategy"
     }, 
     "type": {
       "type": "string", 
