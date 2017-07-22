@@ -369,10 +369,7 @@
                               }
                             }
                           }, 
-                          "type": [
-                            "array", 
-                            "null"
-                          ], 
+                          "type": "array", 
                           "description": "paths is a list of source and destination paths to copy from the image."
                         }, 
                         "from": {
@@ -1654,10 +1651,7 @@
                     }
                   }
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers."
               }
             }
@@ -1876,10 +1870,7 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
                   }
                 }

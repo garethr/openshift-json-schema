@@ -382,10 +382,7 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "DockerImageLayers represents the layers in the image. May not be set if the image does not define that data."
                   }, 
                   "dockerImageManifest": {
@@ -608,10 +605,7 @@
                             }
                           }
                         }, 
-                        "type": [
-                          "array", 
-                          "null"
-                        ], 
+                        "type": "array", 
                         "description": "Standard object's metadata."
                       }, 
                       "tag": {
@@ -1272,10 +1266,7 @@
                             }
                           }
                         }, 
-                        "type": [
-                          "array", 
-                          "null"
-                        ], 
+                        "type": "array", 
                         "description": "DockerImageLayers represents the layers in the image. May not be set if the image does not define that data."
                       }, 
                       "dockerImageManifest": {

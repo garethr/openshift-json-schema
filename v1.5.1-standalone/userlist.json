@@ -26,10 +26,7 @@
             "items": {
               "type": "string"
             }, 
-            "type": [
-              "array", 
-              "null"
-            ], 
+            "type": "array", 
             "description": "Groups specifies group names this user is a member of. This field is deprecated and will be removed in a future release. Instead, create a Group object containing the name of this User."
           }, 
           "fullName": {
@@ -40,10 +37,7 @@
             "items": {
               "type": "string"
             }, 
-            "type": [
-              "array", 
-              "null"
-            ], 
+            "type": "array", 
             "description": "Identities are the identities associated with this user"
           }, 
           "metadata": {

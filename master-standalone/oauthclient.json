@@ -41,10 +41,7 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "RoleNames is the list of cluster roles that can referenced.  * means anything"
               }, 
               "allowEscalation": {
@@ -55,10 +52,7 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)"
               }
             }
@@ -322,10 +316,7 @@
                   }
                 }
               }, 
-              "type": [
-                "array", 
-                "null"
-              ], 
+              "type": "array", 
               "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
             }
           }

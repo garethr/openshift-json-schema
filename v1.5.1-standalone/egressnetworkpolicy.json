@@ -42,10 +42,7 @@
               }
             }
           }, 
-          "type": [
-            "array", 
-            "null"
-          ], 
+          "type": "array", 
           "description": "egress contains the list of egress policy rules"
         }
       }

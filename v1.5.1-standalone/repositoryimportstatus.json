@@ -375,10 +375,7 @@
                     }
                   }
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "DockerImageLayers represents the layers in the image. May not be set if the image does not define that data."
               }, 
               "dockerImageManifest": {

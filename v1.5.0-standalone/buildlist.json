@@ -291,10 +291,7 @@
                               }
                             }
                           }, 
-                          "type": [
-                            "array", 
-                            "null"
-                          ], 
+                          "type": "array", 
                           "description": "paths is a list of source and destination paths to copy from the image."
                         }, 
                         "from": {
@@ -1222,10 +1219,7 @@
                     }
                   }
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers."
               }
             }

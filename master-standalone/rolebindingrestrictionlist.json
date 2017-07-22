@@ -75,20 +75,14 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "ServiceAccounts specifies a list of literal service-account names."
                   }, 
                   "namespaces": {
                     "items": {
                       "type": "string"
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Namespaces specifies a list of literal namespace names."
                   }
                 }
@@ -150,30 +144,21 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Selectors specifies a list of label selectors over user labels."
                   }, 
                   "users": {
                     "items": {
                       "type": "string"
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Users specifies a list of literal user names."
                   }, 
                   "groups": {
                     "items": {
                       "type": "string"
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Groups specifies a list of literal group names."
                   }
                 }
@@ -234,20 +219,14 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Selectors specifies a list of label selectors over group labels."
                   }, 
                   "groups": {
                     "items": {
                       "type": "string"
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Groups is a list of groups used to match against an individual user's groups. If the user is a member of one of the whitelisted groups, the user is allowed to be bound to a role."
                   }
                 }
@@ -468,10 +447,7 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
                   }
                 }

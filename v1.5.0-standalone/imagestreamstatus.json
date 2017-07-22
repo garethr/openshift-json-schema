@@ -47,10 +47,7 @@
                 }
               }
             }, 
-            "type": [
-              "array", 
-              "null"
-            ], 
+            "type": "array", 
             "description": "Standard object's metadata."
           }, 
           "tag": {

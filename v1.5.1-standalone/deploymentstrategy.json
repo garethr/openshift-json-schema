@@ -157,10 +157,7 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": [
-                    "array", 
-                    "null"
-                  ], 
+                  "type": "array", 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -385,10 +382,7 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": [
-                    "array", 
-                    "null"
-                  ], 
+                  "type": "array", 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -583,10 +577,7 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": [
-                    "array", 
-                    "null"
-                  ], 
+                  "type": "array", 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -776,10 +767,7 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": [
-                    "array", 
-                    "null"
-                  ], 
+                  "type": "array", 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {
@@ -969,10 +957,7 @@
                   "items": {
                     "type": "string"
                   }, 
-                  "type": [
-                    "array", 
-                    "null"
-                  ], 
+                  "type": "array", 
                   "description": "Command is the action command and its arguments."
                 }, 
                 "env": {

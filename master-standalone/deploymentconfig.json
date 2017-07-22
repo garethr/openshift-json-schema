@@ -114,10 +114,7 @@
                   }
                 }
               }, 
-              "type": [
-                "array", 
-                "null"
-              ], 
+              "type": "array", 
               "description": "Causes are extended data associated with all the causes for creating a new deployment"
             }
           }
@@ -268,10 +265,7 @@
               }
             }
           }, 
-          "type": [
-            "array", 
-            "null"
-          ], 
+          "type": "array", 
           "description": "Triggers determine how updates to a DeploymentConfig result in new deployments. If no triggers are defined, a new deployment can only occur as a result of an explicit client update to the DeploymentConfig with a new LatestVersion. If null, defaults to having a config change trigger."
         }, 
         "strategy": {
@@ -439,10 +433,7 @@
                           "items": {
                             "type": "string"
                           }, 
-                          "type": [
-                            "array", 
-                            "null"
-                          ], 
+                          "type": "array", 
                           "description": "Command is the action command and its arguments."
                         }, 
                         "env": {
@@ -675,10 +666,7 @@
                           "items": {
                             "type": "string"
                           }, 
-                          "type": [
-                            "array", 
-                            "null"
-                          ], 
+                          "type": "array", 
                           "description": "Command is the action command and its arguments."
                         }, 
                         "env": {
@@ -881,10 +869,7 @@
                           "items": {
                             "type": "string"
                           }, 
-                          "type": [
-                            "array", 
-                            "null"
-                          ], 
+                          "type": "array", 
                           "description": "Command is the action command and its arguments."
                         }, 
                         "env": {
@@ -1082,10 +1067,7 @@
                           "items": {
                             "type": "string"
                           }, 
-                          "type": [
-                            "array", 
-                            "null"
-                          ], 
+                          "type": "array", 
                           "description": "Command is the action command and its arguments."
                         }, 
                         "env": {
@@ -1283,10 +1265,7 @@
                           "items": {
                             "type": "string"
                           }, 
-                          "type": [
-                            "array", 
-                            "null"
-                          ], 
+                          "type": "array", 
                           "description": "Command is the action command and its arguments."
                         }, 
                         "env": {
@@ -1841,18 +1820,12 @@
                                         }
                                       }
                                     }, 
-                                    "type": [
-                                      "array", 
-                                      "null"
-                                    ], 
+                                    "type": "array", 
                                     "description": "Required. A list of node selector requirements. The requirements are ANDed."
                                   }
                                 }
                               }, 
-                              "type": [
-                                "array", 
-                                "null"
-                              ], 
+                              "type": "array", 
                               "description": "Required. A list of node selector terms. The terms are ORed."
                             }
                           }
@@ -1901,10 +1874,7 @@
                                         }
                                       }
                                     }, 
-                                    "type": [
-                                      "array", 
-                                      "null"
-                                    ], 
+                                    "type": "array", 
                                     "description": "Required. A list of node selector requirements. The requirements are ANDed."
                                   }
                                 }
@@ -2971,10 +2941,7 @@
                     }
                   }, 
                   "x-kubernetes-patch-merge-key": "name", 
-                  "type": [
-                    "array", 
-                    "null"
-                  ], 
+                  "type": "array", 
                   "description": "List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.", 
                   "x-kubernetes-patch-strategy": "merge"
                 }, 
@@ -3311,10 +3278,7 @@
                                 }
                               }
                             }, 
-                            "type": [
-                              "array", 
-                              "null"
-                            ], 
+                            "type": "array", 
                             "description": "list of volume projections"
                           }, 
                           "defaultMode": {
@@ -3471,10 +3435,7 @@
                             "items": {
                               "type": "string"
                             }, 
-                            "type": [
-                              "array", 
-                              "null"
-                            ], 
+                            "type": "array", 
                             "description": "Required: FC target worldwide names (WWNs)"
                           }, 
                           "lun": {
@@ -3653,10 +3614,7 @@
                             "items": {
                               "type": "string"
                             }, 
-                            "type": [
-                              "array", 
-                              "null"
-                            ], 
+                            "type": "array", 
                             "description": "Required: Monitors is a collection of Ceph monitors More info: https://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
                           }
                         }
@@ -3858,10 +3816,7 @@
                             "items": {
                               "type": "string"
                             }, 
-                            "type": [
-                              "array", 
-                              "null"
-                            ], 
+                            "type": "array", 
                             "description": "A collection of Ceph monitors. More info: https://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it"
                           }, 
                           "pool": {
@@ -5023,10 +4978,7 @@
                           }
                         }
                       }, 
-                      "type": [
-                        "array", 
-                        "null"
-                      ], 
+                      "type": "array", 
                       "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
                     }
                   }
@@ -5299,10 +5251,7 @@
                   }
                 }
               }, 
-              "type": [
-                "array", 
-                "null"
-              ], 
+              "type": "array", 
               "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
             }
           }

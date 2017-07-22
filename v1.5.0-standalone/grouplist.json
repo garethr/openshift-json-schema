@@ -21,10 +21,7 @@
             "items": {
               "type": "string"
             }, 
-            "type": [
-              "array", 
-              "null"
-            ], 
+            "type": "array", 
             "description": "Users is the list of users in this group."
           }, 
           "apiVersion": {

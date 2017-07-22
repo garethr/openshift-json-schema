@@ -113,10 +113,7 @@
               }
             }
           }, 
-          "type": [
-            "array", 
-            "null"
-          ], 
+          "type": "array", 
           "description": "triggers determine how new Builds can be launched from a BuildConfig. If no triggers are defined, a new build can only occur as a result of an explicit client build creation."
         }, 
         "serviceAccount": {
@@ -249,10 +246,7 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "paths is a list of source and destination paths to copy from the image."
                   }, 
                   "from": {

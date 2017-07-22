@@ -36,10 +36,7 @@
                       "items": {
                         "type": "string"
                       }, 
-                      "type": [
-                        "array", 
-                        "null"
-                      ], 
+                      "type": "array", 
                       "description": "RoleNames is the list of cluster roles that can referenced.  * means anything"
                     }, 
                     "allowEscalation": {
@@ -50,10 +47,7 @@
                       "items": {
                         "type": "string"
                       }, 
-                      "type": [
-                        "array", 
-                        "null"
-                      ], 
+                      "type": "array", 
                       "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)"
                     }
                   }

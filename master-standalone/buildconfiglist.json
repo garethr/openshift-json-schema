@@ -170,10 +170,7 @@
                     }
                   }
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "triggers determine how new Builds can be launched from a BuildConfig. If no triggers are defined, a new build can only occur as a result of an explicit client build creation."
               }, 
               "serviceAccount": {
@@ -306,10 +303,7 @@
                               }
                             }
                           }, 
-                          "type": [
-                            "array", 
-                            "null"
-                          ], 
+                          "type": "array", 
                           "description": "paths is a list of source and destination paths to copy from the image."
                         }, 
                         "from": {
@@ -1580,10 +1574,7 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
                   }
                 }

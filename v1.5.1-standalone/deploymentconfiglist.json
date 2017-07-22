@@ -109,10 +109,7 @@
                         }
                       }
                     }, 
-                    "type": [
-                      "array", 
-                      "null"
-                    ], 
+                    "type": "array", 
                     "description": "Causes are extended data associated with all the causes for creating a new deployment"
                   }
                 }
@@ -261,10 +258,7 @@
                     }
                   }
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "Triggers determine how updates to a DeploymentConfig result in new deployments. If no triggers are defined, a new deployment can only occur as a result of an explicit client update to the DeploymentConfig with a new LatestVersion. If null, defaults to having a config change trigger."
               }, 
               "strategy": {
@@ -424,10 +418,7 @@
                                 "items": {
                                   "type": "string"
                                 }, 
-                                "type": [
-                                  "array", 
-                                  "null"
-                                ], 
+                                "type": "array", 
                                 "description": "Command is the action command and its arguments."
                               }, 
                               "env": {
@@ -652,10 +643,7 @@
                                 "items": {
                                   "type": "string"
                                 }, 
-                                "type": [
-                                  "array", 
-                                  "null"
-                                ], 
+                                "type": "array", 
                                 "description": "Command is the action command and its arguments."
                               }, 
                               "env": {
@@ -850,10 +838,7 @@
                                 "items": {
                                   "type": "string"
                                 }, 
-                                "type": [
-                                  "array", 
-                                  "null"
-                                ], 
+                                "type": "array", 
                                 "description": "Command is the action command and its arguments."
                               }, 
                               "env": {
@@ -1043,10 +1028,7 @@
                                 "items": {
                                   "type": "string"
                                 }, 
-                                "type": [
-                                  "array", 
-                                  "null"
-                                ], 
+                                "type": "array", 
                                 "description": "Command is the action command and its arguments."
                               }, 
                               "env": {
@@ -1236,10 +1218,7 @@
                                 "items": {
                                   "type": "string"
                                 }, 
-                                "type": [
-                                  "array", 
-                                  "null"
-                                ], 
+                                "type": "array", 
                                 "description": "Command is the action command and its arguments."
                               }, 
                               "env": {
@@ -1856,10 +1835,7 @@
                                   "items": {
                                     "type": "string"
                                   }, 
-                                  "type": [
-                                    "array", 
-                                    "null"
-                                  ], 
+                                  "type": "array", 
                                   "description": "Required: FC target worldwide names (WWNs)"
                                 }, 
                                 "lun": {
@@ -1981,10 +1957,7 @@
                                   "items": {
                                     "type": "string"
                                   }, 
-                                  "type": [
-                                    "array", 
-                                    "null"
-                                  ], 
+                                  "type": "array", 
                                   "description": "A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it"
                                 }, 
                                 "pool": {
@@ -2185,10 +2158,7 @@
                                   "items": {
                                     "type": "string"
                                   }, 
-                                  "type": [
-                                    "array", 
-                                    "null"
-                                  ], 
+                                  "type": "array", 
                                   "description": "Required: Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
                                 }
                               }
@@ -3045,10 +3015,7 @@
                             }
                           }
                         }, 
-                        "type": [
-                          "array", 
-                          "null"
-                        ], 
+                        "type": "array", 
                         "description": "List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers"
                       }, 
                       "nodeName": {

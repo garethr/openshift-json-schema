@@ -58,20 +58,14 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed"
               }, 
               "verbs": {
                 "items": {
                   "type": "string"
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds."
               }, 
               "attributeRestrictions": {
@@ -91,18 +85,12 @@
                 "items": {
                   "type": "string"
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "Resources is a list of resources this rule applies to.  ResourceAll represents all resources."
               }
             }
           }, 
-          "type": [
-            "array", 
-            "null"
-          ], 
+          "type": "array", 
           "description": "Rules holds all the PolicyRules for this Role"
         }, 
         "kind": {
@@ -323,10 +311,7 @@
                       }
                     }
                   }, 
-                  "type": [
-                    "array", 
-                    "null"
-                  ], 
+                  "type": "array", 
                   "description": "Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients."
                 }
               }

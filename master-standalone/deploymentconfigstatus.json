@@ -95,10 +95,7 @@
               }
             }
           }, 
-          "type": [
-            "array", 
-            "null"
-          ], 
+          "type": "array", 
           "description": "Causes are extended data associated with all the causes for creating a new deployment"
         }
       }

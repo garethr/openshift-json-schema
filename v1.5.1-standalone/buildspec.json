@@ -189,10 +189,7 @@
                     }
                   }
                 }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
+                "type": "array", 
                 "description": "paths is a list of source and destination paths to copy from the image."
               }, 
               "from": {
