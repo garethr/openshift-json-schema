@@ -8,7 +8,10 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.ImageLookupPolicy"
     }, 
     "dockerImageRepository": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "dockerImageRepository is optional, if specified this stream is backed by a Docker repository on this server"
     }, 
     "tags": {

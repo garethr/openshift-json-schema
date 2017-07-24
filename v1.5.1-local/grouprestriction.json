@@ -19,7 +19,10 @@
     }, 
     "groups": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 

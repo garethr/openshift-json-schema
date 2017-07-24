@@ -43,7 +43,10 @@
       "description": "Standard object's metadata."
     }, 
     "tag": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Tag is the tag for which the history is recorded"
     }, 
     "conditions": {
@@ -65,15 +68,24 @@
             "format": "int64"
           }, 
           "lastTransitionTime": {
-            "type": "string", 
+            "type": [
+              "string", 
+              "null"
+            ], 
             "format": "date-time"
           }, 
           "reason": {
-            "type": "string", 
+            "type": [
+              "string", 
+              "null"
+            ], 
             "description": "Reason is a brief machine readable explanation for the condition's last transition."
           }, 
           "message": {
-            "type": "string", 
+            "type": [
+              "string", 
+              "null"
+            ], 
             "description": "Message is a human readable description of the details about last transition, complementing reason."
           }, 
           "type": {

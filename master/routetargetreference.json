@@ -9,11 +9,17 @@
   "description": "RouteTargetReference specifies the target that resolve into endpoints. Only the 'Service' kind is allowed. Use 'weight' field to emphasize one over others.", 
   "properties": {
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "The kind of target that the route is referring to. Currently, only 'Service' is allowed"
     }, 
     "name": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "name of the service/target that is being referred to. e.g. name of the service"
     }, 
     "weight": {

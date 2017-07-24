@@ -475,6 +475,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.policy.v1beta1.PodDisruptionBudget"
     }, 
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService"
+    }, 
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.autoscaling.v1.HorizontalPodAutoscalerList"
     }, 
     {
@@ -506,9 +509,6 @@
     }, 
     {
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.FCVolumeSource"
-    }, 
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.version.Info"
     }, 
     {
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentConfigRollbackSpec"
@@ -814,6 +814,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ContainerStateWaiting"
     }, 
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.ServiceReference"
+    }, 
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ConfigMapProjection"
     }, 
     {
@@ -830,6 +833,9 @@
     }, 
     {
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.quota.apis.quota.v1.ClusterResourceQuotaList"
+    }, 
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec"
     }, 
     {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.APIResourceList"
@@ -1147,6 +1153,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.extensions.v1beta1.NetworkPolicy"
     }, 
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceCondition"
+    }, 
+    {
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.Route"
     }, 
     {
@@ -1450,6 +1459,9 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.RouteTargetReference"
     }, 
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceStatus"
+    }, 
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.authentication.v1.TokenReview"
     }, 
     {
@@ -1553,6 +1565,9 @@
     }, 
     {
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.authorization.v1beta1.SubjectAccessReviewStatus"
+    }, 
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList"
     }, 
     {
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceControlUser"

@@ -7,7 +7,10 @@
   "description": "TemplateInstanceRequester holds the identity of an agent requesting a template instantiation.", 
   "properties": {
     "username": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "username is the username of the agent requesting a template instantiation."
     }
   }

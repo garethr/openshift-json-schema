@@ -17,7 +17,10 @@
       "$ref": "_definitions.json#/definitions/v1.ObjectReference"
     }, 
     "name": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Name of the tag"
     }, 
     "reference": {
@@ -35,7 +38,10 @@
     }, 
     "annotations": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Annotations associated with images using this tag"

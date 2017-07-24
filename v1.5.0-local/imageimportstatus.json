@@ -15,7 +15,10 @@
       "$ref": "_definitions.json#/definitions/v1.Image"
     }, 
     "tag": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Tag is the tag this image was located under, if any"
     }
   }

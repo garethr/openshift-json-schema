@@ -8,7 +8,10 @@
   "properties": {
     "serviceAccountNames": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 

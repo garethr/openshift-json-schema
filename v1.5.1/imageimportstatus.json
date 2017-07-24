@@ -15,7 +15,10 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.Image"
     }, 
     "tag": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Tag is the tag this image was located under, if any"
     }
   }

@@ -27,19 +27,31 @@
       }
     }, 
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
     }, 
     "resource": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Resource is one of the existing resource types"
     }, 
     "namespace": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces"
     }, 
     "apiVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
     }, 
     "isNonResourceURL": {
@@ -47,23 +59,38 @@
       "description": "IsNonResourceURL is true if this is a request for a non-resource URL (outside of the resource hieraarchy)"
     }, 
     "resourceAPIVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Version is the API version of the resource Serialized as resourceAPIVersion to avoid confusion with TypeMeta.apiVersion and ObjectMeta.resourceVersion when inlined"
     }, 
     "verb": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Verb is one of: get, list, watch, create, update, delete"
     }, 
     "resourceAPIGroup": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Group is the API group of the resource Serialized as resourceAPIGroup to avoid confusion with the 'groups' field when inlined"
     }, 
     "path": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Path is the path of a non resource URL"
     }, 
     "resourceName": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "ResourceName is the name of the resource being requested for a \"get\" or deleted for a \"delete\""
     }
   }

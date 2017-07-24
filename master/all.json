@@ -475,6 +475,9 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.policy.v1beta1.PodDisruptionBudget"
     }, 
     {
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService"
+    }, 
+    {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.autoscaling.v1.HorizontalPodAutoscalerList"
     }, 
     {
@@ -506,9 +509,6 @@
     }, 
     {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.FCVolumeSource"
-    }, 
-    {
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.version.Info"
     }, 
     {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentConfigRollbackSpec"
@@ -814,6 +814,9 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ContainerStateWaiting"
     }, 
     {
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.ServiceReference"
+    }, 
+    {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ConfigMapProjection"
     }, 
     {
@@ -830,6 +833,9 @@
     }, 
     {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.quota.apis.quota.v1.ClusterResourceQuotaList"
+    }, 
+    {
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec"
     }, 
     {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.APIResourceList"
@@ -1147,6 +1153,9 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.extensions.v1beta1.NetworkPolicy"
     }, 
     {
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceCondition"
+    }, 
+    {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.Route"
     }, 
     {
@@ -1450,6 +1459,9 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.RouteTargetReference"
     }, 
     {
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceStatus"
+    }, 
+    {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.authentication.v1.TokenReview"
     }, 
     {
@@ -1553,6 +1565,9 @@
     }, 
     {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.apis.authorization.v1beta1.SubjectAccessReviewStatus"
+    }, 
+    {
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList"
     }, 
     {
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceControlUser"

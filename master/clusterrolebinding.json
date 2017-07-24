@@ -22,7 +22,10 @@
   "type": "object", 
   "properties": {
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "roleRef": {
@@ -31,7 +34,10 @@
     }, 
     "userNames": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 
@@ -40,12 +46,18 @@
       "description": "UserNames holds all the usernames directly bound to the role. This field should only be specified when supporting legacy clients and servers. See Subjects for further details."
     }, 
     "apiVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "groupNames": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 

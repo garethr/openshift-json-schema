@@ -23,7 +23,10 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.DockerBuildStrategy"
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "type is the kind of build strategy."
     }
   }

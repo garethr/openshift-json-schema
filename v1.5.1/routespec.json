@@ -12,7 +12,10 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.TLSConfig"
     }, 
     "wildcardPolicy": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Wildcard policy if any for the route. Currently only 'Subdomain' or 'None' is allowed."
     }, 
     "to": {
@@ -20,7 +23,10 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.RouteTargetReference"
     }, 
     "host": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "host is an alias/DNS that points to the service. Optional. If not specified a route name will typically be automatically chosen. Must follow DNS952 subdomain conventions."
     }, 
     "alternateBackends": {
@@ -34,7 +40,10 @@
       "description": "alternateBackends is an extension of the 'to' field. If more than one service needs to be pointed to, then use this field. Use the weight field in RouteTargetReference object to specify relative preference. If the weight field is zero, the backend is ignored."
     }, 
     "path": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Path that the router watches for, to route traffic for to the service. Optional"
     }, 
     "port": {

@@ -19,12 +19,18 @@
       "description": "triggers determine how new Builds can be launched from a BuildConfig. If no triggers are defined, a new build can only occur as a result of an explicit client build creation."
     }, 
     "serviceAccount": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "serviceAccount is the name of the ServiceAccount to use to run the pod created by this build. The pod will be allowed to use secrets referenced by the ServiceAccount"
     }, 
     "nodeSelector": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "nodeSelector is a selector which must be true for the build pod to fit on a node If nil, it can be overridden by default build nodeselector values for the cluster. If set to an empty map or a map with any values, default build nodeselector values are ignored."
@@ -61,7 +67,10 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.BuildStrategy"
     }, 
     "runPolicy": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "RunPolicy describes how the new build created from this build configuration will be scheduled for execution. This is optional, if not specified we default to \"Serial\"."
     }, 
     "resources": {

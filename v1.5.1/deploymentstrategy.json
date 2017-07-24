@@ -9,7 +9,10 @@
     }, 
     "labels": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Labels is a set of key, value pairs added to custom deployer and lifecycle pre/post hook pods."
@@ -28,12 +31,18 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.1/_definitions.json#/definitions/v1.RecreateDeploymentStrategyParams"
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Type is the name of a deployment strategy."
     }, 
     "annotations": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Annotations is a set of key, value pairs added to custom deployer and lifecycle pre/post hook pods."

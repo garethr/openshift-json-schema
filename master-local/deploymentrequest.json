@@ -21,7 +21,10 @@
   "type": "object", 
   "properties": {
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "force": {
@@ -29,12 +32,18 @@
       "description": "Force will try to force a new deployment to run. If the deployment config is paused, then setting this to true will return an Invalid error."
     }, 
     "name": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Name of the deployment config for requesting a new deployment."
     }, 
     "excludeTriggers": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 
@@ -43,7 +52,10 @@
       "description": "ExcludeTriggers instructs the instantiator to avoid processing the specified triggers. This field overrides the triggers from latest and allows clients to control specific logic. This field is ignored if not specified."
     }, 
     "apiVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "latest": {

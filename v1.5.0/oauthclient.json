@@ -14,12 +14,18 @@
       "description": "ScopeRestrictions describes which scopes this client can request.  Each requested scope is checked against each restriction.  If any restriction matches, then the scope is allowed. If no restriction matches, then the scope is denied."
     }, 
     "grantMethod": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "GrantMethod determines how to handle grants for this client. If no method is provided, the cluster default grant handling method will be used. Valid grant handling methods are:\n - auto:   always approves grant requests, useful for trusted clients\n - prompt: prompts the end user for approval of grant requests, useful for third-party clients\n - deny:   always denies grant requests, useful for black-listed clients"
     }, 
     "additionalSecrets": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 
@@ -32,20 +38,32 @@
       "description": "RespondWithChallenges indicates whether the client wants authentication needed responses made in the form of challenges instead of redirects"
     }, 
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
     }, 
     "apiVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
     }, 
     "secret": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Secret is the unique secret associated with a client"
     }, 
     "redirectURIs": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 

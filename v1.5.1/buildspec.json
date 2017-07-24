@@ -19,12 +19,18 @@
       "description": "triggeredBy describes which triggers started the most recent update to the build configuration and contains information about those triggers."
     }, 
     "serviceAccount": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "serviceAccount is the name of the ServiceAccount to use to run the pod created by this build. The pod will be allowed to use secrets referenced by the ServiceAccount"
     }, 
     "nodeSelector": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "nodeSelector is a selector which must be true for the build pod to fit on a node If nil, it can be overridden by default build nodeselector values for the cluster. If set to an empty map or a map with any values, default build nodeselector values are ignored."

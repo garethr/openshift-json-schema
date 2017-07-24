@@ -8,12 +8,18 @@
   "description": "ExecNewPodHook is a hook implementation which runs a command in a new pod based on the specified container which is assumed to be part of the deployment template.", 
   "properties": {
     "containerName": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "ContainerName is the name of a container in the deployment pod template whose Docker image will be used for the hook pod's container."
     }, 
     "command": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 
@@ -23,7 +29,10 @@
     }, 
     "volumes": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 

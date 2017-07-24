@@ -5,7 +5,10 @@
   "properties": {
     "literals": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 

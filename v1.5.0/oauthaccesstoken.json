@@ -10,7 +10,10 @@
     }, 
     "scopes": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 
@@ -19,35 +22,59 @@
       "description": "Scopes is an array of the requested scopes."
     }, 
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
     }, 
     "refreshToken": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "RefreshToken is the value by which this token can be renewed. Can be blank."
     }, 
     "userName": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "UserName is the user name associated with this token"
     }, 
     "authorizeToken": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "AuthorizeToken contains the token that authorized this token"
     }, 
     "apiVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
     }, 
     "userUID": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "UserUID is the unique UID associated with this token"
     }, 
     "redirectURI": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "RedirectURI is the redirection associated with the token."
     }, 
     "clientName": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "ClientName references the client that created this token."
     }, 
     "metadata": {

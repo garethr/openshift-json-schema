@@ -19,15 +19,24 @@
   "type": "object", 
   "properties": {
     "dockerImageConfig": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "DockerImageConfig is a JSON blob that the runtime uses to set up the container. This is a part of manifest schema v2."
     }, 
     "dockerImageManifestMediaType": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "DockerImageManifestMediaType specifies the mediaType of manifest. This is a part of manifest schema v2."
     }, 
     "dockerImageMetadataVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "DockerImageMetadataVersion conveys the version of the object, which if empty defaults to \"1.0\""
     }, 
     "signatures": {
@@ -53,15 +62,24 @@
       "description": "DockerImageLayers represents the layers in the image. May not be set if the image does not define that data."
     }, 
     "dockerImageManifest": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "DockerImageManifest is the raw JSON of the manifest"
     }, 
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "apiVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "metadata": {
@@ -69,12 +87,18 @@
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     }, 
     "dockerImageReference": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "DockerImageReference is the string that can be used to pull this image."
     }, 
     "dockerImageSignatures": {
       "items": {
-        "type": "string", 
+        "type": [
+          "string", 
+          "null"
+        ], 
         "format": "byte"
       }, 
       "type": [

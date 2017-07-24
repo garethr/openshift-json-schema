@@ -8,7 +8,10 @@
   "properties": {
     "containerNames": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 
@@ -21,7 +24,10 @@
       "description": "Automatic means that the detection of a new tag value should result in an image update inside the pod template."
     }, 
     "lastTriggeredImage": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "LastTriggeredImage is the last image to be triggered."
     }, 
     "from": {

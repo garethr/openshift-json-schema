@@ -15,7 +15,10 @@
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }, 
     "scripts": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "scripts is the location of Source scripts"
     }, 
     "forcePull": {

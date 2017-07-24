@@ -11,15 +11,24 @@
   "description": "TemplateInstanceCondition contains condition information for a TemplateInstance.", 
   "properties": {
     "status": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Status of the condition, one of True, False or Unknown."
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Type of the condition, currently Ready or InstantiateFailure."
     }, 
     "message": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Message is a human readable description of the details of the last transition, complementing reason."
     }, 
     "lastTransitionTime": {
@@ -27,7 +36,10 @@
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }, 
     "reason": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Reason is a brief machine readable explanation for the condition's last transition."
     }
   }

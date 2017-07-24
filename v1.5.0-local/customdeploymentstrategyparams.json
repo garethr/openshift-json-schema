@@ -14,12 +14,18 @@
       "description": "Environment holds the environment which will be given to the container for Image."
     }, 
     "image": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Image specifies a Docker image which can carry out a deployment."
     }, 
     "command": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 

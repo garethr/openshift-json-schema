@@ -14,11 +14,17 @@
       "format": "int64"
     }, 
     "mediaType": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "MediaType of the referenced object."
     }, 
     "name": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Name of the layer as defined by the underlying store."
     }
   }

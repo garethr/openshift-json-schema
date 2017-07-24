@@ -12,7 +12,10 @@
       "$ref": "_definitions.json#/definitions/v1.ClusterRole"
     }, 
     "name": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Name is the name of the cluster role"
     }
   }

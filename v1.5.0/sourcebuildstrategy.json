@@ -15,7 +15,10 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/v1.ObjectReference"
     }, 
     "scripts": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "scripts is the location of Source scripts"
     }, 
     "forcePull": {

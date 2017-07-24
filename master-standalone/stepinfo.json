@@ -9,11 +9,17 @@
       "format": "int64"
     }, 
     "name": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "name is a unique identifier for each build step."
     }, 
     "startTime": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "format": "date-time"
     }
   }

@@ -12,7 +12,10 @@
       "description": "noCache if set to true indicates that the docker build must be executed with the --no-cache=true flag"
     }, 
     "dockerfilePath": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "dockerfilePath is the path of the Dockerfile that will be used to build the Docker image, relative to the root of the context (contextDir)."
     }, 
     "env": {

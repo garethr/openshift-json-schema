@@ -4,15 +4,24 @@
   "description": "RouteIngress holds information about the places where a route is exposed.", 
   "properties": {
     "routerName": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Name is a name chosen by the router to identify itself; this value is required"
     }, 
     "host": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Host is the host string under which the route is exposed; this value is required"
     }, 
     "routerCanonicalHostname": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "CanonicalHostname is the external host name for the router that can be used as a CNAME for the host requested for this route. This value is optional and may not be set in all cases."
     }, 
     "conditions": {
@@ -28,11 +37,17 @@
             "description": "Status is the status of the condition. Can be True, False, Unknown."
           }, 
           "lastTransitionTime": {
-            "type": "string", 
+            "type": [
+              "string", 
+              "null"
+            ], 
             "format": "date-time"
           }, 
           "message": {
-            "type": "string", 
+            "type": [
+              "string", 
+              "null"
+            ], 
             "description": "Human readable message indicating details about last transition."
           }, 
           "type": {
@@ -40,7 +55,10 @@
             "description": "Type is the type of the condition. Currently only Ready."
           }, 
           "reason": {
-            "type": "string", 
+            "type": [
+              "string", 
+              "null"
+            ], 
             "description": "(brief) reason for the condition's last transition, and is usually a machine and human readable constant"
           }
         }
@@ -52,7 +70,10 @@
       "description": "Conditions is the state of the route, may be empty."
     }, 
     "wildcardPolicy": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Wildcard policy is the wildcard policy that was allowed where this route is exposed."
     }
   }

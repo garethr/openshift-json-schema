@@ -47,7 +47,10 @@
     }, 
     "selector": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Selector is a label query over pods that should match the Replicas count."

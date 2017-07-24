@@ -8,7 +8,10 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentTriggerImageChangeParams"
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Type of the trigger"
     }
   }

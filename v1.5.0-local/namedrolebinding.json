@@ -12,7 +12,10 @@
       "$ref": "_definitions.json#/definitions/v1.RoleBinding"
     }, 
     "name": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Name is the name of the role binding"
     }
   }

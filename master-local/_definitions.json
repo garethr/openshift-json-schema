@@ -4494,6 +4494,37 @@
         }
       }
     }, 
+    "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService": {
+      "x-kubernetes-group-version-kind": [
+        {
+          "kind": "APIService", 
+          "version": "latest", 
+          "group": "apiregistration.k8s.io"
+        }
+      ], 
+      "description": "APIService represents a server for a particular GroupVersion. Name must be \"version.group\".", 
+      "properties": {
+        "status": {
+          "description": "Status contains derived information about an API server", 
+          "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceStatus"
+        }, 
+        "kind": {
+          "type": "string", 
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+        }, 
+        "spec": {
+          "description": "Spec contains information for locating and communicating with a server", 
+          "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec"
+        }, 
+        "apiVersion": {
+          "type": "string", 
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+        }, 
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+        }
+      }
+    }, 
     "io.k8s.kubernetes.pkg.apis.autoscaling.v1.HorizontalPodAutoscalerList": {
       "required": [
         "items"
@@ -4878,49 +4909,6 @@
         "fsType": {
           "type": "string", 
           "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified."
-        }
-      }
-    }, 
-    "io.k8s.apimachinery.pkg.version.Info": {
-      "required": [
-        "major", 
-        "minor", 
-        "gitVersion", 
-        "gitCommit", 
-        "gitTreeState", 
-        "buildDate", 
-        "goVersion", 
-        "compiler", 
-        "platform"
-      ], 
-      "description": "Info contains versioning information. how we'll want to distribute that information.", 
-      "properties": {
-        "major": {
-          "type": "string"
-        }, 
-        "gitTreeState": {
-          "type": "string"
-        }, 
-        "buildDate": {
-          "type": "string"
-        }, 
-        "platform": {
-          "type": "string"
-        }, 
-        "gitVersion": {
-          "type": "string"
-        }, 
-        "gitCommit": {
-          "type": "string"
-        }, 
-        "goVersion": {
-          "type": "string"
-        }, 
-        "minor": {
-          "type": "string"
-        }, 
-        "compiler": {
-          "type": "string"
         }
       }
     }, 
@@ -5381,6 +5369,11 @@
           "kind": "WatchEvent", 
           "version": "latest", 
           "group": "admissionregistration.k8s.io"
+        }, 
+        {
+          "kind": "WatchEvent", 
+          "version": "latest", 
+          "group": "apiregistration.k8s.io"
         }, 
         {
           "kind": "WatchEvent", 
@@ -8110,6 +8103,11 @@
         {
           "kind": "DeleteOptions", 
           "version": "latest", 
+          "group": "apiregistration.k8s.io"
+        }, 
+        {
+          "kind": "DeleteOptions", 
+          "version": "latest", 
           "group": "apps"
         }, 
         {
@@ -8354,6 +8352,19 @@
         }
       }
     }, 
+    "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.ServiceReference": {
+      "description": "ServiceReference holds a reference to Service.legacy.k8s.io", 
+      "properties": {
+        "namespace": {
+          "type": "string", 
+          "description": "Namespace is the namespace of the service"
+        }, 
+        "name": {
+          "type": "string", 
+          "description": "Name is the name of the service"
+        }
+      }
+    }, 
     "io.k8s.kubernetes.pkg.api.v1.ConfigMapProjection": {
       "description": "Adapts a ConfigMap into a projected volume.\n\nThe contents of the target ConfigMap's Data field will be presented in a projected volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. Note that this is identical to a configmap volume source without the default mode.", 
       "properties": {
@@ -8492,6 +8503,48 @@
         "metadata": {
           "description": "Standard object's metadata.", 
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
+        }
+      }
+    }, 
+    "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec": {
+      "required": [
+        "service", 
+        "caBundle", 
+        "groupPriorityMinimum", 
+        "versionPriority"
+      ], 
+      "description": "APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.", 
+      "properties": {
+        "version": {
+          "type": "string", 
+          "description": "Version is the API version this server hosts.  For example, \"v1\""
+        }, 
+        "group": {
+          "type": "string", 
+          "description": "Group is the API group name this server hosts"
+        }, 
+        "service": {
+          "description": "Service is a reference to the service for this API server.  It must communicate on port 443 If the Service is nil, that means the handling for the API groupversion is handled locally on this server. The call will simply delegate to the normal handler chain to be fulfilled.", 
+          "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.ServiceReference"
+        }, 
+        "caBundle": {
+          "type": "string", 
+          "description": "CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate.", 
+          "format": "byte"
+        }, 
+        "groupPriorityMinimum": {
+          "type": "integer", 
+          "description": "GroupPriorityMininum is the priority this group should have at least. Higher priority means that the group is prefered by clients over lower priority ones. Note that other versions of this group might specify even higher GroupPriorityMininum values such that the whole group gets a higher priority. The primary sort is based on GroupPriorityMinimum, ordered highest number to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) We'd recommend something like: *.k8s.io (except extensions) at 18000 and PaaSes (OpenShift, Deis) are recommended to be in the 2000s", 
+          "format": "int32"
+        }, 
+        "insecureSkipTLSVerify": {
+          "type": "boolean", 
+          "description": "InsecureSkipTLSVerify disables TLS certificate verification when communicating with this server. This is strongly discouraged.  You should use the CABundle instead."
+        }, 
+        "versionPriority": {
+          "type": "integer", 
+          "description": "VersionPriority controls the ordering of this API version inside of its group.  Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) Since it's inside of a group, the number can be small, probably in the 10s.", 
+          "format": "int32"
         }
       }
     }, 
@@ -11353,6 +11406,34 @@
         "metadata": {
           "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata", 
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+        }
+      }
+    }, 
+    "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceCondition": {
+      "required": [
+        "type", 
+        "status"
+      ], 
+      "properties": {
+        "status": {
+          "type": "string", 
+          "description": "Status is the status of the condition. Can be True, False, Unknown."
+        }, 
+        "lastTransitionTime": {
+          "description": "Last time the condition transitioned from one status to another.", 
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+        }, 
+        "message": {
+          "type": "string", 
+          "description": "Human-readable message indicating details about last transition."
+        }, 
+        "type": {
+          "type": "string", 
+          "description": "Type is the type of the condition."
+        }, 
+        "reason": {
+          "type": "string", 
+          "description": "Unique, one-word, CamelCase reason for the condition's last transition."
         }
       }
     }, 
@@ -14845,6 +14926,20 @@
         }
       }
     }, 
+    "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceStatus": {
+      "description": "APIServiceStatus contains derived information about an API server", 
+      "properties": {
+        "conditions": {
+          "items": {
+            "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceCondition"
+          }, 
+          "x-kubernetes-patch-merge-key": "type", 
+          "type": "array", 
+          "description": "Current service state of apiService.", 
+          "x-kubernetes-patch-strategy": "merge"
+        }
+      }
+    }, 
     "io.k8s.kubernetes.pkg.apis.authentication.v1.TokenReview": {
       "required": [
         "spec"
@@ -15913,6 +16008,38 @@
         "allowed": {
           "type": "boolean", 
           "description": "Allowed is required.  True if the action would be allowed, false otherwise."
+        }
+      }
+    }, 
+    "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList": {
+      "required": [
+        "items"
+      ], 
+      "x-kubernetes-group-version-kind": [
+        {
+          "kind": "APIServiceList", 
+          "version": "latest", 
+          "group": "apiregistration.k8s.io"
+        }
+      ], 
+      "description": "APIServiceList is a list of APIService objects.", 
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService"
+          }, 
+          "type": "array"
+        }, 
+        "kind": {
+          "type": "string", 
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+        }, 
+        "apiVersion": {
+          "type": "string", 
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+        }, 
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
         }
       }
     }, 

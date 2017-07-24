@@ -21,22 +21,34 @@
   "type": "object", 
   "properties": {
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "providerName": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "ProviderName is the source of identity information"
     }, 
     "extra": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Extra holds extra information about this identity"
     }, 
     "apiVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "user": {
@@ -44,7 +56,10 @@
       "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }, 
     "providerUserName": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "ProviderUserName uniquely represents this identity in the scope of the provider"
     }, 
     "metadata": {

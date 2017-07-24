@@ -20,7 +20,10 @@
   "type": "object", 
   "properties": {
     "kind": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
     }, 
     "created": {
@@ -32,15 +35,24 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.SignatureSubject"
     }, 
     "imageIdentity": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "A human readable string representing image's identity. It could be a product name and version, or an image pull spec (e.g. \"registry.access.redhat.com/rhel7/rhel:7.2\")."
     }, 
     "apiVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
     }, 
     "content": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Required: An opaque binary string which is an image's signature.", 
       "format": "byte"
     }, 
@@ -57,12 +69,18 @@
       "x-kubernetes-patch-merge-key": "type"
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Required: Describes a type of stored blob."
     }, 
     "signedClaims": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Contains claims from the signature."

@@ -14,7 +14,10 @@
           "description": "allowEnv determines whether the webhook can set environment variables; can only be set to true for GenericWebHook."
         }, 
         "secret": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "secret used to validate requests."
         }
       }
@@ -23,38 +26,62 @@
       "description": "ImageChangeTrigger allows builds to be triggered when an ImageStream changes", 
       "properties": {
         "lastTriggeredImageID": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "lastTriggeredImageID is used internally by the ImageChangeController to save last used image ID for build"
         }, 
         "from": {
           "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
           "properties": {
             "kind": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
             }, 
             "name": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
             }, 
             "namespace": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
             }, 
             "apiVersion": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "API version of the referent."
             }, 
             "fieldPath": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
             }, 
             "resourceVersion": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
             }, 
             "uid": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
             }
           }
@@ -69,13 +96,19 @@
           "description": "allowEnv determines whether the webhook can set environment variables; can only be set to true for GenericWebHook."
         }, 
         "secret": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "secret used to validate requests."
         }
       }
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "type is the type of build trigger"
     }
   }

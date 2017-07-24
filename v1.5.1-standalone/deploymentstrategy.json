@@ -23,7 +23,10 @@
                     "description": "SecretKeySelector selects a key of a Secret.", 
                     "properties": {
                       "name": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }, 
                       "key": {
@@ -43,7 +46,10 @@
                         "description": "Path of the field to select in the specified API version."
                       }, 
                       "apiVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                       }
                     }
@@ -55,7 +61,10 @@
                     "description": "Selects a key from a ConfigMap.", 
                     "properties": {
                       "name": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }, 
                       "key": {
@@ -71,7 +80,10 @@
                     "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                     "properties": {
                       "containerName": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Container name: required for volumes, optional for env vars"
                       }, 
                       "resource": {
@@ -79,7 +91,10 @@
                         "description": "Required: resource to select"
                       }, 
                       "divisor": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }
                     }
                   }
@@ -90,7 +105,10 @@
                 "description": "Name of the environment variable. Must be a C_IDENTIFIER."
               }, 
               "value": {
-                "type": "string", 
+                "type": [
+                  "string", 
+                  "null"
+                ], 
                 "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
               }
             }
@@ -102,12 +120,18 @@
           "description": "Environment holds the environment which will be given to the container for Image."
         }, 
         "image": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "Image specifies a Docker image which can carry out a deployment."
         }, 
         "command": {
           "items": {
-            "type": "string"
+            "type": [
+              "string", 
+              "null"
+            ]
           }, 
           "type": [
             "array", 
@@ -119,7 +143,10 @@
     }, 
     "labels": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Labels is a set of key, value pairs added to custom deployer and lifecycle pre/post hook pods."
@@ -155,7 +182,10 @@
                 }, 
                 "command": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": "array", 
                   "description": "Command is the action command and its arguments."
@@ -177,7 +207,10 @@
                             "description": "SecretKeySelector selects a key of a Secret.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -197,7 +230,10 @@
                                 "description": "Path of the field to select in the specified API version."
                               }, 
                               "apiVersion": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                               }
                             }
@@ -209,7 +245,10 @@
                             "description": "Selects a key from a ConfigMap.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -225,7 +264,10 @@
                             "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                             "properties": {
                               "containerName": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Container name: required for volumes, optional for env vars"
                               }, 
                               "resource": {
@@ -233,7 +275,10 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }
                             }
                           }
@@ -244,7 +289,10 @@
                         "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                       }, 
                       "value": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                       }
                     }
@@ -257,7 +305,10 @@
                 }, 
                 "volumes": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": [
                     "array", 
@@ -283,31 +334,52 @@
                     "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                     "properties": {
                       "kind": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                       }, 
                       "name": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }, 
                       "namespace": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                       }, 
                       "apiVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "API version of the referent."
                       }, 
                       "fieldPath": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                       }, 
                       "resourceVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                       }, 
                       "uid": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                       }
                     }
@@ -330,7 +402,10 @@
         "maxSurge": {
           "oneOf": [
             {
-              "type": "string"
+              "type": [
+                "string", 
+                "null"
+              ]
             }, 
             {
               "type": "integer"
@@ -345,7 +420,10 @@
         "maxUnavailable": {
           "oneOf": [
             {
-              "type": "string"
+              "type": [
+                "string", 
+                "null"
+              ]
             }, 
             {
               "type": "integer"
@@ -380,7 +458,10 @@
                 }, 
                 "command": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": "array", 
                   "description": "Command is the action command and its arguments."
@@ -402,7 +483,10 @@
                             "description": "SecretKeySelector selects a key of a Secret.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -422,7 +506,10 @@
                                 "description": "Path of the field to select in the specified API version."
                               }, 
                               "apiVersion": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                               }
                             }
@@ -434,7 +521,10 @@
                             "description": "Selects a key from a ConfigMap.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -450,7 +540,10 @@
                             "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                             "properties": {
                               "containerName": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Container name: required for volumes, optional for env vars"
                               }, 
                               "resource": {
@@ -458,7 +551,10 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }
                             }
                           }
@@ -469,7 +565,10 @@
                         "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                       }, 
                       "value": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                       }
                     }
@@ -482,7 +581,10 @@
                 }, 
                 "volumes": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": [
                     "array", 
@@ -508,31 +610,52 @@
                     "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                     "properties": {
                       "kind": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                       }, 
                       "name": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }, 
                       "namespace": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                       }, 
                       "apiVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "API version of the referent."
                       }, 
                       "fieldPath": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                       }, 
                       "resourceVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                       }, 
                       "uid": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                       }
                     }
@@ -575,7 +698,10 @@
                 }, 
                 "command": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": "array", 
                   "description": "Command is the action command and its arguments."
@@ -597,7 +723,10 @@
                             "description": "SecretKeySelector selects a key of a Secret.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -617,7 +746,10 @@
                                 "description": "Path of the field to select in the specified API version."
                               }, 
                               "apiVersion": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                               }
                             }
@@ -629,7 +761,10 @@
                             "description": "Selects a key from a ConfigMap.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -645,7 +780,10 @@
                             "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                             "properties": {
                               "containerName": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Container name: required for volumes, optional for env vars"
                               }, 
                               "resource": {
@@ -653,7 +791,10 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }
                             }
                           }
@@ -664,7 +805,10 @@
                         "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                       }, 
                       "value": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                       }
                     }
@@ -677,7 +821,10 @@
                 }, 
                 "volumes": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": [
                     "array", 
@@ -703,31 +850,52 @@
                     "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                     "properties": {
                       "kind": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                       }, 
                       "name": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }, 
                       "namespace": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                       }, 
                       "apiVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "API version of the referent."
                       }, 
                       "fieldPath": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                       }, 
                       "resourceVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                       }, 
                       "uid": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                       }
                     }
@@ -765,7 +933,10 @@
                 }, 
                 "command": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": "array", 
                   "description": "Command is the action command and its arguments."
@@ -787,7 +958,10 @@
                             "description": "SecretKeySelector selects a key of a Secret.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -807,7 +981,10 @@
                                 "description": "Path of the field to select in the specified API version."
                               }, 
                               "apiVersion": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                               }
                             }
@@ -819,7 +996,10 @@
                             "description": "Selects a key from a ConfigMap.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -835,7 +1015,10 @@
                             "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                             "properties": {
                               "containerName": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Container name: required for volumes, optional for env vars"
                               }, 
                               "resource": {
@@ -843,7 +1026,10 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }
                             }
                           }
@@ -854,7 +1040,10 @@
                         "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                       }, 
                       "value": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                       }
                     }
@@ -867,7 +1056,10 @@
                 }, 
                 "volumes": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": [
                     "array", 
@@ -893,31 +1085,52 @@
                     "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                     "properties": {
                       "kind": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                       }, 
                       "name": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }, 
                       "namespace": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                       }, 
                       "apiVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "API version of the referent."
                       }, 
                       "fieldPath": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                       }, 
                       "resourceVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                       }, 
                       "uid": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                       }
                     }
@@ -955,7 +1168,10 @@
                 }, 
                 "command": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": "array", 
                   "description": "Command is the action command and its arguments."
@@ -977,7 +1193,10 @@
                             "description": "SecretKeySelector selects a key of a Secret.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -997,7 +1216,10 @@
                                 "description": "Path of the field to select in the specified API version."
                               }, 
                               "apiVersion": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                               }
                             }
@@ -1009,7 +1231,10 @@
                             "description": "Selects a key from a ConfigMap.", 
                             "properties": {
                               "name": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                               }, 
                               "key": {
@@ -1025,7 +1250,10 @@
                             "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                             "properties": {
                               "containerName": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Container name: required for volumes, optional for env vars"
                               }, 
                               "resource": {
@@ -1033,7 +1261,10 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }
                             }
                           }
@@ -1044,7 +1275,10 @@
                         "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                       }, 
                       "value": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                       }
                     }
@@ -1057,7 +1291,10 @@
                 }, 
                 "volumes": {
                   "items": {
-                    "type": "string"
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
                   }, 
                   "type": [
                     "array", 
@@ -1083,31 +1320,52 @@
                     "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                     "properties": {
                       "kind": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                       }, 
                       "name": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }, 
                       "namespace": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                       }, 
                       "apiVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "API version of the referent."
                       }, 
                       "fieldPath": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                       }, 
                       "resourceVersion": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                       }, 
                       "uid": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                       }
                     }
@@ -1130,12 +1388,18 @@
       }
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Type is the name of a deployment strategy."
     }, 
     "annotations": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Annotations is a set of key, value pairs added to custom deployer and lifecycle pre/post hook pods."
@@ -1145,14 +1409,20 @@
       "properties": {
         "requests": {
           "additionalProperties": {
-            "type": "string"
+            "type": [
+              "string", 
+              "null"
+            ]
           }, 
           "type": "object", 
           "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: http://kubernetes.io/docs/user-guide/compute-resources/"
         }, 
         "limits": {
           "additionalProperties": {
-            "type": "string"
+            "type": [
+              "string", 
+              "null"
+            ]
           }, 
           "type": "object", 
           "description": "Limits describes the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/"

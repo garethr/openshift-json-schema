@@ -23,6 +23,11 @@
     {
       "kind": "WatchEvent", 
       "version": "latest", 
+      "group": "apiregistration.k8s.io"
+    }, 
+    {
+      "kind": "WatchEvent", 
+      "version": "latest", 
       "group": "apps"
     }, 
     {
@@ -189,7 +194,10 @@
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension"
     }, 
     "type": {
-      "type": "string"
+      "type": [
+        "string", 
+        "null"
+      ]
     }
   }
 }

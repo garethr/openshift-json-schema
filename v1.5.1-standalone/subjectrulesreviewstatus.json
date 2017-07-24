@@ -17,7 +17,10 @@
         "properties": {
           "resourceNames": {
             "items": {
-              "type": "string"
+              "type": [
+                "string", 
+                "null"
+              ]
             }, 
             "type": [
               "array", 
@@ -27,7 +30,10 @@
           }, 
           "nonResourceURLs": {
             "items": {
-              "type": "string"
+              "type": [
+                "string", 
+                "null"
+              ]
             }, 
             "type": [
               "array", 
@@ -37,14 +43,20 @@
           }, 
           "apiGroups": {
             "items": {
-              "type": "string"
+              "type": [
+                "string", 
+                "null"
+              ]
             }, 
             "type": "array", 
             "description": "APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed"
           }, 
           "verbs": {
             "items": {
-              "type": "string"
+              "type": [
+                "string", 
+                "null"
+              ]
             }, 
             "type": "array", 
             "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds."
@@ -64,7 +76,10 @@
           }, 
           "resources": {
             "items": {
-              "type": "string"
+              "type": [
+                "string", 
+                "null"
+              ]
             }, 
             "type": "array", 
             "description": "Resources is a list of resources this rule applies to.  ResourceAll represents all resources."
@@ -78,7 +93,10 @@
       "description": "Rules is the list of rules (no particular sort) that are allowed for the subject"
     }, 
     "evaluationError": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "EvaluationError can appear in combination with Rules.  It means some error happened during evaluation that may have prevented additional rules from being populated."
     }
   }

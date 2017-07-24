@@ -7,23 +7,38 @@
   "description": "GitBuildSource defines the parameters of a Git SCM", 
   "properties": {
     "httpProxy": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "httpProxy is a proxy used to reach the git repository over http"
     }, 
     "ref": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "ref is the branch/tag/ref to build."
     }, 
     "noProxy": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "noProxy is the list of domains for which the proxy should not be used"
     }, 
     "uri": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "uri points to the source that will be built. The structure of the source will depend on the type of build to run"
     }, 
     "httpsProxy": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "httpsProxy is a proxy used to reach the git repository over https"
     }
   }

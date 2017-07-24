@@ -26,7 +26,10 @@
             "properties": {
               "containerNames": {
                 "items": {
-                  "type": "string"
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
                 }, 
                 "type": [
                   "array", 
@@ -39,38 +42,62 @@
                 "description": "Automatic means that the detection of a new tag value should result in an image update inside the pod template."
               }, 
               "lastTriggeredImage": {
-                "type": "string", 
+                "type": [
+                  "string", 
+                  "null"
+                ], 
                 "description": "LastTriggeredImage is the last image to be triggered."
               }, 
               "from": {
                 "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                 "properties": {
                   "kind": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                   }, 
                   "name": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                   }, 
                   "namespace": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                   }, 
                   "apiVersion": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "API version of the referent."
                   }, 
                   "fieldPath": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                   }, 
                   "resourceVersion": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                   }, 
                   "uid": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                   }
                 }
@@ -78,7 +105,10 @@
             }
           }, 
           "type": {
-            "type": "string", 
+            "type": [
+              "string", 
+              "null"
+            ], 
             "description": "Type of the trigger"
           }
         }
@@ -112,7 +142,10 @@
                         "description": "SecretKeySelector selects a key of a Secret.", 
                         "properties": {
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }, 
                           "key": {
@@ -132,7 +165,10 @@
                             "description": "Path of the field to select in the specified API version."
                           }, 
                           "apiVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                           }
                         }
@@ -144,7 +180,10 @@
                         "description": "Selects a key from a ConfigMap.", 
                         "properties": {
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }, 
                           "key": {
@@ -160,7 +199,10 @@
                         "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                         "properties": {
                           "containerName": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Container name: required for volumes, optional for env vars"
                           }, 
                           "resource": {
@@ -168,7 +210,10 @@
                             "description": "Required: resource to select"
                           }, 
                           "divisor": {
-                            "type": "string"
+                            "type": [
+                              "string", 
+                              "null"
+                            ]
                           }
                         }
                       }
@@ -179,7 +224,10 @@
                     "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                   }, 
                   "value": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                   }
                 }
@@ -191,12 +239,18 @@
               "description": "Environment holds the environment which will be given to the container for Image."
             }, 
             "image": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Image specifies a Docker image which can carry out a deployment."
             }, 
             "command": {
               "items": {
-                "type": "string"
+                "type": [
+                  "string", 
+                  "null"
+                ]
               }, 
               "type": [
                 "array", 
@@ -208,7 +262,10 @@
         }, 
         "labels": {
           "additionalProperties": {
-            "type": "string"
+            "type": [
+              "string", 
+              "null"
+            ]
           }, 
           "type": "object", 
           "description": "Labels is a set of key, value pairs added to custom deployer and lifecycle pre/post hook pods."
@@ -244,7 +301,10 @@
                     }, 
                     "command": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": "array", 
                       "description": "Command is the action command and its arguments."
@@ -266,7 +326,10 @@
                                 "description": "SecretKeySelector selects a key of a Secret.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -286,7 +349,10 @@
                                     "description": "Path of the field to select in the specified API version."
                                   }, 
                                   "apiVersion": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                                   }
                                 }
@@ -298,7 +364,10 @@
                                 "description": "Selects a key from a ConfigMap.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -314,7 +383,10 @@
                                 "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                                 "properties": {
                                   "containerName": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Container name: required for volumes, optional for env vars"
                                   }, 
                                   "resource": {
@@ -322,7 +394,10 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }
                                 }
                               }
@@ -333,7 +408,10 @@
                             "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                           }, 
                           "value": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                           }
                         }
@@ -346,7 +424,10 @@
                     }, 
                     "volumes": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": [
                         "array", 
@@ -372,31 +453,52 @@
                         "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                         "properties": {
                           "kind": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                           }, 
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }, 
                           "namespace": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                           }, 
                           "apiVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "API version of the referent."
                           }, 
                           "fieldPath": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                           }, 
                           "resourceVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                           }, 
                           "uid": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                           }
                         }
@@ -419,7 +521,10 @@
             "maxSurge": {
               "oneOf": [
                 {
-                  "type": "string"
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
                 }, 
                 {
                   "type": "integer"
@@ -434,7 +539,10 @@
             "maxUnavailable": {
               "oneOf": [
                 {
-                  "type": "string"
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
                 }, 
                 {
                   "type": "integer"
@@ -469,7 +577,10 @@
                     }, 
                     "command": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": "array", 
                       "description": "Command is the action command and its arguments."
@@ -491,7 +602,10 @@
                                 "description": "SecretKeySelector selects a key of a Secret.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -511,7 +625,10 @@
                                     "description": "Path of the field to select in the specified API version."
                                   }, 
                                   "apiVersion": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                                   }
                                 }
@@ -523,7 +640,10 @@
                                 "description": "Selects a key from a ConfigMap.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -539,7 +659,10 @@
                                 "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                                 "properties": {
                                   "containerName": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Container name: required for volumes, optional for env vars"
                                   }, 
                                   "resource": {
@@ -547,7 +670,10 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }
                                 }
                               }
@@ -558,7 +684,10 @@
                             "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                           }, 
                           "value": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                           }
                         }
@@ -571,7 +700,10 @@
                     }, 
                     "volumes": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": [
                         "array", 
@@ -597,31 +729,52 @@
                         "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                         "properties": {
                           "kind": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                           }, 
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }, 
                           "namespace": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                           }, 
                           "apiVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "API version of the referent."
                           }, 
                           "fieldPath": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                           }, 
                           "resourceVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                           }, 
                           "uid": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                           }
                         }
@@ -664,7 +817,10 @@
                     }, 
                     "command": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": "array", 
                       "description": "Command is the action command and its arguments."
@@ -686,7 +842,10 @@
                                 "description": "SecretKeySelector selects a key of a Secret.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -706,7 +865,10 @@
                                     "description": "Path of the field to select in the specified API version."
                                   }, 
                                   "apiVersion": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                                   }
                                 }
@@ -718,7 +880,10 @@
                                 "description": "Selects a key from a ConfigMap.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -734,7 +899,10 @@
                                 "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                                 "properties": {
                                   "containerName": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Container name: required for volumes, optional for env vars"
                                   }, 
                                   "resource": {
@@ -742,7 +910,10 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }
                                 }
                               }
@@ -753,7 +924,10 @@
                             "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                           }, 
                           "value": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                           }
                         }
@@ -766,7 +940,10 @@
                     }, 
                     "volumes": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": [
                         "array", 
@@ -792,31 +969,52 @@
                         "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                         "properties": {
                           "kind": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                           }, 
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }, 
                           "namespace": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                           }, 
                           "apiVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "API version of the referent."
                           }, 
                           "fieldPath": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                           }, 
                           "resourceVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                           }, 
                           "uid": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                           }
                         }
@@ -854,7 +1052,10 @@
                     }, 
                     "command": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": "array", 
                       "description": "Command is the action command and its arguments."
@@ -876,7 +1077,10 @@
                                 "description": "SecretKeySelector selects a key of a Secret.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -896,7 +1100,10 @@
                                     "description": "Path of the field to select in the specified API version."
                                   }, 
                                   "apiVersion": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                                   }
                                 }
@@ -908,7 +1115,10 @@
                                 "description": "Selects a key from a ConfigMap.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -924,7 +1134,10 @@
                                 "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                                 "properties": {
                                   "containerName": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Container name: required for volumes, optional for env vars"
                                   }, 
                                   "resource": {
@@ -932,7 +1145,10 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }
                                 }
                               }
@@ -943,7 +1159,10 @@
                             "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                           }, 
                           "value": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                           }
                         }
@@ -956,7 +1175,10 @@
                     }, 
                     "volumes": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": [
                         "array", 
@@ -982,31 +1204,52 @@
                         "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                         "properties": {
                           "kind": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                           }, 
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }, 
                           "namespace": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                           }, 
                           "apiVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "API version of the referent."
                           }, 
                           "fieldPath": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                           }, 
                           "resourceVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                           }, 
                           "uid": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                           }
                         }
@@ -1044,7 +1287,10 @@
                     }, 
                     "command": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": "array", 
                       "description": "Command is the action command and its arguments."
@@ -1066,7 +1312,10 @@
                                 "description": "SecretKeySelector selects a key of a Secret.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -1086,7 +1335,10 @@
                                     "description": "Path of the field to select in the specified API version."
                                   }, 
                                   "apiVersion": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                                   }
                                 }
@@ -1098,7 +1350,10 @@
                                 "description": "Selects a key from a ConfigMap.", 
                                 "properties": {
                                   "name": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                   }, 
                                   "key": {
@@ -1114,7 +1369,10 @@
                                 "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                                 "properties": {
                                   "containerName": {
-                                    "type": "string", 
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ], 
                                     "description": "Container name: required for volumes, optional for env vars"
                                   }, 
                                   "resource": {
@@ -1122,7 +1380,10 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }
                                 }
                               }
@@ -1133,7 +1394,10 @@
                             "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                           }, 
                           "value": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                           }
                         }
@@ -1146,7 +1410,10 @@
                     }, 
                     "volumes": {
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
                       }, 
                       "type": [
                         "array", 
@@ -1172,31 +1439,52 @@
                         "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
                         "properties": {
                           "kind": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
                           }, 
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }, 
                           "namespace": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
                           }, 
                           "apiVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "API version of the referent."
                           }, 
                           "fieldPath": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
                           }, 
                           "resourceVersion": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
                           }, 
                           "uid": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
                           }
                         }
@@ -1219,12 +1507,18 @@
           }
         }, 
         "type": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "Type is the name of a deployment strategy."
         }, 
         "annotations": {
           "additionalProperties": {
-            "type": "string"
+            "type": [
+              "string", 
+              "null"
+            ]
           }, 
           "type": "object", 
           "description": "Annotations is a set of key, value pairs added to custom deployer and lifecycle pre/post hook pods."
@@ -1234,14 +1528,20 @@
           "properties": {
             "requests": {
               "additionalProperties": {
-                "type": "string"
+                "type": [
+                  "string", 
+                  "null"
+                ]
               }, 
               "type": "object", 
               "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: http://kubernetes.io/docs/user-guide/compute-resources/"
             }, 
             "limits": {
               "additionalProperties": {
-                "type": "string"
+                "type": [
+                  "string", 
+                  "null"
+                ]
               }, 
               "type": "object", 
               "description": "Limits describes the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/"
@@ -1264,7 +1564,10 @@
           "description": "PodSpec is a description of a pod.", 
           "properties": {
             "dnsPolicy": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Set DNS policy for containers within the pod. One of 'ClusterFirst' or 'Default'. Defaults to \"ClusterFirst\"."
             }, 
             "hostNetwork": {
@@ -1287,19 +1590,31 @@
                   "description": "SELinuxOptions are the labels to be applied to the container", 
                   "properties": {
                     "role": {
-                      "type": "string", 
+                      "type": [
+                        "string", 
+                        "null"
+                      ], 
                       "description": "Role is a SELinux role label that applies to the container."
                     }, 
                     "type": {
-                      "type": "string", 
+                      "type": [
+                        "string", 
+                        "null"
+                      ], 
                       "description": "Type is a SELinux type label that applies to the container."
                     }, 
                     "user": {
-                      "type": "string", 
+                      "type": [
+                        "string", 
+                        "null"
+                      ], 
                       "description": "User is a SELinux user label that applies to the container."
                     }, 
                     "level": {
-                      "type": "string", 
+                      "type": [
+                        "string", 
+                        "null"
+                      ], 
                       "description": "Level is SELinux level label that applies to the container."
                     }
                   }
@@ -1323,20 +1638,32 @@
               }
             }, 
             "serviceAccountName": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md"
             }, 
             "hostname": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value."
             }, 
             "serviceAccount": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "DeprecatedServiceAccount is a depreciated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead."
             }, 
             "nodeSelector": {
               "additionalProperties": {
-                "type": "string"
+                "type": [
+                  "string", 
+                  "null"
+                ]
               }, 
               "type": "object", 
               "description": "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection/README"
@@ -1352,7 +1679,10 @@
               "format": "int64"
             }, 
             "restartPolicy": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy"
             }, 
             "hostPID": {
@@ -1394,7 +1724,10 @@
                     "description": "Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.", 
                     "properties": {
                       "directory": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name."
                       }, 
                       "repository": {
@@ -1402,7 +1735,10 @@
                         "description": "Repository URL"
                       }, 
                       "revision": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Commit hash for the specified revision."
                       }
                     }
@@ -1411,11 +1747,17 @@
                     "description": "Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.", 
                     "properties": {
                       "datasetName": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated"
                       }, 
                       "datasetUUID": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "UUID of the dataset. This is unique identifier of a Flocker dataset"
                       }
                     }
@@ -1433,7 +1775,10 @@
                         "description": "iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260)."
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi"
                       }, 
                       "readOnly": {
@@ -1445,7 +1790,10 @@
                         "description": "Target iSCSI Qualified Name."
                       }, 
                       "iscsiInterface": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Optional: Defaults to 'default' (tcp). iSCSI interface name that uses an iSCSI transport."
                       }, 
                       "lun": {
@@ -1493,7 +1841,10 @@
                         "format": "int32"
                       }, 
                       "secretName": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets"
                       }
                     }
@@ -1510,7 +1861,10 @@
                       }, 
                       "options": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
                         }, 
                         "type": "object", 
                         "description": "Optional: Extra command options if any."
@@ -1523,13 +1877,19 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
                         "properties": {
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }
                         }
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script."
                       }
                     }
@@ -1555,7 +1915,10 @@
                                   "description": "Path of the field to select in the specified API version."
                                 }, 
                                 "apiVersion": {
-                                  "type": "string", 
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ], 
                                   "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                                 }
                               }
@@ -1576,7 +1939,10 @@
                               "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                               "properties": {
                                 "containerName": {
-                                  "type": "string", 
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ], 
                                   "description": "Container name: required for volumes, optional for env vars"
                                 }, 
                                 "resource": {
@@ -1584,7 +1950,10 @@
                                   "description": "Required: resource to select"
                                 }, 
                                 "divisor": {
-                                  "type": "string"
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ]
                                 }
                               }
                             }
@@ -1610,7 +1979,10 @@
                     "description": "Represents a Photon Controller persistent disk resource.", 
                     "properties": {
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified."
                       }, 
                       "pdID": {
@@ -1635,7 +2007,10 @@
                         "description": "The Name of the data disk in the blob storage"
                       }, 
                       "cachingMode": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Host Caching mode: None, Read Only, Read Write."
                       }, 
                       "readOnly": {
@@ -1643,7 +2018,10 @@
                         "description": "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified."
                       }
                     }
@@ -1661,7 +2039,10 @@
                       }, 
                       "targetWWNs": {
                         "items": {
-                          "type": "string"
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
                         }, 
                         "type": "array", 
                         "description": "Required: FC target worldwide names (WWNs)"
@@ -1672,7 +2053,10 @@
                         "format": "int32"
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified."
                       }
                     }
@@ -1681,7 +2065,10 @@
                     "description": "Represents an empty directory for a pod. Empty directory volumes support ownership management and SELinux relabeling.", 
                     "properties": {
                       "medium": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "What type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir"
                       }
                     }
@@ -1740,7 +2127,10 @@
                         "format": "int32"
                       }, 
                       "name": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                       }
                     }
@@ -1756,7 +2146,10 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
                         "properties": {
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }
                         }
@@ -1766,11 +2159,17 @@
                         "description": "The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it"
                       }, 
                       "keyring": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it"
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd"
                       }, 
                       "readOnly": {
@@ -1778,18 +2177,27 @@
                         "description": "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it"
                       }, 
                       "user": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it"
                       }, 
                       "monitors": {
                         "items": {
-                          "type": "string"
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
                         }, 
                         "type": "array", 
                         "description": "A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it"
                       }, 
                       "pool": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it."
                       }
                     }
@@ -1835,7 +2243,10 @@
                         "description": "ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false."
                       }, 
                       "group": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Group to map volume access to Default is no group"
                       }, 
                       "registry": {
@@ -1843,7 +2254,10 @@
                         "description": "Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes"
                       }, 
                       "user": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "User to map volume access to Defaults to serivceaccount user"
                       }
                     }
@@ -1901,7 +2315,10 @@
                         "description": "Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk"
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk"
                       }
                     }
@@ -1921,7 +2338,10 @@
                         "description": "volume id used to identify the volume in cinder More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md"
                       }
                     }
@@ -1946,7 +2366,10 @@
                         "description": "Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore"
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore"
                       }
                     }
@@ -1961,13 +2384,19 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
                         "properties": {
                           "name": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                           }
                         }
                       }, 
                       "secretFile": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
                       }, 
                       "readOnly": {
@@ -1975,16 +2404,25 @@
                         "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
                       }, 
                       "user": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Optional: User is the rados user name, default is admin More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
                       }, 
                       "path": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Optional: Used as the mounted root, rather than the full Ceph tree, default is /"
                       }, 
                       "monitors": {
                         "items": {
-                          "type": "string"
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
                         }, 
                         "type": "array", 
                         "description": "Required: Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it"
@@ -2016,7 +2454,10 @@
                                   "description": "Path of the field to select in the specified API version."
                                 }, 
                                 "apiVersion": {
-                                  "type": "string", 
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ], 
                                   "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                                 }
                               }
@@ -2033,7 +2474,10 @@
                               "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                               "properties": {
                                 "containerName": {
-                                  "type": "string", 
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ], 
                                   "description": "Container name: required for volumes, optional for env vars"
                                 }, 
                                 "resource": {
@@ -2041,7 +2485,10 @@
                                   "description": "Required: resource to select"
                                 }, 
                                 "divisor": {
-                                  "type": "string"
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ]
                                 }
                               }
                             }
@@ -2071,7 +2518,10 @@
                         "description": "Path that identifies vSphere volume vmdk"
                       }, 
                       "fsType": {
-                        "type": "string", 
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
                         "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified."
                       }
                     }
@@ -2089,7 +2539,10 @@
               "description": "Use the host's ipc namespace. Optional: Default to false."
             }, 
             "subdomain": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "If specified, the fully qualified Pod hostname will be \"<hostname>.<subdomain>.<pod namespace>.svc.<cluster domain>\". If not specified, the pod will not have a domainname at all."
             }, 
             "imagePullSecrets": {
@@ -2097,7 +2550,10 @@
                 "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
                 "properties": {
                   "name": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                   }
                 }
@@ -2125,15 +2581,24 @@
                         "description": "HTTPGetAction describes an action based on HTTP Get requests.", 
                         "properties": {
                           "path": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Path to access on the HTTP server."
                           }, 
                           "host": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead."
                           }, 
                           "scheme": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Scheme to use for connecting to the host. Defaults to HTTP."
                           }, 
                           "httpHeaders": {
@@ -2163,7 +2628,10 @@
                           "port": {
                             "oneOf": [
                               {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }, 
                               {
                                 "type": "integer"
@@ -2182,7 +2650,10 @@
                         "properties": {
                           "command": {
                             "items": {
-                              "type": "string"
+                              "type": [
+                                "string", 
+                                "null"
+                              ]
                             }, 
                             "type": [
                               "array", 
@@ -2206,7 +2677,10 @@
                           "port": {
                             "oneOf": [
                               {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }, 
                               {
                                 "type": "integer"
@@ -2234,7 +2708,10 @@
                   }, 
                   "args": {
                     "items": {
-                      "type": "string"
+                      "type": [
+                        "string", 
+                        "null"
+                      ]
                     }, 
                     "type": [
                       "array", 
@@ -2243,7 +2720,10 @@
                     "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands"
                   }, 
                   "terminationMessagePath": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated."
                   }, 
                   "name": {
@@ -2251,11 +2731,17 @@
                     "description": "Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated."
                   }, 
                   "workingDir": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated."
                   }, 
                   "image": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Docker image name. More info: http://kubernetes.io/docs/user-guide/images"
                   }, 
                   "stdin": {
@@ -2279,7 +2765,10 @@
                           "description": "Path within the container at which the volume should be mounted.  Must not contain ':'."
                         }, 
                         "subPath": {
-                          "type": "string", 
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
                           "description": "Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root)."
                         }, 
                         "name": {
@@ -2311,15 +2800,24 @@
                             "description": "HTTPGetAction describes an action based on HTTP Get requests.", 
                             "properties": {
                               "path": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Path to access on the HTTP server."
                               }, 
                               "host": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead."
                               }, 
                               "scheme": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Scheme to use for connecting to the host. Defaults to HTTP."
                               }, 
                               "httpHeaders": {
@@ -2349,7 +2847,10 @@
                               "port": {
                                 "oneOf": [
                                   {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }, 
                                   {
                                     "type": "integer"
@@ -2367,7 +2868,10 @@
                               "port": {
                                 "oneOf": [
                                   {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }, 
                                   {
                                     "type": "integer"
@@ -2381,7 +2885,10 @@
                             "properties": {
                               "command": {
                                 "items": {
-                                  "type": "string"
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ]
                                 }, 
                                 "type": [
                                   "array", 
@@ -2403,15 +2910,24 @@
                             "description": "HTTPGetAction describes an action based on HTTP Get requests.", 
                             "properties": {
                               "path": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Path to access on the HTTP server."
                               }, 
                               "host": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead."
                               }, 
                               "scheme": {
-                                "type": "string", 
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ], 
                                 "description": "Scheme to use for connecting to the host. Defaults to HTTP."
                               }, 
                               "httpHeaders": {
@@ -2441,7 +2957,10 @@
                               "port": {
                                 "oneOf": [
                                   {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }, 
                                   {
                                     "type": "integer"
@@ -2459,7 +2978,10 @@
                               "port": {
                                 "oneOf": [
                                   {
-                                    "type": "string"
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
                                   }, 
                                   {
                                     "type": "integer"
@@ -2473,7 +2995,10 @@
                             "properties": {
                               "command": {
                                 "items": {
-                                  "type": "string"
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ]
                                 }, 
                                 "type": [
                                   "array", 
@@ -2489,7 +3014,10 @@
                   }, 
                   "command": {
                     "items": {
-                      "type": "string"
+                      "type": [
+                        "string", 
+                        "null"
+                      ]
                     }, 
                     "type": [
                       "array", 
@@ -2514,7 +3042,10 @@
                               "description": "SecretKeySelector selects a key of a Secret.", 
                               "properties": {
                                 "name": {
-                                  "type": "string", 
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ], 
                                   "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                 }, 
                                 "key": {
@@ -2534,7 +3065,10 @@
                                   "description": "Path of the field to select in the specified API version."
                                 }, 
                                 "apiVersion": {
-                                  "type": "string", 
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ], 
                                   "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
                                 }
                               }
@@ -2546,7 +3080,10 @@
                               "description": "Selects a key from a ConfigMap.", 
                               "properties": {
                                 "name": {
-                                  "type": "string", 
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ], 
                                   "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
                                 }, 
                                 "key": {
@@ -2562,7 +3099,10 @@
                               "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
                               "properties": {
                                 "containerName": {
-                                  "type": "string", 
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ], 
                                   "description": "Container name: required for volumes, optional for env vars"
                                 }, 
                                 "resource": {
@@ -2570,7 +3110,10 @@
                                   "description": "Required: resource to select"
                                 }, 
                                 "divisor": {
-                                  "type": "string"
+                                  "type": [
+                                    "string", 
+                                    "null"
+                                  ]
                                 }
                               }
                             }
@@ -2581,7 +3124,10 @@
                           "description": "Name of the environment variable. Must be a C_IDENTIFIER."
                         }, 
                         "value": {
-                          "type": "string", 
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
                           "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
                         }
                       }
@@ -2593,7 +3139,10 @@
                     "description": "List of environment variables to set in the container. Cannot be updated."
                   }, 
                   "imagePullPolicy": {
-                    "type": "string", 
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
                     "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images"
                   }, 
                   "readinessProbe": {
@@ -2606,15 +3155,24 @@
                         "description": "HTTPGetAction describes an action based on HTTP Get requests.", 
                         "properties": {
                           "path": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Path to access on the HTTP server."
                           }, 
                           "host": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead."
                           }, 
                           "scheme": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Scheme to use for connecting to the host. Defaults to HTTP."
                           }, 
                           "httpHeaders": {
@@ -2644,7 +3202,10 @@
                           "port": {
                             "oneOf": [
                               {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }, 
                               {
                                 "type": "integer"
@@ -2663,7 +3224,10 @@
                         "properties": {
                           "command": {
                             "items": {
-                              "type": "string"
+                              "type": [
+                                "string", 
+                                "null"
+                              ]
                             }, 
                             "type": [
                               "array", 
@@ -2687,7 +3251,10 @@
                           "port": {
                             "oneOf": [
                               {
-                                "type": "string"
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
                               }, 
                               {
                                 "type": "integer"
@@ -2730,7 +3297,10 @@
                         "properties": {
                           "add": {
                             "items": {
-                              "type": "string"
+                              "type": [
+                                "string", 
+                                "null"
+                              ]
                             }, 
                             "type": [
                               "array", 
@@ -2740,7 +3310,10 @@
                           }, 
                           "drop": {
                             "items": {
-                              "type": "string"
+                              "type": [
+                                "string", 
+                                "null"
+                              ]
                             }, 
                             "type": [
                               "array", 
@@ -2758,19 +3331,31 @@
                         "description": "SELinuxOptions are the labels to be applied to the container", 
                         "properties": {
                           "role": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Role is a SELinux role label that applies to the container."
                           }, 
                           "type": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Type is a SELinux type label that applies to the container."
                           }, 
                           "user": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "User is a SELinux user label that applies to the container."
                           }, 
                           "level": {
-                            "type": "string", 
+                            "type": [
+                              "string", 
+                              "null"
+                            ], 
                             "description": "Level is SELinux level label that applies to the container."
                           }
                         }
@@ -2789,11 +3374,17 @@
                       "description": "ContainerPort represents a network port in a single container.", 
                       "properties": {
                         "hostIP": {
-                          "type": "string", 
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
                           "description": "What host IP to bind the external port to."
                         }, 
                         "protocol": {
-                          "type": "string", 
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
                           "description": "Protocol for port. Must be UDP or TCP. Defaults to \"TCP\"."
                         }, 
                         "containerPort": {
@@ -2802,7 +3393,10 @@
                           "format": "int32"
                         }, 
                         "name": {
-                          "type": "string", 
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
                           "description": "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services."
                         }, 
                         "hostPort": {
@@ -2823,14 +3417,20 @@
                     "properties": {
                       "requests": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
                         }, 
                         "type": "object", 
                         "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: http://kubernetes.io/docs/user-guide/compute-resources/"
                       }, 
                       "limits": {
                         "additionalProperties": {
-                          "type": "string"
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
                         }, 
                         "type": "object", 
                         "description": "Limits describes the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/"
@@ -2847,7 +3447,10 @@
               "description": "List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers"
             }, 
             "nodeName": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements."
             }
           }
@@ -2856,15 +3459,24 @@
           "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
           "properties": {
             "name": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
             }, 
             "deletionTimestamp": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "format": "date-time"
             }, 
             "clusterName": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
             }, 
             "deletionGracePeriodSeconds": {
@@ -2874,18 +3486,27 @@
             }, 
             "labels": {
               "additionalProperties": {
-                "type": "string"
+                "type": [
+                  "string", 
+                  "null"
+                ]
               }, 
               "type": "object", 
               "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
             }, 
             "namespace": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "Namespace defines the space within each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
             }, 
             "finalizers": {
               "items": {
-                "type": "string"
+                "type": [
+                  "string", 
+                  "null"
+                ]
               }, 
               "type": [
                 "array", 
@@ -2899,11 +3520,17 @@
               "format": "int64"
             }, 
             "generateName": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
             }, 
             "resourceVersion": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
             }, 
             "ownerReferences": {
@@ -2945,22 +3572,34 @@
               "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
             }, 
             "creationTimestamp": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "format": "date-time"
             }, 
             "annotations": {
               "additionalProperties": {
-                "type": "string"
+                "type": [
+                  "string", 
+                  "null"
+                ]
               }, 
               "type": "object", 
               "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
             }, 
             "selfLink": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
             }, 
             "uid": {
-              "type": "string", 
+              "type": [
+                "string", 
+                "null"
+              ], 
               "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
             }
           }
@@ -2978,7 +3617,10 @@
     }, 
     "selector": {
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": "object", 
       "description": "Selector is a label query over pods that should match the Replicas count."

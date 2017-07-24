@@ -9,11 +9,17 @@
   "description": "ImageLayer represents a single layer of the image. Some images may have multiple layers. Some may have none.", 
   "properties": {
     "mediaType": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "MediaType of the referenced object."
     }, 
     "name": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Name of the layer as defined by the underlying store."
     }, 
     "size": {

@@ -9,7 +9,10 @@
       "format": "int64"
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Type is the strategy that will dictate what RunAsUser is used in the SecurityContext."
     }, 
     "uid": {

@@ -23,7 +23,10 @@
       "$ref": "_definitions.json#/definitions/v1.DockerBuildStrategy"
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "type is the kind of build strategy."
     }
   }

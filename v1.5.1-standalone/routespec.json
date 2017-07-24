@@ -14,19 +14,31 @@
       "description": "TLSConfig defines config used to secure a route and provide termination", 
       "properties": {
         "key": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "key provides key file contents"
         }, 
         "certificate": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "certificate provides certificate contents"
         }, 
         "caCertificate": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "caCertificate provides the cert authority certificate contents"
         }, 
         "insecureEdgeTerminationPolicy": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "insecureEdgeTerminationPolicy indicates the desired behavior for insecure connections to a route. While each router may make its own decisions on which ports to expose, this is normally port 80.\n\n* Allow - traffic is sent to the server on the insecure port (default) * Disable - no traffic is allowed on the insecure port. * Redirect - clients are redirected to the secure port."
         }, 
         "termination": {
@@ -34,13 +46,19 @@
           "description": "termination indicates termination type."
         }, 
         "destinationCACertificate": {
-          "type": "string", 
+          "type": [
+            "string", 
+            "null"
+          ], 
           "description": "destinationCACertificate provides the contents of the ca certificate of the final destination.  When using reencrypt termination this file should be provided in order to have routers use it for health checks on the secure connection"
         }
       }
     }, 
     "wildcardPolicy": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Wildcard policy if any for the route. Currently only 'Subdomain' or 'None' is allowed."
     }, 
     "to": {
@@ -67,7 +85,10 @@
       }
     }, 
     "host": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "host is an alias/DNS that points to the service. Optional. If not specified a route name will typically be automatically chosen. Must follow DNS952 subdomain conventions."
     }, 
     "alternateBackends": {
@@ -101,7 +122,10 @@
       "description": "alternateBackends is an extension of the 'to' field. If more than one service needs to be pointed to, then use this field. Use the weight field in RouteTargetReference object to specify relative preference. If the weight field is zero, the backend is ignored."
     }, 
     "path": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Path that the router watches for, to route traffic for to the service. Optional"
     }, 
     "port": {
@@ -113,7 +137,10 @@
         "targetPort": {
           "oneOf": [
             {
-              "type": "string"
+              "type": [
+                "string", 
+                "null"
+              ]
             }, 
             {
               "type": "integer"

@@ -20,7 +20,10 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.GitLabWebHookCause"
     }, 
     "message": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "message is used to store a human readable message for why the build was triggered. E.g.: \"Manually triggered by user\", \"Configuration change\",etc."
     }, 
     "bitbucketWebHook": {

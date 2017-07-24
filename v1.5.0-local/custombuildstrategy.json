@@ -39,7 +39,10 @@
       "$ref": "_definitions.json#/definitions/v1.LocalObjectReference"
     }, 
     "buildAPIVersion": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "buildAPIVersion is the requested API version for the Build object serialized and passed to the custom builder"
     }, 
     "forcePull": {

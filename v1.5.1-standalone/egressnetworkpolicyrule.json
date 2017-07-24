@@ -20,7 +20,10 @@
       }
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "type marks this as an \"Allow\" or \"Deny\" rule"
     }
   }

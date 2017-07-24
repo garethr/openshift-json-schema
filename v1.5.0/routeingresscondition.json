@@ -8,15 +8,24 @@
   "description": "RouteIngressCondition contains details for the current condition of this route on a particular router.", 
   "properties": {
     "status": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Status is the status of the condition. Can be True, False, Unknown."
     }, 
     "type": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Type is the type of the condition. Currently only Ready."
     }, 
     "message": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Human readable message indicating details about last transition."
     }, 
     "lastTransitionTime": {
@@ -24,7 +33,10 @@
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v1.5.0/_definitions.json#/definitions/unversioned.Time"
     }, 
     "reason": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "(brief) reason for the condition's last transition, and is usually a machine and human readable constant"
     }
   }

@@ -18,7 +18,10 @@
       "description": "Standard object's metadata."
     }, 
     "tag": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Tag is the tag for which the history is recorded"
     }, 
     "conditions": {

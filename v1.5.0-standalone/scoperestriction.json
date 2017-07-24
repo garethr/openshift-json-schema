@@ -5,7 +5,10 @@
   "properties": {
     "literals": {
       "items": {
-        "type": "string"
+        "type": [
+          "string", 
+          "null"
+        ]
       }, 
       "type": [
         "array", 
@@ -23,7 +26,10 @@
       "properties": {
         "roleNames": {
           "items": {
-            "type": "string"
+            "type": [
+              "string", 
+              "null"
+            ]
           }, 
           "type": "array", 
           "description": "RoleNames is the list of cluster roles that can referenced.  * means anything"
@@ -34,7 +40,10 @@
         }, 
         "namespaces": {
           "items": {
-            "type": "string"
+            "type": [
+              "string", 
+              "null"
+            ]
           }, 
           "type": "array", 
           "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)"

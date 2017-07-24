@@ -15,15 +15,24 @@
       "format": "int64"
     }, 
     "image": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "Image is the image"
     }, 
     "dockerImageReference": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "DockerImageReference is the string that can be used to pull this image"
     }, 
     "created": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "format": "date-time"
     }
   }

@@ -4,11 +4,17 @@
   "description": "GitSourceRevision is the commit information from a git source for a build", 
   "properties": {
     "commit": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "commit is the commit hash identifying a specific commit"
     }, 
     "message": {
-      "type": "string", 
+      "type": [
+        "string", 
+        "null"
+      ], 
       "description": "message is the description of a specific commit"
     }, 
     "committer": {
