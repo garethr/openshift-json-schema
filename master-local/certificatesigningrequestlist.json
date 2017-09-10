@@ -1,16 +1,16 @@
 {
-  "type": "object", 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "CertificateSigningRequestList", 
+      "version": "v1beta1", 
+      "group": "certificates.k8s.io"
+    }
+  ], 
   "$schema": "http://json-schema.org/schema#", 
   "required": [
     "items"
   ], 
-  "x-kubernetes-group-version-kind": [
-    {
-      "kind": "CertificateSigningRequestList", 
-      "version": "latest", 
-      "group": "certificates.k8s.io"
-    }
-  ], 
+  "type": "object", 
   "properties": {
     "items": {
       "items": {

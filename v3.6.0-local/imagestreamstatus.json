@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "dockerImageRepository"
+  ], 
+  "type": "object", 
+  "description": "ImageStreamStatus contains information about the state of this image stream.", 
+  "properties": {
+    "dockerImageRepository": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "DockerImageRepository represents the effective location this stream may be accessed at. May be empty until the server determines where the repository is located"
+    }, 
+    "tags": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.NamedTagEventList"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Tags are a historical record of images associated with each tag. The first entry in the TagEvent array is the currently tagged image."
+    }
+  }
+}

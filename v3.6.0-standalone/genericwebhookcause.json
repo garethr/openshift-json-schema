@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "GenericWebHookCause holds information about a generic WebHook that triggered a build.", 
+  "properties": {
+    "secret": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "secret is the obfuscated webhook secret that triggered a build."
+    }, 
+    "revision": {
+      "required": [
+        "type"
+      ], 
+      "description": "SourceRevision is the revision or commit information from the source for the build", 
+      "properties": {
+        "git": {
+          "description": "GitSourceRevision is the commit information from a git source for a build", 
+          "properties": {
+            "commit": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "commit is the commit hash identifying a specific commit"
+            }, 
+            "message": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "message is the description of a specific commit"
+            }, 
+            "author": {
+              "description": "SourceControlUser defines the identity of a user of source control", 
+              "properties": {
+                "email": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ], 
+                  "description": "email of the source control user"
+                }, 
+                "name": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ], 
+                  "description": "name of the source control user"
+                }
+              }
+            }, 
+            "committer": {
+              "description": "SourceControlUser defines the identity of a user of source control", 
+              "properties": {
+                "email": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ], 
+                  "description": "email of the source control user"
+                }, 
+                "name": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ], 
+                  "description": "name of the source control user"
+                }
+              }
+            }
+          }
+        }, 
+        "type": {
+          "type": "string", 
+          "description": "type of the build source, may be one of 'Source', 'Dockerfile', 'Binary', or 'Images'"
+        }
+      }
+    }
+  }
+}

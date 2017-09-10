@@ -1,18 +1,18 @@
 {
-  "type": "object", 
-  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ProjectRequest", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ProjectRequest", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "project.openshift.io"
     }
   ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
   "description": "ProjecRequest is the set of options necessary to fully qualify a project request", 
   "properties": {
     "kind": {

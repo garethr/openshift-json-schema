@@ -1,13 +1,13 @@
 {
-  "type": "object", 
-  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ReplicaSet", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "extensions"
     }
   ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
   "description": "ReplicaSet represents the configuration of a ReplicaSet.", 
   "properties": {
     "status": {

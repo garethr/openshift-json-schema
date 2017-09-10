@@ -1,0 +1,200 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "latestVersion", 
+    "observedGeneration", 
+    "replicas", 
+    "updatedReplicas", 
+    "availableReplicas", 
+    "unavailableReplicas"
+  ], 
+  "type": "object", 
+  "description": "DeploymentConfigStatus represents the current deployment state.", 
+  "properties": {
+    "replicas": {
+      "type": "integer", 
+      "description": "Replicas is the total number of pods targeted by this deployment config.", 
+      "format": "int32"
+    }, 
+    "observedGeneration": {
+      "type": "integer", 
+      "description": "ObservedGeneration is the most recent generation observed by the deployment config controller.", 
+      "format": "int64"
+    }, 
+    "updatedReplicas": {
+      "type": "integer", 
+      "description": "UpdatedReplicas is the total number of non-terminated pods targeted by this deployment config that have the desired template spec.", 
+      "format": "int32"
+    }, 
+    "availableReplicas": {
+      "type": "integer", 
+      "description": "AvailableReplicas is the total number of available pods targeted by this deployment config.", 
+      "format": "int32"
+    }, 
+    "details": {
+      "additionalProperties": false, 
+      "required": [
+        "causes"
+      ], 
+      "description": "DeploymentDetails captures information about the causes of a deployment.", 
+      "properties": {
+        "message": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "Message is the user specified change message, if this deployment was triggered manually by the user"
+        }, 
+        "causes": {
+          "items": {
+            "additionalProperties": false, 
+            "required": [
+              "type"
+            ], 
+            "description": "DeploymentCause captures information about a particular cause of a deployment.", 
+            "properties": {
+              "type": {
+                "type": "string", 
+                "description": "Type of the trigger that resulted in the creation of a new deployment"
+              }, 
+              "imageTrigger": {
+                "additionalProperties": false, 
+                "required": [
+                  "from"
+                ], 
+                "description": "DeploymentCauseImageTrigger represents details about the cause of a deployment originating from an image change trigger", 
+                "properties": {
+                  "from": {
+                    "additionalProperties": false, 
+                    "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+                    "properties": {
+                      "kind": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                      }, 
+                      "name": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                      }, 
+                      "namespace": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                      }, 
+                      "apiVersion": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "API version of the referent."
+                      }, 
+                      "fieldPath": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
+                      }, 
+                      "resourceVersion": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                      }, 
+                      "uid": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }, 
+          "type": "array", 
+          "description": "Causes are extended data associated with all the causes for creating a new deployment"
+        }
+      }
+    }, 
+    "latestVersion": {
+      "type": "integer", 
+      "description": "LatestVersion is used to determine whether the current deployment associated with a deployment config is out of sync.", 
+      "format": "int64"
+    }, 
+    "readyReplicas": {
+      "type": "integer", 
+      "description": "Total number of ready pods targeted by this deployment.", 
+      "format": "int32"
+    }, 
+    "conditions": {
+      "items": {
+        "additionalProperties": false, 
+        "required": [
+          "type", 
+          "status"
+        ], 
+        "description": "DeploymentCondition describes the state of a deployment config at a certain point.", 
+        "properties": {
+          "status": {
+            "type": "string", 
+            "description": "Status of the condition, one of True, False, Unknown."
+          }, 
+          "lastUpdateTime": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "format": "date-time"
+          }, 
+          "lastTransitionTime": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "format": "date-time"
+          }, 
+          "reason": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "description": "The reason for the condition's last transition."
+          }, 
+          "message": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "description": "A human readable message indicating details about the transition."
+          }, 
+          "type": {
+            "type": "string", 
+            "description": "Type of deployment condition."
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Conditions represents the latest available observations of a deployment config's current state."
+    }, 
+    "unavailableReplicas": {
+      "type": "integer", 
+      "description": "UnavailableReplicas is the total number of unavailable pods targeted by this deployment config.", 
+      "format": "int32"
+    }
+  }
+}

@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ResourceQuotaList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 

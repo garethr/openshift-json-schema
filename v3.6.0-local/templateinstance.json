@@ -1,0 +1,44 @@
+{
+  "description": "TemplateInstance requests and records the instantiation of a Template. TemplateInstance is part of an experimental API.", 
+  "required": [
+    "spec", 
+    "status"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "TemplateInstance", 
+      "Version": "v1", 
+      "Group": "template.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "status": {
+      "description": "status describes the current state of this TemplateInstance.", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.template.apis.template.v1.TemplateInstanceStatus"
+    }, 
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "spec": {
+      "description": "spec describes the desired state of this TemplateInstance.", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.template.apis.template.v1.TemplateInstanceSpec"
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "metadata": {
+      "description": "Standard object metadata.", 
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    }
+  }
+}

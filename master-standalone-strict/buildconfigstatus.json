@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "lastVersion"
+  ], 
+  "type": "object", 
+  "description": "BuildConfigStatus contains current state of the build config object.", 
+  "properties": {
+    "lastVersion": {
+      "type": "integer", 
+      "description": "lastVersion is used to inform about number of last triggered build.", 
+      "format": "int64"
+    }
+  }
+}

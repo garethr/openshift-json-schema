@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "BrokerTemplateInstanceList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "template.openshift.io"
     }
   ], 
@@ -21,7 +21,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "BrokerTemplateInstance", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "template.openshift.io"
           }
         ], 
@@ -290,7 +290,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

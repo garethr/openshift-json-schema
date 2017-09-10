@@ -5,7 +5,7 @@
   "properties": {
     "imageChangeParams": {
       "description": "ImageChangeParams represents the parameters for the ImageChange trigger.", 
-      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentTriggerImageChangeParams"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.apps.apis.apps.v1.DeploymentTriggerImageChangeParams"
     }, 
     "type": {
       "type": [

@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "PodSecurityPolicyList", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "extensions"
     }
   ], 
@@ -18,7 +18,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "PodSecurityPolicy", 
-            "version": "latest", 
+            "version": "v1beta1", 
             "group": "extensions"
           }
         ], 
@@ -425,7 +425,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

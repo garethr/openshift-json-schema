@@ -10,7 +10,7 @@
       "x-kubernetes-group-version-kind": [
         {
           "kind": "Status", 
-          "version": "latest", 
+          "version": "v1", 
           "group": ""
         }
       ], 

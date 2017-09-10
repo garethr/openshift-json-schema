@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "EndpointsList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
@@ -21,7 +21,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "Endpoints", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }
         ], 
@@ -377,7 +377,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

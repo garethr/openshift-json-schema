@@ -9,11 +9,11 @@
   "description": "TagReference specifies optional annotations for images using this tag and an optional reference to an ImageStreamTag, ImageStreamImage, or DockerImage this tag should track.", 
   "properties": {
     "importPolicy": {
-      "description": "Import is information that controls how images may be imported by the server.", 
+      "description": "ImportPolicy is information that controls how images may be imported by the server.", 
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagImportPolicy"
     }, 
     "from": {
-      "description": "From is a reference to an image stream tag or image stream this tag should track", 
+      "description": "Optional; if specified, a reference to another image that this tag should point to. Valid values are ImageStreamTag, ImageStreamImage, and DockerImage.", 
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
     }, 
     "name": {
@@ -29,11 +29,11 @@
     }, 
     "generation": {
       "type": "integer", 
-      "description": "Generation is the image stream generation that updated this tag - setting it to 0 is an indication that the generation must be updated. Legacy clients will send this as nil, which means the client doesn't know or care.", 
+      "description": "Generation is a counter that tracks mutations to the spec tag (user intent). When a tag reference is changed the generation is set to match the current stream generation (which is incremented every time spec is changed). Other processes in the system like the image importer observe that the generation of spec tag is newer than the generation recorded in the status and use that as a trigger to import the newest remote tag. To trigger a new import, clients may set this value to zero which will reset the generation to the latest stream generation. Legacy clients will send this value as nil which will be merged with the current tag generation.", 
       "format": "int64"
     }, 
     "referencePolicy": {
-      "description": "ReferencePolicy defines how other components should consume the image", 
+      "description": "ReferencePolicy defines how other components should consume the image.", 
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagReferencePolicy"
     }, 
     "annotations": {
@@ -44,7 +44,7 @@
         ]
       }, 
       "type": "object", 
-      "description": "Annotations associated with images using this tag"
+      "description": "Optional; if specified, annotations that are applied to images retrieved via ImageStreamTags."
     }
   }
 }

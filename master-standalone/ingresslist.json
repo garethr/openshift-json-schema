@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "IngressList", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "extensions"
     }
   ], 
@@ -18,7 +18,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "Ingress", 
-            "version": "latest", 
+            "version": "v1beta1", 
             "group": "extensions"
           }
         ], 
@@ -328,7 +328,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

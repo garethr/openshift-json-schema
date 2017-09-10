@@ -1,23 +1,23 @@
 {
-  "x-kubernetes-group-version-kind": [
-    {
-      "kind": "CertificateSigningRequestList", 
-      "version": "latest", 
-      "group": "certificates.k8s.io"
-    }
-  ], 
+  "type": "object", 
   "$schema": "http://json-schema.org/schema#", 
   "required": [
     "items"
   ], 
-  "type": "object", 
+  "x-kubernetes-group-version-kind": [
+    {
+      "kind": "CertificateSigningRequestList", 
+      "version": "v1beta1", 
+      "group": "certificates.k8s.io"
+    }
+  ], 
   "properties": {
     "items": {
       "items": {
         "x-kubernetes-group-version-kind": [
           {
             "kind": "CertificateSigningRequest", 
-            "version": "latest", 
+            "version": "v1beta1", 
             "group": "certificates.k8s.io"
           }
         ], 
@@ -276,7 +276,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

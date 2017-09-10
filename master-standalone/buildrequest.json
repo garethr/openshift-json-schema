@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "BuildRequest", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "BuildRequest", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "build.openshift.io"
     }
   ], 
@@ -88,6 +88,15 @@
             "null"
           ], 
           "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
+        }
+      }
+    }, 
+    "sourceStrategyOptions": {
+      "description": "SourceStrategyOptions contains extra strategy options for Source builds", 
+      "properties": {
+        "incremental": {
+          "type": "boolean", 
+          "description": "incremental overrides the source-strategy incremental option in the build config"
         }
       }
     }, 
@@ -210,7 +219,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 
@@ -567,9 +576,16 @@
                     "description": "Required: resource to select"
                   }, 
                   "divisor": {
-                    "type": [
-                      "string", 
-                      "null"
+                    "oneOf": [
+                      {
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
+                      }, 
+                      {
+                        "type": "integer"
+                      }
                     ]
                   }
                 }
@@ -1105,9 +1121,16 @@
                         "description": "Required: resource to select"
                       }, 
                       "divisor": {
-                        "type": [
-                          "string", 
-                          "null"
+                        "oneOf": [
+                          {
+                            "type": [
+                              "string", 
+                              "null"
+                            ]
+                          }, 
+                          {
+                            "type": "integer"
+                          }
                         ]
                       }
                     }
@@ -1132,6 +1155,10 @@
             "null"
           ], 
           "description": "Args contains any build arguments that are to be passed to Docker.  See https://docs.docker.com/engine/reference/builder/#/arg for more details"
+        }, 
+        "noCache": {
+          "type": "boolean", 
+          "description": "noCache overrides the docker-strategy noCache option in the build config"
         }
       }
     }, 

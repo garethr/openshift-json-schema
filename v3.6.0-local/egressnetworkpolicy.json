@@ -1,0 +1,44 @@
+{
+  "description": "EgressNetworkPolicy describes the current egress network policy for a Namespace. When using the 'redhat/openshift-ovs-multitenant' network plugin, traffic from a pod to an IP address outside the cluster will be checked against each EgressNetworkPolicyRule in the pod's namespace's EgressNetworkPolicy, in order. If no rule matches (or no EgressNetworkPolicy is present) then the traffic will be allowed by default.", 
+  "required": [
+    "spec"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "EgressNetworkPolicy", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "EgressNetworkPolicy", 
+      "Version": "v1", 
+      "Group": "network.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "spec": {
+      "description": "spec is the specification of the current egress network policy", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.sdn.apis.network.v1.EgressNetworkPolicySpec"
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "metadata": {
+      "description": "metadata for EgressNetworkPolicy", 
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    }
+  }
+}

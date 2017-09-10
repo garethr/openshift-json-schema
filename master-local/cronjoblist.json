@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "CronJobList", 
-      "version": "latest", 
+      "version": "v2alpha1", 
       "group": "batch"
     }, 
     {
       "kind": "ScheduledJobList", 
-      "version": "latest", 
+      "version": "v2alpha1", 
       "group": "batch"
     }
   ], 

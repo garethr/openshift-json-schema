@@ -1,18 +1,18 @@
 {
-  "type": "object", 
-  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "DeploymentLog", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "DeploymentLog", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "apps.openshift.io"
     }
   ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
   "description": "DeploymentLog represents the logs for a deployment", 
   "properties": {
     "kind": {

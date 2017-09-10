@@ -7,12 +7,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "RoleBindingRestriction", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "RoleBindingRestriction", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "authorization.openshift.io"
     }
   ], 
@@ -367,7 +367,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "TokenReview", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "authentication.k8s.io"
     }
   ], 

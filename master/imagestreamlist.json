@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ImageStreamList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ImageStreamList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "image.openshift.io"
     }
   ], 

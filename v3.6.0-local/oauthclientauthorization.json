@@ -1,0 +1,71 @@
+{
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "OAuthClientAuthorization", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "OAuthClientAuthorization", 
+      "Version": "v1", 
+      "Group": "oauth.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "OAuthClientAuthorization describes an authorization created by an OAuth client", 
+  "properties": {
+    "userName": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "UserName is the user name that authorized this client"
+    }, 
+    "scopes": {
+      "items": {
+        "type": [
+          "string", 
+          "null"
+        ]
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Scopes is an array of the granted scopes."
+    }, 
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "userUID": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "UserUID is the unique UID associated with this authorization. UserUID and UserName must both match for this authorization to be valid."
+    }, 
+    "clientName": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "ClientName references the client that created this authorization"
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    }
+  }
+}

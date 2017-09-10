@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "type", 
+    "to"
+  ], 
+  "type": "object", 
+  "description": "EgressNetworkPolicyRule contains a single egress network policy rule", 
+  "properties": {
+    "to": {
+      "description": "to is the target that traffic is allowed/denied to", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.sdn.apis.network.v1.EgressNetworkPolicyPeer"
+    }, 
+    "type": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "type marks this as an \"Allow\" or \"Deny\" rule"
+    }
+  }
+}

@@ -1,13 +1,13 @@
 {
+  "type": "object", 
+  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "PersistentVolume", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "description": "PersistentVolume (PV) is a storage resource provisioned by an administrator. It is analogous to a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes", 
   "properties": {
     "status": {
@@ -146,9 +146,16 @@
         }, 
         "capacity": {
           "additionalProperties": {
-            "type": [
-              "string", 
-              "null"
+            "oneOf": [
+              {
+                "type": [
+                  "string", 
+                  "null"
+                ]
+              }, 
+              {
+                "type": "integer"
+              }
             ]
           }, 
           "type": "object", 
@@ -1035,7 +1042,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "OAuthAuthorizeTokenList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "OAuthAuthorizeTokenList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "oauth.openshift.io"
     }
   ], 
@@ -23,12 +23,12 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "OAuthAuthorizeToken", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "OAuthAuthorizeToken", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "oauth.openshift.io"
           }
         ], 
@@ -234,7 +234,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

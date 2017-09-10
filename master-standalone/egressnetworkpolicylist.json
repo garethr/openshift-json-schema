@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "EgressNetworkPolicyList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "EgressNetworkPolicyList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "network.openshift.io"
     }
   ], 
@@ -26,12 +26,12 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "EgressNetworkPolicy", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "EgressNetworkPolicy", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "network.openshift.io"
           }
         ], 
@@ -214,7 +214,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

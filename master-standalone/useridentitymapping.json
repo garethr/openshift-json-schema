@@ -1,18 +1,18 @@
 {
+  "type": "object", 
+  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "UserIdentityMapping", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "UserIdentityMapping", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "user.openshift.io"
     }
   ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "description": "UserIdentityMapping maps a user to an identity", 
   "properties": {
     "apiVersion": {
@@ -256,7 +256,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

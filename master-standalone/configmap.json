@@ -1,13 +1,13 @@
 {
+  "type": "object", 
+  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ConfigMap", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "description": "ConfigMap holds configuration data for pods to consume.", 
   "properties": {
     "kind": {
@@ -153,7 +153,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

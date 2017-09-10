@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "NetworkPolicyList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "networking.k8s.io"
     }
   ], 

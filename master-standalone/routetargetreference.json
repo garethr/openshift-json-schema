@@ -24,7 +24,7 @@
     }, 
     "weight": {
       "type": "integer", 
-      "description": "weight as an integer between 1 and 256 that specifies the target's relative weight against other target reference objects", 
+      "description": "weight as an integer between 0 and 256, default 1, that specifies the target's relative weight against other target reference objects. 0 suppresses requests to this backend.", 
       "format": "int32"
     }
   }

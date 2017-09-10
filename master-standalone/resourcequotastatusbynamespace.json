@@ -12,9 +12,16 @@
       "properties": {
         "hard": {
           "additionalProperties": {
-            "type": [
-              "string", 
-              "null"
+            "oneOf": [
+              {
+                "type": [
+                  "string", 
+                  "null"
+                ]
+              }, 
+              {
+                "type": "integer"
+              }
             ]
           }, 
           "type": "object", 
@@ -22,9 +29,16 @@
         }, 
         "used": {
           "additionalProperties": {
-            "type": [
-              "string", 
-              "null"
+            "oneOf": [
+              {
+                "type": [
+                  "string", 
+                  "null"
+                ]
+              }, 
+              {
+                "type": "integer"
+              }
             ]
           }, 
           "type": "object", 

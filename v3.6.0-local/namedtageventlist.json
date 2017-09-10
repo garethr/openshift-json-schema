@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "tag", 
+    "items"
+  ], 
+  "type": "object", 
+  "description": "NamedTagEventList relates a tag to its image history.", 
+  "properties": {
+    "items": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagEvent"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Standard object's metadata."
+    }, 
+    "tag": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Tag is the tag for which the history is recorded"
+    }, 
+    "conditions": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagEventCondition"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Conditions is an array of conditions that apply to the tag event list."
+    }
+  }
+}

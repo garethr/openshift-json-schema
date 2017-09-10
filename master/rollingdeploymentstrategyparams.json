@@ -5,7 +5,7 @@
   "properties": {
     "pre": {
       "description": "Pre is a lifecycle hook which is executed before the deployment process begins. All LifecycleHookFailurePolicy values are supported.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.LifecycleHook"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.apps.apis.apps.v1.LifecycleHook"
     }, 
     "timeoutSeconds": {
       "type": "integer", 
@@ -32,7 +32,7 @@
     }, 
     "post": {
       "description": "Post is a lifecycle hook which is executed after the strategy has finished all deployment logic. All LifecycleHookFailurePolicy values are supported.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.LifecycleHook"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.apps.apis.apps.v1.LifecycleHook"
     }
   }
 }

@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "type", 
+    "status", 
+    "generation"
+  ], 
+  "type": "object", 
+  "description": "TagEventCondition contains condition information for a tag event.", 
+  "properties": {
+    "status": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Status of the condition, one of True, False, Unknown."
+    }, 
+    "generation": {
+      "type": "integer", 
+      "description": "Generation is the spec tag generation that this status corresponds to", 
+      "format": "int64"
+    }, 
+    "lastTransitionTime": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "format": "date-time"
+    }, 
+    "reason": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Reason is a brief machine readable explanation for the condition's last transition."
+    }, 
+    "message": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Message is a human readable description of the details about last transition, complementing reason."
+    }, 
+    "type": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Type of tag event condition, currently only ImportSuccess"
+    }
+  }
+}

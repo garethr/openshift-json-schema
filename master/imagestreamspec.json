@@ -12,7 +12,7 @@
         "string", 
         "null"
       ], 
-      "description": "dockerImageRepository is optional, if specified this stream is backed by a Docker repository on this server"
+      "description": "dockerImageRepository is optional, if specified this stream is backed by a Docker repository on this server Deprecated: This field is deprecated as of v3.7 and will be removed in a future release. Specify the source for the tags to be imported in each tag via the spec.tags.from reference instead."
     }, 
     "tags": {
       "items": {

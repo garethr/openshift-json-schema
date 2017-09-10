@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "name", 
+    "role"
+  ], 
+  "type": "object", 
+  "description": "NamedRole relates a Role with a name", 
+  "properties": {
+    "role": {
+      "description": "Role is the role being named", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.Role"
+    }, 
+    "name": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Name is the name of the role"
+    }
+  }
+}

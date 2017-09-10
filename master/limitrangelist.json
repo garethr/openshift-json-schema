@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "LimitRangeList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 

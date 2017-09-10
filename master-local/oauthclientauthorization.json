@@ -1,18 +1,18 @@
 {
-  "type": "object", 
-  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "OAuthClientAuthorization", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "OAuthClientAuthorization", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "oauth.openshift.io"
     }
   ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
   "description": "OAuthClientAuthorization describes an authorization created by an OAuth client", 
   "properties": {
     "userName": {

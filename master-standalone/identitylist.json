@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "IdentityList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "IdentityList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "user.openshift.io"
     }
   ], 
@@ -28,12 +28,12 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "Identity", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "Identity", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "user.openshift.io"
           }
         ], 
@@ -244,7 +244,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

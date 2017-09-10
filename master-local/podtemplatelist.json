@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "PodTemplateList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 

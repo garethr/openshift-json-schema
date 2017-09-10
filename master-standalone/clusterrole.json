@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ClusterRole", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "rbac.authorization.k8s.io"
     }
   ], 
@@ -223,7 +223,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

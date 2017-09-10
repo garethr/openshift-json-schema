@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "TagImportPolicy controls how images related to this tag will be imported.", 
+  "properties": {
+    "scheduled": {
+      "type": "boolean", 
+      "description": "Scheduled indicates to the server that this tag should be periodically checked to ensure it is up to date, and imported"
+    }, 
+    "insecure": {
+      "type": "boolean", 
+      "description": "Insecure is true if the server may bypass certificate verification or connect directly over HTTP during image import."
+    }
+  }
+}

@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "PodSecurityPolicySubjectReview", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "PodSecurityPolicySubjectReview", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "security.openshift.io"
     }
   ], 

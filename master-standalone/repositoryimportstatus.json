@@ -14,7 +14,7 @@
             "x-kubernetes-group-version-kind": [
               {
                 "kind": "Status", 
-                "version": "latest", 
+                "version": "v1", 
                 "group": ""
               }
             ], 
@@ -159,12 +159,12 @@
             "x-kubernetes-group-version-kind": [
               {
                 "kind": "Image", 
-                "version": "latest", 
+                "version": "v1", 
                 "group": ""
               }, 
               {
                 "kind": "Image", 
-                "version": "latest", 
+                "version": "v1", 
                 "group": "image.openshift.io"
               }
             ], 
@@ -200,12 +200,12 @@
                   "x-kubernetes-group-version-kind": [
                     {
                       "kind": "ImageSignature", 
-                      "version": "latest", 
+                      "version": "v1", 
                       "group": ""
                     }, 
                     {
                       "kind": "ImageSignature", 
-                      "version": "latest", 
+                      "version": "v1", 
                       "group": "image.openshift.io"
                     }
                   ], 
@@ -476,7 +476,7 @@
                               "x-kubernetes-group-version-kind": [
                                 {
                                   "kind": "Status", 
-                                  "version": "latest", 
+                                  "version": "v1", 
                                   "group": ""
                                 }
                               ], 
@@ -890,7 +890,7 @@
                         "x-kubernetes-group-version-kind": [
                           {
                             "kind": "Status", 
-                            "version": "latest", 
+                            "version": "v1", 
                             "group": ""
                           }
                         ], 
@@ -1114,7 +1114,7 @@
       "x-kubernetes-group-version-kind": [
         {
           "kind": "Status", 
-          "version": "latest", 
+          "version": "v1", 
           "group": ""
         }
       ], 

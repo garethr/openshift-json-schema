@@ -7,12 +7,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "DeploymentConfig", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "DeploymentConfig", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "apps.openshift.io"
     }
   ], 
@@ -21,7 +21,7 @@
   "properties": {
     "status": {
       "description": "Status represents the current deployment state.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentConfigStatus"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.apps.apis.apps.v1.DeploymentConfigStatus"
     }, 
     "kind": {
       "type": [
@@ -32,7 +32,7 @@
     }, 
     "spec": {
       "description": "Spec represents a desired deployment state and how to deploy to it.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentConfigSpec"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.apps.apis.apps.v1.DeploymentConfigSpec"
     }, 
     "apiVersion": {
       "type": [

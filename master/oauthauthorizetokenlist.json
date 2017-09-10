@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "OAuthAuthorizeTokenList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "OAuthAuthorizeTokenList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "oauth.openshift.io"
     }
   ], 

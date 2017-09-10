@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ProjectList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ProjectList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "project.openshift.io"
     }
   ], 
@@ -23,12 +23,12 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "Project", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "Project", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "project.openshift.io"
           }
         ], 
@@ -197,7 +197,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

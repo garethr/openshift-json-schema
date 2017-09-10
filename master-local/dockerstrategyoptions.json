@@ -3,6 +3,10 @@
   "type": "object", 
   "description": "DockerStrategyOptions contains extra strategy options for Docker builds", 
   "properties": {
+    "noCache": {
+      "type": "boolean", 
+      "description": "noCache overrides the docker-strategy noCache option in the build config"
+    }, 
     "buildArgs": {
       "items": {
         "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVar"

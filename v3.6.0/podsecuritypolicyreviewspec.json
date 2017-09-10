@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "template"
+  ], 
+  "type": "object", 
+  "description": "PodSecurityPolicyReviewSpec defines specification for PodSecurityPolicyReview", 
+  "properties": {
+    "serviceAccountNames": {
+      "items": {
+        "type": [
+          "string", 
+          "null"
+        ]
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "serviceAccountNames is an optional set of ServiceAccounts to run the check with. If serviceAccountNames is empty, the template.spec.serviceAccountName is used, unless it's empty, in which case \"default\" is used instead. If serviceAccountNames is specified, template.spec.serviceAccountName is ignored."
+    }, 
+    "template": {
+      "description": "template is the PodTemplateSpec to check. The template.spec.serviceAccountName field is used if serviceAccountNames is empty, unless the template.spec.serviceAccountName is empty, in which case \"default\" is used. If serviceAccountNames is specified, template.spec.serviceAccountName is ignored.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.PodTemplateSpec"
+    }
+  }
+}

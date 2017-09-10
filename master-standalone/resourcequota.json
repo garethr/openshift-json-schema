@@ -1,13 +1,13 @@
 {
+  "type": "object", 
+  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ResourceQuota", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "description": "ResourceQuota sets aggregate quota restrictions enforced per namespace", 
   "properties": {
     "status": {
@@ -15,9 +15,16 @@
       "properties": {
         "hard": {
           "additionalProperties": {
-            "type": [
-              "string", 
-              "null"
+            "oneOf": [
+              {
+                "type": [
+                  "string", 
+                  "null"
+                ]
+              }, 
+              {
+                "type": "integer"
+              }
             ]
           }, 
           "type": "object", 
@@ -25,9 +32,16 @@
         }, 
         "used": {
           "additionalProperties": {
-            "type": [
-              "string", 
-              "null"
+            "oneOf": [
+              {
+                "type": [
+                  "string", 
+                  "null"
+                ]
+              }, 
+              {
+                "type": "integer"
+              }
             ]
           }, 
           "type": "object", 
@@ -60,9 +74,16 @@
         }, 
         "hard": {
           "additionalProperties": {
-            "type": [
-              "string", 
-              "null"
+            "oneOf": [
+              {
+                "type": [
+                  "string", 
+                  "null"
+                ]
+              }, 
+              {
+                "type": "integer"
+              }
             ]
           }, 
           "type": "object", 
@@ -196,7 +217,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "BuildConfigList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "BuildConfigList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "build.openshift.io"
     }
   ], 

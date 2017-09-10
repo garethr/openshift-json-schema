@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "SecurityContextConstraintsList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "SecurityContextConstraintsList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "security.openshift.io"
     }
   ], 
@@ -28,6 +28,7 @@
           "allowedCapabilities", 
           "allowHostDirVolumePlugin", 
           "volumes", 
+          "allowedFlexVolumes", 
           "allowHostNetwork", 
           "allowHostPorts", 
           "allowHostPID", 
@@ -37,12 +38,12 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "SecurityContextConstraints", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "SecurityContextConstraints", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "security.openshift.io"
           }
         ], 
@@ -60,39 +61,21 @@
             "type": "boolean", 
             "description": "AllowHostIPC determines if the policy allows host ipc in the containers."
           }, 
-          "supplementalGroups": {
-            "description": "SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.", 
-            "properties": {
-              "ranges": {
-                "items": {
-                  "description": "IDRange provides a min/max of an allowed range of IDs.", 
-                  "properties": {
-                    "max": {
-                      "type": "integer", 
-                      "description": "Max is the end of the range, inclusive.", 
-                      "format": "int64"
-                    }, 
-                    "min": {
-                      "type": "integer", 
-                      "description": "Min is the start of the range, inclusive.", 
-                      "format": "int64"
-                    }
-                  }
-                }, 
-                "type": [
-                  "array", 
-                  "null"
-                ], 
-                "description": "Ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end."
-              }, 
-              "type": {
-                "type": [
-                  "string", 
-                  "null"
-                ], 
-                "description": "Type is the strategy that will dictate what supplemental groups is used in the SecurityContext."
+          "allowedFlexVolumes": {
+            "items": {
+              "description": "AllowedFlexVolume represents a single Flexvolume that is allowed to be used.", 
+              "properties": {
+                "driver": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ], 
+                  "description": "Driver is the name of the Flexvolume driver."
+                }
               }
-            }
+            }, 
+            "type": "array", 
+            "description": "AllowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the \"Volumes\" field."
           }, 
           "fsGroup": {
             "description": "FSGroupStrategyOptions defines the strategy type and options used to create the strategy.", 
@@ -130,7 +113,7 @@
           }, 
           "priority": {
             "type": "integer", 
-            "description": "Priority influences the sort order of SCCs when evaluating which SCCs to try first for a given pod request based on access in the Users and Groups fields.  The higher the int, the higher priority.  If scores for multiple SCCs are equal they will be sorted by name.", 
+            "description": "Priority influences the sort order of SCCs when evaluating which SCCs to try first for a given pod request based on access in the Users and Groups fields.  The higher the int, the higher priority. An unset value is considered a 0 priority. If scores for multiple SCCs are equal they will be sorted from most restrictive to least restrictive. If both priorities and restrictions are equal the SCCs will be sorted by name.", 
             "format": "int32"
           }, 
           "defaultAddCapabilities": {
@@ -276,7 +259,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 
@@ -570,6 +553,61 @@
               }
             }
           }, 
+          "allowPrivilegedContainer": {
+            "type": "boolean", 
+            "description": "AllowPrivilegedContainer determines if a container can request to be run as privileged."
+          }, 
+          "apiVersion": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+          }, 
+          "supplementalGroups": {
+            "description": "SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.", 
+            "properties": {
+              "ranges": {
+                "items": {
+                  "description": "IDRange provides a min/max of an allowed range of IDs.", 
+                  "properties": {
+                    "max": {
+                      "type": "integer", 
+                      "description": "Max is the end of the range, inclusive.", 
+                      "format": "int64"
+                    }, 
+                    "min": {
+                      "type": "integer", 
+                      "description": "Min is the start of the range, inclusive.", 
+                      "format": "int64"
+                    }
+                  }
+                }, 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
+                "description": "Ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end."
+              }, 
+              "type": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Type is the strategy that will dictate what supplemental groups is used in the SecurityContext."
+              }
+            }
+          }, 
+          "volumes": {
+            "items": {
+              "type": [
+                "string", 
+                "null"
+              ]
+            }, 
+            "type": "array", 
+            "description": "Volumes is a white list of allowed volume plugins.  FSType corresponds directly with the field names of a VolumeSource (azureFile, configMap, emptyDir).  To allow all volumes you may use \"*\". To allow no volumes, set to [\"none\"]."
+          }, 
           "seLinuxContext": {
             "description": "SELinuxContextStrategyOptions defines the strategy type and any options used to create the strategy.", 
             "properties": {
@@ -614,27 +652,6 @@
                 "description": "Type is the strategy that will dictate what SELinux context is used in the SecurityContext."
               }
             }
-          }, 
-          "apiVersion": {
-            "type": [
-              "string", 
-              "null"
-            ], 
-            "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
-          }, 
-          "volumes": {
-            "items": {
-              "type": [
-                "string", 
-                "null"
-              ]
-            }, 
-            "type": "array", 
-            "description": "Volumes is a white list of allowed volume plugins.  FSType corresponds directly with the field names of a VolumeSource (azureFile, configMap, emptyDir).  To allow all volumes you may use \"*\". To allow no volumes, set to [\"none\"]."
-          }, 
-          "allowPrivilegedContainer": {
-            "type": "boolean", 
-            "description": "AllowPrivilegedContainer determines if a container can request to be run as privileged."
           }
         }
       }, 

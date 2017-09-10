@@ -7,12 +7,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ImageSignature", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ImageSignature", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "image.openshift.io"
     }
   ], 

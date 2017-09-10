@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "PodSecurityPolicySubjectReviewStatus contains information/status for PodSecurityPolicySubjectReview.", 
+  "properties": {
+    "reason": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "A machine-readable description of why this operation is in the \"Failure\" status. If this value is empty there is no information available."
+    }, 
+    "template": {
+      "description": "template is the PodTemplateSpec after the defaulting is applied.", 
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.PodTemplateSpec"
+    }, 
+    "allowedBy": {
+      "description": "allowedBy is a reference to the rule that allows the PodTemplateSpec. A rule can be a SecurityContextConstraint or a PodSecurityPolicy A `nil`, indicates that it was denied.", 
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
+    }
+  }
+}

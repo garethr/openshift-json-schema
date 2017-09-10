@@ -9986,6 +9986,16 @@
         }
       }
     }, 
+    "io.k8s.apimachinery.pkg.api.resource.Quantity": {
+      "oneOf": [
+        {
+          "type": "string"
+        }, 
+        {
+          "type": "integer"
+        }
+      ]
+    }, 
     "v1.EgressNetworkPolicySpec": {
       "required": [
         "egress"

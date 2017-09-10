@@ -1,13 +1,13 @@
 {
-  "type": "object", 
-  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "StatefulSet", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "apps"
     }
   ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
   "description": "StatefulSet represents a set of pods with consistent identities. Identities are defined as:\n - Network: A single stable DNS and hostname.\n - Storage: As many VolumeClaims as requested.\nThe StatefulSet guarantees that a given network identity will always map to the same storage identity.", 
   "properties": {
     "status": {

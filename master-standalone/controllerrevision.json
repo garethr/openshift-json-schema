@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ControllerRevision", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "apps"
     }
   ], 
@@ -139,7 +139,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

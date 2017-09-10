@@ -1,0 +1,183 @@
+{
+  "description": "Event represents a single event to a watched resource.", 
+  "required": [
+    "type", 
+    "object"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "apps"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "apps.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "authentication.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "authentication.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "authorization.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "authorization.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "authorization.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "autoscaling"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v2alpha1", 
+      "Group": "autoscaling"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "batch"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v2alpha1", 
+      "Group": "batch"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "build.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "certificates.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "extensions"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "federation"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "image.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1alpha1", 
+      "Group": "imagepolicy.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "network.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "oauth.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "policy"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "project.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "quota.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1alpha1", 
+      "Group": "rbac.authorization.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "rbac.authorization.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "route.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "security.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1alpha1", 
+      "Group": "settings.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "storage.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1beta1", 
+      "Group": "storage.k8s.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "template.openshift.io"
+    }, 
+    {
+      "Kind": "WatchEvent", 
+      "Version": "v1", 
+      "Group": "user.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "object": {
+      "description": "Object is:\n * If Type is Added or Modified: the new state of the object.\n * If Type is Deleted: the state of the object immediately before deletion.\n * If Type is Error: *Status is recommended; other types may make sense\n   depending on context.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension"
+    }, 
+    "type": {
+      "type": [
+        "string", 
+        "null"
+      ]
+    }
+  }
+}

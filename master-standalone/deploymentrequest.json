@@ -8,12 +8,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "DeploymentRequest", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "DeploymentRequest", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "apps.openshift.io"
     }
   ], 

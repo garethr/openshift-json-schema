@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "template"
+  ], 
+  "type": "object", 
+  "description": "PodSecurityPolicySelfSubjectReviewSpec contains specification for PodSecurityPolicySelfSubjectReview.", 
+  "properties": {
+    "template": {
+      "description": "template is the PodTemplateSpec to check.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.PodTemplateSpec"
+    }
+  }
+}

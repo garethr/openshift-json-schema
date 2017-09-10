@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "import"
+  ], 
+  "type": "object", 
+  "description": "ImageStreamImportSpec defines what images should be imported.", 
+  "properties": {
+    "images": {
+      "items": {
+        "additionalProperties": false, 
+        "required": [
+          "from"
+        ], 
+        "description": "ImageImportSpec describes a request to import a specific image.", 
+        "properties": {
+          "importPolicy": {
+            "additionalProperties": false, 
+            "description": "TagImportPolicy controls how images related to this tag will be imported.", 
+            "properties": {
+              "scheduled": {
+                "type": "boolean", 
+                "description": "Scheduled indicates to the server that this tag should be periodically checked to ensure it is up to date, and imported"
+              }, 
+              "insecure": {
+                "type": "boolean", 
+                "description": "Insecure is true if the server may bypass certificate verification or connect directly over HTTP during image import."
+              }
+            }
+          }, 
+          "includeManifest": {
+            "type": "boolean", 
+            "description": "IncludeManifest determines if the manifest for each image is returned in the response"
+          }, 
+          "from": {
+            "additionalProperties": false, 
+            "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+            "properties": {
+              "kind": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+              }, 
+              "name": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+              }, 
+              "namespace": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+              }, 
+              "apiVersion": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "API version of the referent."
+              }, 
+              "fieldPath": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
+              }, 
+              "resourceVersion": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+              }, 
+              "uid": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+              }
+            }
+          }, 
+          "to": {
+            "additionalProperties": false, 
+            "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
+            "properties": {
+              "name": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+              }
+            }
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Images are a list of individual images to import."
+    }, 
+    "import": {
+      "type": "boolean", 
+      "description": "Import indicates whether to perform an import - if so, the specified tags are set on the spec and status of the image stream defined by the type meta."
+    }, 
+    "repository": {
+      "additionalProperties": false, 
+      "required": [
+        "from"
+      ], 
+      "description": "RepositoryImportSpec describes a request to import images from a Docker image repository.", 
+      "properties": {
+        "importPolicy": {
+          "additionalProperties": false, 
+          "description": "TagImportPolicy controls how images related to this tag will be imported.", 
+          "properties": {
+            "scheduled": {
+              "type": "boolean", 
+              "description": "Scheduled indicates to the server that this tag should be periodically checked to ensure it is up to date, and imported"
+            }, 
+            "insecure": {
+              "type": "boolean", 
+              "description": "Insecure is true if the server may bypass certificate verification or connect directly over HTTP during image import."
+            }
+          }
+        }, 
+        "includeManifest": {
+          "type": "boolean", 
+          "description": "IncludeManifest determines if the manifest for each image is returned in the response"
+        }, 
+        "from": {
+          "additionalProperties": false, 
+          "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+          "properties": {
+            "kind": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+            }, 
+            "name": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+            }, 
+            "namespace": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+            }, 
+            "apiVersion": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "API version of the referent."
+            }, 
+            "fieldPath": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
+            }, 
+            "resourceVersion": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+            }, 
+            "uid": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+            }
+          }
+        }
+      }
+    }
+  }
+}

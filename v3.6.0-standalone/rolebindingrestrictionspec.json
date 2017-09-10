@@ -1,0 +1,213 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "userrestriction", 
+    "grouprestriction", 
+    "serviceaccountrestriction"
+  ], 
+  "type": "object", 
+  "description": "RoleBindingRestrictionSpec defines a rolebinding restriction.  Exactly one field must be non-nil.", 
+  "properties": {
+    "serviceaccountrestriction": {
+      "required": [
+        "serviceaccounts", 
+        "namespaces"
+      ], 
+      "description": "ServiceAccountRestriction matches a service account by a string match on either the service-account name or the name of the service account's namespace.", 
+      "properties": {
+        "serviceaccounts": {
+          "items": {
+            "required": [
+              "name", 
+              "namespace"
+            ], 
+            "description": "ServiceAccountReference specifies a service account and namespace by their names.", 
+            "properties": {
+              "namespace": {
+                "type": "string", 
+                "description": "Namespace is the namespace of the service account.  Service accounts from inside the whitelisted namespaces are allowed to be bound to roles.  If Namespace is empty, then the namespace of the RoleBindingRestriction in which the ServiceAccountReference is embedded is used."
+              }, 
+              "name": {
+                "type": "string", 
+                "description": "Name is the name of the service account."
+              }
+            }
+          }, 
+          "type": "array", 
+          "description": "ServiceAccounts specifies a list of literal service-account names."
+        }, 
+        "namespaces": {
+          "items": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": "array", 
+          "description": "Namespaces specifies a list of literal namespace names."
+        }
+      }
+    }, 
+    "userrestriction": {
+      "required": [
+        "users", 
+        "groups", 
+        "labels"
+      ], 
+      "description": "UserRestriction matches a user either by a string match on the user name, a string match on the name of a group to which the user belongs, or a label selector applied to the user labels.", 
+      "properties": {
+        "labels": {
+          "items": {
+            "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.", 
+            "properties": {
+              "matchLabels": {
+                "additionalProperties": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
+                }, 
+                "type": "object", 
+                "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed."
+              }, 
+              "matchExpressions": {
+                "items": {
+                  "required": [
+                    "key", 
+                    "operator"
+                  ], 
+                  "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.", 
+                  "properties": {
+                    "operator": {
+                      "type": "string", 
+                      "description": "operator represents a key's relationship to a set of values. Valid operators ard In, NotIn, Exists and DoesNotExist."
+                    }, 
+                    "values": {
+                      "items": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
+                      }, 
+                      "type": [
+                        "array", 
+                        "null"
+                      ], 
+                      "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
+                    }, 
+                    "key": {
+                      "type": "string", 
+                      "description": "key is the label key that the selector applies to."
+                    }
+                  }
+                }, 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
+                "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed."
+              }
+            }
+          }, 
+          "type": "array", 
+          "description": "Selectors specifies a list of label selectors over user labels."
+        }, 
+        "users": {
+          "items": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": "array", 
+          "description": "Users specifies a list of literal user names."
+        }, 
+        "groups": {
+          "items": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": "array", 
+          "description": "Groups specifies a list of literal group names."
+        }
+      }
+    }, 
+    "grouprestriction": {
+      "required": [
+        "groups", 
+        "labels"
+      ], 
+      "description": "GroupRestriction matches a group either by a string match on the group name or a label selector applied to group labels.", 
+      "properties": {
+        "labels": {
+          "items": {
+            "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.", 
+            "properties": {
+              "matchLabels": {
+                "additionalProperties": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
+                }, 
+                "type": "object", 
+                "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed."
+              }, 
+              "matchExpressions": {
+                "items": {
+                  "required": [
+                    "key", 
+                    "operator"
+                  ], 
+                  "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.", 
+                  "properties": {
+                    "operator": {
+                      "type": "string", 
+                      "description": "operator represents a key's relationship to a set of values. Valid operators ard In, NotIn, Exists and DoesNotExist."
+                    }, 
+                    "values": {
+                      "items": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
+                      }, 
+                      "type": [
+                        "array", 
+                        "null"
+                      ], 
+                      "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
+                    }, 
+                    "key": {
+                      "type": "string", 
+                      "description": "key is the label key that the selector applies to."
+                    }
+                  }
+                }, 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
+                "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed."
+              }
+            }
+          }, 
+          "type": "array", 
+          "description": "Selectors specifies a list of label selectors over group labels."
+        }, 
+        "groups": {
+          "items": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": "array", 
+          "description": "Groups is a list of groups used to match against an individual user's groups. If the user is a member of one of the whitelisted groups, the user is allowed to be bound to a role."
+        }
+      }
+    }
+  }
+}

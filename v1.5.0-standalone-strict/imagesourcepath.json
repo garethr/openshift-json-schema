@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "sourcePath", 
+    "destinationDir"
+  ], 
+  "type": "object", 
+  "description": "ImageSourcePath describes a path to be copied from a source image and its destination within the build directory.", 
+  "properties": {
+    "sourcePath": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "sourcePath is the absolute path of the file or directory inside the image to copy to the build directory."
+    }, 
+    "destinationDir": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "destinationDir is the relative directory within the build directory where files copied from the image are placed."
+    }
+  }
+}

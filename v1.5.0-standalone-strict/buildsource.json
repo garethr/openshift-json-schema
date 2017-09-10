@@ -1,0 +1,241 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "type"
+  ], 
+  "type": "object", 
+  "description": "BuildSource is the SCM used for the build.", 
+  "properties": {
+    "binary": {
+      "additionalProperties": false, 
+      "description": "BinaryBuildSource describes a binary file to be used for the Docker and Source build strategies, where the file will be extracted and used as the build source.", 
+      "properties": {
+        "asFile": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "asFile indicates that the provided binary input should be considered a single file within the build input. For example, specifying \"webapp.war\" would place the provided binary as `/webapp.war` for the builder. If left empty, the Docker and Source build strategies assume this file is a zip, tar, or tar.gz file and extract it as the source. The custom strategy receives this binary as standard input. This filename may not contain slashes or be '..' or '.'."
+        }
+      }
+    }, 
+    "git": {
+      "additionalProperties": false, 
+      "required": [
+        "uri"
+      ], 
+      "description": "GitBuildSource defines the parameters of a Git SCM", 
+      "properties": {
+        "httpProxy": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "httpProxy is a proxy used to reach the git repository over http"
+        }, 
+        "uri": {
+          "type": "string", 
+          "description": "uri points to the source that will be built. The structure of the source will depend on the type of build to run"
+        }, 
+        "ref": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "ref is the branch/tag/ref to build."
+        }, 
+        "noProxy": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "noProxy is the list of domains for which the proxy should not be used"
+        }, 
+        "httpsProxy": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "httpsProxy is a proxy used to reach the git repository over https"
+        }
+      }
+    }, 
+    "sourceSecret": {
+      "additionalProperties": false, 
+      "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
+      "properties": {
+        "name": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+        }
+      }
+    }, 
+    "secrets": {
+      "items": {
+        "additionalProperties": false, 
+        "required": [
+          "secret"
+        ], 
+        "description": "SecretBuildSource describes a secret and its destination directory that will be used only at the build time. The content of the secret referenced here will be copied into the destination directory instead of mounting.", 
+        "properties": {
+          "secret": {
+            "additionalProperties": false, 
+            "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
+            "properties": {
+              "name": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+              }
+            }
+          }, 
+          "destinationDir": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "description": "destinationDir is the directory where the files from the secret should be available for the build time. For the Source build strategy, these will be injected into a container where the assemble script runs. Later, when the script finishes, all files injected will be truncated to zero length. For the Docker build strategy, these will be copied into the build directory, where the Dockerfile is located, so users can ADD or COPY them during docker build."
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "secrets represents a list of secrets and their destinations that will be used only for the build."
+    }, 
+    "dockerfile": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "dockerfile is the raw contents of a Dockerfile which should be built. When this option is specified, the FROM may be modified based on your strategy base image and additional ENV stanzas from your strategy environment will be added after the FROM, but before the rest of your Dockerfile stanzas. The Dockerfile source type may be used with other options like git - in those cases the Git repo will have any innate Dockerfile replaced in the context dir."
+    }, 
+    "type": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "type of build input to accept"
+    }, 
+    "images": {
+      "items": {
+        "additionalProperties": false, 
+        "required": [
+          "from", 
+          "paths"
+        ], 
+        "description": "ImageSource is used to describe build source that will be extracted from an image. A reference of type ImageStreamTag, ImageStreamImage or DockerImage may be used. A pull secret can be specified to pull the image from an external registry or override the default service account secret if pulling from the internal registry. A list of paths to copy from the image and their respective destination within the build directory must be specified in the paths array.", 
+        "properties": {
+          "paths": {
+            "items": {
+              "additionalProperties": false, 
+              "required": [
+                "sourcePath", 
+                "destinationDir"
+              ], 
+              "description": "ImageSourcePath describes a path to be copied from a source image and its destination within the build directory.", 
+              "properties": {
+                "sourcePath": {
+                  "type": "string", 
+                  "description": "sourcePath is the absolute path of the file or directory inside the image to copy to the build directory."
+                }, 
+                "destinationDir": {
+                  "type": "string", 
+                  "description": "destinationDir is the relative directory within the build directory where files copied from the image are placed."
+                }
+              }
+            }, 
+            "type": "array", 
+            "description": "paths is a list of source and destination paths to copy from the image."
+          }, 
+          "from": {
+            "additionalProperties": false, 
+            "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+            "properties": {
+              "kind": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+              }, 
+              "name": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+              }, 
+              "namespace": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+              }, 
+              "apiVersion": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "API version of the referent."
+              }, 
+              "fieldPath": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
+              }, 
+              "resourceVersion": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+              }, 
+              "uid": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+              }
+            }
+          }, 
+          "pullSecret": {
+            "additionalProperties": false, 
+            "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.", 
+            "properties": {
+              "name": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+              }
+            }
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "images describes a set of images to be used to provide source for the build"
+    }, 
+    "contextDir": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "contextDir specifies the sub-directory where the source code for the application exists. This allows to have buildable sources in directory other than root of repository."
+    }
+  }
+}

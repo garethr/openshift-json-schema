@@ -1,13 +1,13 @@
 {
+  "type": "object", 
+  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "PersistentVolumeClaim", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "description": "PersistentVolumeClaim is a user's request for and claim to a persistent volume", 
   "properties": {
     "status": {
@@ -35,9 +35,16 @@
         }, 
         "capacity": {
           "additionalProperties": {
-            "type": [
-              "string", 
-              "null"
+            "oneOf": [
+              {
+                "type": [
+                  "string", 
+                  "null"
+                ]
+              }, 
+              {
+                "type": "integer"
+              }
             ]
           }, 
           "type": "object", 
@@ -134,9 +141,16 @@
           "properties": {
             "requests": {
               "additionalProperties": {
-                "type": [
-                  "string", 
-                  "null"
+                "oneOf": [
+                  {
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
+                  }, 
+                  {
+                    "type": "integer"
+                  }
                 ]
               }, 
               "type": "object", 
@@ -144,9 +158,16 @@
             }, 
             "limits": {
               "additionalProperties": {
-                "type": [
-                  "string", 
-                  "null"
+                "oneOf": [
+                  {
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
+                  }, 
+                  {
+                    "type": "integer"
+                  }
                 ]
               }, 
               "type": "object", 
@@ -289,7 +310,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

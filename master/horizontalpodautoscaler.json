@@ -1,13 +1,13 @@
 {
-  "type": "object", 
-  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "HorizontalPodAutoscaler", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "autoscaling"
     }
   ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
   "description": "configuration of a horizontal pod autoscaler.", 
   "properties": {
     "status": {

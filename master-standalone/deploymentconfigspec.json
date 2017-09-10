@@ -218,9 +218,16 @@
                             "description": "Required: resource to select"
                           }, 
                           "divisor": {
-                            "type": [
-                              "string", 
-                              "null"
+                            "oneOf": [
+                              {
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
+                              }, 
+                              {
+                                "type": "integer"
+                              }
                             ]
                           }
                         }
@@ -410,9 +417,16 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": [
-                                      "string", 
-                                      "null"
+                                    "oneOf": [
+                                      {
+                                        "type": [
+                                          "string", 
+                                          "null"
+                                        ]
+                                      }, 
+                                      {
+                                        "type": "integer"
+                                      }
                                     ]
                                   }
                                 }
@@ -694,9 +708,16 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": [
-                                      "string", 
-                                      "null"
+                                    "oneOf": [
+                                      {
+                                        "type": [
+                                          "string", 
+                                          "null"
+                                        ]
+                                      }, 
+                                      {
+                                        "type": "integer"
+                                      }
                                     ]
                                   }
                                 }
@@ -942,9 +963,16 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": [
-                                      "string", 
-                                      "null"
+                                    "oneOf": [
+                                      {
+                                        "type": [
+                                          "string", 
+                                          "null"
+                                        ]
+                                      }, 
+                                      {
+                                        "type": "integer"
+                                      }
                                     ]
                                   }
                                 }
@@ -1185,9 +1213,16 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": [
-                                      "string", 
-                                      "null"
+                                    "oneOf": [
+                                      {
+                                        "type": [
+                                          "string", 
+                                          "null"
+                                        ]
+                                      }, 
+                                      {
+                                        "type": "integer"
+                                      }
                                     ]
                                   }
                                 }
@@ -1428,9 +1463,16 @@
                                     "description": "Required: resource to select"
                                   }, 
                                   "divisor": {
-                                    "type": [
-                                      "string", 
-                                      "null"
+                                    "oneOf": [
+                                      {
+                                        "type": [
+                                          "string", 
+                                          "null"
+                                        ]
+                                      }, 
+                                      {
+                                        "type": "integer"
+                                      }
                                     ]
                                   }
                                 }
@@ -1576,9 +1618,16 @@
           "properties": {
             "requests": {
               "additionalProperties": {
-                "type": [
-                  "string", 
-                  "null"
+                "oneOf": [
+                  {
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
+                  }, 
+                  {
+                    "type": "integer"
+                  }
                 ]
               }, 
               "type": "object", 
@@ -1586,9 +1635,16 @@
             }, 
             "limits": {
               "additionalProperties": {
-                "type": [
-                  "string", 
-                  "null"
+                "oneOf": [
+                  {
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
+                  }, 
+                  {
+                    "type": "integer"
+                  }
                 ]
               }, 
               "type": "object", 
@@ -2802,9 +2858,16 @@
                                   "description": "Required: resource to select"
                                 }, 
                                 "divisor": {
-                                  "type": [
-                                    "string", 
-                                    "null"
+                                  "oneOf": [
+                                    {
+                                      "type": [
+                                        "string", 
+                                        "null"
+                                      ]
+                                    }, 
+                                    {
+                                      "type": "integer"
+                                    }
                                   ]
                                 }
                               }
@@ -3311,9 +3374,16 @@
                     "properties": {
                       "requests": {
                         "additionalProperties": {
-                          "type": [
-                            "string", 
-                            "null"
+                          "oneOf": [
+                            {
+                              "type": [
+                                "string", 
+                                "null"
+                              ]
+                            }, 
+                            {
+                              "type": "integer"
+                            }
                           ]
                         }, 
                         "type": "object", 
@@ -3321,9 +3391,16 @@
                       }, 
                       "limits": {
                         "additionalProperties": {
-                          "type": [
-                            "string", 
-                            "null"
+                          "oneOf": [
+                            {
+                              "type": [
+                                "string", 
+                                "null"
+                              ]
+                            }, 
+                            {
+                              "type": "integer"
+                            }
                           ]
                         }, 
                         "type": "object", 
@@ -3710,9 +3787,16 @@
                                             "description": "Required: resource to select"
                                           }, 
                                           "divisor": {
-                                            "type": [
-                                              "string", 
-                                              "null"
+                                            "oneOf": [
+                                              {
+                                                "type": [
+                                                  "string", 
+                                                  "null"
+                                                ]
+                                              }, 
+                                              {
+                                                "type": "integer"
+                                              }
                                             ]
                                           }
                                         }
@@ -4007,9 +4091,16 @@
                     "description": "Represents an empty directory for a pod. Empty directory volumes support ownership management and SELinux relabeling.", 
                     "properties": {
                       "sizeLimit": {
-                        "type": [
-                          "string", 
-                          "null"
+                        "oneOf": [
+                          {
+                            "type": [
+                              "string", 
+                              "null"
+                            ]
+                          }, 
+                          {
+                            "type": "integer"
+                          }
                         ]
                       }, 
                       "medium": {
@@ -4437,9 +4528,16 @@
                                   "description": "Required: resource to select"
                                 }, 
                                 "divisor": {
-                                  "type": [
-                                    "string", 
-                                    "null"
+                                  "oneOf": [
+                                    {
+                                      "type": [
+                                        "string", 
+                                        "null"
+                                      ]
+                                    }, 
+                                    {
+                                      "type": "integer"
+                                    }
                                   ]
                                 }
                               }
@@ -4944,9 +5042,16 @@
                                   "description": "Required: resource to select"
                                 }, 
                                 "divisor": {
-                                  "type": [
-                                    "string", 
-                                    "null"
+                                  "oneOf": [
+                                    {
+                                      "type": [
+                                        "string", 
+                                        "null"
+                                      ]
+                                    }, 
+                                    {
+                                      "type": "integer"
+                                    }
                                   ]
                                 }
                               }
@@ -5453,9 +5558,16 @@
                     "properties": {
                       "requests": {
                         "additionalProperties": {
-                          "type": [
-                            "string", 
-                            "null"
+                          "oneOf": [
+                            {
+                              "type": [
+                                "string", 
+                                "null"
+                              ]
+                            }, 
+                            {
+                              "type": "integer"
+                            }
                           ]
                         }, 
                         "type": "object", 
@@ -5463,9 +5575,16 @@
                       }, 
                       "limits": {
                         "additionalProperties": {
-                          "type": [
-                            "string", 
-                            "null"
+                          "oneOf": [
+                            {
+                              "type": [
+                                "string", 
+                                "null"
+                              ]
+                            }, 
+                            {
+                              "type": "integer"
+                            }
                           ]
                         }, 
                         "type": "object", 
@@ -5629,7 +5748,7 @@
                   "x-kubernetes-group-version-kind": [
                     {
                       "kind": "Status", 
-                      "version": "latest", 
+                      "version": "v1", 
                       "group": ""
                     }
                   ], 
@@ -5840,7 +5959,7 @@
     }, 
     "revisionHistoryLimit": {
       "type": "integer", 
-      "description": "RevisionHistoryLimit is the number of old ReplicationControllers to retain to allow for rollbacks. This field is a pointer to allow for differentiation between an explicit zero and not specified.", 
+      "description": "RevisionHistoryLimit is the number of old ReplicationControllers to retain to allow for rollbacks. This field is a pointer to allow for differentiation between an explicit zero and not specified. Defaults to 10. (This only applies to DeploymentConfigs created via the new group API resource, not the legacy resource.)", 
       "format": "int32"
     }, 
     "selector": {

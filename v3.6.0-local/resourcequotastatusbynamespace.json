@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "namespace", 
+    "status"
+  ], 
+  "type": "object", 
+  "description": "ResourceQuotaStatusByNamespace gives status for a particular project", 
+  "properties": {
+    "status": {
+      "description": "Status indicates how many resources have been consumed by this project", 
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ResourceQuotaStatus"
+    }, 
+    "namespace": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Namespace the project this status applies to"
+    }
+  }
+}

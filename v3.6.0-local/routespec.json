@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "host", 
+    "to"
+  ], 
+  "type": "object", 
+  "description": "RouteSpec describes the hostname or path the route exposes, any security information, and one or more backends the route points to. Weights on each backend can define the balance of traffic sent to each backend - if all weights are zero the route will be considered to have no backends and return a standard 503 response.\n\nThe `tls` field is optional and allows specific certificates or behavior for the route. Routers typically configure a default certificate on a wildcard domain to terminate routes without explicit certificates, but custom hostnames usually must choose passthrough (send traffic directly to the backend via the TLS Server-Name- Indication field) or provide a certificate.", 
+  "properties": {
+    "tls": {
+      "description": "The tls field provides the ability to configure certificates and termination for the route.", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.TLSConfig"
+    }, 
+    "wildcardPolicy": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Wildcard policy if any for the route. Currently only 'Subdomain' or 'None' is allowed."
+    }, 
+    "to": {
+      "description": "to is an object the route should use as the primary backend. Only the Service kind is allowed, and it will be defaulted to Service. If the weight field is set to zero, no traffic will be sent to this service.", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.RouteTargetReference"
+    }, 
+    "host": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "host is an alias/DNS that points to the service. Optional. If not specified a route name will typically be automatically chosen. Must follow DNS952 subdomain conventions."
+    }, 
+    "alternateBackends": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.RouteTargetReference"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "alternateBackends is an extension of the 'to' field. If more than one service needs to be pointed to, then use this field. Use the weight field in RouteTargetReference object to specify relative preference. If the weight field is zero, the backend is ignored."
+    }, 
+    "path": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Path that the router watches for, to route traffic for to the service. Optional"
+    }, 
+    "port": {
+      "description": "If specified, the port to be used by the router. Most routers will use all endpoints exposed by the service by default - set this value to instruct routers which port to use.", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.RoutePort"
+    }
+  }
+}

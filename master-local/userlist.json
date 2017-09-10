@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "UserList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "UserList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "user.openshift.io"
     }
   ], 

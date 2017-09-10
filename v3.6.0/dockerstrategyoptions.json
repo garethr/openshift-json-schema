@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "DockerStrategyOptions contains extra strategy options for Docker builds", 
+  "properties": {
+    "buildArgs": {
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVar"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Args contains any build arguments that are to be passed to Docker.  See https://docs.docker.com/engine/reference/builder/#/arg for more details"
+    }
+  }
+}

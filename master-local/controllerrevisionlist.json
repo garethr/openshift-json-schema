@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ControllerRevisionList", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "apps"
     }
   ], 

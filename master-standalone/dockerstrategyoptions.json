@@ -96,9 +96,16 @@
                     "description": "Required: resource to select"
                   }, 
                   "divisor": {
-                    "type": [
-                      "string", 
-                      "null"
+                    "oneOf": [
+                      {
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
+                      }, 
+                      {
+                        "type": "integer"
+                      }
                     ]
                   }
                 }
@@ -123,6 +130,10 @@
         "null"
       ], 
       "description": "Args contains any build arguments that are to be passed to Docker.  See https://docs.docker.com/engine/reference/builder/#/arg for more details"
+    }, 
+    "noCache": {
+      "type": "boolean", 
+      "description": "noCache overrides the docker-strategy noCache option in the build config"
     }
   }
 }

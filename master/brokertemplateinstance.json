@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "BrokerTemplateInstance", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "template.openshift.io"
     }
   ], 

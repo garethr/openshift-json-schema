@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "AppliedClusterResourceQuotaList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "AppliedClusterResourceQuotaList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "quota.openshift.io"
     }
   ], 
@@ -27,12 +27,12 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "AppliedClusterResourceQuota", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "AppliedClusterResourceQuota", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "quota.openshift.io"
           }
         ], 
@@ -50,9 +50,16 @@
                 "properties": {
                   "hard": {
                     "additionalProperties": {
-                      "type": [
-                        "string", 
-                        "null"
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
+                        }, 
+                        {
+                          "type": "integer"
+                        }
                       ]
                     }, 
                     "type": "object", 
@@ -60,9 +67,16 @@
                   }, 
                   "used": {
                     "additionalProperties": {
-                      "type": [
-                        "string", 
-                        "null"
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
+                        }, 
+                        {
+                          "type": "integer"
+                        }
                       ]
                     }, 
                     "type": "object", 
@@ -83,9 +97,16 @@
                       "properties": {
                         "hard": {
                           "additionalProperties": {
-                            "type": [
-                              "string", 
-                              "null"
+                            "oneOf": [
+                              {
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
+                              }, 
+                              {
+                                "type": "integer"
+                              }
                             ]
                           }, 
                           "type": "object", 
@@ -93,9 +114,16 @@
                         }, 
                         "used": {
                           "additionalProperties": {
-                            "type": [
-                              "string", 
-                              "null"
+                            "oneOf": [
+                              {
+                                "type": [
+                                  "string", 
+                                  "null"
+                                ]
+                              }, 
+                              {
+                                "type": "integer"
+                              }
                             ]
                           }, 
                           "type": "object", 
@@ -146,9 +174,16 @@
                   }, 
                   "hard": {
                     "additionalProperties": {
-                      "type": [
-                        "string", 
-                        "null"
+                      "oneOf": [
+                        {
+                          "type": [
+                            "string", 
+                            "null"
+                          ]
+                        }, 
+                        {
+                          "type": "integer"
+                        }
                       ]
                     }, 
                     "type": "object", 
@@ -357,7 +392,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

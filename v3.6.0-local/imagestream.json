@@ -1,0 +1,48 @@
+{
+  "description": "ImageStream stores a mapping of tags to images, metadata overrides that are applied when images are tagged in a stream, and an optional reference to a Docker image repository on a registry.", 
+  "required": [
+    "spec"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "ImageStream", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "ImageStream", 
+      "Version": "v1", 
+      "Group": "image.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "status": {
+      "description": "Status describes the current state of this stream", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.ImageStreamStatus"
+    }, 
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "spec": {
+      "description": "Spec describes the desired state of this stream", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.ImageStreamSpec"
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    }
+  }
+}

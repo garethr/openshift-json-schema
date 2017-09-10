@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "RouteList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "RouteList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "route.openshift.io"
     }
   ], 

@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "DeploymentConfigList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "DeploymentConfigList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "apps.openshift.io"
     }
   ], 
@@ -20,7 +20,7 @@
   "properties": {
     "items": {
       "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentConfig"
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.apps.apis.apps.v1.DeploymentConfig"
       }, 
       "type": [
         "array", 

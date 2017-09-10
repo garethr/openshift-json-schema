@@ -7,12 +7,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ImageStreamMapping", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ImageStreamMapping", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "image.openshift.io"
     }
   ], 

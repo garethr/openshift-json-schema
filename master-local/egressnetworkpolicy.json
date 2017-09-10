@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "EgressNetworkPolicy", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "EgressNetworkPolicy", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "network.openshift.io"
     }
   ], 
@@ -27,7 +27,7 @@
     }, 
     "spec": {
       "description": "spec is the specification of the current egress network policy", 
-      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.sdn.apis.network.v1.EgressNetworkPolicySpec"
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.network.apis.network.v1.EgressNetworkPolicySpec"
     }, 
     "apiVersion": {
       "type": [

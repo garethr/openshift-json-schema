@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "SubjectAccessReview", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "authorization.k8s.io"
     }
   ], 
@@ -286,7 +286,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

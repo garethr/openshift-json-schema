@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "host", 
+    "to"
+  ], 
+  "type": "object", 
+  "description": "RouteSpec describes the hostname or path the route exposes, any security information, and one or more backends the route points to. Weights on each backend can define the balance of traffic sent to each backend - if all weights are zero the route will be considered to have no backends and return a standard 503 response.\n\nThe `tls` field is optional and allows specific certificates or behavior for the route. Routers typically configure a default certificate on a wildcard domain to terminate routes without explicit certificates, but custom hostnames usually must choose passthrough (send traffic directly to the backend via the TLS Server-Name- Indication field) or provide a certificate.", 
+  "properties": {
+    "tls": {
+      "required": [
+        "termination"
+      ], 
+      "description": "TLSConfig defines config used to secure a route and provide termination", 
+      "properties": {
+        "key": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "key provides key file contents"
+        }, 
+        "certificate": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "certificate provides certificate contents"
+        }, 
+        "caCertificate": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "caCertificate provides the cert authority certificate contents"
+        }, 
+        "insecureEdgeTerminationPolicy": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "insecureEdgeTerminationPolicy indicates the desired behavior for insecure connections to a route. While each router may make its own decisions on which ports to expose, this is normally port 80.\n\n* Allow - traffic is sent to the server on the insecure port (default) * Disable - no traffic is allowed on the insecure port. * Redirect - clients are redirected to the secure port."
+        }, 
+        "termination": {
+          "type": "string", 
+          "description": "termination indicates termination type."
+        }, 
+        "destinationCACertificate": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "destinationCACertificate provides the contents of the ca certificate of the final destination.  When using reencrypt termination this file should be provided in order to have routers use it for health checks on the secure connection. If this field is not specified, the router may provide its own destination CA and perform hostname validation using the short service name (service.namespace.svc), which allows infrastructure generated certificates to automatically verify."
+        }
+      }
+    }, 
+    "wildcardPolicy": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Wildcard policy if any for the route. Currently only 'Subdomain' or 'None' is allowed."
+    }, 
+    "to": {
+      "required": [
+        "kind", 
+        "name", 
+        "weight"
+      ], 
+      "description": "RouteTargetReference specifies the target that resolve into endpoints. Only the 'Service' kind is allowed. Use 'weight' field to emphasize one over others.", 
+      "properties": {
+        "kind": {
+          "type": "string", 
+          "description": "The kind of target that the route is referring to. Currently, only 'Service' is allowed"
+        }, 
+        "name": {
+          "type": "string", 
+          "description": "name of the service/target that is being referred to. e.g. name of the service"
+        }, 
+        "weight": {
+          "type": "integer", 
+          "description": "weight as an integer between 1 and 256 that specifies the target's relative weight against other target reference objects", 
+          "format": "int32"
+        }
+      }
+    }, 
+    "host": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "host is an alias/DNS that points to the service. Optional. If not specified a route name will typically be automatically chosen. Must follow DNS952 subdomain conventions."
+    }, 
+    "alternateBackends": {
+      "items": {
+        "required": [
+          "kind", 
+          "name", 
+          "weight"
+        ], 
+        "description": "RouteTargetReference specifies the target that resolve into endpoints. Only the 'Service' kind is allowed. Use 'weight' field to emphasize one over others.", 
+        "properties": {
+          "kind": {
+            "type": "string", 
+            "description": "The kind of target that the route is referring to. Currently, only 'Service' is allowed"
+          }, 
+          "name": {
+            "type": "string", 
+            "description": "name of the service/target that is being referred to. e.g. name of the service"
+          }, 
+          "weight": {
+            "type": "integer", 
+            "description": "weight as an integer between 1 and 256 that specifies the target's relative weight against other target reference objects", 
+            "format": "int32"
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "alternateBackends is an extension of the 'to' field. If more than one service needs to be pointed to, then use this field. Use the weight field in RouteTargetReference object to specify relative preference. If the weight field is zero, the backend is ignored."
+    }, 
+    "path": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Path that the router watches for, to route traffic for to the service. Optional"
+    }, 
+    "port": {
+      "required": [
+        "targetPort"
+      ], 
+      "description": "RoutePort defines a port mapping from a router to an endpoint in the service endpoints.", 
+      "properties": {
+        "targetPort": {
+          "oneOf": [
+            {
+              "type": [
+                "string", 
+                "null"
+              ]
+            }, 
+            {
+              "type": "integer"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

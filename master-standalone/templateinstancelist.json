@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "TemplateInstanceList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "template.openshift.io"
     }
   ], 
@@ -22,18 +22,81 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "TemplateInstance", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "template.openshift.io"
           }
         ], 
         "description": "TemplateInstance requests and records the instantiation of a Template. TemplateInstance is part of an experimental API.", 
         "properties": {
           "status": {
-            "required": [
-              "conditions"
-            ], 
             "description": "TemplateInstanceStatus describes the current state of a TemplateInstance.", 
             "properties": {
+              "objects": {
+                "items": {
+                  "description": "TemplateInstanceObject references an object created by a TemplateInstance.", 
+                  "properties": {
+                    "ref": {
+                      "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+                      "properties": {
+                        "kind": {
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
+                          "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+                        }, 
+                        "name": {
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
+                          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+                        }, 
+                        "namespace": {
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
+                          "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+                        }, 
+                        "apiVersion": {
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
+                          "description": "API version of the referent."
+                        }, 
+                        "fieldPath": {
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
+                          "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
+                        }, 
+                        "resourceVersion": {
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
+                          "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
+                        }, 
+                        "uid": {
+                          "type": [
+                            "string", 
+                            "null"
+                          ], 
+                          "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
+                        }
+                      }
+                    }
+                  }
+                }, 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
+                "description": "Objects references the objects created by the TemplateInstance."
+              }, 
               "conditions": {
                 "items": {
                   "required": [
@@ -67,7 +130,10 @@
                     }
                   }
                 }, 
-                "type": "array", 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
                 "description": "conditions represent the latest available observations of a TemplateInstance's current state."
               }
             }
@@ -105,22 +171,22 @@
                 "x-kubernetes-group-version-kind": [
                   {
                     "kind": "ProcessedTemplate", 
-                    "version": "latest", 
+                    "version": "v1", 
                     "group": ""
                   }, 
                   {
                     "kind": "Template", 
-                    "version": "latest", 
+                    "version": "v1", 
                     "group": ""
                   }, 
                   {
                     "kind": "TemplateConfig", 
-                    "version": "latest", 
+                    "version": "v1", 
                     "group": ""
                   }, 
                   {
                     "kind": "Template", 
-                    "version": "latest", 
+                    "version": "v1", 
                     "group": "template.openshift.io"
                   }
                 ], 
@@ -351,7 +417,7 @@
                             "x-kubernetes-group-version-kind": [
                               {
                                 "kind": "Status", 
-                                "version": "latest", 
+                                "version": "v1", 
                                 "group": ""
                               }
                             ], 
@@ -557,14 +623,50 @@
                 }
               }, 
               "requester": {
-                "required": [
-                  "username"
-                ], 
                 "description": "TemplateInstanceRequester holds the identity of an agent requesting a template instantiation.", 
                 "properties": {
                   "username": {
-                    "type": "string", 
-                    "description": "username is the username of the agent requesting a template instantiation."
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "username uniquely identifies this user among all active users."
+                  }, 
+                  "uid": {
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "uid is a unique value that identifies this user across time; if this user is deleted and another user by the same name is added, they will have different UIDs."
+                  }, 
+                  "groups": {
+                    "items": {
+                      "type": [
+                        "string", 
+                        "null"
+                      ]
+                    }, 
+                    "type": [
+                      "array", 
+                      "null"
+                    ], 
+                    "description": "groups represent the groups this user is a part of."
+                  }, 
+                  "extra": {
+                    "additionalProperties": {
+                      "items": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ]
+                      }, 
+                      "type": [
+                        "array", 
+                        "null"
+                      ]
+                    }, 
+                    "type": "object", 
+                    "description": "extra holds additional information provided by the authenticator."
                   }
                 }
               }
@@ -696,7 +798,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

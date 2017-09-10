@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "NamespaceList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
@@ -18,7 +18,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "Namespace", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }
         ], 
@@ -187,7 +187,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

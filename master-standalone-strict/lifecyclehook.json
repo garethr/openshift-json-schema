@@ -1,0 +1,264 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "failurePolicy"
+  ], 
+  "type": "object", 
+  "description": "LifecycleHook defines a specific deployment lifecycle action. Only one type of action may be specified at any time.", 
+  "properties": {
+    "failurePolicy": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "FailurePolicy specifies what action to take if the hook fails."
+    }, 
+    "execNewPod": {
+      "additionalProperties": false, 
+      "required": [
+        "command", 
+        "containerName"
+      ], 
+      "description": "ExecNewPodHook is a hook implementation which runs a command in a new pod based on the specified container which is assumed to be part of the deployment template.", 
+      "properties": {
+        "containerName": {
+          "type": "string", 
+          "description": "ContainerName is the name of a container in the deployment pod template whose Docker image will be used for the hook pod's container."
+        }, 
+        "command": {
+          "items": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": "array", 
+          "description": "Command is the action command and its arguments."
+        }, 
+        "volumes": {
+          "items": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": [
+            "array", 
+            "null"
+          ], 
+          "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied."
+        }, 
+        "env": {
+          "items": {
+            "additionalProperties": false, 
+            "required": [
+              "name"
+            ], 
+            "description": "EnvVar represents an environment variable present in a Container.", 
+            "properties": {
+              "valueFrom": {
+                "additionalProperties": false, 
+                "description": "EnvVarSource represents a source for the value of an EnvVar.", 
+                "properties": {
+                  "secretKeyRef": {
+                    "additionalProperties": false, 
+                    "required": [
+                      "key"
+                    ], 
+                    "description": "SecretKeySelector selects a key of a Secret.", 
+                    "properties": {
+                      "optional": {
+                        "type": "boolean", 
+                        "description": "Specify whether the Secret or it's key must be defined"
+                      }, 
+                      "name": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+                      }, 
+                      "key": {
+                        "type": "string", 
+                        "description": "The key of the secret to select from.  Must be a valid secret key."
+                      }
+                    }
+                  }, 
+                  "fieldRef": {
+                    "additionalProperties": false, 
+                    "required": [
+                      "fieldPath"
+                    ], 
+                    "description": "ObjectFieldSelector selects an APIVersioned field of an object.", 
+                    "properties": {
+                      "fieldPath": {
+                        "type": "string", 
+                        "description": "Path of the field to select in the specified API version."
+                      }, 
+                      "apiVersion": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
+                      }
+                    }
+                  }, 
+                  "resourceFieldRef": {
+                    "additionalProperties": false, 
+                    "required": [
+                      "resource"
+                    ], 
+                    "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
+                    "properties": {
+                      "containerName": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "Container name: required for volumes, optional for env vars"
+                      }, 
+                      "resource": {
+                        "type": "string", 
+                        "description": "Required: resource to select"
+                      }, 
+                      "divisor": {
+                        "oneOf": [
+                          {
+                            "type": [
+                              "string", 
+                              "null"
+                            ]
+                          }, 
+                          {
+                            "type": "integer"
+                          }
+                        ]
+                      }
+                    }
+                  }, 
+                  "configMapKeyRef": {
+                    "additionalProperties": false, 
+                    "required": [
+                      "key"
+                    ], 
+                    "description": "Selects a key from a ConfigMap.", 
+                    "properties": {
+                      "optional": {
+                        "type": "boolean", 
+                        "description": "Specify whether the ConfigMap or it's key must be defined"
+                      }, 
+                      "name": {
+                        "type": [
+                          "string", 
+                          "null"
+                        ], 
+                        "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+                      }, 
+                      "key": {
+                        "type": "string", 
+                        "description": "The key to select."
+                      }
+                    }
+                  }
+                }
+              }, 
+              "name": {
+                "type": "string", 
+                "description": "Name of the environment variable. Must be a C_IDENTIFIER."
+              }, 
+              "value": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
+              }
+            }
+          }, 
+          "type": [
+            "array", 
+            "null"
+          ], 
+          "description": "Env is a set of environment variables to supply to the hook pod's container."
+        }
+      }
+    }, 
+    "tagImages": {
+      "items": {
+        "additionalProperties": false, 
+        "required": [
+          "containerName", 
+          "to"
+        ], 
+        "description": "TagImageHook is a request to tag the image in a particular container onto an ImageStreamTag.", 
+        "properties": {
+          "containerName": {
+            "type": "string", 
+            "description": "ContainerName is the name of a container in the deployment config whose image value will be used as the source of the tag. If there is only a single container this value will be defaulted to the name of that container."
+          }, 
+          "to": {
+            "additionalProperties": false, 
+            "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+            "properties": {
+              "kind": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+              }, 
+              "name": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+              }, 
+              "namespace": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+              }, 
+              "apiVersion": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "API version of the referent."
+              }, 
+              "fieldPath": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
+              }, 
+              "resourceVersion": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency"
+              }, 
+              "uid": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids"
+              }
+            }
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "TagImages instructs the deployer to tag the current image referenced under a container onto an image stream tag."
+    }
+  }
+}

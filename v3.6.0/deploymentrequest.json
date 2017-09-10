@@ -1,0 +1,66 @@
+{
+  "description": "DeploymentRequest is a request to a deployment config for a new deployment.", 
+  "required": [
+    "name", 
+    "latest", 
+    "force"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "DeploymentRequest", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "DeploymentRequest", 
+      "Version": "v1", 
+      "Group": "apps.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "force": {
+      "type": "boolean", 
+      "description": "Force will try to force a new deployment to run. If the deployment config is paused, then setting this to true will return an Invalid error."
+    }, 
+    "name": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Name of the deployment config for requesting a new deployment."
+    }, 
+    "excludeTriggers": {
+      "items": {
+        "type": [
+          "string", 
+          "null"
+        ]
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "ExcludeTriggers instructs the instantiator to avoid processing the specified triggers. This field overrides the triggers from latest and allows clients to control specific logic. This field is ignored if not specified."
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "latest": {
+      "type": "boolean", 
+      "description": "Latest will update the deployment config with the latest state from all triggers."
+    }
+  }
+}

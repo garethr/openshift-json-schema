@@ -7,12 +7,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "DeploymentConfigRollback", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "DeploymentConfigRollback", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "apps.openshift.io"
     }
   ], 
@@ -52,7 +52,7 @@
     }, 
     "spec": {
       "description": "Spec defines the options to rollback generation.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentConfigRollbackSpec"
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.apps.apis.apps.v1.DeploymentConfigRollbackSpec"
     }
   }
 }

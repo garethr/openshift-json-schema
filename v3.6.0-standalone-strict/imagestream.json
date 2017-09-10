@@ -1,0 +1,459 @@
+{
+  "description": "ImageStream stores a mapping of tags to images, metadata overrides that are applied when images are tagged in a stream, and an optional reference to a Docker image repository on a registry.", 
+  "required": [
+    "spec"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "ImageStream", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "ImageStream", 
+      "Version": "v1", 
+      "Group": "image.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "status": {
+      "additionalProperties": false, 
+      "required": [
+        "dockerImageRepository"
+      ], 
+      "description": "ImageStreamStatus contains information about the state of this image stream.", 
+      "properties": {
+        "dockerImageRepository": {
+          "type": "string", 
+          "description": "DockerImageRepository represents the effective location this stream may be accessed at. May be empty until the server determines where the repository is located"
+        }, 
+        "tags": {
+          "items": {
+            "additionalProperties": false, 
+            "required": [
+              "tag", 
+              "items"
+            ], 
+            "description": "NamedTagEventList relates a tag to its image history.", 
+            "properties": {
+              "items": {
+                "items": {
+                  "additionalProperties": false, 
+                  "required": [
+                    "created", 
+                    "dockerImageReference", 
+                    "image", 
+                    "generation"
+                  ], 
+                  "description": "TagEvent is used by ImageStreamStatus to keep a historical record of images associated with a tag.", 
+                  "properties": {
+                    "generation": {
+                      "type": "integer", 
+                      "description": "Generation is the spec tag generation that resulted in this tag being updated", 
+                      "format": "int64"
+                    }, 
+                    "image": {
+                      "type": "string", 
+                      "description": "Image is the image"
+                    }, 
+                    "dockerImageReference": {
+                      "type": "string", 
+                      "description": "DockerImageReference is the string that can be used to pull this image"
+                    }, 
+                    "created": {
+                      "type": "string", 
+                      "format": "date-time"
+                    }
+                  }
+                }, 
+                "type": "array", 
+                "description": "Standard object's metadata."
+              }, 
+              "tag": {
+                "type": "string", 
+                "description": "Tag is the tag for which the history is recorded"
+              }, 
+              "conditions": {
+                "items": {
+                  "additionalProperties": false, 
+                  "required": [
+                    "type", 
+                    "status", 
+                    "generation"
+                  ], 
+                  "description": "TagEventCondition contains condition information for a tag event.", 
+                  "properties": {
+                    "status": {
+                      "type": "string", 
+                      "description": "Status of the condition, one of True, False, Unknown."
+                    }, 
+                    "generation": {
+                      "type": "integer", 
+                      "description": "Generation is the spec tag generation that this status corresponds to", 
+                      "format": "int64"
+                    }, 
+                    "lastTransitionTime": {
+                      "type": [
+                        "string", 
+                        "null"
+                      ], 
+                      "format": "date-time"
+                    }, 
+                    "reason": {
+                      "type": [
+                        "string", 
+                        "null"
+                      ], 
+                      "description": "Reason is a brief machine readable explanation for the condition's last transition."
+                    }, 
+                    "message": {
+                      "type": [
+                        "string", 
+                        "null"
+                      ], 
+                      "description": "Message is a human readable description of the details about last transition, complementing reason."
+                    }, 
+                    "type": {
+                      "type": "string", 
+                      "description": "Type of tag event condition, currently only ImportSuccess"
+                    }
+                  }
+                }, 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
+                "description": "Conditions is an array of conditions that apply to the tag event list."
+              }
+            }
+          }, 
+          "type": [
+            "array", 
+            "null"
+          ], 
+          "description": "Tags are a historical record of images associated with each tag. The first entry in the TagEvent array is the currently tagged image."
+        }
+      }
+    }, 
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "spec": {
+      "additionalProperties": false, 
+      "description": "ImageStreamSpec represents options for ImageStreams.", 
+      "properties": {
+        "lookupPolicy": {
+          "additionalProperties": false, 
+          "required": [
+            "local"
+          ], 
+          "description": "ImageLookupPolicy describes how an image stream can be used to override the image references used by pods, builds, and other resources in a namespace.", 
+          "properties": {
+            "local": {
+              "type": "boolean", 
+              "description": "local will change the docker short image references (like \"mysql\" or \"php:latest\") on objects in this namespace to the image ID whenever they match this image stream, instead of reaching out to a remote registry. The name will be fully qualified to an image ID if found. The tag's referencePolicy is taken into account on the replaced value. Only works within the current namespace."
+            }
+          }
+        }, 
+        "dockerImageRepository": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "dockerImageRepository is optional, if specified this stream is backed by a Docker repository on this server"
+        }, 
+        "tags": {
+          "items": {
+            "additionalProperties": false, 
+            "required": [
+              "name", 
+              "annotations", 
+              "generation"
+            ], 
+            "description": "TagReference specifies optional annotations for images using this tag and an optional reference to an ImageStreamTag, ImageStreamImage, or DockerImage this tag should track.", 
+            "properties": {
+              "importPolicy": {
+                "additionalProperties": false, 
+                "description": "TagImportPolicy controls how images related to this tag will be imported.", 
+                "properties": {
+                  "scheduled": {
+                    "type": "boolean", 
+                    "description": "Scheduled indicates to the server that this tag should be periodically checked to ensure it is up to date, and imported"
+                  }, 
+                  "insecure": {
+                    "type": "boolean", 
+                    "description": "Insecure is true if the server may bypass certificate verification or connect directly over HTTP during image import."
+                  }
+                }
+              }, 
+              "from": {
+                "additionalProperties": false, 
+                "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+                "properties": {
+                  "kind": {
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+                  }, 
+                  "name": {
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+                  }, 
+                  "namespace": {
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+                  }, 
+                  "apiVersion": {
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "API version of the referent."
+                  }, 
+                  "fieldPath": {
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
+                  }, 
+                  "resourceVersion": {
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+                  }, 
+                  "uid": {
+                    "type": [
+                      "string", 
+                      "null"
+                    ], 
+                    "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+                  }
+                }
+              }, 
+              "name": {
+                "type": "string", 
+                "description": "Name of the tag"
+              }, 
+              "reference": {
+                "type": "boolean", 
+                "description": "Reference states if the tag will be imported. Default value is false, which means the tag will be imported."
+              }, 
+              "generation": {
+                "type": "integer", 
+                "description": "Generation is the image stream generation that updated this tag - setting it to 0 is an indication that the generation must be updated. Legacy clients will send this as nil, which means the client doesn't know or care.", 
+                "format": "int64"
+              }, 
+              "referencePolicy": {
+                "additionalProperties": false, 
+                "required": [
+                  "type"
+                ], 
+                "description": "TagReferencePolicy describes how pull-specs for images in this image stream tag are generated when image change triggers in deployment configs or builds are resolved. This allows the image stream author to control how images are accessed.", 
+                "properties": {
+                  "type": {
+                    "type": "string", 
+                    "description": "Type determines how the image pull spec should be transformed when the image stream tag is used in deployment config triggers or new builds. The default value is `Source`, indicating the original location of the image should be used (if imported). The user may also specify `Local`, indicating that the pull spec should point to the integrated Docker registry and leverage the registry's ability to proxy the pull to an upstream registry. `Local` allows the credentials used to pull this image to be managed from the image stream's namespace, so others on the platform can access a remote image but have no access to the remote secret. It also allows the image layers to be mirrored into the local registry which the images can still be pulled even if the upstream registry is unavailable."
+                  }
+                }
+              }, 
+              "annotations": {
+                "additionalProperties": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
+                }, 
+                "type": "object", 
+                "description": "Annotations associated with images using this tag"
+              }
+            }
+          }, 
+          "type": [
+            "array", 
+            "null"
+          ], 
+          "description": "tags map arbitrary string values to specific image locators"
+        }
+      }
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "metadata": {
+      "additionalProperties": false, 
+      "description": "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.", 
+      "properties": {
+        "ownerReferences": {
+          "items": {
+            "additionalProperties": false, 
+            "required": [
+              "apiVersion", 
+              "kind", 
+              "name", 
+              "uid"
+            ], 
+            "description": "OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.", 
+            "properties": {
+              "kind": {
+                "type": "string", 
+                "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+              }, 
+              "uid": {
+                "type": "string", 
+                "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+              }, 
+              "apiVersion": {
+                "type": "string", 
+                "description": "API version of the referent."
+              }, 
+              "controller": {
+                "type": "boolean", 
+                "description": "If true, this reference points to the managing controller."
+              }, 
+              "blockOwnerDeletion": {
+                "type": "boolean", 
+                "description": "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned."
+              }, 
+              "name": {
+                "type": "string", 
+                "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+              }
+            }
+          }, 
+          "type": [
+            "array", 
+            "null"
+          ], 
+          "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+        }, 
+        "name": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+        }, 
+        "deletionTimestamp": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "format": "date-time"
+        }, 
+        "clusterName": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+        }, 
+        "deletionGracePeriodSeconds": {
+          "type": "integer", 
+          "description": "Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.", 
+          "format": "int64"
+        }, 
+        "labels": {
+          "additionalProperties": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": "object", 
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+        }, 
+        "namespace": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "Namespace defines the space within each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+        }, 
+        "generation": {
+          "type": "integer", 
+          "description": "A sequence number representing a specific generation of the desired state. Populated by the system. Read-only.", 
+          "format": "int64"
+        }, 
+        "finalizers": {
+          "items": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": [
+            "array", 
+            "null"
+          ], 
+          "description": "Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed."
+        }, 
+        "resourceVersion": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+        }, 
+        "generateName": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency"
+        }, 
+        "creationTimestamp": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "format": "date-time"
+        }, 
+        "annotations": {
+          "additionalProperties": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": "object", 
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+        }, 
+        "selfLink": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "SelfLink is a URL representing this object. Populated by the system. Read-only."
+        }, 
+        "uid": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+        }
+      }
+    }
+  }
+}

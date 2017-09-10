@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "BuildRequest", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "BuildRequest", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "build.openshift.io"
     }
   ], 
@@ -36,6 +36,10 @@
     "revision": {
       "description": "revision is the information from the source for a specific repo snapshot.", 
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceRevision"
+    }, 
+    "sourceStrategyOptions": {
+      "description": "SourceStrategyOptions contains additional source-strategy specific options for the build", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceStrategyOptions"
     }, 
     "apiVersion": {
       "type": [

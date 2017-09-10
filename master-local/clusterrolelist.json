@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ClusterRoleList", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "rbac.authorization.k8s.io"
     }
   ], 

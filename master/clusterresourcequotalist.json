@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ClusterResourceQuotaList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ClusterResourceQuotaList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "quota.openshift.io"
     }
   ], 

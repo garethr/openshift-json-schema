@@ -1,18 +1,18 @@
 {
+  "type": "object", 
+  "$schema": "http://json-schema.org/schema#", 
   "x-kubernetes-group-version-kind": [
     {
       "kind": "Build", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "Build", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "build.openshift.io"
     }
   ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "description": "Build encapsulates the inputs needed to produce a new deployable image, as well as the status of the execution and a reference to the Pod which executed the build.", 
   "properties": {
     "status": {
@@ -874,9 +874,16 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": [
-                                  "string", 
-                                  "null"
+                                "oneOf": [
+                                  {
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
+                                  }, 
+                                  {
+                                    "type": "integer"
+                                  }
                                 ]
                               }
                             }
@@ -1174,9 +1181,16 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": [
-                                  "string", 
-                                  "null"
+                                "oneOf": [
+                                  {
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
+                                  }, 
+                                  {
+                                    "type": "integer"
+                                  }
                                 ]
                               }
                             }
@@ -1311,9 +1325,16 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": [
-                                  "string", 
-                                  "null"
+                                "oneOf": [
+                                  {
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
+                                  }, 
+                                  {
+                                    "type": "integer"
+                                  }
                                 ]
                               }
                             }
@@ -1505,9 +1526,16 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": [
-                                  "string", 
-                                  "null"
+                                "oneOf": [
+                                  {
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
+                                  }, 
+                                  {
+                                    "type": "integer"
+                                  }
                                 ]
                               }
                             }
@@ -1637,9 +1665,16 @@
                                 "description": "Required: resource to select"
                               }, 
                               "divisor": {
-                                "type": [
-                                  "string", 
-                                  "null"
+                                "oneOf": [
+                                  {
+                                    "type": [
+                                      "string", 
+                                      "null"
+                                    ]
+                                  }, 
+                                  {
+                                    "type": "integer"
+                                  }
                                 ]
                               }
                             }
@@ -1701,9 +1736,16 @@
           "properties": {
             "requests": {
               "additionalProperties": {
-                "type": [
-                  "string", 
-                  "null"
+                "oneOf": [
+                  {
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
+                  }, 
+                  {
+                    "type": "integer"
+                  }
                 ]
               }, 
               "type": "object", 
@@ -1711,9 +1753,16 @@
             }, 
             "limits": {
               "additionalProperties": {
-                "type": [
-                  "string", 
-                  "null"
+                "oneOf": [
+                  {
+                    "type": [
+                      "string", 
+                      "null"
+                    ]
+                  }, 
+                  {
+                    "type": "integer"
+                  }
                 ]
               }, 
               "type": "object", 
@@ -2255,7 +2304,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

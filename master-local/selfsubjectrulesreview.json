@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "SelfSubjectRulesReview", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "SelfSubjectRulesReview", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "authorization.openshift.io"
     }
   ], 

@@ -8,12 +8,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ClusterNetwork", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ClusterNetwork", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "network.openshift.io"
     }
   ], 

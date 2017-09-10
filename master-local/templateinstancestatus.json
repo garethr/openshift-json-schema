@@ -1,11 +1,18 @@
 {
   "$schema": "http://json-schema.org/schema#", 
-  "required": [
-    "conditions"
-  ], 
   "type": "object", 
   "description": "TemplateInstanceStatus describes the current state of a TemplateInstance.", 
   "properties": {
+    "objects": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.template.apis.template.v1.TemplateInstanceObject"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Objects references the objects created by the TemplateInstance."
+    }, 
     "conditions": {
       "items": {
         "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.template.apis.template.v1.TemplateInstanceCondition"

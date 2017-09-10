@@ -9,12 +9,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ClusterRoleBinding", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ClusterRoleBinding", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "authorization.openshift.io"
     }
   ], 
@@ -295,7 +295,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

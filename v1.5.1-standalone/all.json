@@ -1111,6 +1111,9 @@
       "$ref": "_definitions.json#/definitions/v1.HostSubnet"
     }, 
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+    }, 
+    {
       "$ref": "_definitions.json#/definitions/v1.EgressNetworkPolicySpec"
     }, 
     {

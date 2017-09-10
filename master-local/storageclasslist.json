@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "StorageClassList", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "storage.k8s.io"
     }
   ], 

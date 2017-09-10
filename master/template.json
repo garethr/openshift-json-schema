@@ -6,22 +6,22 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ProcessedTemplate", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "Template", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "TemplateConfig", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "Template", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "template.openshift.io"
     }
   ], 

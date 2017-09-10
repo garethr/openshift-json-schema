@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ConfigMapList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
@@ -18,7 +18,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "ConfigMap", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }
         ], 
@@ -167,7 +167,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

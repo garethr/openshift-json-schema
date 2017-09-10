@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ReplicationControllerList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 

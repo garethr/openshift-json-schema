@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "name", 
+    "roleBinding"
+  ], 
+  "type": "object", 
+  "description": "NamedRoleBinding relates a role binding with a name", 
+  "properties": {
+    "roleBinding": {
+      "description": "RoleBinding is the role binding being named", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.RoleBinding"
+    }, 
+    "name": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Name is the name of the role binding"
+    }
+  }
+}

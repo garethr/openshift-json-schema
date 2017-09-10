@@ -8,7 +8,7 @@
   "properties": {
     "egress": {
       "items": {
-        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.sdn.apis.network.v1.EgressNetworkPolicyRule"
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.network.apis.network.v1.EgressNetworkPolicyRule"
       }, 
       "type": [
         "array", 

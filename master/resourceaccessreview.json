@@ -13,12 +13,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ResourceAccessReview", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ResourceAccessReview", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "authorization.openshift.io"
     }
   ], 

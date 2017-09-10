@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ClusterNetworkList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "ClusterNetworkList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "network.openshift.io"
     }
   ], 
@@ -28,12 +28,12 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "ClusterNetwork", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "ClusterNetwork", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "network.openshift.io"
           }
         ], 
@@ -192,7 +192,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

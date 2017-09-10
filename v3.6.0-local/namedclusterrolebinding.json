@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "name", 
+    "roleBinding"
+  ], 
+  "type": "object", 
+  "description": "NamedClusterRoleBinding relates a name with a cluster role binding", 
+  "properties": {
+    "roleBinding": {
+      "description": "RoleBinding is the cluster role binding being named", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.ClusterRoleBinding"
+    }, 
+    "name": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Name is the name of the cluster role binding"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "description": "PodSecurityPolicyReview checks which service accounts (not users, since that would be cluster-wide) can create the `PodTemplateSpec` in question.", 
+  "required": [
+    "spec"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "PodSecurityPolicyReview", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "PodSecurityPolicyReview", 
+      "Version": "v1", 
+      "Group": "security.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "status": {
+      "description": "status represents the current information/status for the PodSecurityPolicyReview.", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.security.apis.security.v1.PodSecurityPolicyReviewStatus"
+    }, 
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "spec": {
+      "description": "spec is the PodSecurityPolicy to check.", 
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.security.apis.security.v1.PodSecurityPolicyReviewSpec"
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }
+  }
+}

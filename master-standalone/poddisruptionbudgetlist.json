@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "PodDisruptionBudgetList", 
-      "version": "latest", 
+      "version": "v1beta1", 
       "group": "policy"
     }
   ], 
@@ -18,7 +18,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "PodDisruptionBudget", 
-            "version": "latest", 
+            "version": "v1beta1", 
             "group": "policy"
           }
         ], 
@@ -290,7 +290,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

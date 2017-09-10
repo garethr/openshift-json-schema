@@ -1,0 +1,143 @@
+{
+  "description": "DeploymentConfigRollback provides the input to rollback generation.", 
+  "required": [
+    "name", 
+    "spec"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "DeploymentConfigRollback", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "DeploymentConfigRollback", 
+      "Version": "v1", 
+      "Group": "apps.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "updatedAnnotations": {
+      "additionalProperties": {
+        "type": [
+          "string", 
+          "null"
+        ]
+      }, 
+      "type": "object", 
+      "description": "UpdatedAnnotations is a set of new annotations that will be added in the deployment config."
+    }, 
+    "spec": {
+      "additionalProperties": false, 
+      "required": [
+        "from", 
+        "includeTriggers", 
+        "includeTemplate", 
+        "includeReplicationMeta", 
+        "includeStrategy"
+      ], 
+      "description": "DeploymentConfigRollbackSpec represents the options for rollback generation.", 
+      "properties": {
+        "includeReplicationMeta": {
+          "type": "boolean", 
+          "description": "IncludeReplicationMeta specifies whether to include the replica count and selector."
+        }, 
+        "from": {
+          "additionalProperties": false, 
+          "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+          "properties": {
+            "kind": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+            }, 
+            "name": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+            }, 
+            "namespace": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
+            }, 
+            "apiVersion": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "API version of the referent."
+            }, 
+            "fieldPath": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
+            }, 
+            "resourceVersion": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
+            }, 
+            "uid": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+            }
+          }
+        }, 
+        "includeTemplate": {
+          "type": "boolean", 
+          "description": "IncludeTemplate specifies whether to include the PodTemplateSpec."
+        }, 
+        "includeTriggers": {
+          "type": "boolean", 
+          "description": "IncludeTriggers specifies whether to include config Triggers."
+        }, 
+        "includeStrategy": {
+          "type": "boolean", 
+          "description": "IncludeStrategy specifies whether to include the deployment Strategy."
+        }, 
+        "revision": {
+          "type": "integer", 
+          "description": "Revision to rollback to. If set to 0, rollback to the last revision.", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "name": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Name of the deployment config that will be rolled back."
+    }
+  }
+}

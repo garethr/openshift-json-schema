@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "StepInfo contains details about a build step.", 
+  "properties": {
+    "startTime": {
+      "description": "startTime is a timestamp representing the server time when this Step started. it is represented in RFC3339 form and is in UTC.", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    }, 
+    "name": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "name is a unique identifier for each build step."
+    }, 
+    "durationMilliseconds": {
+      "type": "integer", 
+      "description": "durationMilliseconds identifies how long the step took to complete in milliseconds.", 
+      "format": "int64"
+    }
+  }
+}

@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "HorizontalPodAutoscalerList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "autoscaling"
     }
   ], 
@@ -18,7 +18,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "HorizontalPodAutoscaler", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "autoscaling"
           }
         ], 
@@ -241,7 +241,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

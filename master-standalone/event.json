@@ -7,7 +7,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "Event", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
@@ -260,7 +260,7 @@
               "x-kubernetes-group-version-kind": [
                 {
                   "kind": "Status", 
-                  "version": "latest", 
+                  "version": "v1", 
                   "group": ""
                 }
               ], 

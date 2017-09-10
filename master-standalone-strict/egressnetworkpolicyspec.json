@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "egress"
+  ], 
+  "type": "object", 
+  "description": "EgressNetworkPolicySpec provides a list of policies on outgoing network traffic", 
+  "properties": {
+    "egress": {
+      "items": {
+        "additionalProperties": false, 
+        "required": [
+          "type", 
+          "to"
+        ], 
+        "description": "EgressNetworkPolicyRule contains a single egress network policy rule", 
+        "properties": {
+          "to": {
+            "additionalProperties": false, 
+            "description": "EgressNetworkPolicyPeer specifies a target to apply egress network policy to", 
+            "properties": {
+              "cidrSelector": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset"
+              }, 
+              "dnsName": {
+                "type": [
+                  "string", 
+                  "null"
+                ], 
+                "description": "dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset"
+              }
+            }
+          }, 
+          "type": {
+            "type": "string", 
+            "description": "type marks this as an \"Allow\" or \"Deny\" rule"
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "egress contains the list of egress policy rules"
+    }
+  }
+}

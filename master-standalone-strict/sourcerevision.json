@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "type"
+  ], 
+  "type": "object", 
+  "description": "SourceRevision is the revision or commit information from the source for the build", 
+  "properties": {
+    "git": {
+      "additionalProperties": false, 
+      "description": "GitSourceRevision is the commit information from a git source for a build", 
+      "properties": {
+        "commit": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "commit is the commit hash identifying a specific commit"
+        }, 
+        "message": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "message is the description of a specific commit"
+        }, 
+        "committer": {
+          "additionalProperties": false, 
+          "description": "SourceControlUser defines the identity of a user of source control", 
+          "properties": {
+            "email": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "email of the source control user"
+            }, 
+            "name": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "name of the source control user"
+            }
+          }
+        }, 
+        "author": {
+          "additionalProperties": false, 
+          "description": "SourceControlUser defines the identity of a user of source control", 
+          "properties": {
+            "email": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "email of the source control user"
+            }, 
+            "name": {
+              "type": [
+                "string", 
+                "null"
+              ], 
+              "description": "name of the source control user"
+            }
+          }
+        }
+      }
+    }, 
+    "type": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "type of the build source, may be one of 'Source', 'Dockerfile', 'Binary', or 'Images'"
+    }
+  }
+}

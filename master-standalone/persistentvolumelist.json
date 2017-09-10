@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "PersistentVolumeList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 
@@ -18,7 +18,7 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "PersistentVolume", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }
         ], 
@@ -160,9 +160,16 @@
               }, 
               "capacity": {
                 "additionalProperties": {
-                  "type": [
-                    "string", 
-                    "null"
+                  "oneOf": [
+                    {
+                      "type": [
+                        "string", 
+                        "null"
+                      ]
+                    }, 
+                    {
+                      "type": "integer"
+                    }
                   ]
                 }, 
                 "type": "object", 
@@ -1049,7 +1056,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "spec"
+  ], 
+  "type": "object", 
+  "description": "SelfSubjectRulesReview is a resource you can create to determine which actions you can perform in a namespace", 
+  "properties": {
+    "status": {
+      "additionalProperties": false, 
+      "required": [
+        "rules"
+      ], 
+      "description": "SubjectRulesReviewStatus is contains the result of a rules check", 
+      "properties": {
+        "rules": {
+          "items": {
+            "additionalProperties": false, 
+            "required": [
+              "verbs", 
+              "apiGroups", 
+              "resources"
+            ], 
+            "description": "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.", 
+            "properties": {
+              "resourceNames": {
+                "items": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
+                }, 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
+                "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed."
+              }, 
+              "nonResourceURLs": {
+                "items": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
+                }, 
+                "type": [
+                  "array", 
+                  "null"
+                ], 
+                "description": "NonResourceURLsSlice is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different."
+              }, 
+              "apiGroups": {
+                "items": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
+                }, 
+                "type": "array", 
+                "description": "APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed"
+              }, 
+              "verbs": {
+                "items": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
+                }, 
+                "type": "array", 
+                "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds."
+              }, 
+              "attributeRestrictions": {
+                "additionalProperties": false, 
+                "required": [
+                  "Raw"
+                ], 
+                "description": "RawExtension is used to hold extensions in external versions.\n\nTo use this, make a field which has RawExtension as its type in your external, versioned struct, and Object in your internal struct. You also need to register your various plugin types.\n\n// Internal package: type MyAPIObject struct {\n\truntime.TypeMeta `json:\",inline\"`\n\tMyPlugin runtime.Object `json:\"myPlugin\"`\n} type PluginA struct {\n\tAOption string `json:\"aOption\"`\n}\n\n// External package: type MyAPIObject struct {\n\truntime.TypeMeta `json:\",inline\"`\n\tMyPlugin runtime.RawExtension `json:\"myPlugin\"`\n} type PluginA struct {\n\tAOption string `json:\"aOption\"`\n}\n\n// On the wire, the JSON will look something like this: {\n\t\"kind\":\"MyAPIObject\",\n\t\"apiVersion\":\"v1\",\n\t\"myPlugin\": {\n\t\t\"kind\":\"PluginA\",\n\t\t\"aOption\":\"foo\",\n\t},\n}\n\nSo what happens? Decode first uses json or yaml to unmarshal the serialized data into your external MyAPIObject. That causes the raw JSON to be stored, but not unpacked. The next step is to copy (using pkg/conversion) into the internal struct. The runtime package's DefaultScheme has conversion functions installed which will unpack the JSON stored in RawExtension, turning it into the correct object type, and storing it in the Object. (TODO: In the case where the object is of an unknown type, a runtime.Unknown object will be created and stored.)", 
+                "properties": {
+                  "Raw": {
+                    "type": "string", 
+                    "description": "Raw is the underlying serialization of this object.", 
+                    "format": "byte"
+                  }
+                }
+              }, 
+              "resources": {
+                "items": {
+                  "type": [
+                    "string", 
+                    "null"
+                  ]
+                }, 
+                "type": "array", 
+                "description": "Resources is a list of resources this rule applies to.  ResourceAll represents all resources."
+              }
+            }
+          }, 
+          "type": "array", 
+          "description": "Rules is the list of rules (no particular sort) that are allowed for the subject"
+        }, 
+        "evaluationError": {
+          "type": [
+            "string", 
+            "null"
+          ], 
+          "description": "EvaluationError can appear in combination with Rules.  It means some error happened during evaluation that may have prevented additional rules from being populated."
+        }
+      }
+    }, 
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "spec": {
+      "additionalProperties": false, 
+      "required": [
+        "scopes"
+      ], 
+      "description": "SelfSubjectRulesReviewSpec adds information about how to conduct the check", 
+      "properties": {
+        "scopes": {
+          "items": {
+            "type": [
+              "string", 
+              "null"
+            ]
+          }, 
+          "type": "array", 
+          "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\". Nil means \"use the scopes on this request\"."
+        }
+      }
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }
+  }
+}

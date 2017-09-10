@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "from"
+  ], 
+  "type": "object", 
+  "description": "RepositoryImportSpec describes a request to import images from a Docker image repository.", 
+  "properties": {
+    "importPolicy": {
+      "description": "ImportPolicy is the policy controlling how the image is imported", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagImportPolicy"
+    }, 
+    "referencePolicy": {
+      "description": "ReferencePolicy defines how other components should consume the image", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagReferencePolicy"
+    }, 
+    "includeManifest": {
+      "type": "boolean", 
+      "description": "IncludeManifest determines if the manifest for each image is returned in the response"
+    }, 
+    "from": {
+      "description": "From is the source for the image repository to import; only kind DockerImage and a name of a Docker image repository is allowed", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
+    }
+  }
+}

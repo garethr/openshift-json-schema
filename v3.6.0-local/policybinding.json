@@ -1,0 +1,60 @@
+{
+  "description": "PolicyBinding is a object that holds all the RoleBindings for a particular namespace.  There is one PolicyBinding document per referenced Policy namespace", 
+  "required": [
+    "lastModified", 
+    "policyRef", 
+    "roleBindings"
+  ], 
+  "x-kubernetes-group-version-kind": [
+    {
+      "Kind": "PolicyBinding", 
+      "Version": "v1", 
+      "Group": ""
+    }, 
+    {
+      "Kind": "PolicyBinding", 
+      "Version": "v1", 
+      "Group": "authorization.openshift.io"
+    }
+  ], 
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "properties": {
+    "kind": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
+    }, 
+    "lastModified": {
+      "description": "LastModified is the last time that any part of the PolicyBinding was created, updated, or deleted", 
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    }, 
+    "roleBindings": {
+      "items": {
+        "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.NamedRoleBinding"
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "RoleBindings holds all the RoleBindings held by this PolicyBinding, mapped by RoleBinding.Name"
+    }, 
+    "apiVersion": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
+    }, 
+    "policyRef": {
+      "description": "PolicyRef is a reference to the Policy that contains all the Roles that this PolicyBinding's RoleBindings may reference", 
+      "$ref": "_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
+    }, 
+    "metadata": {
+      "description": "Standard object's metadata.", 
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    }
+  }
+}

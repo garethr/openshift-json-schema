@@ -6,12 +6,12 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "TemplateList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }, 
     {
       "kind": "TemplateList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": "template.openshift.io"
     }
   ], 
@@ -26,22 +26,22 @@
         "x-kubernetes-group-version-kind": [
           {
             "kind": "ProcessedTemplate", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "Template", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "TemplateConfig", 
-            "version": "latest", 
+            "version": "v1", 
             "group": ""
           }, 
           {
             "kind": "Template", 
-            "version": "latest", 
+            "version": "v1", 
             "group": "template.openshift.io"
           }
         ], 
@@ -272,7 +272,7 @@
                     "x-kubernetes-group-version-kind": [
                       {
                         "kind": "Status", 
-                        "version": "latest", 
+                        "version": "v1", 
                         "group": ""
                       }
                     ], 

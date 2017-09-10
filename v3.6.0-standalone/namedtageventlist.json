@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "required": [
+    "tag", 
+    "items"
+  ], 
+  "type": "object", 
+  "description": "NamedTagEventList relates a tag to its image history.", 
+  "properties": {
+    "items": {
+      "items": {
+        "required": [
+          "created", 
+          "dockerImageReference", 
+          "image", 
+          "generation"
+        ], 
+        "description": "TagEvent is used by ImageStreamStatus to keep a historical record of images associated with a tag.", 
+        "properties": {
+          "generation": {
+            "type": "integer", 
+            "description": "Generation is the spec tag generation that resulted in this tag being updated", 
+            "format": "int64"
+          }, 
+          "image": {
+            "type": "string", 
+            "description": "Image is the image"
+          }, 
+          "dockerImageReference": {
+            "type": "string", 
+            "description": "DockerImageReference is the string that can be used to pull this image"
+          }, 
+          "created": {
+            "type": "string", 
+            "format": "date-time"
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Standard object's metadata."
+    }, 
+    "tag": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Tag is the tag for which the history is recorded"
+    }, 
+    "conditions": {
+      "items": {
+        "required": [
+          "type", 
+          "status", 
+          "generation"
+        ], 
+        "description": "TagEventCondition contains condition information for a tag event.", 
+        "properties": {
+          "status": {
+            "type": "string", 
+            "description": "Status of the condition, one of True, False, Unknown."
+          }, 
+          "generation": {
+            "type": "integer", 
+            "description": "Generation is the spec tag generation that this status corresponds to", 
+            "format": "int64"
+          }, 
+          "lastTransitionTime": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "format": "date-time"
+          }, 
+          "reason": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "description": "Reason is a brief machine readable explanation for the condition's last transition."
+          }, 
+          "message": {
+            "type": [
+              "string", 
+              "null"
+            ], 
+            "description": "Message is a human readable description of the details about last transition, complementing reason."
+          }, 
+          "type": {
+            "type": "string", 
+            "description": "Type of tag event condition, currently only ImportSuccess"
+          }
+        }
+      }, 
+      "type": [
+        "array", 
+        "null"
+      ], 
+      "description": "Conditions is an array of conditions that apply to the tag event list."
+    }
+  }
+}

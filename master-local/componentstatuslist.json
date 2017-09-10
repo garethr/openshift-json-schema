@@ -6,7 +6,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "kind": "ComponentStatusList", 
-      "version": "latest", 
+      "version": "v1", 
       "group": ""
     }
   ], 

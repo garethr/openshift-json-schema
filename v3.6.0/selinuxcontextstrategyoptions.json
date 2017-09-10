@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "type": "object", 
+  "description": "SELinuxContextStrategyOptions defines the strategy type and any options used to create the strategy.", 
+  "properties": {
+    "seLinuxOptions": {
+      "description": "seLinuxOptions required to run as; required for MustRunAs", 
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.SELinuxOptions"
+    }, 
+    "type": {
+      "type": [
+        "string", 
+        "null"
+      ], 
+      "description": "Type is the strategy that will dictate what SELinux context is used in the SecurityContext."
+    }
+  }
+}
