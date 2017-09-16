@@ -1,5 +1,7 @@
 # OpenShift JSON Schemas
 
+[![Build Status](https://travis-ci.org/garethr/openshift-json-schema.svg?branch=master)](https://travis-ci.org/garethr/openshift-json-schema)
+
 For the upstream Kubernetes schemas instead see
 [garethr/kubernetes-json-schema](https://github.com/garethr/kubernetes-json-schema).
 
