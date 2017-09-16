@@ -10,6 +10,7 @@
 REPO="garethr/openshift-json-schema"
 
 declare -a arr=(master
+                v3.6.0
                 v1.5.1
                 v1.5.0
                 )
@@ -19,6 +20,7 @@ do
     schema=https://raw.githubusercontent.com/openshift/origin/${version}/api/swagger-spec/openshift-openapi-spec.json
     prefix=https://raw.githubusercontent.com/${REPO}/master/${version}/_definitions.json
 
+    openapi2jsonschema -o "${version}-standalone" --kubernetes --stand-alone --strict "${schema}"
     openapi2jsonschema -o "${version}-standalone" --kubernetes --stand-alone "${schema}"
     openapi2jsonschema -o "${version}-local" --kubernetes "${schema}"
     openapi2jsonschema -o "${version}" --kubernetes --prefix "${prefix}" "${schema}"
