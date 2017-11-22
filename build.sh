@@ -21,7 +21,7 @@ do
     prefix=https://raw.githubusercontent.com/${REPO}/master/${version}/_definitions.json
 
     openapi2jsonschema -o "${version}-standalone" --kubernetes --stand-alone --strict "${schema}"
-    openapi2jsonschema -o "${version}-standalone" --kubernetes --stand-alone "${schema}"
+    openapi2jsonschema -o "${version}-standalone-strict" --kubernetes --stand-alone "${schema}"
     openapi2jsonschema -o "${version}-local" --kubernetes "${schema}"
     openapi2jsonschema -o "${version}" --kubernetes --prefix "${prefix}" "${schema}"
 done
