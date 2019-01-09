@@ -10,6 +10,10 @@
 REPO="garethr/openshift-json-schema"
 
 declare -a arr=(master
+                v3.11.0
+                v3.10.0
+                v3.9.0
+                v3.7.0
                 v3.6.0
                 v1.5.1
                 v1.5.0
