@@ -1,45 +1,48 @@
 {
+  "description": "UserIdentityMapping maps a user to an identity",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "identity": {
+      "description": "Identity is a reference to an identity",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "UserIdentityMapping"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "user": {
+      "description": "User is a reference to a user",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
+    }
+  },
   "x-kubernetes-group-version-kind": [
     {
-      "kind": "UserIdentityMapping", 
-      "version": "v1", 
-      "group": ""
-    }, 
+      "group": "",
+      "kind": "UserIdentityMapping",
+      "version": "v1"
+    },
     {
-      "kind": "UserIdentityMapping", 
-      "version": "v1", 
-      "group": "user.openshift.io"
+      "group": "user.openshift.io",
+      "kind": "UserIdentityMapping",
+      "version": "v1"
     }
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "UserIdentityMapping maps a user to an identity", 
-  "properties": {
-    "identity": {
-      "description": "Identity is a reference to an identity", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
-    }, 
-    "kind": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
-    }, 
-    "user": {
-      "description": "User is a reference to a user", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
-    }, 
-    "apiVersion": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
-    }, 
-    "metadata": {
-      "description": "Standard object's metadata.", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
-    }
-  }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

@@ -1,11 +1,14 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "SourceStrategyOptions contains extra strategy options for Source builds", 
+  "description": "SourceStrategyOptions contains extra strategy options for Source builds",
   "properties": {
     "incremental": {
-      "type": "boolean", 
-      "description": "incremental overrides the source-strategy incremental option in the build config"
+      "description": "incremental overrides the source-strategy incremental option in the build config",
+      "type": [
+        "boolean",
+        "null"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

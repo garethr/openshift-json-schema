@@ -1,21 +1,21 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "EgressNetworkPolicyPeer specifies a target to apply egress network policy to", 
+  "description": "EgressNetworkPolicyPeer specifies a target to apply egress network policy to",
   "properties": {
     "cidrSelector": {
+      "description": "cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset"
-    }, 
+      ]
+    },
     "dnsName": {
+      "description": "dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

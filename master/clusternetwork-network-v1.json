@@ -1,0 +1,95 @@
+{
+  "description": "ClusterNetwork describes the cluster network. There is normally only one object of this type, named \"default\", which is created by the SDN network plugin based on the master configuration when the cluster is brought up for the first time.",
+  "required": [
+    "serviceNetwork",
+    "clusterNetworks"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "v1",
+        "network.openshift.io/v1"
+      ]
+    },
+    "clusterNetworks": {
+      "description": "ClusterNetworks is a list of ClusterNetwork objects that defines the global overlay network's L3 space by specifying a set of CIDR and netmasks that the SDN can allocate addressed from.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.api.network.v1.ClusterNetworkEntry"
+      }
+    },
+    "hostsubnetlength": {
+      "description": "HostSubnetLength is the number of bits of network to allocate to each node. eg, 8 would mean that each node would have a /24 slice of the overlay network for its pods",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int64"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ClusterNetwork"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "network": {
+      "description": "Network is a CIDR string specifying the global overlay network's L3 space",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pluginName": {
+      "description": "PluginName is the name of the network plugin being used",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "serviceNetwork": {
+      "description": "ServiceNetwork is the CIDR range that Service IP addresses are allocated from",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "vxlanPort": {
+      "description": "VXLANPort sets the VXLAN destination port used by the cluster. It is set by the master configuration file on startup and cannot be edited manually. Valid values for VXLANPort are integers 1-65535 inclusive and if unset defaults to 4789. Changing VXLANPort allows users to resolve issues between openshift SDN and other software trying to use the same VXLAN destination port.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int64"
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "",
+      "kind": "ClusterNetwork",
+      "version": "v1"
+    },
+    {
+      "group": "network.openshift.io",
+      "kind": "ClusterNetwork",
+      "version": "v1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

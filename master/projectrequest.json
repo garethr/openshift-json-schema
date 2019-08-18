@@ -1,51 +1,54 @@
 {
-  "x-kubernetes-group-version-kind": [
-    {
-      "kind": "ProjectRequest", 
-      "version": "v1", 
-      "group": ""
-    }, 
-    {
-      "kind": "ProjectRequest", 
-      "version": "v1", 
-      "group": "project.openshift.io"
-    }
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "ProjecRequest is the set of options necessary to fully qualify a project request", 
+  "description": "ProjecRequest is the set of options necessary to fully qualify a project request",
   "properties": {
-    "kind": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
-    }, 
-    "displayName": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "DisplayName is the display name to apply to a project"
-    }, 
-    "description": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Description is the description to apply to a project"
-    }, 
     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
-    }, 
+      ]
+    },
+    "description": {
+      "description": "Description is the description to apply to a project",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "displayName": {
+      "description": "DisplayName is the display name to apply to a project",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ProjectRequest"
+      ]
+    },
     "metadata": {
-      "description": "Standard object's metadata.", 
+      "description": "Standard object's metadata.",
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     }
-  }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "",
+      "kind": "ProjectRequest",
+      "version": "v1"
+    },
+    {
+      "group": "project.openshift.io",
+      "kind": "ProjectRequest",
+      "version": "v1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

@@ -1,45 +1,45 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "GitBuildSource defines the parameters of a Git SCM",
   "required": [
     "uri"
-  ], 
-  "type": "object", 
-  "description": "GitBuildSource defines the parameters of a Git SCM", 
+  ],
   "properties": {
     "httpProxy": {
+      "description": "httpProxy is a proxy used to reach the git repository over http",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "httpProxy is a proxy used to reach the git repository over http"
-    }, 
-    "ref": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "ref is the branch/tag/ref to build."
-    }, 
-    "noProxy": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "noProxy is the list of domains for which the proxy should not be used"
-    }, 
-    "uri": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "uri points to the source that will be built. The structure of the source will depend on the type of build to run"
-    }, 
+      ]
+    },
     "httpsProxy": {
+      "description": "httpsProxy is a proxy used to reach the git repository over https",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "httpsProxy is a proxy used to reach the git repository over https"
+      ]
+    },
+    "noProxy": {
+      "description": "noProxy is the list of domains for which the proxy should not be used",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ref": {
+      "description": "ref is the branch/tag/ref to build.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "uri": {
+      "description": "uri points to the source that will be built. The structure of the source will depend on the type of build to run",
+      "type": [
+        "string",
+        "null"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

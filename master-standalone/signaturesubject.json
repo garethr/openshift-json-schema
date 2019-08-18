@@ -1,31 +1,31 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "SignatureSubject holds information about a person or entity who created the signature.",
   "required": [
     "publicKeyID"
-  ], 
-  "type": "object", 
-  "description": "SignatureSubject holds information about a person or entity who created the signature.", 
+  ],
   "properties": {
-    "organization": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Organization name."
-    }, 
     "commonName": {
+      "description": "Common name (e.g. openshift-signing-service).",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Common name (e.g. openshift-signing-service)."
-    }, 
+      ]
+    },
+    "organization": {
+      "description": "Organization name.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "publicKeyID": {
+      "description": "If present, it is a human readable key id of public key belonging to the subject used to verify image signature. It should contain at least 64 lowest bits of public key's fingerprint (e.g. 0x685ebe62bf278440).",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "If present, it is a human readable key id of public key belonging to the subject used to verify image signature. It should contain at least 64 lowest bits of public key's fingerprint (e.g. 0x685ebe62bf278440)."
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

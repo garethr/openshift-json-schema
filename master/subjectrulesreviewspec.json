@@ -1,45 +1,45 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "SubjectRulesReviewSpec adds information about how to conduct the check",
   "required": [
-    "user", 
-    "groups", 
+    "user",
+    "groups",
     "scopes"
-  ], 
-  "type": "object", 
-  "description": "SubjectRulesReviewSpec adds information about how to conduct the check", 
+  ],
   "properties": {
-    "scopes": {
-      "items": {
-        "type": [
-          "string", 
-          "null"
-        ]
-      }, 
-      "type": [
-        "array", 
-        "null"
-      ], 
-      "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\"."
-    }, 
-    "user": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "User is optional.  At least one of User and Groups must be specified."
-    }, 
     "groups": {
+      "description": "Groups is optional.  Groups is the list of groups to which the User belongs.  At least one of User and Groups must be specified.",
+      "type": [
+        "array",
+        "null"
+      ],
       "items": {
         "type": [
-          "string", 
+          "string",
           "null"
         ]
-      }, 
+      }
+    },
+    "scopes": {
+      "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\".",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "Groups is optional.  Groups is the list of groups to which the User belongs.  At least one of User and Groups must be specified."
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "user": {
+      "description": "User is optional.  At least one of User and Groups must be specified.",
+      "type": [
+        "string",
+        "null"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

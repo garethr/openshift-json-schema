@@ -1,14 +1,14 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "ProjectStatus is information about the current status of a Project", 
+  "description": "ProjectStatus is information about the current status of a Project",
   "properties": {
     "phase": {
+      "description": "Phase is the current lifecycle phase of the project",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Phase is the current lifecycle phase of the project"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

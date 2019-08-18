@@ -1,42 +1,45 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "ClusterRoleScopeRestriction describes restrictions on cluster role scopes",
   "required": [
-    "roleNames", 
-    "namespaces", 
+    "roleNames",
+    "namespaces",
     "allowEscalation"
-  ], 
-  "type": "object", 
-  "description": "ClusterRoleScopeRestriction describes restrictions on cluster role scopes", 
+  ],
   "properties": {
-    "roleNames": {
-      "items": {
-        "type": [
-          "string", 
-          "null"
-        ]
-      }, 
-      "type": [
-        "array", 
-        "null"
-      ], 
-      "description": "RoleNames is the list of cluster roles that can referenced.  * means anything"
-    }, 
     "allowEscalation": {
-      "type": "boolean", 
-      "description": "AllowEscalation indicates whether you can request roles and their escalating resources"
-    }, 
+      "description": "AllowEscalation indicates whether you can request roles and their escalating resources",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
     "namespaces": {
+      "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)",
+      "type": [
+        "array",
+        "null"
+      ],
       "items": {
         "type": [
-          "string", 
+          "string",
           "null"
         ]
-      }, 
+      }
+    },
+    "roleNames": {
+      "description": "RoleNames is the list of cluster roles that can referenced.  * means anything",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

@@ -1,0 +1,24 @@
+{
+  "description": "RoleBindingRestrictionSpec defines a rolebinding restriction.  Exactly one field must be non-nil.",
+  "required": [
+    "userrestriction",
+    "grouprestriction",
+    "serviceaccountrestriction"
+  ],
+  "properties": {
+    "grouprestriction": {
+      "description": "GroupRestriction matches against group subjects.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.11.0/_definitions.json#/definitions/com.github.openshift.api.authorization.v1.GroupRestriction"
+    },
+    "serviceaccountrestriction": {
+      "description": "ServiceAccountRestriction matches against service-account subjects.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.11.0/_definitions.json#/definitions/com.github.openshift.api.authorization.v1.ServiceAccountRestriction"
+    },
+    "userrestriction": {
+      "description": "UserRestriction matches against user subjects.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.11.0/_definitions.json#/definitions/com.github.openshift.api.authorization.v1.UserRestriction"
+    }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

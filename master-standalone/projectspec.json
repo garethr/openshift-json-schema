@@ -1,20 +1,20 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "ProjectSpec describes the attributes on a Project", 
+  "description": "ProjectSpec describes the attributes on a Project",
   "properties": {
     "finalizers": {
+      "description": "Finalizers is an opaque list of values that must be empty to permanently remove object from storage",
+      "type": [
+        "array",
+        "null"
+      ],
       "items": {
         "type": [
-          "string", 
+          "string",
           "null"
         ]
-      }, 
-      "type": [
-        "array", 
-        "null"
-      ], 
-      "description": "Finalizers is an opaque list of values that must be empty to permanently remove object from storage"
+      }
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }
