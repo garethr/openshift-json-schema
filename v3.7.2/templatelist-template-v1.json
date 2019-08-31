@@ -1,0 +1,57 @@
+{
+  "description": "TemplateList is a list of Template objects.",
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "v1",
+        "template.openshift.io/v1"
+      ]
+    },
+    "items": {
+      "description": "Items is a list of templates",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.2/_definitions.json#/definitions/com.github.openshift.origin.pkg.template.apis.template.v1.Template"
+      }
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "TemplateList"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.2/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "",
+      "version": "v1",
+      "kind": "TemplateList"
+    },
+    {
+      "group": "template.openshift.io",
+      "version": "v1",
+      "kind": "TemplateList"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

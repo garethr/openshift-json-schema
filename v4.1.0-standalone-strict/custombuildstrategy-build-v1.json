@@ -1,0 +1,277 @@
+{
+  "description": "CustomBuildStrategy defines input parameters specific to Custom build.",
+  "required": [
+    "from"
+  ],
+  "properties": {
+    "buildAPIVersion": {
+      "description": "buildAPIVersion is the requested API version for the Build object serialized and passed to the custom builder",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "env": {
+      "description": "env contains additional environment variables you want to pass into a builder container.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "EnvVar represents an environment variable present in a Container.",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "description": "Name of the environment variable. Must be a C_IDENTIFIER.",
+            "type": "string"
+          },
+          "value": {
+            "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "valueFrom": {
+            "description": "EnvVarSource represents a source for the value of an EnvVar.",
+            "properties": {
+              "configMapKeyRef": {
+                "description": "Selects a key from a ConfigMap.",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "description": "The key to select.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "optional": {
+                    "description": "Specify whether the ConfigMap or it's key must be defined",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "fieldRef": {
+                "description": "ObjectFieldSelector selects an APIVersioned field of an object.",
+                "required": [
+                  "fieldPath"
+                ],
+                "properties": {
+                  "apiVersion": {
+                    "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "fieldPath": {
+                    "description": "Path of the field to select in the specified API version.",
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "resourceFieldRef": {
+                "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
+                "required": [
+                  "resource"
+                ],
+                "properties": {
+                  "containerName": {
+                    "description": "Container name: required for volumes, optional for env vars",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "divisor": {
+                    "oneOf": [
+                      {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    ]
+                  },
+                  "resource": {
+                    "description": "Required: resource to select",
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "secretKeyRef": {
+                "description": "SecretKeySelector selects a key of a Secret.",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "description": "The key of the secret to select from.  Must be a valid secret key.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "optional": {
+                    "description": "Specify whether the Secret or it's key must be defined",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "exposeDockerSocket": {
+      "description": "exposeDockerSocket will allow running Docker commands (and build container images) from inside the container.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "forcePull": {
+      "description": "forcePull describes if the controller should configure the build pod to always pull the images for the builder or only pull if it is not present locally",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "from": {
+      "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
+      "properties": {
+        "apiVersion": {
+          "description": "API version of the referent.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fieldPath": {
+          "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "namespace": {
+          "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resourceVersion": {
+          "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "uid": {
+          "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "pullSecret": {
+      "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+      "properties": {
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "secrets": {
+      "description": "secrets is a list of additional secrets that will be included in the build pod",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "SecretSpec specifies a secret to be included in a build pod and its corresponding mount point",
+        "required": [
+          "secretSource",
+          "mountPath"
+        ],
+        "properties": {
+          "mountPath": {
+            "description": "mountPath is the path at which to mount the secret",
+            "type": "string"
+          },
+          "secretSource": {
+            "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+            "properties": {
+              "name": {
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

@@ -1,0 +1,29 @@
+{
+  "description": "ImageSource is used to describe build source that will be extracted from an image. A reference of type ImageStreamTag, ImageStreamImage or DockerImage may be used. A pull secret can be specified to pull the image from an external registry or override the default service account secret if pulling from the internal registry. A list of paths to copy from the image and their respective destination within the build directory must be specified in the paths array.",
+  "required": [
+    "from",
+    "paths"
+  ],
+  "properties": {
+    "from": {
+      "description": "from is a reference to an ImageStreamTag, ImageStreamImage, or DockerImage to copy source from.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.1/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ObjectReference"
+    },
+    "paths": {
+      "description": "paths is a list of source and destination paths to copy from the image.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.1/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.ImageSourcePath"
+      }
+    },
+    "pullSecret": {
+      "description": "pullSecret is a reference to a secret to be used to pull the image from a registry If the image is pulled from the OpenShift registry, this field does not need to be set.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.1/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.LocalObjectReference"
+    }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

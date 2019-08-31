@@ -12,14 +12,18 @@ REPO="garethr/openshift-json-schema"
 
 declare -a arr=(
   master
+  v4.1.0
   v3.11.0
-)
-
-declare -a arr2=(
-  master
-  v3.6.0
-  v1.5.1
-  v1.5.0
+  v3.10.0
+  v3.9.0
+  v3.7.2
+  v3.8.0
+  v3.7.1
+  v3.7.0
+  #v3.6.1
+  #v3.6.0
+  #v1.5.1
+  #v1.5.0
 )
 
 for version in "${arr[@]}"

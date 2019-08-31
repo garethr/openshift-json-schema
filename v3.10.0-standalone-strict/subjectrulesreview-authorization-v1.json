@@ -1,0 +1,180 @@
+{
+  "description": "SubjectRulesReview is a resource you can create to determine which actions another user can perform in a namespace",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "v1",
+        "authorization.openshift.io/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "SubjectRulesReview"
+      ]
+    },
+    "spec": {
+      "description": "SubjectRulesReviewSpec adds information about how to conduct the check",
+      "required": [
+        "user",
+        "groups",
+        "scopes"
+      ],
+      "properties": {
+        "groups": {
+          "description": "Groups is optional.  Groups is the list of groups to which the User belongs.  At least one of User and Groups must be specified.",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "scopes": {
+          "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\".",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "user": {
+          "description": "User is optional.  At least one of User and Groups must be specified.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "SubjectRulesReviewStatus is contains the result of a rules check",
+      "required": [
+        "rules"
+      ],
+      "properties": {
+        "evaluationError": {
+          "description": "EvaluationError can appear in combination with Rules.  It means some error happened during evaluation that may have prevented additional rules from being populated.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rules": {
+          "description": "Rules is the list of rules (no particular sort) that are allowed for the subject",
+          "type": "array",
+          "items": {
+            "description": "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.",
+            "required": [
+              "verbs",
+              "apiGroups",
+              "resources"
+            ],
+            "properties": {
+              "apiGroups": {
+                "description": "APIGroups is the name of the APIGroup that contains the resources.  If this field is empty, then both kubernetes and origin API groups are assumed. That means that if an action is requested against one of the enumerated resources in either the kubernetes or the origin API group, the request will be allowed",
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "attributeRestrictions": {
+                "description": "RawExtension is used to hold extensions in external versions.\n\nTo use this, make a field which has RawExtension as its type in your external, versioned struct, and Object in your internal struct. You also need to register your various plugin types.\n\n// Internal package: type MyAPIObject struct {\n\truntime.TypeMeta `json:\",inline\"`\n\tMyPlugin runtime.Object `json:\"myPlugin\"`\n} type PluginA struct {\n\tAOption string `json:\"aOption\"`\n}\n\n// External package: type MyAPIObject struct {\n\truntime.TypeMeta `json:\",inline\"`\n\tMyPlugin runtime.RawExtension `json:\"myPlugin\"`\n} type PluginA struct {\n\tAOption string `json:\"aOption\"`\n}\n\n// On the wire, the JSON will look something like this: {\n\t\"kind\":\"MyAPIObject\",\n\t\"apiVersion\":\"v1\",\n\t\"myPlugin\": {\n\t\t\"kind\":\"PluginA\",\n\t\t\"aOption\":\"foo\",\n\t},\n}\n\nSo what happens? Decode first uses json or yaml to unmarshal the serialized data into your external MyAPIObject. That causes the raw JSON to be stored, but not unpacked. The next step is to copy (using pkg/conversion) into the internal struct. The runtime package's DefaultScheme has conversion functions installed which will unpack the JSON stored in RawExtension, turning it into the correct object type, and storing it in the Object. (TODO: In the case where the object is of an unknown type, a runtime.Unknown object will be created and stored.)",
+                "required": [
+                  "Raw"
+                ],
+                "properties": {
+                  "Raw": {
+                    "description": "Raw is the underlying serialization of this object.",
+                    "type": "string",
+                    "format": "byte"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "nonResourceURLs": {
+                "description": "NonResourceURLsSlice is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "resourceNames": {
+                "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "resources": {
+                "description": "Resources is a list of resources this rule applies to.  ResourceAll represents all resources.",
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "verbs": {
+                "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.",
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "",
+      "kind": "SubjectRulesReview",
+      "version": "v1"
+    },
+    {
+      "group": "authorization.openshift.io",
+      "kind": "SubjectRulesReview",
+      "version": "v1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

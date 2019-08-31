@@ -1,0 +1,107 @@
+{
+  "description": "NamedTagEventList relates a tag to its image history.",
+  "required": [
+    "tag",
+    "items"
+  ],
+  "properties": {
+    "conditions": {
+      "description": "Conditions is an array of conditions that apply to the tag event list.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "TagEventCondition contains condition information for a tag event.",
+        "required": [
+          "type",
+          "status",
+          "generation"
+        ],
+        "properties": {
+          "generation": {
+            "description": "Generation is the spec tag generation that this status corresponds to",
+            "type": "integer",
+            "format": "int64"
+          },
+          "lastTransitionTime": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "message": {
+            "description": "Message is a human readable description of the details about last transition, complementing reason.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "Reason is a brief machine readable explanation for the condition's last transition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "description": "Status of the condition, one of True, False, Unknown.",
+            "type": "string"
+          },
+          "type": {
+            "description": "Type of tag event condition, currently only ImportSuccess",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "items": {
+      "description": "Standard object's metadata.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "TagEvent is used by ImageStreamStatus to keep a historical record of images associated with a tag.",
+        "required": [
+          "created",
+          "dockerImageReference",
+          "image",
+          "generation"
+        ],
+        "properties": {
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dockerImageReference": {
+            "description": "DockerImageReference is the string that can be used to pull this image",
+            "type": "string"
+          },
+          "generation": {
+            "description": "Generation is the spec tag generation that resulted in this tag being updated",
+            "type": "integer",
+            "format": "int64"
+          },
+          "image": {
+            "description": "Image is the image",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "tag": {
+      "description": "Tag is the tag for which the history is recorded",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

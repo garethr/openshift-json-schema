@@ -1,0 +1,161 @@
+{
+  "description": "RouteSpec describes the hostname or path the route exposes, any security information, and one to four backends (services) the route points to. Requests are distributed among the backends depending on the weights assigned to each backend. When using roundrobin scheduling the portion of requests that go to each backend is the backend weight divided by the sum of all of the backend weights. When the backend has more than one endpoint the requests that end up on the backend are roundrobin distributed among the endpoints. Weights are between 0 and 256 with default 1. Weight 0 causes no requests to the backend. If all weights are zero the route will be considered to have no backends and return a standard 503 response.\n\nThe `tls` field is optional and allows specific certificates or behavior for the route. Routers typically configure a default certificate on a wildcard domain to terminate routes without explicit certificates, but custom hostnames usually must choose passthrough (send traffic directly to the backend via the TLS Server-Name- Indication field) or provide a certificate.",
+  "required": [
+    "host",
+    "to"
+  ],
+  "properties": {
+    "alternateBackends": {
+      "description": "alternateBackends allows up to 3 additional backends to be assigned to the route. Only the Service kind is allowed, and it will be defaulted to Service. Use the weight field in RouteTargetReference object to specify relative preference.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "RouteTargetReference specifies the target that resolve into endpoints. Only the 'Service' kind is allowed. Use 'weight' field to emphasize one over others.",
+        "required": [
+          "kind",
+          "name",
+          "weight"
+        ],
+        "properties": {
+          "kind": {
+            "description": "The kind of target that the route is referring to. Currently, only 'Service' is allowed",
+            "type": "string"
+          },
+          "name": {
+            "description": "name of the service/target that is being referred to. e.g. name of the service",
+            "type": "string"
+          },
+          "weight": {
+            "description": "weight as an integer between 0 and 256, default 1, that specifies the target's relative weight against other target reference objects. 0 suppresses requests to this backend.",
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "host": {
+      "description": "host is an alias/DNS that points to the service. Optional. If not specified a route name will typically be automatically chosen. Must follow DNS952 subdomain conventions.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "path": {
+      "description": "Path that the router watches for, to route traffic for to the service. Optional",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "port": {
+      "description": "RoutePort defines a port mapping from a router to an endpoint in the service endpoints.",
+      "required": [
+        "targetPort"
+      ],
+      "properties": {
+        "targetPort": {
+          "oneOf": [
+            {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "tls": {
+      "description": "TLSConfig defines config used to secure a route and provide termination",
+      "required": [
+        "termination"
+      ],
+      "properties": {
+        "caCertificate": {
+          "description": "caCertificate provides the cert authority certificate contents",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "certificate": {
+          "description": "certificate provides certificate contents",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "destinationCACertificate": {
+          "description": "destinationCACertificate provides the contents of the ca certificate of the final destination.  When using reencrypt termination this file should be provided in order to have routers use it for health checks on the secure connection. If this field is not specified, the router may provide its own destination CA and perform hostname validation using the short service name (service.namespace.svc), which allows infrastructure generated certificates to automatically verify.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "insecureEdgeTerminationPolicy": {
+          "description": "insecureEdgeTerminationPolicy indicates the desired behavior for insecure connections to a route. While each router may make its own decisions on which ports to expose, this is normally port 80.\n\n* Allow - traffic is sent to the server on the insecure port (default) * Disable - no traffic is allowed on the insecure port. * Redirect - clients are redirected to the secure port.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "key": {
+          "description": "key provides key file contents",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "termination": {
+          "description": "termination indicates termination type.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "to": {
+      "description": "RouteTargetReference specifies the target that resolve into endpoints. Only the 'Service' kind is allowed. Use 'weight' field to emphasize one over others.",
+      "required": [
+        "kind",
+        "name",
+        "weight"
+      ],
+      "properties": {
+        "kind": {
+          "description": "The kind of target that the route is referring to. Currently, only 'Service' is allowed",
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the service/target that is being referred to. e.g. name of the service",
+          "type": "string"
+        },
+        "weight": {
+          "description": "weight as an integer between 0 and 256, default 1, that specifies the target's relative weight against other target reference objects. 0 suppresses requests to this backend.",
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "additionalProperties": false
+    },
+    "wildcardPolicy": {
+      "description": "Wildcard policy if any for the route. Currently only 'Subdomain' or 'None' is allowed.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

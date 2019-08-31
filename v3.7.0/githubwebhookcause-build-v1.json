@@ -1,0 +1,18 @@
+{
+  "description": "GitHubWebHookCause has information about a GitHub webhook that triggered a build.",
+  "properties": {
+    "revision": {
+      "description": "revision is the git revision information of the trigger.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.build.apis.build.v1.SourceRevision"
+    },
+    "secret": {
+      "description": "secret is the obfuscated webhook secret that triggered a build.",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

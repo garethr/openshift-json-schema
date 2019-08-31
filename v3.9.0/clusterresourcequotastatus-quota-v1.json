@@ -1,0 +1,25 @@
+{
+  "description": "ClusterResourceQuotaStatus defines the actual enforced quota and its current usage",
+  "required": [
+    "total",
+    "namespaces"
+  ],
+  "properties": {
+    "namespaces": {
+      "description": "Namespaces slices the usage by project.  This division allows for quick resolution of deletion reconciliation inside of a single project without requiring a recalculation across all projects.  This can be used to pull the deltas for a given project.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.9.0/_definitions.json#/definitions/com.github.openshift.api.quota.v1.ResourceQuotaStatusByNamespace"
+      }
+    },
+    "total": {
+      "description": "Total defines the actual enforced quota and its current usage across all projects",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.9.0/_definitions.json#/definitions/io.k8s.api.core.v1.ResourceQuotaStatus"
+    }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

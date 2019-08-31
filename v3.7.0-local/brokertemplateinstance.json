@@ -1,0 +1,42 @@
+{
+  "description": "BrokerTemplateInstance holds the service broker-related state associated with a TemplateInstance.  BrokerTemplateInstance is part of an experimental API.",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "BrokerTemplateInstance"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object metadata.",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "spec describes the state of this BrokerTemplateInstance.",
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.template.apis.template.v1.BrokerTemplateInstanceSpec"
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "template.openshift.io",
+      "version": "v1",
+      "kind": "BrokerTemplateInstance"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

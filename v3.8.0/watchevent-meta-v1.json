@@ -1,0 +1,223 @@
+{
+  "description": "Event represents a single event to a watched resource.",
+  "required": [
+    "type",
+    "object"
+  ],
+  "properties": {
+    "object": {
+      "description": "Object is:\n * If Type is Added or Modified: the new state of the object.\n * If Type is Deleted: the state of the object immediately before deletion.\n * If Type is Error: *Status is recommended; other types may make sense\n   depending on context.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.8.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.runtime.RawExtension"
+    },
+    "type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "admission.k8s.io",
+      "version": "v1alpha1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "admissionregistration.k8s.io",
+      "version": "v1alpha1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "apiregistration.k8s.io",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "apps",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "apps",
+      "version": "v1beta2",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "apps.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "authentication.k8s.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "authentication.k8s.io",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "authorization.k8s.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "authorization.k8s.io",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "authorization.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "autoscaling",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "autoscaling",
+      "version": "v2beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "batch",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "batch",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "batch",
+      "version": "v2alpha1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "build.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "certificates.k8s.io",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "extensions",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "federation",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "image.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "imagepolicy.k8s.io",
+      "version": "v1alpha1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "network.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "networking.k8s.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "oauth.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "policy",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "project.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "quota.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "version": "v1alpha1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "route.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "scheduling.k8s.io",
+      "version": "v1alpha1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "security.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "settings.k8s.io",
+      "version": "v1alpha1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "storage.k8s.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "storage.k8s.io",
+      "version": "v1beta1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "template.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    },
+    {
+      "group": "user.openshift.io",
+      "version": "v1",
+      "kind": "WatchEvent"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

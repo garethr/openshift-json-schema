@@ -1,0 +1,62 @@
+{
+  "description": "GitSourceRevision is the commit information from a git source for a build",
+  "properties": {
+    "author": {
+      "description": "SourceControlUser defines the identity of a user of source control",
+      "properties": {
+        "email": {
+          "description": "email of the source control user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "name of the source control user",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "commit": {
+      "description": "commit is the commit hash identifying a specific commit",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "committer": {
+      "description": "SourceControlUser defines the identity of a user of source control",
+      "properties": {
+        "email": {
+          "description": "email of the source control user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "name of the source control user",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "message": {
+      "description": "message is the description of a specific commit",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

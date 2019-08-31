@@ -1,0 +1,43 @@
+{
+  "description": "TagEvent is used by ImageStreamStatus to keep a historical record of images associated with a tag.",
+  "required": [
+    "created",
+    "dockerImageReference",
+    "image",
+    "generation"
+  ],
+  "properties": {
+    "created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "dockerImageReference": {
+      "description": "DockerImageReference is the string that can be used to pull this image",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generation": {
+      "description": "Generation is the spec tag generation that resulted in this tag being updated",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int64"
+    },
+    "image": {
+      "description": "Image is the image",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

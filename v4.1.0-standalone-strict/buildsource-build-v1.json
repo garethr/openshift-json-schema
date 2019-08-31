@@ -1,0 +1,293 @@
+{
+  "description": "BuildSource is the SCM used for the build.",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "binary": {
+      "description": "BinaryBuildSource describes a binary file to be used for the Docker and Source build strategies, where the file will be extracted and used as the build source.",
+      "properties": {
+        "asFile": {
+          "description": "asFile indicates that the provided binary input should be considered a single file within the build input. For example, specifying \"webapp.war\" would place the provided binary as `/webapp.war` for the builder. If left empty, the Docker and Source build strategies assume this file is a zip, tar, or tar.gz file and extract it as the source. The custom strategy receives this binary as standard input. This filename may not contain slashes or be '..' or '.'.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "configMaps": {
+      "description": "configMaps represents a list of configMaps and their destinations that will be used for the build.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "ConfigMapBuildSource describes a configmap and its destination directory that will be used only at the build time. The content of the configmap referenced here will be copied into the destination directory instead of mounting.",
+        "required": [
+          "configMap"
+        ],
+        "properties": {
+          "configMap": {
+            "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+            "properties": {
+              "name": {
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "destinationDir": {
+            "description": "destinationDir is the directory where the files from the configmap should be available for the build time. For the Source build strategy, these will be injected into a container where the assemble script runs. For the container image build strategy, these will be copied into the build directory, where the Dockerfile is located, so users can ADD or COPY them during container image build.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "contextDir": {
+      "description": "contextDir specifies the sub-directory where the source code for the application exists. This allows to have buildable sources in directory other than root of repository.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dockerfile": {
+      "description": "dockerfile is the raw contents of a Dockerfile which should be built. When this option is specified, the FROM may be modified based on your strategy base image and additional ENV stanzas from your strategy environment will be added after the FROM, but before the rest of your Dockerfile stanzas. The Dockerfile source type may be used with other options like git - in those cases the Git repo will have any innate Dockerfile replaced in the context dir.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "git": {
+      "description": "GitBuildSource defines the parameters of a Git SCM",
+      "required": [
+        "uri"
+      ],
+      "properties": {
+        "httpProxy": {
+          "description": "httpProxy is a proxy used to reach the git repository over http",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "httpsProxy": {
+          "description": "httpsProxy is a proxy used to reach the git repository over https",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "noProxy": {
+          "description": "noProxy is the list of domains for which the proxy should not be used",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ref": {
+          "description": "ref is the branch/tag/ref to build.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "uri": {
+          "description": "uri points to the source that will be built. The structure of the source will depend on the type of build to run",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "images": {
+      "description": "images describes a set of images to be used to provide source for the build",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "ImageSource is used to describe build source that will be extracted from an image or used during a multi stage build. A reference of type ImageStreamTag, ImageStreamImage or DockerImage may be used. A pull secret can be specified to pull the image from an external registry or override the default service account secret if pulling from the internal registry. Image sources can either be used to extract content from an image and place it into the build context along with the repository source, or used directly during a multi-stage container image build to allow content to be copied without overwriting the contents of the repository source (see the 'paths' and 'as' fields).",
+        "required": [
+          "from"
+        ],
+        "properties": {
+          "as": {
+            "description": "A list of image names that this source will be used in place of during a multi-stage container image build. For instance, a Dockerfile that uses \"COPY --from=nginx:latest\" will first check for an image source that has \"nginx:latest\" in this field before attempting to pull directly. If the Dockerfile does not reference an image source it is ignored. This field and paths may both be set, in which case the contents will be used twice.",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "from": {
+            "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
+            "properties": {
+              "apiVersion": {
+                "description": "API version of the referent.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fieldPath": {
+                "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kind": {
+                "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "namespace": {
+                "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "resourceVersion": {
+                "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "uid": {
+                "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "paths": {
+            "description": "paths is a list of source and destination paths to copy from the image. This content will be copied into the build context prior to starting the build. If no paths are set, the build context will not be altered.",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "ImageSourcePath describes a path to be copied from a source image and its destination within the build directory.",
+              "required": [
+                "sourcePath",
+                "destinationDir"
+              ],
+              "properties": {
+                "destinationDir": {
+                  "description": "destinationDir is the relative directory within the build directory where files copied from the image are placed.",
+                  "type": "string"
+                },
+                "sourcePath": {
+                  "description": "sourcePath is the absolute path of the file or directory inside the image to copy to the build directory.  If the source path ends in /. then the content of the directory will be copied, but the directory itself will not be created at the destination.",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "pullSecret": {
+            "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+            "properties": {
+              "name": {
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "secrets": {
+      "description": "secrets represents a list of secrets and their destinations that will be used only for the build.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "SecretBuildSource describes a secret and its destination directory that will be used only at the build time. The content of the secret referenced here will be copied into the destination directory instead of mounting.",
+        "required": [
+          "secret"
+        ],
+        "properties": {
+          "destinationDir": {
+            "description": "destinationDir is the directory where the files from the secret should be available for the build time. For the Source build strategy, these will be injected into a container where the assemble script runs. Later, when the script finishes, all files injected will be truncated to zero length. For the container image build strategy, these will be copied into the build directory, where the Dockerfile is located, so users can ADD or COPY them during container image build.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "secret": {
+            "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+            "properties": {
+              "name": {
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sourceSecret": {
+      "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+      "properties": {
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "type": {
+      "description": "type of build input to accept",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

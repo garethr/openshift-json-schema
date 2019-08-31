@@ -1,0 +1,232 @@
+{
+  "description": "RoleBindingRestrictionSpec defines a rolebinding restriction.  Exactly one field must be non-nil.",
+  "required": [
+    "userrestriction",
+    "grouprestriction",
+    "serviceaccountrestriction"
+  ],
+  "properties": {
+    "grouprestriction": {
+      "description": "GroupRestriction matches a group either by a string match on the group name or a label selector applied to group labels.",
+      "required": [
+        "groups",
+        "labels"
+      ],
+      "properties": {
+        "groups": {
+          "description": "Groups is a list of groups used to match against an individual user's groups. If the user is a member of one of the whitelisted groups, the user is allowed to be bound to a role.",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "labels": {
+          "description": "Selectors specifies a list of label selectors over group labels.",
+          "type": "array",
+          "items": {
+            "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+            "properties": {
+              "matchExpressions": {
+                "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                  "required": [
+                    "key",
+                    "operator"
+                  ],
+                  "properties": {
+                    "key": {
+                      "description": "key is the label key that the selector applies to.",
+                      "type": "string",
+                      "x-kubernetes-patch-merge-key": "key",
+                      "x-kubernetes-patch-strategy": "merge"
+                    },
+                    "operator": {
+                      "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                      "type": "string"
+                    },
+                    "values": {
+                      "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "matchLabels": {
+                "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "serviceaccountrestriction": {
+      "description": "ServiceAccountRestriction matches a service account by a string match on either the service-account name or the name of the service account's namespace.",
+      "required": [
+        "serviceaccounts",
+        "namespaces"
+      ],
+      "properties": {
+        "namespaces": {
+          "description": "Namespaces specifies a list of literal namespace names.",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "serviceaccounts": {
+          "description": "ServiceAccounts specifies a list of literal service-account names.",
+          "type": "array",
+          "items": {
+            "description": "ServiceAccountReference specifies a service account and namespace by their names.",
+            "required": [
+              "name",
+              "namespace"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name is the name of the service account.",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "Namespace is the namespace of the service account.  Service accounts from inside the whitelisted namespaces are allowed to be bound to roles.  If Namespace is empty, then the namespace of the RoleBindingRestriction in which the ServiceAccountReference is embedded is used.",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "userrestriction": {
+      "description": "UserRestriction matches a user either by a string match on the user name, a string match on the name of a group to which the user belongs, or a label selector applied to the user labels.",
+      "required": [
+        "users",
+        "groups",
+        "labels"
+      ],
+      "properties": {
+        "groups": {
+          "description": "Groups specifies a list of literal group names.",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "labels": {
+          "description": "Selectors specifies a list of label selectors over user labels.",
+          "type": "array",
+          "items": {
+            "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+            "properties": {
+              "matchExpressions": {
+                "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                  "required": [
+                    "key",
+                    "operator"
+                  ],
+                  "properties": {
+                    "key": {
+                      "description": "key is the label key that the selector applies to.",
+                      "type": "string",
+                      "x-kubernetes-patch-merge-key": "key",
+                      "x-kubernetes-patch-strategy": "merge"
+                    },
+                    "operator": {
+                      "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                      "type": "string"
+                    },
+                    "values": {
+                      "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "matchLabels": {
+                "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "users": {
+          "description": "Users specifies a list of literal user names.",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

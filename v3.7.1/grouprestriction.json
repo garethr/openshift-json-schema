@@ -1,0 +1,34 @@
+{
+  "description": "GroupRestriction matches a group either by a string match on the group name or a label selector applied to group labels.",
+  "required": [
+    "groups",
+    "labels"
+  ],
+  "properties": {
+    "groups": {
+      "description": "Groups is a list of groups used to match against an individual user's groups. If the user is a member of one of the whitelisted groups, the user is allowed to be bound to a role.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "labels": {
+      "description": "Selectors specifies a list of label selectors over group labels.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

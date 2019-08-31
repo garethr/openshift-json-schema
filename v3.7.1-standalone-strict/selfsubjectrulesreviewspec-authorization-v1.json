@@ -1,0 +1,24 @@
+{
+  "description": "SelfSubjectRulesReviewSpec adds information about how to conduct the check",
+  "required": [
+    "scopes"
+  ],
+  "properties": {
+    "scopes": {
+      "description": "Scopes to use for the evaluation.  Empty means \"use the unscoped (full) permissions of the user/groups\". Nil means \"use the scopes on this request\".",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

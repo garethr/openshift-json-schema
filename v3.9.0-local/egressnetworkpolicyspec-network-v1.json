@@ -1,0 +1,20 @@
+{
+  "description": "EgressNetworkPolicySpec provides a list of policies on outgoing network traffic",
+  "required": [
+    "egress"
+  ],
+  "properties": {
+    "egress": {
+      "description": "egress contains the list of egress policy rules",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "_definitions.json#/definitions/com.github.openshift.api.network.v1.EgressNetworkPolicyRule"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

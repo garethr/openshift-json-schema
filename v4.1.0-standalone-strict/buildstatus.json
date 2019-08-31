@@ -1,0 +1,219 @@
+{
+  "description": "BuildStatus contains the status of a build",
+  "required": [
+    "phase"
+  ],
+  "properties": {
+    "cancelled": {
+      "description": "cancelled describes if a cancel event was triggered for the build.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "completionTimestamp": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "config": {
+      "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
+      "properties": {
+        "apiVersion": {
+          "description": "API version of the referent.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fieldPath": {
+          "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "namespace": {
+          "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resourceVersion": {
+          "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "uid": {
+          "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "duration": {
+      "description": "duration contains time.Duration object describing build time.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int64"
+    },
+    "logSnippet": {
+      "description": "logSnippet is the last few lines of the build log.  This value is only set for builds that failed.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "message": {
+      "description": "message is a human-readable message indicating details about why the build has this status.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "output": {
+      "description": "BuildStatusOutput contains the status of the built image.",
+      "properties": {
+        "to": {
+          "description": "BuildStatusOutputTo describes the status of the built image with regards to image registry to which it was supposed to be pushed.",
+          "properties": {
+            "imageDigest": {
+              "description": "imageDigest is the digest of the built container image. The digest uniquely identifies the image in the registry to which it was pushed.\n\nPlease note that this field may not always be set even if the push completes successfully - e.g. when the registry returns no digest or returns it in a format that the builder doesn't understand.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputDockerImageReference": {
+      "description": "outputDockerImageReference contains a reference to the container image that will be built by this build. Its value is computed from Build.Spec.Output.To, and should include the registry address, so that it can be used to push and pull the image.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phase": {
+      "description": "phase is the point in the build lifecycle. Possible values are \"New\", \"Pending\", \"Running\", \"Complete\", \"Failed\", \"Error\", and \"Cancelled\".",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "description": "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stages": {
+      "description": "stages contains details about each stage that occurs during the build including start time, duration (in milliseconds), and the steps that occured within each stage.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "StageInfo contains details about a build stage.",
+        "properties": {
+          "durationMilliseconds": {
+            "description": "durationMilliseconds identifies how long the stage took to complete in milliseconds. Note: the duration of a stage can exceed the sum of the duration of the steps within the stage as not all actions are accounted for in explicit build steps.",
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64"
+          },
+          "name": {
+            "description": "name is a unique identifier for each build stage that occurs.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "startTime": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "steps": {
+            "description": "steps contains details about each step that occurs during a build stage including start time and duration in milliseconds.",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "StepInfo contains details about a build step.",
+              "properties": {
+                "durationMilliseconds": {
+                  "description": "durationMilliseconds identifies how long the step took to complete in milliseconds.",
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int64"
+                },
+                "name": {
+                  "description": "name is a unique identifier for each build step.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "startTime": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "startTimestamp": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

@@ -1,0 +1,52 @@
+{
+  "description": "RoleBindingRestriction is an object that can be matched against a subject (user, group, or service account) to determine whether rolebindings on that subject are allowed in the namespace to which the RoleBindingRestriction belongs.  If any one of those RoleBindingRestriction objects matches a subject, rolebindings on that subject in the namespace are allowed.",
+  "required": [
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "v1",
+        "authorization.openshift.io/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "RoleBindingRestriction"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.1/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "Spec defines the matcher.",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.7.1/_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.RoleBindingRestrictionSpec"
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "",
+      "version": "v1",
+      "kind": "RoleBindingRestriction"
+    },
+    {
+      "group": "authorization.openshift.io",
+      "version": "v1",
+      "kind": "RoleBindingRestriction"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

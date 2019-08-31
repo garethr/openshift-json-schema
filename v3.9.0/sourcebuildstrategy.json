@@ -1,0 +1,49 @@
+{
+  "description": "SourceBuildStrategy defines input parameters specific to an Source build.",
+  "required": [
+    "from"
+  ],
+  "properties": {
+    "env": {
+      "description": "env contains additional environment variables you want to pass into a builder container.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.9.0/_definitions.json#/definitions/io.k8s.api.core.v1.EnvVar"
+      }
+    },
+    "forcePull": {
+      "description": "forcePull describes if the builder should pull the images from registry prior to building.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "from": {
+      "description": "from is reference to an DockerImage, ImageStreamTag, or ImageStreamImage from which the docker image should be pulled",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.9.0/_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
+    },
+    "incremental": {
+      "description": "incremental flag forces the Source build to do incremental builds if true.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "pullSecret": {
+      "description": "pullSecret is the name of a Secret that would be used for setting up the authentication for pulling the Docker images from the private Docker registries",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.9.0/_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference"
+    },
+    "scripts": {
+      "description": "scripts is the location of Source scripts",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

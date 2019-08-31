@@ -1,0 +1,188 @@
+{
+  "description": "ExecNewPodHook is a hook implementation which runs a command in a new pod based on the specified container which is assumed to be part of the deployment template.",
+  "required": [
+    "command",
+    "containerName"
+  ],
+  "properties": {
+    "command": {
+      "description": "Command is the action command and its arguments.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "containerName": {
+      "description": "ContainerName is the name of a container in the deployment pod template whose container image will be used for the hook pod's container.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "env": {
+      "description": "Env is a set of environment variables to supply to the hook pod's container.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "EnvVar represents an environment variable present in a Container.",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "description": "Name of the environment variable. Must be a C_IDENTIFIER.",
+            "type": "string"
+          },
+          "value": {
+            "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "valueFrom": {
+            "description": "EnvVarSource represents a source for the value of an EnvVar.",
+            "properties": {
+              "configMapKeyRef": {
+                "description": "Selects a key from a ConfigMap.",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "description": "The key to select.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "optional": {
+                    "description": "Specify whether the ConfigMap or it's key must be defined",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "fieldRef": {
+                "description": "ObjectFieldSelector selects an APIVersioned field of an object.",
+                "required": [
+                  "fieldPath"
+                ],
+                "properties": {
+                  "apiVersion": {
+                    "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "fieldPath": {
+                    "description": "Path of the field to select in the specified API version.",
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "resourceFieldRef": {
+                "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
+                "required": [
+                  "resource"
+                ],
+                "properties": {
+                  "containerName": {
+                    "description": "Container name: required for volumes, optional for env vars",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "divisor": {
+                    "oneOf": [
+                      {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    ]
+                  },
+                  "resource": {
+                    "description": "Required: resource to select",
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "secretKeyRef": {
+                "description": "SecretKeySelector selects a key of a Secret.",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "description": "The key of the secret to select from.  Must be a valid secret key.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "optional": {
+                    "description": "Specify whether the Secret or it's key must be defined",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "volumes": {
+      "description": "Volumes is a list of named volumes from the pod template which should be copied to the hook pod. Volumes names not found in pod spec are ignored. An empty list means no volumes will be copied.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}

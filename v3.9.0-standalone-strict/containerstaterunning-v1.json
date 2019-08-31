@@ -1,0 +1,15 @@
+{
+  "description": "ContainerStateRunning is a running state of a container.",
+  "properties": {
+    "startedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
+}
